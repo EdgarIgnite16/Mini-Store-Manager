@@ -1,4 +1,6 @@
 # Mini-Store-Manager
+Có làm thì mới có ăn
+
 ## Team Member
 | TenSV                  | MaSV       |
 |------------------------|------------|
