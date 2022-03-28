@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Mini-Store-Manager.iml" filepath="$PROJECT_DIR$/.idea/Mini-Store-Manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Mini-Store-Manager.iml" filepath="$PROJECT_DIR$/Mini-Store-Manager.iml" />
     </modules>
   </component>
 </project>
