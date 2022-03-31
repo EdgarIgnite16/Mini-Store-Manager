@@ -1,5 +1,5 @@
 # Mini-Store-Manager
-Có làm thì mới có ăn - Không làm thì ăn buồi đầu ăn trứng cút
+Có làm thì mới có ăn - Không làm thì ăn bưởi ăn trứng cút
 
 ## Team Member
 | TenSV                  | MaSV       |
