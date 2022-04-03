@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13b7f7bf-0054-425d-b9cf-3b5b0ea35161" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ERD.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ERD.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ERD_Table.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ERD_Table.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_Entry/EntryMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Entry/EntryMain.java" afterDir="false" />
-    </list>
+    <list default="true" id="13b7f7bf-0054-425d-b9cf-3b5b0ea35161" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +34,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Workspace-of-Course/_Programing Language/Java/JavaFX/Keep Too Youtube/Modern_GUI_Example" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
