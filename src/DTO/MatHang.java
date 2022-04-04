@@ -7,7 +7,6 @@ import java.util.Date;
 public class MatHang {
     private String maMH; // primary key
     private String maPLMH; // foreign key
-    private String maNCC; // foreign key
     private String maKHO; // foreign key
     private String maGiamGia; // foreign key
     private String tenMH;
@@ -18,10 +17,9 @@ public class MatHang {
     public MatHang() {
     }
 
-    public MatHang(String maMH, String maPLMH, String maNCC, String maKHO, String maGiamGia, String tenMH, String thanhTien, Date NSX, String HSD) {
+    public MatHang(String maMH, String maPLMH, String maKHO, String maGiamGia, String tenMH, String thanhTien, Date NSX, String HSD) {
         this.maMH = maMH;
         this.maPLMH = maPLMH;
-        this.maNCC = maNCC;
         this.maKHO = maKHO;
         this.maGiamGia = maGiamGia;
         this.tenMH = tenMH;
@@ -30,11 +28,10 @@ public class MatHang {
         this.HSD = HSD;
     }
 
-    public MatHang(String maMH, String maPLMH, String maNCC, String maKHO, String maGiamGia, String tenMH, String thanhTien, Date NSX, Date HSD) {
+    public MatHang(String maMH, String maPLMH, String maKHO, String maGiamGia, String tenMH, String thanhTien, Date NSX, Date HSD) {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         this.maMH = maMH;
         this.maPLMH = maPLMH;
-        this.maNCC = maNCC;
         this.maKHO = maKHO;
         this.maGiamGia = maGiamGia;
         this.tenMH = tenMH;
@@ -57,14 +54,6 @@ public class MatHang {
 
     public void setMaPLMH(String maPLMH) {
         this.maPLMH = maPLMH;
-    }
-
-    public String getMaNCC() {
-        return maNCC;
-    }
-
-    public void setMaNCC(String maNCC) {
-        this.maNCC = maNCC;
     }
 
     public String getMaKHO() {
