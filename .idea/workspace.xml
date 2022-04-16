@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="13b7f7bf-0054-425d-b9cf-3b5b0ea35161" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DTO/LoaiMatHangDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DTO/MatHang.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DTO/MatHang.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DTO/PhieuNhapHang.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/_Entry/EntryMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/_Entry/EntryMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/KhoHangDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/LoaiMatHangDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/PhieuGiamGiaDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/PhieuNhapHang.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_Entry/EntryMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/_Entry/EntryMain.java" afterDir="false" />
-    </list>
+    <list default="true" id="13b7f7bf-0054-425d-b9cf-3b5b0ea35161" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +33,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "last_opened_file_path": "D:/Workspace/shop-management-system-java",
+    "last_opened_file_path": "D:/Workspace/Mini-Store-Manager/lib/JSBC/mssql-jdbc-10.2.0.jre17.jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "editing.templates"
   }
 }]]></component>
