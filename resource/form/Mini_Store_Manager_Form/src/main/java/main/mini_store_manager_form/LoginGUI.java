@@ -37,12 +37,14 @@ public class LoginGUI extends javax.swing.JDialog {
         btnExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Login Manager Student Application");
+        setTitle("Login Mini Store Manager");
         setResizable(false);
 
         lbAvatar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbAvatar.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_online_store_64px_2.png")); // NOI18N
 
+        pnMainForm.setBackground(new java.awt.Color(212, 212, 212));
         pnMainForm.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         lbAccount.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -121,8 +123,8 @@ public class LoginGUI extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnMainForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );

@@ -6,6 +6,7 @@ import BUS._MessageDialogHelper;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.awt.*;
 
 public class LoginGUI extends javax.swing.JDialog {
 
@@ -44,6 +45,7 @@ public class LoginGUI extends javax.swing.JDialog {
         lbAvatar.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_online_store_64px_2.png")); // NOI18N
 
         pnMainForm.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnMainForm.setBackground(new Color(225, 225, 225));
 
         lbAccount.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbAccount.setText("Tên đăng nhập:");
@@ -72,9 +74,9 @@ public class LoginGUI extends javax.swing.JDialog {
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnLogin.setIcon(new javax.swing.ImageIcon("resource\\iconSys\\Login-icon-16.png")); // NOI18N
         btnLogin.setText("Đăng nhập");
-        btnLogin.setEnabled(false); // by defalut
+        btnLogin.setEnabled(false);
+        btnLogin.setIcon(new javax.swing.ImageIcon("resource\\icon\\Login-icon-16.png"));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -82,9 +84,9 @@ public class LoginGUI extends javax.swing.JDialog {
         });
 
         btnExit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnExit.setIcon(new javax.swing.ImageIcon("resource\\iconSys\\Actions-edit-delete-icon-16.png")); // NOI18N
         btnExit.setText("Thoát");
         btnExit.setPreferredSize(new java.awt.Dimension(100, 26));
+        btnExit.setIcon(new javax.swing.ImageIcon("resource\\icon\\Actions-edit-delete-icon-16.png"));
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
@@ -140,8 +142,8 @@ public class LoginGUI extends javax.swing.JDialog {
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(lbAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lbAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(pnMainForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addContainerGap())
         );
