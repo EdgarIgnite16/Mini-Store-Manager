@@ -141,7 +141,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuHelper">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tr&#x1ecd; gi&#xfa;p"/>
+            <Property name="text" type="java.lang.String" value="Tr&#x1ee3; gi&#xfa;p"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mnuHelper_Intro">
@@ -158,7 +158,6 @@
                 <Property name="text" type="java.lang.String" value="Gi&#x1edb;i thi&#x1ec7;u"/>
               </Properties>
               <Events>
-                <EventHandler event="ancestorMoved" listener="javax.swing.event.AncestorListener" parameters="javax.swing.event.AncestorEvent" handler="mnuHelper_IntroAncestorMoved"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuHelper_IntroActionPerformed"/>
               </Events>
             </MenuItem>

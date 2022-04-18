@@ -1,5 +1,11 @@
 package GUI;
 
+import BUS._MessageDialogHelper;
+
+import javax.swing.*;
+import java.awt.*;
+import java.net.URI;
+
 public class MainFormGUI extends javax.swing.JFrame {
 
     /**
@@ -277,21 +283,13 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuBar_Main.add(mnuManage);
 
-        mnuHelper.setText("Trọ giúp");
+        mnuHelper.setText("Trợ giúp");
 
         mnuHelper_Intro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuHelper_Intro.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         mnuHelper_Intro.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_mention_16px.png")); // NOI18N
         mnuHelper_Intro.setText("Giới thiệu");
-        mnuHelper_Intro.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-                mnuHelper_IntroAncestorMoved(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
+
         mnuHelper_Intro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuHelper_IntroActionPerformed(evt);
@@ -336,11 +334,34 @@ public class MainFormGUI extends javax.swing.JFrame {
 
     // mnu
     private void mnuSystem_ExitActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        if(_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn thoát khỏi chương trình hay không",
+                "Thoát chương trình") == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }
 
     private void mnuSystem_LogoutActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        if(_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn đăng xuất hay không",
+                "Đăng xuất") == JOptionPane.YES_OPTION) {
+            this.dispose(); // đóng form hiện tại lại
+            new LoginGUI(new Frame(), true).setVisible(true);
+        }
+    }
+
+    private void mnuHelper_ContactActionPerformed(java.awt.event.ActionEvent evt) {
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(URI.create("https://github.com/EdgarIgnite16/Mini-Store-Manager"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void mnuHelper_IntroActionPerformed(java.awt.event.ActionEvent evt) {
+        AboutUSDialogGUI aboutUSDialogGUI = new AboutUSDialogGUI(this, true);
+        aboutUSDialogGUI.setVisible(true);
     }
 
     private void mnuManage_NhanVienActionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,14 +369,6 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void mnuManage_MatHangActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void mnuHelper_ContactActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void mnuHelper_IntroActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
@@ -371,14 +384,29 @@ public class MainFormGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    private void mnuHelper_IntroAncestorMoved(javax.swing.event.AncestorEvent evt) {
-        // TODO add your handling code here:
-    }
-
-
     // tbar
     private void tBar_LogoutActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        if(_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn đăng xuất hay không",
+                "Đăng xuất") == JOptionPane.YES_OPTION) {
+            this.dispose(); // đóng form hiện tại lại
+            new LoginGUI(new Frame(), true).setVisible(true);
+        }
+    }
+
+    private void tBar_IntroActionPerformed(java.awt.event.ActionEvent evt) {
+        AboutUSDialogGUI aboutUSDialogGUI = new AboutUSDialogGUI(this, true);
+        aboutUSDialogGUI.setVisible(true);
+    }
+
+    private void tBar_ContactActionPerformed(java.awt.event.ActionEvent evt) {
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(URI.create("https://github.com/EdgarIgnite16/Mini-Store-Manager"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void tBar_NhanVienActionPerformed(java.awt.event.ActionEvent evt) {
@@ -400,15 +428,6 @@ public class MainFormGUI extends javax.swing.JFrame {
     private void tBar_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
-
-    private void tBar_IntroActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void tBar_ContactActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
 
     // Variables declaration - do not modify
     private javax.swing.JMenuBar mnuBar_Main;

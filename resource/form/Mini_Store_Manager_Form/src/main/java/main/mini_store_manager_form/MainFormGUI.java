@@ -282,21 +282,12 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuBar_Main.add(mnuManage);
 
-        mnuHelper.setText("Trọ giúp");
+        mnuHelper.setText("Trợ giúp");
 
         mnuHelper_Intro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuHelper_Intro.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         mnuHelper_Intro.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_mention_16px.png")); // NOI18N
         mnuHelper_Intro.setText("Giới thiệu");
-        mnuHelper_Intro.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-                mnuHelper_IntroAncestorMoved(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
         mnuHelper_Intro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuHelper_IntroActionPerformed(evt);
@@ -406,10 +397,6 @@ public class MainFormGUI extends javax.swing.JFrame {
     private void tBar_ContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBar_ContactActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tBar_ContactActionPerformed
-
-    private void mnuHelper_IntroAncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_mnuHelper_IntroAncestorMoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuHelper_IntroAncestorMoved
 
     /**
      * @param args the command line arguments
