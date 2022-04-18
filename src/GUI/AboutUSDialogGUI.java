@@ -2,6 +2,18 @@ package GUI;
 
 public class AboutUSDialogGUI extends javax.swing.JDialog {
 
+    // Variables declaration - do not modify
+    private javax.swing.JButton btnClose;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lbAuthor;
+    private javax.swing.JLabel lbAuthor1;
+    private javax.swing.JLabel lbAuthor2;
+    private javax.swing.JLabel lbAuthor3;
+    private javax.swing.JLabel lbAuthor4;
+    private javax.swing.JLabel lbAvatar;
+    private javax.swing.JLabel lbInformation;
     /**
      * Creates new form AboutUSDIalogGUI
      */
@@ -36,7 +48,7 @@ public class AboutUSDialogGUI extends javax.swing.JDialog {
         setResizable(false);
 
         lbAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbAvatar.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_online_store_64px_2.png")); // NOI18N
+        lbAvatar.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_online_store_64px_2.png")); // NOI18N
 
         lbInformation.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbInformation.setText("Phần mềm quản lí cửa hàng tiện lợi");
@@ -45,7 +57,7 @@ public class AboutUSDialogGUI extends javax.swing.JDialog {
         lbAuthor.setText("Member_1: Trần Nguyên Lộc");
 
         btnClose.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnClose.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
+        btnClose.setIcon(new javax.swing.ImageIcon("resource\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
         btnClose.setText("Đóng");
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,18 +138,5 @@ public class AboutUSDialogGUI extends javax.swing.JDialog {
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();
     }
-
-    // Variables declaration - do not modify
-    private javax.swing.JButton btnClose;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JLabel lbAuthor;
-    private javax.swing.JLabel lbAuthor1;
-    private javax.swing.JLabel lbAuthor2;
-    private javax.swing.JLabel lbAuthor3;
-    private javax.swing.JLabel lbAuthor4;
-    private javax.swing.JLabel lbAvatar;
-    private javax.swing.JLabel lbInformation;
     // End of variables declaration
 }

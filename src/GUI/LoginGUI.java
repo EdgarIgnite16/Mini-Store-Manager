@@ -10,6 +10,15 @@ import java.awt.*;
 
 public class LoginGUI extends javax.swing.JDialog {
 
+    // Variables declaration - do not modify
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel lbAccount;
+    private javax.swing.JLabel lbAvatar;
+    private javax.swing.JLabel lbPassword;
+    private javax.swing.JPanel pnMainForm;
+    private javax.swing.JTextField txtAccount;
+    private javax.swing.JPasswordField txtPassword;
     /**
      * Creates new form LoginDialog
      */
@@ -166,13 +175,13 @@ public class LoginGUI extends javax.swing.JDialog {
         _DataValidator.validateEmpty(txtAccount, sb, "Vui lòng nhập tên tài khoản !");
         _DataValidator.validateEmpty(txtPassword, sb, "Vui lòng nhập mật khẩu !");
 
-        if(sb.length() > 0) {
+        if (sb.length() > 0) {
             _MessageDialogHelper.showErrorDialog(this, String.valueOf(sb), "Error Login");
         } else {
             try {
                 String username = txtAccount.getText();
                 String password = new String(txtPassword.getPassword());
-                if(username.equals("ad") && password.equals("123")) {
+                if (username.equals("ad") && password.equals("123")) {
                     this.dispose();
                     try {
                         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -198,15 +207,5 @@ public class LoginGUI extends javax.swing.JDialog {
     private void txtAccountChangeUpdate(DocumentEvent e) {
         btnLogin.setEnabled(!txtAccount.getText().isEmpty());
     }
-
-    // Variables declaration - do not modify
-    private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JLabel lbAccount;
-    private javax.swing.JLabel lbAvatar;
-    private javax.swing.JLabel lbPassword;
-    private javax.swing.JPanel pnMainForm;
-    private javax.swing.JTextField txtAccount;
-    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration
 }
