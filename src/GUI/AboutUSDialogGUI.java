@@ -2,6 +2,18 @@ package GUI;
 
 public class AboutUSDialogGUI extends javax.swing.JDialog {
 
+    // Variables declaration - do not modify
+    private javax.swing.JButton btnClose;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lbAuthor;
+    private javax.swing.JLabel lbAuthor1;
+    private javax.swing.JLabel lbAuthor2;
+    private javax.swing.JLabel lbAuthor3;
+    private javax.swing.JLabel lbAuthor4;
+    private javax.swing.JLabel lbAvatar;
+    private javax.swing.JLabel lbInformation;
     /**
      * Creates new form AboutUSDIalogGUI
      */
@@ -126,18 +138,5 @@ public class AboutUSDialogGUI extends javax.swing.JDialog {
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();
     }
-
-    // Variables declaration - do not modify
-    private javax.swing.JButton btnClose;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JLabel lbAuthor;
-    private javax.swing.JLabel lbAuthor1;
-    private javax.swing.JLabel lbAuthor2;
-    private javax.swing.JLabel lbAuthor3;
-    private javax.swing.JLabel lbAuthor4;
-    private javax.swing.JLabel lbAvatar;
-    private javax.swing.JLabel lbInformation;
     // End of variables declaration
 }

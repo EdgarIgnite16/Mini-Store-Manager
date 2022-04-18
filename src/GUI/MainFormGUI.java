@@ -8,6 +8,35 @@ import java.net.URI;
 
 public class MainFormGUI extends javax.swing.JFrame {
 
+    // Variables declaration - do not modify
+    private javax.swing.JMenuBar mnuBar_Main;
+    private javax.swing.JMenu mnuHelper;
+    private javax.swing.JMenuItem mnuHelper_Contact;
+    private javax.swing.JMenuItem mnuHelper_Intro;
+    private javax.swing.JPopupMenu.Separator mnuHelper_Separator;
+    private javax.swing.JMenu mnuManage;
+    private javax.swing.JMenuItem mnuManage_HoaDon;
+    private javax.swing.JMenuItem mnuManage_KhachHang;
+    private javax.swing.JMenuItem mnuManage_MatHang;
+    private javax.swing.JMenuItem mnuManage_NhanVien;
+    private javax.swing.JMenuItem mnuManage_PhieuNhap;
+    private javax.swing.JMenu mnuSystem;
+    private javax.swing.JMenuItem mnuSystem_Exit;
+    private javax.swing.JMenuItem mnuSystem_Logout;
+    private javax.swing.JPopupMenu.Separator mnuSystem_Separator;
+    private javax.swing.JPanel plToolBar;
+    private javax.swing.JButton tBar_Contact;
+    private javax.swing.JButton tBar_HoaDon;
+    private javax.swing.JButton tBar_Intro;
+    private javax.swing.JButton tBar_KhachHang;
+    private javax.swing.JButton tBar_Logout;
+    private javax.swing.JToolBar tBar_Main;
+    private javax.swing.JButton tBar_MatHang;
+    private javax.swing.JButton tBar_NhanVien;
+    private javax.swing.JButton tBar_PhieuNhap;
+    private javax.swing.JToolBar.Separator tBar_Separator1;
+    private javax.swing.JToolBar.Separator tBar_Separator2;
+    private javax.swing.JTabbedPane tPane_Main;
     /**
      * Creates new form MainForm
      */
@@ -334,14 +363,14 @@ public class MainFormGUI extends javax.swing.JFrame {
 
     // mnu
     private void mnuSystem_ExitActionPerformed(java.awt.event.ActionEvent evt) {
-        if(_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn thoát khỏi chương trình hay không",
+        if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn thoát khỏi chương trình hay không",
                 "Thoát chương trình") == JOptionPane.YES_OPTION) {
             System.exit(0);
         }
     }
 
     private void mnuSystem_LogoutActionPerformed(java.awt.event.ActionEvent evt) {
-        if(_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn đăng xuất hay không",
+        if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn đăng xuất hay không",
                 "Đăng xuất") == JOptionPane.YES_OPTION) {
             this.dispose(); // đóng form hiện tại lại
             new LoginGUI(new Frame(), true).setVisible(true);
@@ -386,7 +415,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
     // tbar
     private void tBar_LogoutActionPerformed(java.awt.event.ActionEvent evt) {
-        if(_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn đăng xuất hay không",
+        if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn đăng xuất hay không",
                 "Đăng xuất") == JOptionPane.YES_OPTION) {
             this.dispose(); // đóng form hiện tại lại
             new LoginGUI(new Frame(), true).setVisible(true);
@@ -428,35 +457,5 @@ public class MainFormGUI extends javax.swing.JFrame {
     private void tBar_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
-
-    // Variables declaration - do not modify
-    private javax.swing.JMenuBar mnuBar_Main;
-    private javax.swing.JMenu mnuHelper;
-    private javax.swing.JMenuItem mnuHelper_Contact;
-    private javax.swing.JMenuItem mnuHelper_Intro;
-    private javax.swing.JPopupMenu.Separator mnuHelper_Separator;
-    private javax.swing.JMenu mnuManage;
-    private javax.swing.JMenuItem mnuManage_HoaDon;
-    private javax.swing.JMenuItem mnuManage_KhachHang;
-    private javax.swing.JMenuItem mnuManage_MatHang;
-    private javax.swing.JMenuItem mnuManage_NhanVien;
-    private javax.swing.JMenuItem mnuManage_PhieuNhap;
-    private javax.swing.JMenu mnuSystem;
-    private javax.swing.JMenuItem mnuSystem_Exit;
-    private javax.swing.JMenuItem mnuSystem_Logout;
-    private javax.swing.JPopupMenu.Separator mnuSystem_Separator;
-    private javax.swing.JPanel plToolBar;
-    private javax.swing.JButton tBar_Contact;
-    private javax.swing.JButton tBar_HoaDon;
-    private javax.swing.JButton tBar_Intro;
-    private javax.swing.JButton tBar_KhachHang;
-    private javax.swing.JButton tBar_Logout;
-    private javax.swing.JToolBar tBar_Main;
-    private javax.swing.JButton tBar_MatHang;
-    private javax.swing.JButton tBar_NhanVien;
-    private javax.swing.JButton tBar_PhieuNhap;
-    private javax.swing.JToolBar.Separator tBar_Separator1;
-    private javax.swing.JToolBar.Separator tBar_Separator2;
-    private javax.swing.JTabbedPane tPane_Main;
     // End of variables declaration
 }
