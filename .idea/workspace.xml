@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13b7f7bf-0054-425d-b9cf-3b5b0ea35161" name="Changes" comment="">
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTO/KhoHangDTO.java" beforeDir="false" />
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/src/GUI/MainFormGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/MainFormGUI.java" afterDir="false" />
+>>>>>>> c0d312b5d1811b56eb83f4e3e8dcb85ba5bacf30
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +47,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+<<<<<<< HEAD
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "D:/Workspace/Mini-Store-Manager",
+    "project.structure.last.edited": "Facets",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editing.templates"
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;last_opened_file_path&quot;: &quot;D:/Workspace/Mini-Store-Manager/resource/icon&quot;,
@@ -40,6 +72,14 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> c0d312b5d1811b56eb83f4e3e8dcb85ba5bacf30
+>>>>>>> Stashed changes
+=======
+>>>>>>> c0d312b5d1811b56eb83f4e3e8dcb85ba5bacf30
+>>>>>>> Stashed changes
   }
 }</component>
   <component name="RecentsManager">
