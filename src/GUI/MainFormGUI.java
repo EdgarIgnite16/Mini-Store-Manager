@@ -23,7 +23,6 @@ public class MainFormGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
-
         plToolBar = new javax.swing.JPanel();
         tBar_Main = new javax.swing.JToolBar();
         tBar_Logout = new javax.swing.JButton();
@@ -196,7 +195,6 @@ public class MainFormGUI extends javax.swing.JFrame {
                         .addComponent(tBar_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
         );
 
-
         mnuSystem.setText("Hệ thống");
         mnuSystem_Logout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuSystem_Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -224,7 +222,6 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuBar_Main.add(mnuSystem);
 
         mnuManage.setText("Quản lí");
-
 
         mnuManage_NhanVien.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuManage_NhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
