@@ -159,6 +159,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuSystem.setText("Hệ thống");
 
         mnuSystem_Logout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuSystem_Logout.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-logout-32.png")); // NOI18N
         mnuSystem_Logout.setText("Đăng xuất");
         mnuSystem_Logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +188,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         });
 
         mnuManage_NhanVien.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnuManage_NhanVien.setIcon(new javax.swing.ImageIcon("D:\\Project\\Mini-Store-Manager\\resource\\icon\\icons8-staff-32.png")); // NOI18N
+        mnuManage_NhanVien.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-staff-32.png")); // NOI18N
         mnuManage_NhanVien.setText("Quản lý nhân viên");
         mnuManage_NhanVien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,6 +198,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuManage.add(mnuManage_NhanVien);
 
         mnuManage_MatHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuManage_MatHang.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-goods-32.png")); // NOI18N
         mnuManage_MatHang.setText("Quản lý mặt hàng");
         mnuManage_MatHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +208,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuManage.add(mnuManage_MatHang);
 
         mnuManage_PhieuNhap.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuManage_PhieuNhap.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-paid-bill-32 (1).png")); // NOI18N
         mnuManage_PhieuNhap.setText("Quản lý phiếu nhập");
         mnuManage_PhieuNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,6 +218,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuManage.add(mnuManage_PhieuNhap);
 
         mnuManage_HoaDon.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuManage_HoaDon.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-paid-bill-32.png")); // NOI18N
         mnuManage_HoaDon.setText("Quản lý hoá đơn");
         mnuManage_HoaDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,6 +228,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuManage.add(mnuManage_HoaDon);
 
         mnuManage_KhachHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuManage_KhachHang.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-customer-32.png")); // NOI18N
         mnuManage_KhachHang.setText("Quản lý khách hàng");
         mnuManage_KhachHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -237,6 +242,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuHelper.setText("Trọ giúp");
 
         mnuHelper_Intro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuHelper_Intro.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-mention-32.png")); // NOI18N
         mnuHelper_Intro.setText("Giới thiệu");
         mnuHelper_Intro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,6 +253,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuHelper.add(mnuHelper_Separator);
 
         mnuHelper_Contact.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuHelper_Contact.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-contact-32.png")); // NOI18N
         mnuHelper_Contact.setText("Liên hệ");
         mnuHelper_Contact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
