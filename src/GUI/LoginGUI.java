@@ -176,7 +176,7 @@ public class LoginGUI extends javax.swing.JDialog {
                     this.dispose();
                     try {
                         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//                        new MainFormGUI().setVisible(true);
+                        new MainFormGUI().setVisible(true);
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }

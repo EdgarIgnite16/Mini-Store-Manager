@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="13b7f7bf-0054-425d-b9cf-3b5b0ea35161" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/LoginGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/LoginGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/LoginGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/LoginGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/LoginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/LoginGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/MainFormGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/MainFormGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/MainFormGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/MainFormGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/LoginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/LoginGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,15 +39,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;D:/Project/Student-management-application-3&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "D:/Workspace/Mini-Store-Manager/resource/icon",
+    "project.structure.last.edited": "Facets",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editing.templates"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Workspace\Mini-Store-Manager\resource\icon" />
