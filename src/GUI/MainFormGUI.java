@@ -324,7 +324,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuHelper.add(mnuHelper_Intro);
         mnuHelper.add(mnuHelper_Separator);
 
-        mnuHelper_Contact.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuHelper_Contact.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuHelper_Contact.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         mnuHelper_Contact.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_contact_16px.png")); // NOI18N
         mnuHelper_Contact.setText("Liên hệ");
