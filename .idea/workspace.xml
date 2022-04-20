@@ -31,26 +31,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;D:/Workspace/Mini-Store-Manager&quot;,
-  &lt;component name=&quot;PropertiesComponent&quot;&gt;&lt;![CDATA[{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;D:/Workspace/Mini-Store-Manager/resource/icon&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
-
-  &lt;component name=&quot;PropertiesComponent&quot;&gt;{
-  &amp;quot;keyToString&amp;quot;: {
-    &amp;quot;last_opened_file_path&amp;quot;: &amp;quot;D:/Workspace/Mini-Store-Manager/resource/icon&amp;quot;,
-    &amp;quot;project.structure.last.edited&amp;quot;: &amp;quot;Facets&amp;quot;,
-    &amp;quot;project.structure.proportion&amp;quot;: &amp;quot;0.15&amp;quot;,
-    &amp;quot;project.structure.side.proportion&amp;quot;: &amp;quot;0.2&amp;quot;,
-    &amp;quot;settings.editor.selected.configurable&amp;quot;: &amp;quot;editing.templates&amp;quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Workspace\Mini-Store-Manager\resource\icon" />
