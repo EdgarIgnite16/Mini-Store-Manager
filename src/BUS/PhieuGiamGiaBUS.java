@@ -1,8 +1,6 @@
 package BUS;
 
-import DAO.ChucVuDAO;
 import DAO.PhieuGiamGiaDAO;
-import DTO.ChucVuDTO;
 import DTO.PhieuGiamGiaDTO;
 
 import java.util.ArrayList;

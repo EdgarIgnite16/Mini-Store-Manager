@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="" />
+    <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/BUS/ChucVuBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/ChucVuBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/LoaiMatHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/LoaiMatHangBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/NhaCungCapBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/NhaCungCapBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/PhieuGiamGiaBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/PhieuGiamGiaBUS.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,8 +41,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>

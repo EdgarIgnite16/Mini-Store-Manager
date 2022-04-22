@@ -1,8 +1,6 @@
 package BUS;
 
-import DAO.CaLamViecDAO;
 import DAO.ChucVuDAO;
-import DTO.CaLamViecDTO;
 import DTO.ChucVuDTO;
 
 import java.util.ArrayList;

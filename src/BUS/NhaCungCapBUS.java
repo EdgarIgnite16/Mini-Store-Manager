@@ -1,8 +1,6 @@
 package BUS;
 
-import DAO.ChucVuDAO;
 import DAO.NhaCungCapDAO;
-import DTO.ChucVuDTO;
 import DTO.NhaCungCapDTO;
 
 import java.util.ArrayList;

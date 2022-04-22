@@ -1,8 +1,6 @@
 package BUS;
 
-import DAO.ChucVuDAO;
 import DAO.LoaiMatHangDAO;
-import DTO.ChucVuDTO;
 import DTO.LoaiMatHangDTO;
 
 import java.util.ArrayList;
