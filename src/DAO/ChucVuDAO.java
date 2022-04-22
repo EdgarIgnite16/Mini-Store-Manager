@@ -5,6 +5,7 @@ import DTO.ChucVuDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ChucVuDAO {
@@ -14,9 +15,9 @@ public class ChucVuDAO {
         String sql = "Select * from dbo.ChucVu";
         try (
                 Connection conn = new _Connection().getConn();
-                PreparedStatement pstm = conn.prepareStatement(sql);
+                Statement pstm = conn.createStatement();
         ) {
-            try (ResultSet rs = pstm.executeQuery()) {
+            try (ResultSet rs = pstm.executeQuery(sql)) {
                 ArrayList<ChucVuDTO> listChucVu = new ArrayList<ChucVuDTO>();
                 while(rs.next()) {
                     ChucVuDTO chucVuDTO = new ChucVuDTO();

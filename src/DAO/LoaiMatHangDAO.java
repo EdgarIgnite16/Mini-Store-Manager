@@ -5,6 +5,7 @@ import DTO.LoaiMatHangDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class LoaiMatHangDAO {
@@ -14,9 +15,9 @@ public class LoaiMatHangDAO {
         String sql = "Select * from dbo.LoaiMatHang";
         try (
                 Connection conn = new _Connection().getConn();
-                PreparedStatement pstm = conn.prepareStatement(sql);
+                Statement pstm = conn.createStatement();
         ) {
-            try (ResultSet rs = pstm.executeQuery()) {
+            try (ResultSet rs = pstm.executeQuery(sql)) {
                 ArrayList<LoaiMatHangDTO> listMatHang = new ArrayList<LoaiMatHangDTO>();
                 while(rs.next()) {
                     LoaiMatHangDTO loaiMatHangDTO = new LoaiMatHangDTO();

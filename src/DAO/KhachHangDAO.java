@@ -5,6 +5,7 @@ import DTO.KhachHangDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class KhachHangDAO {
@@ -14,9 +15,9 @@ public class KhachHangDAO {
         String sql = "Select * from dbo.KhachHang";
         try (
                 Connection conn = new _Connection().getConn();
-                PreparedStatement pstm = conn.prepareStatement(sql);
+                Statement pstm = conn.createStatement();
         ) {
-            try (ResultSet rs = pstm.executeQuery()) {
+            try (ResultSet rs = pstm.executeQuery(sql)) {
                 ArrayList<KhachHangDTO> listKhachHang = new ArrayList<KhachHangDTO>();
                 while(rs.next()) {
                     KhachHangDTO khachHangDTO = new KhachHangDTO();

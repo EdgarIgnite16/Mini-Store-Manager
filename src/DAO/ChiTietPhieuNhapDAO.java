@@ -5,6 +5,7 @@ import DTO.ChiTietPhieuNhapDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class ChiTietPhieuNhapDAO {
@@ -14,9 +15,9 @@ public class ChiTietPhieuNhapDAO {
         String sql = "Select * from dbo.CTPN";
         try (
                 Connection conn = new _Connection().getConn();
-                PreparedStatement pstm = conn.prepareStatement(sql);
+                Statement pstm = conn.createStatement();
         ) {
-            try (ResultSet rs = pstm.executeQuery()) {
+            try (ResultSet rs = pstm.executeQuery(sql)) {
                 ArrayList<ChiTietPhieuNhapDTO> listChiTietPhieuNhap = new ArrayList<ChiTietPhieuNhapDTO>();
                 while (rs.next()) {
                     ChiTietPhieuNhapDTO chiTietPhieuNhapDTO = new ChiTietPhieuNhapDTO();

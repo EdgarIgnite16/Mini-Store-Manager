@@ -5,6 +5,7 @@ import DTO.HoaDonDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class HoaDonDAO {
@@ -14,9 +15,9 @@ public class HoaDonDAO {
         String sql = "Select * from dbo.HoaDon";
         try (
                 Connection conn = new _Connection().getConn();
-                PreparedStatement pstm = conn.prepareStatement(sql);
+                Statement pstm = conn.createStatement();
         ) {
-            try (ResultSet rs = pstm.executeQuery()) {
+            try (ResultSet rs = pstm.executeQuery(sql)) {
                 ArrayList<HoaDonDTO> listHoaDon = new ArrayList<HoaDonDTO>();
                 while (rs.next()) {
                     HoaDonDTO hoaDonDTO = new HoaDonDTO();
