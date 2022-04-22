@@ -1,16 +1,14 @@
 package DTO;
 
-import java.util.Date;
-
-public class ChiTietPhieuNhap {
+public class ChiTietPhieuNhapDTO {
     private String maPhieuNhap; // primary key
     private String maMH; // foreign key
     private int soLuong;
 
-    public ChiTietPhieuNhap() {
+    public ChiTietPhieuNhapDTO() {
     }
 
-    public ChiTietPhieuNhap(String maPhieuNhap, String maMH, int soLuong) {
+    public ChiTietPhieuNhapDTO(String maPhieuNhap, String maMH, int soLuong) {
         this.maPhieuNhap = maPhieuNhap;
         this.maMH = maMH;
         this.soLuong = soLuong;

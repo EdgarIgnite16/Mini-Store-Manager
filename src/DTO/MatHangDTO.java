@@ -1,16 +1,16 @@
 package DTO;
 
-public class MatHang {
+public class MatHangDTO {
     private String maMH; // primary key
     private String maLMH; // foreign key
     private String tenMH;
-    private String thanhTien;
+    private float thanhTien;
     private int soLuong;
 
-    public MatHang() {
+    public MatHangDTO() {
     }
 
-    public MatHang(String maMH, String maLMH, String tenMH, String thanhTien, int soLuong) {
+    public MatHangDTO(String maMH, String maLMH, String tenMH, float thanhTien, int soLuong) {
         this.maMH = maMH;
         this.maLMH = maLMH;
         this.tenMH = tenMH;
@@ -42,11 +42,11 @@ public class MatHang {
         this.tenMH = tenMH;
     }
 
-    public String getThanhTien() {
+    public float getThanhTien() {
         return thanhTien;
     }
 
-    public void setThanhTien(String thanhTien) {
+    public void setThanhTien(float thanhTien) {
         this.thanhTien = thanhTien;
     }
 

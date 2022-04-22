@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class CaLamViecDAO {
+
+    // hàm lấy dữ liệu từ database
     public ArrayList<CaLamViecDTO> getData() throws Exception {
         String sql = "Select * from dbo.CaLamViec";
         try (

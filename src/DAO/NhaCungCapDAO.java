@@ -1,6 +1,5 @@
 package DAO;
 
-import DTO.ChucVuDTO;
 import DTO.NhaCungCapDTO;
 
 import java.sql.Connection;
@@ -9,6 +8,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class NhaCungCapDAO {
+
+    // hàm lấy dữ liệu từ database
     public ArrayList<NhaCungCapDTO> getData() throws Exception {
         String sql = "Select * from dbo.NhaCungCap";
         try (

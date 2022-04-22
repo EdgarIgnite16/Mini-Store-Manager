@@ -1,6 +1,5 @@
 package DAO;
 
-import DTO.ChucVuDTO;
 import DTO.PhieuGiamGiaDTO;
 
 import java.sql.Connection;
@@ -9,6 +8,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class PhieuGiamGiaDAO {
+
+    // hàm lấy dữ liệu từ database
     public ArrayList<PhieuGiamGiaDTO> getData() throws Exception {
         String sql = "Select * from dbo.PhieuGiamGia";
         try (
