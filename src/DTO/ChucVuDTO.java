@@ -27,4 +27,12 @@ public class ChucVuDTO {
     public void setTenCV(String tenCV) {
         this.tenCV = tenCV;
     }
+
+    @Override
+    public String toString() {
+        return "ChucVuDTO{" +
+                "maCV='" + maCV + '\'' +
+                ", tenCV='" + tenCV + '\'' +
+                '}';
+    }
 }

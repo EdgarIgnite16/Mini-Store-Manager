@@ -3,19 +3,25 @@ package DTO;
 import java.util.Date;
 
 public class ChiTietPhieuNhap {
-    private String maMH;
-    private String MaPN;
+    private String maPhieuNhap; // primary key
+    private String maMH; // foreign key
     private int soLuong;
-    private Date ngayNhap;
 
     public ChiTietPhieuNhap() {
     }
 
-    public ChiTietPhieuNhap(String maMH, String maPN, int soLuong, Date ngayNhap) {
+    public ChiTietPhieuNhap(String maPhieuNhap, String maMH, int soLuong) {
+        this.maPhieuNhap = maPhieuNhap;
         this.maMH = maMH;
-        this.MaPN = maPN;
         this.soLuong = soLuong;
-        this.ngayNhap = ngayNhap;
+    }
+
+    public String getMaPhieuNhap() {
+        return maPhieuNhap;
+    }
+
+    public void setMaPhieuNhap(String maPhieuNhap) {
+        this.maPhieuNhap = maPhieuNhap;
     }
 
     public String getMaMH() {
@@ -26,14 +32,6 @@ public class ChiTietPhieuNhap {
         this.maMH = maMH;
     }
 
-    public String getMaPN() {
-        return MaPN;
-    }
-
-    public void setMaPN(String maPN) {
-        this.MaPN = maPN;
-    }
-
     public int getSoLuong() {
         return soLuong;
     }
@@ -42,11 +40,12 @@ public class ChiTietPhieuNhap {
         this.soLuong = soLuong;
     }
 
-    public Date getNgayNhap() {
-        return ngayNhap;
-    }
-
-    public void setNgayNhap(Date ngayNhap) {
-        this.ngayNhap = ngayNhap;
+    @Override
+    public String toString() {
+        return "ChiTietPhieuNhap{" +
+                "maPhieuNhap='" + maPhieuNhap + '\'' +
+                ", maMH='" + maMH + '\'' +
+                ", soLuong=" + soLuong +
+                '}';
     }
 }

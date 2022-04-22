@@ -37,4 +37,13 @@ public class CalamViecDTO {
     public void setThoiGian(String thoiGian) {
         this.thoiGian = thoiGian;
     }
+
+    @Override
+    public String toString() {
+        return "CalamViecDTO{" +
+                "maCa='" + maCa + '\'' +
+                ", tenCa='" + tenCa + '\'' +
+                ", thoiGian='" + thoiGian + '\'' +
+                '}';
+    }
 }

@@ -3,16 +3,14 @@ package DTO;
 public class KhachHangDTO {
     private String maKH; // primary key
     private String tenKH;
-    private String diaChi;
     private String sdt;
 
     public KhachHangDTO() {
     }
 
-    public KhachHangDTO(String maKH, String tenKH, String diaChi, String sdt) {
+    public KhachHangDTO(String maKH, String tenKH, String sdt) {
         this.maKH = maKH;
         this.tenKH = tenKH;
-        this.diaChi = diaChi;
         this.sdt = sdt;
     }
 
@@ -32,19 +30,20 @@ public class KhachHangDTO {
         this.tenKH = tenKH;
     }
 
-    public String getDiaChi() {
-        return diaChi;
-    }
-
-    public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
-    }
-
     public String getSdt() {
         return sdt;
     }
 
     public void setSdt(String sdt) {
         this.sdt = sdt;
+    }
+
+    @Override
+    public String toString() {
+        return "KhachHangDTO{" +
+                "maKH='" + maKH + '\'' +
+                ", tenKH='" + tenKH + '\'' +
+                ", sdt='" + sdt + '\'' +
+                '}';
     }
 }

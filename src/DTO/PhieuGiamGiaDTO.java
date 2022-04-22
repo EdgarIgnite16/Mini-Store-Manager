@@ -1,15 +1,15 @@
 package DTO;
 
 public class PhieuGiamGiaDTO {
-    private String maGiamGia;
+    private String maGiamGia; // primary key
     private String tenGiamGia;
     private String noiDung;
-    private double tiLeGiam;
+    private float tiLeGiam;
 
     public PhieuGiamGiaDTO() {
     }
 
-    public PhieuGiamGiaDTO(String maGiamGia, String tenGiamGia, String noiDung, double tiLeGiam) {
+    public PhieuGiamGiaDTO(String maGiamGia, String tenGiamGia, String noiDung, float tiLeGiam) {
         this.maGiamGia = maGiamGia;
         this.tenGiamGia = tenGiamGia;
         this.noiDung = noiDung;
@@ -44,7 +44,17 @@ public class PhieuGiamGiaDTO {
         return tiLeGiam;
     }
 
-    public void setTiLeGiam(double tiLeGiam) {
+    public void setTiLeGiam(float tiLeGiam) {
         this.tiLeGiam = tiLeGiam;
+    }
+
+    @Override
+    public String toString() {
+        return "PhieuGiamGiaDTO{" +
+                "maGiamGia='" + maGiamGia + '\'' +
+                ", tenGiamGia='" + tenGiamGia + '\'' +
+                ", noiDung='" + noiDung + '\'' +
+                ", tiLeGiam=" + tiLeGiam +
+                '}';
     }
 }

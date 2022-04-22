@@ -1,43 +1,21 @@
 package DTO;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class MatHang {
     private String maMH; // primary key
-    private String maPLMH; // foreign key
-    private String maKHO; // foreign key
-    private String maGiamGia; // foreign key
+    private String maLMH; // foreign key
     private String tenMH;
     private String thanhTien;
-    private Date NSX;
-    private String HSD;
+    private int soLuong;
 
     public MatHang() {
     }
 
-    public MatHang(String maMH, String maPLMH, String maKHO, String maGiamGia, String tenMH, String thanhTien, Date NSX, String HSD) {
+    public MatHang(String maMH, String maLMH, String tenMH, String thanhTien, int soLuong) {
         this.maMH = maMH;
-        this.maPLMH = maPLMH;
-        this.maKHO = maKHO;
-        this.maGiamGia = maGiamGia;
+        this.maLMH = maLMH;
         this.tenMH = tenMH;
         this.thanhTien = thanhTien;
-        this.NSX = NSX;
-        this.HSD = HSD;
-    }
-
-    public MatHang(String maMH, String maPLMH, String maKHO, String maGiamGia, String tenMH, String thanhTien, Date NSX, Date HSD) {
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        this.maMH = maMH;
-        this.maPLMH = maPLMH;
-        this.maKHO = maKHO;
-        this.maGiamGia = maGiamGia;
-        this.tenMH = tenMH;
-        this.thanhTien = thanhTien;
-        this.NSX = NSX;
-        this.HSD = dateFormat.format(HSD);
+        this.soLuong = soLuong;
     }
 
     public String getMaMH() {
@@ -48,28 +26,12 @@ public class MatHang {
         this.maMH = maMH;
     }
 
-    public String getMaPLMH() {
-        return maPLMH;
+    public String getMaLMH() {
+        return maLMH;
     }
 
-    public void setMaPLMH(String maPLMH) {
-        this.maPLMH = maPLMH;
-    }
-
-    public String getMaKHO() {
-        return maKHO;
-    }
-
-    public void setMaKHO(String maKHO) {
-        this.maKHO = maKHO;
-    }
-
-    public String getMaGiamGia() {
-        return maGiamGia;
-    }
-
-    public void setMaGiamGia(String maGiamGia) {
-        this.maGiamGia = maGiamGia;
+    public void setMaLMH(String maLMH) {
+        this.maLMH = maLMH;
     }
 
     public String getTenMH() {
@@ -88,19 +50,22 @@ public class MatHang {
         this.thanhTien = thanhTien;
     }
 
-    public Date getNSX() {
-        return NSX;
+    public int getSoLuong() {
+        return soLuong;
     }
 
-    public void setNSX(Date NSX) {
-        this.NSX = NSX;
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
 
-    public String getHSD() {
-        return HSD;
-    }
-
-    public void setHSD(String HSD) {
-        this.HSD = HSD;
+    @Override
+    public String toString() {
+        return "MatHang{" +
+                "maMH='" + maMH + '\'' +
+                ", maLMH='" + maLMH + '\'' +
+                ", tenMH='" + tenMH + '\'' +
+                ", thanhTien='" + thanhTien + '\'' +
+                ", soLuong=" + soLuong +
+                '}';
     }
 }

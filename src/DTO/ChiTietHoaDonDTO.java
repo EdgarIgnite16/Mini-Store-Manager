@@ -5,18 +5,14 @@ import java.util.Date;
 public class ChiTietHoaDonDTO {
     private String maHD; // primary key
     private String maMH; // primary key
-    private String ThanhTien;
-    private Date NgayBan;
     private int soLuong;
 
     public ChiTietHoaDonDTO() {
     }
 
-    public ChiTietHoaDonDTO(String maHD, String maMH, String thanhTien, Date ngayBan, int soLuong) {
+    public ChiTietHoaDonDTO(String maHD, String maMH, int soLuong) {
         this.maHD = maHD;
         this.maMH = maMH;
-        ThanhTien = thanhTien;
-        NgayBan = ngayBan;
         this.soLuong = soLuong;
     }
 
@@ -36,27 +32,20 @@ public class ChiTietHoaDonDTO {
         this.maMH = maMH;
     }
 
-    public String getThanhTien() {
-        return ThanhTien;
-    }
-
-    public void setThanhTien(String thanhTien) {
-        ThanhTien = thanhTien;
-    }
-
-    public Date getNgayBan() {
-        return NgayBan;
-    }
-
-    public void setNgayBan(Date ngayBan) {
-        NgayBan = ngayBan;
-    }
-
     public int getSoLuong() {
         return soLuong;
     }
 
     public void setSoLuong(int soLuong) {
         this.soLuong = soLuong;
+    }
+
+    @Override
+    public String toString() {
+        return "ChiTietHoaDonDTO{" +
+                "maHD='" + maHD + '\'' +
+                ", maMH='" + maMH + '\'' +
+                ", soLuong=" + soLuong +
+                '}';
     }
 }
