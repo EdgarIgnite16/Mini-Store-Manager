@@ -1,14 +1,14 @@
 package DTO;
 
-public class CalamViecDTO {
+public class CaLamViecDTO {
     private String maCa; // primary key
     private String tenCa;
     private String thoiGian;
 
-    public CalamViecDTO() {
+    public CaLamViecDTO() {
     }
 
-    public CalamViecDTO(String maCa, String tenCa, String thoiGian) {
+    public CaLamViecDTO(String maCa, String tenCa, String thoiGian) {
         this.maCa = maCa;
         this.tenCa = tenCa;
         this.thoiGian = thoiGian;

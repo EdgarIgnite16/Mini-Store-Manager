@@ -5,18 +5,18 @@ public class NhanVienDTO {
     private String maCV; // foreign key
     private String maCa; // foreign key
     private String tenNV;
-    private String sdt;
+    private String SDT;
     private String cmnd;
 
     public NhanVienDTO() {
     }
 
-    public NhanVienDTO(String maNV, String maCV, String maCa, String tenNV, String sdt, String cmnd) {
+    public NhanVienDTO(String maNV, String maCV, String maCa, String tenNV, String SDT, String cmnd) {
         this.maNV = maNV;
         this.maCV = maCV;
         this.maCa = maCa;
         this.tenNV = tenNV;
-        this.sdt = sdt;
+        this.SDT = SDT;
         this.cmnd = cmnd;
     }
 
@@ -53,11 +53,11 @@ public class NhanVienDTO {
     }
 
     public String getSdt() {
-        return sdt;
+        return SDT;
     }
 
-    public void setSdt(String sdt) {
-        this.sdt = sdt;
+    public void setSdt(String SDT) {
+        this.SDT = SDT;
     }
 
     public String getCmnd() {
@@ -75,7 +75,7 @@ public class NhanVienDTO {
                 ", maCV='" + maCV + '\'' +
                 ", maCa='" + maCa + '\'' +
                 ", tenNV='" + tenNV + '\'' +
-                ", sdt='" + sdt + '\'' +
+                ", sdt='" + SDT + '\'' +
                 ", cmnd='" + cmnd + '\'' +
                 '}';
     }

@@ -1,6 +1,6 @@
 package GUI;
 
-import BUS._MessageDialogHelper;
+import BUS.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -436,7 +436,17 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void tBar_NhanVienActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        CaLamViecBUS caLamViecBUS = new CaLamViecBUS();
+        ChucVuBUS chucVuBUS = new ChucVuBUS();
+        LoaiMatHangBUS loaiMatHangBUS = new LoaiMatHangBUS();
+        NhaCungCapBUS nhaCungCapBUS = new NhaCungCapBUS();
+        PhieuGiamGiaBUS phieuGiamGiaBUS = new PhieuGiamGiaBUS();
+
+        caLamViecBUS.getData();
+        chucVuBUS.getData();
+        loaiMatHangBUS.getData();
+        nhaCungCapBUS.getData();
+        phieuGiamGiaBUS.getData();
     }
 
     private void tBar_MatHangActionPerformed(java.awt.event.ActionEvent evt) {
