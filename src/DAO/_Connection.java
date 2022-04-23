@@ -19,8 +19,8 @@ public class _Connection {
         setConnection(); // khởi tạo Connection
     }
 
+    // hàm kiểm tra driver
     public void checkDriver() {
-        // kiểm tra driver có được add vào phần mềm hay chưa
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); // tên driver của database sử dụng
             System.out.println("Tim thay driver !");
@@ -30,6 +30,7 @@ public class _Connection {
         }
     }
 
+    // hàm cấu hình các thông số database
     public void configValueConnect() {
         this.hostname = "localhost";
         this.portNumber = "1433";
@@ -38,6 +39,7 @@ public class _Connection {
         this.dbName = "MiniStore";
     }
 
+    // hàm khởi tạo kết nối
     public void setConnection(){
         try {
             String connectionURL = String.format(
@@ -51,6 +53,7 @@ public class _Connection {
         }
     }
 
+    // hàm đóng các connection, statement và preparedStatement
     public void closeConnection() {
         try {
             if(conn != null) {
