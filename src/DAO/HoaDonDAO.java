@@ -27,7 +27,6 @@ public class HoaDonDAO {
                     hoaDonDTO.setMaGiamGia(rs.getString("maGiamGia").trim());
                     hoaDonDTO.setNgayBan(rs.getString("ngayBan").trim());
                     hoaDonDTO.setTongHoaDon(rs.getFloat("tongHoaDon"));
-                    hoaDonDTO.setTrangThai(rs.getInt("ngayBan"));
                     listHoaDon.add(hoaDonDTO);
                 }
                 return listHoaDon;

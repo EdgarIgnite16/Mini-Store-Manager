@@ -4,7 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="" />
+    <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/CaLamViecDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/CaLamViecDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/ChiTietHoaDonDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/ChiTietHoaDonDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/ChiTietPhieuNhapDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/ChiTietPhieuNhapDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/ChucVuDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/ChucVuDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/HoaDonDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/HoaDonDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/KhachHangDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/KhachHangDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/LoaiMatHangDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/LoaiMatHangDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/MatHangDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/MatHangDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/NhaCungCapDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/NhaCungCapDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/NhanVienDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/NhanVienDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/PhieuGiamGiaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/PhieuGiamGiaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/PhieuNhapHangDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/PhieuNhapHangDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DTO/ChiTietHoaDonDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DTO/ChiTietHoaDonDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DTO/HoaDonDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DTO/HoaDonDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DTO/PhieuNhapHangDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DTO/PhieuNhapHangDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/MainFormGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/MainFormGUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/MainFormGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/MainFormGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/HoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/HoaDonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/MainFormGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/MainFormGUI.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +74,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Workspace/Mini-Store-Manager",
+    "last_opened_file_path": "D:/Workspace/Mini-Store-Manager/resource/icon",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
