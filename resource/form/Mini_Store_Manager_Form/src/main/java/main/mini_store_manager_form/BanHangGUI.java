@@ -34,7 +34,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGap(0, 692, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
