@@ -17,7 +17,11 @@ public class CaLamViecBUS {
         }
     }
 
-    public void getData() {
+    public ArrayList<CaLamViecDTO> getData() {
+        return listCaLamViec;
+    }
+
+    public void printData() {
         for(CaLamViecDTO caLam : listCaLamViec) {
             System.out.println(caLam.toString());  // in ra terminal
         }

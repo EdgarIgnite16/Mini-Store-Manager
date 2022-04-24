@@ -95,7 +95,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_Main.add(tBar_BanHang);
 
         tBar_HoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_HoaDon.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-paid-bill-32.png")); // NOI18N
+        tBar_HoaDon.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_bill_32px_1.png")); // NOI18N
         tBar_HoaDon.setText("Hoá đơn");
         tBar_HoaDon.setFocusable(false);
         tBar_HoaDon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

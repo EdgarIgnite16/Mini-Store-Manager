@@ -1,6 +1,7 @@
 package BUS;
 
 import DAO.MatHangDAO;
+import DTO.CaLamViecDTO;
 import DTO.MatHangDTO;
 
 import java.util.ArrayList;
@@ -17,9 +18,12 @@ public class MatHangBUS {
     }
 
     public ArrayList<MatHangDTO> getData() {
+        return listSanPham;
+    }
+
+    public void printData() {
         for(MatHangDTO item : listSanPham) {
             System.out.println(item.toString());
         }
-        return listSanPham;
     }
 }

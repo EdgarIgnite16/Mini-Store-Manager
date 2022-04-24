@@ -73,8 +73,6 @@ public class MainFormGUI extends javax.swing.JFrame {
                 tBar_LogoutActionPerformed(evt);
             }
         });
-
-        tBar_Main.setFloatable(false);
         tBar_Main.add(tBar_Logout);
         tBar_Main.add(tBar_Separator1);
 
@@ -94,7 +92,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_Main.add(tBar_BanHang);
 
         tBar_HoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_HoaDon.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-paid-bill-32.png")); // NOI18N
+        tBar_HoaDon.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_bill_32px_1.png")); // NOI18N
         tBar_HoaDon.setText("Hoá đơn");
         tBar_HoaDon.setFocusable(false);
         tBar_HoaDon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -254,7 +252,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuManage_HoaDon.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuManage_HoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_HoaDon.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-paid-bill-16.png")); // NOI18N
+        mnuManage_HoaDon.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_bill_16px_1.png")); // NOI18N
         mnuManage_HoaDon.setText("Quản lý hoá đơn");
         mnuManage_HoaDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -459,11 +457,11 @@ public class MainFormGUI extends javax.swing.JFrame {
         NhaCungCapBUS nhaCungCapBUS = new NhaCungCapBUS();
         PhieuGiamGiaBUS phieuGiamGiaBUS = new PhieuGiamGiaBUS();
 
-        caLamViecBUS.getData();
-        chucVuBUS.getData();
-        loaiMatHangBUS.getData();
-        nhaCungCapBUS.getData();
-        phieuGiamGiaBUS.getData();
+        caLamViecBUS.printData();
+        chucVuBUS.printData();
+        loaiMatHangBUS.printData();
+        nhaCungCapBUS.printData();
+        phieuGiamGiaBUS.printData();
     }
 
 

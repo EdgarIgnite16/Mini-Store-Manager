@@ -17,7 +17,11 @@ public class ChucVuBUS {
         }
     }
 
-    public void getData() {
+    public ArrayList<ChucVuDTO> getData() {
+        return listChucVu;
+    }
+
+    public void printData() {
         for(ChucVuDTO chucVu : listChucVu) {
             System.out.println(chucVu.toString()); // in ra terminal
         }

@@ -1,6 +1,7 @@
 package BUS;
 
 import DAO.PhieuGiamGiaDAO;
+import DTO.NhaCungCapDTO;
 import DTO.PhieuGiamGiaDTO;
 
 import java.util.ArrayList;
@@ -17,7 +18,11 @@ public class PhieuGiamGiaBUS {
         }
     }
 
-    public void getData() {
+    public ArrayList<PhieuGiamGiaDTO> getData() {
+        return listPhieuGiamGia;
+    }
+
+    public void printData() {
         for(PhieuGiamGiaDTO phieuGiamGia : listPhieuGiamGia) {
             System.out.println(phieuGiamGia.toString()); // in ra terminal
         }

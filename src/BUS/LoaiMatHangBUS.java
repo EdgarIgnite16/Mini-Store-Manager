@@ -17,7 +17,11 @@ public class LoaiMatHangBUS {
         }
     }
 
-    public void getData() {
+    public ArrayList<LoaiMatHangDTO> getData() {
+        return listLoaiMatHang;
+    }
+
+    public void printData() {
         for(LoaiMatHangDTO loaiMatHang : listLoaiMatHang) {
             System.out.println(loaiMatHang.toString()); // in ra terminal
         }
