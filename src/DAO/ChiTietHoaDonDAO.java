@@ -15,9 +15,9 @@ public class ChiTietHoaDonDAO {
         String sql = "Select * from dbo.CTHD";
         try (
                 Connection conn = new _Connection().getConn();
-                Statement pstm = conn.createStatement();
+                Statement stm = conn.createStatement();
         ) {
-            try (ResultSet rs = pstm.executeQuery(sql)) {
+            try (ResultSet rs = stm.executeQuery(sql)) {
                 ArrayList<ChiTietHoaDonDTO> listChiTietHoaDon = new ArrayList<ChiTietHoaDonDTO>();
                 while (rs.next()) {
                     ChiTietHoaDonDTO chiTietHoaDonDTO = new ChiTietHoaDonDTO();

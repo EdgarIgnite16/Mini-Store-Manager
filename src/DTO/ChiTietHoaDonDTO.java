@@ -1,10 +1,9 @@
 package DTO;
 
-import java.util.Date;
 
 public class ChiTietHoaDonDTO {
-    private String maHD; // primary key
-    private String maMH; // primary key
+    private String maHD; // foreign key
+    private String maMH; // foreign key
     private int soLuong;
 
     public ChiTietHoaDonDTO() {

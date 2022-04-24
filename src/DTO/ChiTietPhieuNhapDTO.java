@@ -1,7 +1,7 @@
 package DTO;
 
 public class ChiTietPhieuNhapDTO {
-    private String maPhieuNhap; // primary key
+    private String maPhieuNhap; // foreign key
     private String maMH; // foreign key
     private int soLuong;
 

@@ -15,9 +15,9 @@ public class CaLamViecDAO {
         String sql = "Select * from dbo.CaLamViec";
         try (
                 Connection conn = new _Connection().getConn();
-                Statement pstm = conn.createStatement();
+                Statement stm = conn.createStatement();
         ) {
-            try (ResultSet rs = pstm.executeQuery(sql)) {
+            try (ResultSet rs = stm.executeQuery(sql)) {
                 ArrayList<CaLamViecDTO> listCaLamViec = new ArrayList<CaLamViecDTO>();
                 while(rs.next()) {
                     CaLamViecDTO caLamViecDTO = new CaLamViecDTO();

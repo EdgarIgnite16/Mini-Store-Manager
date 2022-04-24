@@ -1,12 +1,11 @@
 package DTO;
 
-import java.util.Date;
 
 public class HoaDonDTO {
     private String maHD; // primary key
+    private String maNV; // foreign key
+    private String maKH; // foreign key
     private String maGiamGia; // foreign key
-    private String maNV;
-    private String maKH;
     private float tongHoaDon;
     private int trangThai;
     private String ngayBan;
@@ -16,11 +15,11 @@ public class HoaDonDTO {
     public HoaDonDTO() {
     }
 
-    public HoaDonDTO(String maHD, String maGiamGia, String maNV, String maKH, float tongHoaDon, int trangThai, String ngayBan) {
+    public HoaDonDTO(String maHD, String maNV, String maKH, String maGiamGia, float tongHoaDon, int trangThai, String ngayBan) {
         this.maHD = maHD;
-        this.maGiamGia = maGiamGia;
         this.maNV = maNV;
         this.maKH = maKH;
+        this.maGiamGia = maGiamGia;
         this.tongHoaDon = tongHoaDon;
         this.trangThai = trangThai;
         this.ngayBan = ngayBan;
@@ -32,14 +31,6 @@ public class HoaDonDTO {
 
     public void setMaHD(String maHD) {
         this.maHD = maHD;
-    }
-
-    public String getMaGiamGia() {
-        return maGiamGia;
-    }
-
-    public void setMaGiamGia(String maGiamGia) {
-        this.maGiamGia = maGiamGia;
     }
 
     public String getMaNV() {
@@ -56,6 +47,14 @@ public class HoaDonDTO {
 
     public void setMaKH(String maKH) {
         this.maKH = maKH;
+    }
+
+    public String getMaGiamGia() {
+        return maGiamGia;
+    }
+
+    public void setMaGiamGia(String maGiamGia) {
+        this.maGiamGia = maGiamGia;
     }
 
     public float getTongHoaDon() {
@@ -86,12 +85,12 @@ public class HoaDonDTO {
     public String toString() {
         return "HoaDonDTO{" +
                 "maHD='" + maHD + '\'' +
-                ", maGiamGia='" + maGiamGia + '\'' +
                 ", maNV='" + maNV + '\'' +
                 ", maKH='" + maKH + '\'' +
+                ", maGiamGia='" + maGiamGia + '\'' +
                 ", tongHoaDon=" + tongHoaDon +
                 ", trangThai=" + trangThai +
-                ", ngayBan=" + ngayBan +
+                ", ngayBan='" + ngayBan + '\'' +
                 '}';
     }
 }

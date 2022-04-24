@@ -15,9 +15,9 @@ public class HoaDonDAO {
         String sql = "Select * from dbo.HoaDon";
         try (
                 Connection conn = new _Connection().getConn();
-                Statement pstm = conn.createStatement();
+                Statement stm = conn.createStatement();
         ) {
-            try (ResultSet rs = pstm.executeQuery(sql)) {
+            try (ResultSet rs = stm.executeQuery(sql)) {
                 ArrayList<HoaDonDTO> listHoaDon = new ArrayList<HoaDonDTO>();
                 while (rs.next()) {
                     HoaDonDTO hoaDonDTO = new HoaDonDTO();

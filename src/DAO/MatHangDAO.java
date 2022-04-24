@@ -15,9 +15,9 @@ public class MatHangDAO {
         String sql = "Select * from dbo.MatHang";
         try (
                 Connection conn = new _Connection().getConn();
-                Statement pstm = conn.createStatement();
+                Statement stm = conn.createStatement();
         ) {
-            try (ResultSet rs = pstm.executeQuery(sql)) {
+            try (ResultSet rs = stm.executeQuery(sql)) {
                 ArrayList<MatHangDTO> listMatHang = new ArrayList<MatHangDTO>();
                 while (rs.next()) {
                     MatHangDTO matHangDTO = new MatHangDTO();

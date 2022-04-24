@@ -15,9 +15,9 @@ public class PhieuGiamGiaDAO {
         String sql = "Select * from dbo.PhieuGiamGia";
         try (
                 Connection conn = new _Connection().getConn();
-                Statement pstm = conn.createStatement();
+                Statement stm = conn.createStatement();
         ) {
-            try (ResultSet rs = pstm.executeQuery(sql)) {
+            try (ResultSet rs = stm.executeQuery(sql)) {
                 ArrayList<PhieuGiamGiaDTO> listPhieuGiamGia = new ArrayList<PhieuGiamGiaDTO>();
                 while(rs.next()) {
                     PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaDTO();

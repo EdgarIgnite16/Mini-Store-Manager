@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< Updated upstream
-=======
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/MainFormGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/MainFormGUI.java" afterDir="false" />
->>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/src/DAO/CaLamViecDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CaLamViecDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/ChiTietPhieuNhapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/ChiTietPhieuNhapDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +40,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Workspace/Mini-Store-Manager",
+    "last_opened_file_path": "D:/Workspace/Workspace-of-Course/_Programing Language/Java/Java Swing/SGU/MenuMonAnGUI",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
