@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/BanHangGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/BanHangGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/BanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/BanHangGUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
