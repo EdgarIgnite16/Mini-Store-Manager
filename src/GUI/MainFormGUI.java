@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.net.URI;
 
 public class MainFormGUI extends javax.swing.JFrame {
+    private BanHangGUI banHangGUI;
 
     public MainFormGUI() {
         initComponents();
@@ -438,7 +439,13 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void tBar_BanHangActionPerformed(ActionEvent evt) {
-        // TODO add your handling code here:
+        if(banHangGUI == null) {
+            banHangGUI = new BanHangGUI();
+            String pathBanHang = "resource\\icon\\icons8_bill_16px.png";
+            tPane_Main.addTab("Quản lí bán hàng", new ImageIcon(pathBanHang), banHangGUI, "Quản lí bán hàng");
+        } else {
+            tPane_Main.setSelectedComponent(banHangGUI);
+        }
     }
 
     private void tBar_HoaDonActionPerformed(java.awt.event.ActionEvent evt) {

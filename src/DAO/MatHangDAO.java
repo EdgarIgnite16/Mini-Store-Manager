@@ -32,4 +32,40 @@ public class MatHangDAO {
             }
         }
     }
+
+
+    public ArrayList<MatHangDTO> getDataTest() throws Exception {
+        ArrayList<MatHangDTO> listFood = new ArrayList<>();
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Com chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Com chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Com chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Com chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Com chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Com chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+        listFood.add(new MatHangDTO("MH01", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+
+        return listFood;
+    }
 }
