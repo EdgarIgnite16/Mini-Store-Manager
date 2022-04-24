@@ -52,6 +52,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
+
         plToolBar = new javax.swing.JPanel();
         tBar_Main = new javax.swing.JToolBar();
         tBar_Logout = new javax.swing.JButton();
@@ -208,23 +209,22 @@ public class MainFormGUI extends javax.swing.JFrame {
             }
         });
         tBar_Main.add(tBar_Contact);
-        tBar_Main.setFloatable(false);
 
         javax.swing.GroupLayout plToolBarLayout = new javax.swing.GroupLayout(plToolBar);
         plToolBar.setLayout(plToolBarLayout);
-
         plToolBarLayout.setHorizontalGroup(
                 plToolBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(plToolBarLayout.createSequentialGroup()
-                                .addComponent(tBar_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
+                                .addComponent(tBar_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
                                 .addContainerGap())
         );
         plToolBarLayout.setVerticalGroup(
                 plToolBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(tBar_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                        .addComponent(tBar_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
         );
 
         mnuSystem.setText("Hệ thống");
+
         mnuSystem_Logout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuSystem_Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         mnuSystem_Logout.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_Logout_16px.png")); // NOI18N
@@ -315,7 +315,6 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuHelper_Intro.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         mnuHelper_Intro.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_mention_16px.png")); // NOI18N
         mnuHelper_Intro.setText("Giới thiệu");
-
         mnuHelper_Intro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnuHelper_IntroActionPerformed(evt);
@@ -324,7 +323,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuHelper.add(mnuHelper_Intro);
         mnuHelper.add(mnuHelper_Separator);
 
-        mnuHelper_Contact.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuHelper_Contact.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuHelper_Contact.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         mnuHelper_Contact.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_contact_16px.png")); // NOI18N
         mnuHelper_Contact.setText("Liên hệ");
@@ -344,14 +343,14 @@ public class MainFormGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(plToolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tPane_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
+                        .addComponent(tPane_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 1000, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(plToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(tPane_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tPane_Main, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
