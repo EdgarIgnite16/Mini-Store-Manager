@@ -7,7 +7,6 @@ public class HoaDonDTO {
     private String maKH; // foreign key
     private String maGiamGia; // foreign key
     private float tongHoaDon;
-    private int trangThai;
     private String ngayBan;
 
 //    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -15,13 +14,12 @@ public class HoaDonDTO {
     public HoaDonDTO() {
     }
 
-    public HoaDonDTO(String maHD, String maNV, String maKH, String maGiamGia, float tongHoaDon, int trangThai, String ngayBan) {
+    public HoaDonDTO(String maHD, String maNV, String maKH, String maGiamGia, float tongHoaDon, String ngayBan) {
         this.maHD = maHD;
         this.maNV = maNV;
         this.maKH = maKH;
         this.maGiamGia = maGiamGia;
         this.tongHoaDon = tongHoaDon;
-        this.trangThai = trangThai;
         this.ngayBan = ngayBan;
     }
 
@@ -65,14 +63,6 @@ public class HoaDonDTO {
         this.tongHoaDon = tongHoaDon;
     }
 
-    public int getTrangThai() {
-        return trangThai;
-    }
-
-    public void setTrangThai(int trangThai) {
-        this.trangThai = trangThai;
-    }
-
     public String getNgayBan() {
         return ngayBan;
     }
@@ -89,7 +79,6 @@ public class HoaDonDTO {
                 ", maKH='" + maKH + '\'' +
                 ", maGiamGia='" + maGiamGia + '\'' +
                 ", tongHoaDon=" + tongHoaDon +
-                ", trangThai=" + trangThai +
                 ", ngayBan='" + ngayBan + '\'' +
                 '}';
     }
