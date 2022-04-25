@@ -344,8 +344,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     private void btnHuyHoaDonActionPerformed(java.awt.event.ActionEvent evt) {
         try {
             if(_MessageDialogHelper.showConfirmDialog(parentForm,
-                    "Bạn có chắc là muốn xoá đi hoá đơn đang xử lí này ?", "Xoá hoá đơn đang xử lí")
-                    == JOptionPane.YES_OPTION) {
+                    "Bạn có chắc là muốn xoá đi hoá đơn đang xử lí này ?", "Xoá hoá đơn đang xử lí") == JOptionPane.YES_OPTION) {
                 if(!txtSoLuong.getText().equals("") || !txtTongHoaDon.getText().equals("") || !txtNgayLap.getText().equals("")) {
                     model_table.setRowCount(0); // reset table giỏ hàng
                     listMatHangSelected.clear(); // reset arrayList giỏ hàng
@@ -449,6 +448,7 @@ public class BanHangGUI extends javax.swing.JPanel {
                     item.getTenMH(),
                     item.soLuong_hientai,
                     item.thanhTien_hientai,
+                    "null",
                     "null"
             });
         }
