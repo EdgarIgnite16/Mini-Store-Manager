@@ -34,21 +34,21 @@ public class MatHangBUS {
         return null;
     }
 
-    public static ArrayList<MatHangDTO> fillDataByName(String name) {
+    public static ArrayList<MatHangDTO> fillData(String name, String idLMH) {
         ArrayList<MatHangDTO> listFillData = new ArrayList<>();
         for(MatHangDTO item : listMatHang) {
-            if(item.getTenMH().contains(name)) {
-                listFillData.add(item);
-            }
-        }
-        return listFillData;
-    }
-
-    public static ArrayList<MatHangDTO> fillDataByIdLMH(String idLMH) {
-        ArrayList<MatHangDTO> listFillData = new ArrayList<>();
-        for(MatHangDTO item : listMatHang) {
-            if(item.getMaLMH().contains(idLMH)) {
-                listFillData.add(item);
+            if(idLMH.equals("")) {
+                if(item.getTenMH().contains(name)) {
+                    listFillData.add(item);
+                }
+            } else if(name.equals("")){
+                if(item.getMaLMH().contains(idLMH)) {
+                    listFillData.add(item);
+                }
+            } else {
+                if(item.getTenMH().contains(name) && item.getMaLMH().contains(idLMH)) {
+                    listFillData.add(item);
+                }
             }
         }
         return listFillData;
