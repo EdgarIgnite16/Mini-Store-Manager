@@ -1,7 +1,6 @@
 package BUS;
 
 import DAO.NhaCungCapDAO;
-import DTO.MatHangDTO;
 import DTO.NhaCungCapDTO;
 
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ public class NhaCungCapBUS {
     }
 
     public void printData() {
-        for(NhaCungCapDTO nhaCungCap : listNhaCungCap) {
+        for (NhaCungCapDTO nhaCungCap : listNhaCungCap) {
             System.out.println(nhaCungCap.toString()); // in ra terminal
         }
     }

@@ -1,10 +1,11 @@
 package DAO;
+
 import java.sql.*;
 
 public class _Connection {
-    private String hostname ;
-    private String portNumber ;
-    private String username ;
+    private String hostname;
+    private String portNumber;
+    private String username;
     private String password;
     private String dbName;
 
@@ -40,7 +41,7 @@ public class _Connection {
     }
 
     // hàm khởi tạo kết nối
-    public void setConnection(){
+    public void setConnection() {
         try {
             String connectionURL = String.format(
                     "jdbc:sqlserver://%s:%s;databaseName=%s;encrypt=true;trustServerCertificate=true;",
@@ -56,13 +57,13 @@ public class _Connection {
     // hàm đóng các connection, statement và preparedStatement
     public void closeConnection() {
         try {
-            if(conn != null) {
+            if (conn != null) {
                 conn.close();
             }
-            if(stm != null) {
+            if (stm != null) {
                 stm.close();
             }
-            if(pstm != null) {
+            if (pstm != null) {
                 pstm.close();
             }
             System.out.println("Dong connection thanh cong !");

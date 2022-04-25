@@ -22,7 +22,7 @@ public class CaLamViecBUS {
     }
 
     public void printData() {
-        for(CaLamViecDTO caLam : listCaLamViec) {
+        for (CaLamViecDTO caLam : listCaLamViec) {
             System.out.println(caLam.toString());  // in ra terminal
         }
     }

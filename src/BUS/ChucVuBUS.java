@@ -22,7 +22,7 @@ public class ChucVuBUS {
     }
 
     public void printData() {
-        for(ChucVuDTO chucVu : listChucVu) {
+        for (ChucVuDTO chucVu : listChucVu) {
             System.out.println(chucVu.toString()); // in ra terminal
         }
     }

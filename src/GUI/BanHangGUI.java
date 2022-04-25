@@ -18,6 +18,30 @@ public class BanHangGUI extends javax.swing.JPanel {
     private DefaultTableModel model_table;
     private DefaultComboBoxModel model_combox_PGG;
     private DefaultComboBoxModel model_combox_LQP;
+    // Variables declaration - do not modify
+    private javax.swing.JButton btnDanhSachHoaDon;
+    private javax.swing.JButton btnHuyHoaDon;
+    private javax.swing.JButton btnLaphoaDon;
+    private javax.swing.JComboBox<String> cboxLoaiSanPham;
+    private javax.swing.JComboBox<String> cboxMaGiamGia;
+    private javax.swing.JLabel lbLoaiSanPham;
+    private javax.swing.JLabel lbMaGiamGia;
+    private javax.swing.JLabel lbNVLapHD;
+    private javax.swing.JLabel lbNVLapHD_Res;
+    private javax.swing.JLabel lbNgayLap;
+    private javax.swing.JLabel lbSoLuong;
+    private javax.swing.JLabel lbTenSanPham;
+    private javax.swing.JLabel lbTongHoaDon;
+    private javax.swing.JPanel pnSanPham;
+    private javax.swing.JPanel pnTimKiem;
+    private javax.swing.JPanel pnXulyGiohang;
+    private javax.swing.JScrollPane spGioHang;
+    private javax.swing.JScrollPane spSanPham;
+    private javax.swing.JTable tbGioHang;
+    private javax.swing.JTextField txtTenSanPham;
+    private javax.swing.JTextField txtTongHoaDon;
+    private javax.swing.JTextField txt_NgayLap;
+    private javax.swing.JTextField txt_SoLuong;
 
     /**
      * Creates new form BanHangGUI
@@ -33,10 +57,10 @@ public class BanHangGUI extends javax.swing.JPanel {
     public void initButtonFood() {
         ArrayList<MatHangDTO> listFood = new MatHangBUS().getData();
         int rowItem = listFood.size();
-        int colItem = rowItem/4 + 1;
+        int colItem = rowItem / 4 + 1;
 
         pnSanPham.setLayout(new GridLayout(colItem, rowItem, 5, 5));
-        for(MatHangDTO item : listFood) {
+        for (MatHangDTO item : listFood) {
             JButton jButton = new JButton();
             String titleBtn = String.format(
                     "<html>%s<br>%.1f VNĐ</html>",
@@ -47,13 +71,13 @@ public class BanHangGUI extends javax.swing.JPanel {
             jButton.setFocusable(false);
             jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-            jButton.setFont(new Font("Segoe UI", 0 , 12));
+            jButton.setFont(new Font("Segoe UI", 0, 12));
             pnSanPham.add(jButton);
         }
     }
 
     public void initGioHangTable() {
-        String[] columnNames = new String[] {"maMH", "tenMH", "soLuong", "thanhTien"};
+        String[] columnNames = new String[]{"maMH", "tenMH", "soLuong", "thanhTien"};
         model_table = new DefaultTableModel();
         model_table.setColumnIdentifiers(columnNames);
 
@@ -200,7 +224,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         txtTongHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         cboxMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cboxMaGiamGia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxMaGiamGia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
 
         btnHuyHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnHuyHoaDon.setIcon(new javax.swing.ImageIcon("resource\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
@@ -339,30 +363,5 @@ public class BanHangGUI extends javax.swing.JPanel {
     private void btnDanhSachHoaDonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
-
-    // Variables declaration - do not modify
-    private javax.swing.JButton btnDanhSachHoaDon;
-    private javax.swing.JButton btnHuyHoaDon;
-    private javax.swing.JButton btnLaphoaDon;
-    private javax.swing.JComboBox<String> cboxLoaiSanPham;
-    private javax.swing.JComboBox<String> cboxMaGiamGia;
-    private javax.swing.JLabel lbLoaiSanPham;
-    private javax.swing.JLabel lbMaGiamGia;
-    private javax.swing.JLabel lbNVLapHD;
-    private javax.swing.JLabel lbNVLapHD_Res;
-    private javax.swing.JLabel lbNgayLap;
-    private javax.swing.JLabel lbSoLuong;
-    private javax.swing.JLabel lbTenSanPham;
-    private javax.swing.JLabel lbTongHoaDon;
-    private javax.swing.JPanel pnSanPham;
-    private javax.swing.JPanel pnTimKiem;
-    private javax.swing.JPanel pnXulyGiohang;
-    private javax.swing.JScrollPane spGioHang;
-    private javax.swing.JScrollPane spSanPham;
-    private javax.swing.JTable tbGioHang;
-    private javax.swing.JTextField txtTenSanPham;
-    private javax.swing.JTextField txtTongHoaDon;
-    private javax.swing.JTextField txt_NgayLap;
-    private javax.swing.JTextField txt_SoLuong;
     // End of variables declaration
 }

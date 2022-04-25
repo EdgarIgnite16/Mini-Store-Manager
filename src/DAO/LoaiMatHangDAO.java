@@ -3,7 +3,6 @@ package DAO;
 import DTO.LoaiMatHangDTO;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -15,11 +14,11 @@ public class LoaiMatHangDAO {
         String sql = "Select * from dbo.LoaiMatHang";
         try (
                 Connection conn = new _Connection().getConn();
-                Statement stm = conn.createStatement();
+                Statement stm = conn.createStatement()
         ) {
             try (ResultSet rs = stm.executeQuery(sql)) {
                 ArrayList<LoaiMatHangDTO> listMatHang = new ArrayList<LoaiMatHangDTO>();
-                while(rs.next()) {
+                while (rs.next()) {
                     LoaiMatHangDTO loaiMatHangDTO = new LoaiMatHangDTO();
                     loaiMatHangDTO.setMaLMH(rs.getString("maLMH").trim());
                     loaiMatHangDTO.setTenLMH(rs.getString("tenLMH").trim());

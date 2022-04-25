@@ -9,7 +9,7 @@ public class EntryMain {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             new LoginGUI(new JFrame(), true).setVisible(true);
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }

@@ -3,7 +3,6 @@ package DAO;
 import DTO.NhanVienDTO;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -15,11 +14,11 @@ public class NhanVienDAO {
         String sql = "Select * from dbo.NhanVien";
         try (
                 Connection conn = new _Connection().getConn();
-                Statement stm = conn.createStatement();
+                Statement stm = conn.createStatement()
         ) {
             try (ResultSet rs = stm.executeQuery(sql)) {
                 ArrayList<NhanVienDTO> listNhanVien = new ArrayList<NhanVienDTO>();
-                while(rs.next()) {
+                while (rs.next()) {
                     NhanVienDTO nhanVienDTO = new NhanVienDTO();
                     nhanVienDTO.setMaNV(rs.getString("maNV").trim());
                     nhanVienDTO.setMaCV(rs.getString("maCV").trim());

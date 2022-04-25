@@ -19,6 +19,7 @@ public class LoginGUI extends javax.swing.JDialog {
     private javax.swing.JPanel pnMainForm;
     private javax.swing.JTextField txtAccount;
     private javax.swing.JPasswordField txtPassword;
+
     /**
      * Creates new form LoginDialog
      */
@@ -201,7 +202,7 @@ public class LoginGUI extends javax.swing.JDialog {
     }
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {
-        if(_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn thoát khỏi chương trình không ?",
+        if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn thoát khỏi chương trình không ?",
                 "Xác nhận thoát") == JOptionPane.YES_OPTION) {
             System.exit(0);
         }

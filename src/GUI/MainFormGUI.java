@@ -9,7 +9,37 @@ import java.net.URI;
 
 public class MainFormGUI extends javax.swing.JFrame {
     private BanHangGUI banHangGUI;
-
+    // Variables declaration - do not modify
+    private javax.swing.JMenuBar mnuBar_Main;
+    private javax.swing.JMenu mnuHelper;
+    private javax.swing.JMenuItem mnuHelper_Contact;
+    private javax.swing.JMenuItem mnuHelper_Intro;
+    private javax.swing.JPopupMenu.Separator mnuHelper_Separator;
+    private javax.swing.JMenu mnuManage;
+    private javax.swing.JMenuItem mnuManage_BanHang;
+    private javax.swing.JMenuItem mnuManage_HoaDon;
+    private javax.swing.JMenuItem mnuManage_KhachHang;
+    private javax.swing.JMenuItem mnuManage_MatHang;
+    private javax.swing.JMenuItem mnuManage_NhanVien;
+    private javax.swing.JMenuItem mnuManage_PhieuNhap;
+    private javax.swing.JMenu mnuSystem;
+    private javax.swing.JMenuItem mnuSystem_Exit;
+    private javax.swing.JMenuItem mnuSystem_Logout;
+    private javax.swing.JPopupMenu.Separator mnuSystem_Separator;
+    private javax.swing.JPanel plToolBar;
+    private javax.swing.JButton tBar_BanHang;
+    private javax.swing.JButton tBar_Contact;
+    private javax.swing.JButton tBar_HoaDon;
+    private javax.swing.JButton tBar_Intro;
+    private javax.swing.JButton tBar_KhachHang;
+    private javax.swing.JButton tBar_Logout;
+    private javax.swing.JToolBar tBar_Main;
+    private javax.swing.JButton tBar_MatHang;
+    private javax.swing.JButton tBar_NhanVien;
+    private javax.swing.JButton tBar_PhieuNhap;
+    private javax.swing.JToolBar.Separator tBar_Separator1;
+    private javax.swing.JToolBar.Separator tBar_Separator2;
+    private javax.swing.JTabbedPane tPane_Main;
     public MainFormGUI() {
         initComponents();
     }
@@ -437,7 +467,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void tBar_BanHangActionPerformed(ActionEvent evt) {
-        if(banHangGUI == null) {
+        if (banHangGUI == null) {
             banHangGUI = new BanHangGUI();
             String pathBanHang = "resource\\icon\\icons8_bill_16px.png";
             tPane_Main.addTab("Quản lí bán hàng", new ImageIcon(pathBanHang), banHangGUI, "Quản lí bán hàng");
@@ -464,7 +494,6 @@ public class MainFormGUI extends javax.swing.JFrame {
         phieuGiamGiaBUS.printData();
     }
 
-
     private void tBar_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
@@ -476,39 +505,5 @@ public class MainFormGUI extends javax.swing.JFrame {
     private void tBar_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
-
-
-
-    // Variables declaration - do not modify
-    private javax.swing.JMenuBar mnuBar_Main;
-    private javax.swing.JMenu mnuHelper;
-    private javax.swing.JMenuItem mnuHelper_Contact;
-    private javax.swing.JMenuItem mnuHelper_Intro;
-    private javax.swing.JPopupMenu.Separator mnuHelper_Separator;
-    private javax.swing.JMenu mnuManage;
-    private javax.swing.JMenuItem mnuManage_BanHang;
-    private javax.swing.JMenuItem mnuManage_HoaDon;
-    private javax.swing.JMenuItem mnuManage_KhachHang;
-    private javax.swing.JMenuItem mnuManage_MatHang;
-    private javax.swing.JMenuItem mnuManage_NhanVien;
-    private javax.swing.JMenuItem mnuManage_PhieuNhap;
-    private javax.swing.JMenu mnuSystem;
-    private javax.swing.JMenuItem mnuSystem_Exit;
-    private javax.swing.JMenuItem mnuSystem_Logout;
-    private javax.swing.JPopupMenu.Separator mnuSystem_Separator;
-    private javax.swing.JPanel plToolBar;
-    private javax.swing.JButton tBar_BanHang;
-    private javax.swing.JButton tBar_Contact;
-    private javax.swing.JButton tBar_HoaDon;
-    private javax.swing.JButton tBar_Intro;
-    private javax.swing.JButton tBar_KhachHang;
-    private javax.swing.JButton tBar_Logout;
-    private javax.swing.JToolBar tBar_Main;
-    private javax.swing.JButton tBar_MatHang;
-    private javax.swing.JButton tBar_NhanVien;
-    private javax.swing.JButton tBar_PhieuNhap;
-    private javax.swing.JToolBar.Separator tBar_Separator1;
-    private javax.swing.JToolBar.Separator tBar_Separator2;
-    private javax.swing.JTabbedPane tPane_Main;
     // End of variables declaration
 }

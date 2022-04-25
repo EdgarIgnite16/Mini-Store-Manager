@@ -22,7 +22,7 @@ public class LoaiMatHangBUS {
     }
 
     public void printData() {
-        for(LoaiMatHangDTO loaiMatHang : listLoaiMatHang) {
+        for (LoaiMatHangDTO loaiMatHang : listLoaiMatHang) {
             System.out.println(loaiMatHang.toString()); // in ra terminal
         }
     }

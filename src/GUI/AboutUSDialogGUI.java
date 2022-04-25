@@ -14,6 +14,7 @@ public class AboutUSDialogGUI extends javax.swing.JDialog {
     private javax.swing.JLabel lbAuthor4;
     private javax.swing.JLabel lbAvatar;
     private javax.swing.JLabel lbInformation;
+
     /**
      * Creates new form AboutUSDIalogGUI
      */
