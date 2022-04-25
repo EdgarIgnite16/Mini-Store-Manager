@@ -13,11 +13,15 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 public class BanHangGUI extends javax.swing.JPanel {
     private MainFormGUI parentForm;
@@ -46,8 +50,14 @@ public class BanHangGUI extends javax.swing.JPanel {
     public void initButtonFood() {
         ArrayList<MatHangDTO> listFood = new MatHangBUS().getData();
 
-        int colItem = 4;
-        int rowItem = listFood.size() / colItem;
+        int colItem = 0, rowItem = 0;
+        if(listFood.size() / 4 < 1) {
+            colItem = 4;
+            rowItem = listFood.size() / colItem + 2; // tránh trường hợp row < 1
+        } else {
+            colItem = 4;
+            rowItem = listFood.size() / colItem + 1; // tránh trường hợp row = 1
+        }
 
         pnSanPham.setLayout(new GridLayout(rowItem, colItem, 4, 4));
         for (MatHangDTO item : listFood) {
@@ -165,6 +175,12 @@ public class BanHangGUI extends javax.swing.JPanel {
         });
 
         cboxLoaiSanPham.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        cboxLoaiSanPham.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cboxLoaiSanPhamActionPerformed(e);
+            }
+        });
 
         javax.swing.GroupLayout pnTimKiemLayout = new javax.swing.GroupLayout(pnTimKiem);
         pnTimKiem.setLayout(pnTimKiemLayout);
@@ -369,15 +385,64 @@ public class BanHangGUI extends javax.swing.JPanel {
             String name = txtTenSanPham.getText();
             ArrayList<MatHangDTO> listFillData = MatHangBUS.fillDataByName(name);
 
-            for(MatHangDTO item : listFillData) {
-                System.out.println(item.toString());
+            pnSanPham.removeAll();
+            pnSanPham.revalidate();
+
+            int colItem = 0, rowItem = 0;
+            if(listFillData.size() / 4 < 1) {
+                colItem = 4;
+                rowItem = listFillData.size() / colItem + 2; // tránh trường hợp row < 1
+            } else {
+                colItem = 4;
+                rowItem = listFillData.size() / colItem + 1; // tránh trường hợp row = 1
             }
+
+            pnSanPham.setLayout(new GridLayout(rowItem, colItem, 4, 4));
+            for (MatHangDTO item : listFillData) {
+                JButton jButton = new JButton();
+                String titleBtn = String.format(
+                        "<html> %s <br> %.1f VNĐ </html>",
+                        item.getTenMH(), item.getThanhTien());
+                jButton.setText(titleBtn);
+                jButton.setIcon(new ImageIcon("resource\\icon\\defaultIcon\\icons8_hamburger_64px.png"));
+                jButton.setToolTipText(String.format("%s - %.2f VNĐ ", item.getTenMH(), item.getThanhTien()));
+                jButton.setFocusable(false);
+                jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                jButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+                jButton.setFont(new Font("Segoe UI", 0, 12));
+                jButton.addActionListener(new ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        handleOnClickBtn(evt);
+                    }
+                });
+                pnSanPham.add(jButton);
+            }
+
+            pnSanPham.repaint();
+        } else {
+            pnSanPham.removeAll();
+            pnSanPham.revalidate();
+            initButtonFood();
+            pnSanPham.repaint();
+        }
+    }
+
+    private void cboxLoaiSanPhamActionPerformed(ActionEvent e) {
+        LoaiMatHangDTO loaiMatHangDTO = LoaiMatHangBUS.getItemByName(String.valueOf(cboxLoaiSanPham.getSelectedItem()));
+        if(loaiMatHangDTO != null) {
+            ArrayList<MatHangDTO> listFillData = MatHangBUS.fillDataByIdLMH(loaiMatHangDTO.getMaLMH());
 
             pnSanPham.removeAll();
             pnSanPham.revalidate();
 
-            int colItem = 4;
-            int rowItem = listFillData.size() / colItem;
+            int colItem = 0, rowItem = 0;
+            if(listFillData.size() / 4 < 1) {
+                colItem = 4;
+                rowItem = listFillData.size() / colItem + 2; // tránh trường hợp row < 1
+            } else {
+                colItem = 4;
+                rowItem = listFillData.size() / colItem + 1; // tránh trường hợp row = 1
+            }
 
             pnSanPham.setLayout(new GridLayout(rowItem, colItem, 4, 4));
             for (MatHangDTO item : listFillData) {

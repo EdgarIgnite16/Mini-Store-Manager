@@ -25,10 +25,29 @@ public class MatHangBUS {
         return null;
     }
 
+    public static MatHangDTO getItemByLMH(String idLMH) {
+        for(MatHangDTO item : listMatHang) {
+            if(item.getMaLMH().equals(idLMH)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public static ArrayList<MatHangDTO> fillDataByName(String name) {
         ArrayList<MatHangDTO> listFillData = new ArrayList<>();
         for(MatHangDTO item : listMatHang) {
             if(item.getTenMH().contains(name)) {
+                listFillData.add(item);
+            }
+        }
+        return listFillData;
+    }
+
+    public static ArrayList<MatHangDTO> fillDataByIdLMH(String idLMH) {
+        ArrayList<MatHangDTO> listFillData = new ArrayList<>();
+        for(MatHangDTO item : listMatHang) {
+            if(item.getMaLMH().contains(idLMH)) {
                 listFillData.add(item);
             }
         }
