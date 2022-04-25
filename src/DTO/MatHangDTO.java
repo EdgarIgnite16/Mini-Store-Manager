@@ -7,6 +7,9 @@ public class MatHangDTO {
     private float thanhTien;
     private int soLuong;
 
+    public int soLuong_hientai = 0;
+    public float thanhTien_hientai = 0;
+
     public MatHangDTO() {
     }
 
@@ -66,6 +69,15 @@ public class MatHangDTO {
                 ", tenMH='" + tenMH + '\'' +
                 ", thanhTien='" + thanhTien + '\'' +
                 ", soLuong=" + soLuong +
+                '}';
+    }
+
+    public String toStringGioHang() {
+        return "MatHang{" +
+                "maMH='" + maMH + '\'' +
+                ", tenMH='" + tenMH + '\'' +
+                ", thanhTienHienTai='" + thanhTien_hientai + '\'' +
+                ", soLuongHienTai=" + soLuong_hientai +
                 '}';
     }
 }

@@ -477,7 +477,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     private void tBar_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
-    
+
     // Variables declaration - do not modify
     private javax.swing.JMenuBar mnuBar_Main;
     private javax.swing.JMenu mnuHelper;

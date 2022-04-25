@@ -11,6 +11,8 @@ import DTO.PhieuGiamGiaDTO;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class BanHangGUI extends javax.swing.JPanel {
@@ -18,30 +20,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     private DefaultTableModel model_table;
     private DefaultComboBoxModel model_combox_PGG;
     private DefaultComboBoxModel model_combox_LQP;
-    // Variables declaration - do not modify
-    private javax.swing.JButton btnDanhSachHoaDon;
-    private javax.swing.JButton btnHuyHoaDon;
-    private javax.swing.JButton btnLaphoaDon;
-    private javax.swing.JComboBox<String> cboxLoaiSanPham;
-    private javax.swing.JComboBox<String> cboxMaGiamGia;
-    private javax.swing.JLabel lbLoaiSanPham;
-    private javax.swing.JLabel lbMaGiamGia;
-    private javax.swing.JLabel lbNVLapHD;
-    private javax.swing.JLabel lbNVLapHD_Res;
-    private javax.swing.JLabel lbNgayLap;
-    private javax.swing.JLabel lbSoLuong;
-    private javax.swing.JLabel lbTenSanPham;
-    private javax.swing.JLabel lbTongHoaDon;
-    private javax.swing.JPanel pnSanPham;
-    private javax.swing.JPanel pnTimKiem;
-    private javax.swing.JPanel pnXulyGiohang;
-    private javax.swing.JScrollPane spGioHang;
-    private javax.swing.JScrollPane spSanPham;
-    private javax.swing.JTable tbGioHang;
-    private javax.swing.JTextField txtTenSanPham;
-    private javax.swing.JTextField txtTongHoaDon;
-    private javax.swing.JTextField txt_NgayLap;
-    private javax.swing.JTextField txt_SoLuong;
+    private ArrayList<MatHangDTO> listMatHangSelected;
 
     /**
      * Creates new form BanHangGUI
@@ -63,7 +42,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         for (MatHangDTO item : listFood) {
             JButton jButton = new JButton();
             String titleBtn = String.format(
-                    "<html>%s<br>%.1f VNĐ</html>",
+                    "<html> %s <br> %.1f VNĐ </html>",
                     item.getTenMH(), item.getThanhTien());
             jButton.setText(titleBtn);
             jButton.setIcon(new ImageIcon("resource\\icon\\defaultIcon\\icons8_hamburger_64px.png"));
@@ -72,12 +51,17 @@ public class BanHangGUI extends javax.swing.JPanel {
             jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
             jButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
             jButton.setFont(new Font("Segoe UI", 0, 12));
+            jButton.addActionListener(new ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    handleOnClickBtn(evt);
+                }
+            });
             pnSanPham.add(jButton);
         }
     }
 
     public void initGioHangTable() {
-        String[] columnNames = new String[]{"maMH", "tenMH", "soLuong", "thanhTien"};
+        String[] columnNames = new String[]{"maMH", "tenMH", "soLuong", "thanhTien", "Xoa"};
         model_table = new DefaultTableModel();
         model_table.setColumnIdentifiers(columnNames);
 
@@ -363,5 +347,50 @@ public class BanHangGUI extends javax.swing.JPanel {
     private void btnDanhSachHoaDonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
+
+    private void handleOnClickBtn(java.awt.event.ActionEvent evt) {
+        String actionComand = evt.getActionCommand();
+        String[] slashArr = actionComand.split(" ");
+        String name = "";
+        for (String item : slashArr) {
+            if (item.equals("<html>")) continue;
+            if (item.equals("<br>")) {
+                name = name.trim();
+                break;
+            }
+            name = name.concat(String.format("%s ", item));
+        }
+        MatHangDTO matHangDTO = new MatHangBUS().getItemByName(name);
+        System.out.println(matHangDTO.toString());
+    }
+
+    public void handleArraylistGioHang(MatHangDTO matHangDTO) {
+
+    }
+
+    // Variables declaration - do not modify
+    private javax.swing.JButton btnDanhSachHoaDon;
+    private javax.swing.JButton btnHuyHoaDon;
+    private javax.swing.JButton btnLaphoaDon;
+    private javax.swing.JComboBox<String> cboxLoaiSanPham;
+    private javax.swing.JComboBox<String> cboxMaGiamGia;
+    private javax.swing.JLabel lbLoaiSanPham;
+    private javax.swing.JLabel lbMaGiamGia;
+    private javax.swing.JLabel lbNVLapHD;
+    private javax.swing.JLabel lbNVLapHD_Res;
+    private javax.swing.JLabel lbNgayLap;
+    private javax.swing.JLabel lbSoLuong;
+    private javax.swing.JLabel lbTenSanPham;
+    private javax.swing.JLabel lbTongHoaDon;
+    private javax.swing.JPanel pnSanPham;
+    private javax.swing.JPanel pnTimKiem;
+    private javax.swing.JPanel pnXulyGiohang;
+    private javax.swing.JScrollPane spGioHang;
+    private javax.swing.JScrollPane spSanPham;
+    private javax.swing.JTable tbGioHang;
+    private javax.swing.JTextField txtTenSanPham;
+    private javax.swing.JTextField txtTongHoaDon;
+    private javax.swing.JTextField txt_NgayLap;
+    private javax.swing.JTextField txt_SoLuong;
     // End of variables declaration
 }

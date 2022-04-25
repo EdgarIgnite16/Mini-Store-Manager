@@ -1,6 +1,7 @@
 package BUS;
 
 import DAO.NhaCungCapDAO;
+import DTO.MatHangDTO;
 import DTO.NhaCungCapDTO;
 
 import java.util.ArrayList;
@@ -15,6 +16,15 @@ public class NhaCungCapBUS {
             System.out.printf("Đã sảy ra lỗi: %s\n", ex.getMessage());
             ex.printStackTrace();
         }
+    }
+
+    public NhaCungCapDTO getItemByName(String name) {
+        for(NhaCungCapDTO item : listNhaCungCap) {
+            if(item.getTenNCC().equals(name)) {
+                return item;
+            }
+        }
+        return null;
     }
 
     public ArrayList<NhaCungCapDTO> getData() {

@@ -6,22 +6,31 @@ import DTO.MatHangDTO;
 import java.util.ArrayList;
 
 public class MatHangBUS {
-    private ArrayList<MatHangDTO> listSanPham;
+    private ArrayList<MatHangDTO> listMatHang;
 
     public MatHangBUS() {
         try {
-            listSanPham = new MatHangDAO().getDataTest();
+            listMatHang = new MatHangDAO().getDataTest();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
+    public MatHangDTO getItemByName(String name) {
+        for(MatHangDTO item : listMatHang) {
+            if(item.getTenMH().equals(name)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<MatHangDTO> getData() {
-        return listSanPham;
+        return listMatHang;
     }
 
     public void printData() {
-        for (MatHangDTO item : listSanPham) {
+        for (MatHangDTO item : listMatHang) {
             System.out.println(item.toString());
         }
     }
