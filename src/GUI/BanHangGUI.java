@@ -39,7 +39,7 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     public void initButtonFood() {
         ArrayList<MatHangDTO> listFood = new MatHangBUS().getData();
-        int colItem = 3;
+        int colItem = 4;
         int rowItem = listFood.size() / colItem;
 
         pnSanPham.setLayout(new GridLayout(rowItem, colItem, 5, 5));
