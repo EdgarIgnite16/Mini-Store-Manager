@@ -10,7 +10,7 @@ public class MatHangBUS {
 
     public MatHangBUS() {
         try {
-            listMatHang = new MatHangDAO().getDataTest();
+            listMatHang = new MatHangDAO().getData();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
