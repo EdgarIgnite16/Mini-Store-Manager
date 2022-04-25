@@ -26,10 +26,10 @@ public class BanHangGUI extends javax.swing.JPanel {
     private DefaultComboBoxModel model_combox_PGG;
     private DefaultComboBoxModel model_combox_LQP;
 
-    String ngayBan;
-    float tongtien;
-    int soLuong;
-    ArrayList<PhieuGiamGiaDTO> listPhieuGiamGia;
+    private String ngayBan;
+    private float tongtien;
+    private int soLuong;
+    private ArrayList<PhieuGiamGiaDTO> listPhieuGiamGia;
 
     private ArrayList<MatHangDTO> listMatHangSelected = new ArrayList<>();;
 
@@ -44,20 +44,18 @@ public class BanHangGUI extends javax.swing.JPanel {
         initMaGiamGia();
     }
 
-    public void initButtonFood() {
-        ArrayList<MatHangDTO> listFood = new MatHangBUS().getData();
-
+    private void loadButton(ArrayList<MatHangDTO> listFillData) {
         int colItem = 0, rowItem = 0;
-        if(listFood.size() / 4 < 1) {
+        if(listFillData.size() / 4 < 1) {
             colItem = 4;
-            rowItem = listFood.size() / colItem + 2; // tránh trường hợp row < 1
+            rowItem = listFillData.size() / colItem + 2; // tránh trường hợp row < 1
         } else {
             colItem = 4;
-            rowItem = listFood.size() / colItem + 1; // tránh trường hợp row = 1
+            rowItem = listFillData.size() / colItem + 1; // tránh trường hợp row = 1
         }
 
         pnSanPham.setLayout(new GridLayout(rowItem, colItem, 4, 4));
-        for (MatHangDTO item : listFood) {
+        for (MatHangDTO item : listFillData) {
             JButton jButton = new JButton();
             String titleBtn = String.format(
                     "<html> %s <br> %.1f VNĐ </html>",
@@ -76,6 +74,11 @@ public class BanHangGUI extends javax.swing.JPanel {
             });
             pnSanPham.add(jButton);
         }
+    }
+
+    public void initButtonFood() {
+        ArrayList<MatHangDTO> listSP = new MatHangBUS().getData();
+        loadButton(listSP);
     }
 
     public void initGioHangTable() {
@@ -379,42 +382,10 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     private void txtTenSanPhamDoccumentListener(DocumentEvent e) {
         if(!txtTenSanPham.getText().isEmpty()) {
-            String name = txtTenSanPham.getText();
-            ArrayList<MatHangDTO> listFillData = MatHangBUS.fillDataByName(name);
-
+            ArrayList<MatHangDTO> listFillData = MatHangBUS.fillDataByName(txtTenSanPham.getText());
             pnSanPham.removeAll();
             pnSanPham.revalidate();
-
-            int colItem = 0, rowItem = 0;
-            if(listFillData.size() / 4 < 1) {
-                colItem = 4;
-                rowItem = listFillData.size() / colItem + 2; // tránh trường hợp row < 1
-            } else {
-                colItem = 4;
-                rowItem = listFillData.size() / colItem + 1; // tránh trường hợp row = 1
-            }
-
-            pnSanPham.setLayout(new GridLayout(rowItem, colItem, 4, 4));
-            for (MatHangDTO item : listFillData) {
-                JButton jButton = new JButton();
-                String titleBtn = String.format(
-                        "<html> %s <br> %.1f VNĐ </html>",
-                        item.getTenMH(), item.getThanhTien());
-                jButton.setText(titleBtn);
-                jButton.setIcon(new ImageIcon("resource\\icon\\defaultIcon\\icons8_hamburger_64px.png"));
-                jButton.setToolTipText(String.format("%s - %.2f VNĐ ", item.getTenMH(), item.getThanhTien()));
-                jButton.setFocusable(false);
-                jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                jButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-                jButton.setFont(new Font("Segoe UI", 0, 12));
-                jButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        handleOnClickBtn(evt);
-                    }
-                });
-                pnSanPham.add(jButton);
-            }
-
+            this.loadButton(listFillData);
             pnSanPham.repaint();
         } else {
             pnSanPham.removeAll();
@@ -425,43 +396,13 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     private void cboxLoaiSanPhamActionPerformed(ActionEvent e) {
-        LoaiMatHangDTO loaiMatHangDTO = LoaiMatHangBUS.getItemByName(String.valueOf(cboxLoaiSanPham.getSelectedItem()));
+        LoaiMatHangDTO loaiMatHangDTO = LoaiMatHangBUS.getItemByName
+                (String.valueOf(cboxLoaiSanPham.getSelectedItem()));
         if(loaiMatHangDTO != null) {
             ArrayList<MatHangDTO> listFillData = MatHangBUS.fillDataByIdLMH(loaiMatHangDTO.getMaLMH());
-
             pnSanPham.removeAll();
             pnSanPham.revalidate();
-
-            int colItem = 0, rowItem = 0;
-            if(listFillData.size() / 4 < 1) {
-                colItem = 4;
-                rowItem = listFillData.size() / colItem + 2; // tránh trường hợp row < 1
-            } else {
-                colItem = 4;
-                rowItem = listFillData.size() / colItem + 1; // tránh trường hợp row = 1
-            }
-
-            pnSanPham.setLayout(new GridLayout(rowItem, colItem, 4, 4));
-            for (MatHangDTO item : listFillData) {
-                JButton jButton = new JButton();
-                String titleBtn = String.format(
-                        "<html> %s <br> %.1f VNĐ </html>",
-                        item.getTenMH(), item.getThanhTien());
-                jButton.setText(titleBtn);
-                jButton.setIcon(new ImageIcon("resource\\icon\\defaultIcon\\icons8_hamburger_64px.png"));
-                jButton.setToolTipText(String.format("%s - %.2f VNĐ ", item.getTenMH(), item.getThanhTien()));
-                jButton.setFocusable(false);
-                jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                jButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-                jButton.setFont(new Font("Segoe UI", 0, 12));
-                jButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        handleOnClickBtn(evt);
-                    }
-                });
-                pnSanPham.add(jButton);
-            }
-
+            this.loadButton(listFillData);
             pnSanPham.repaint();
         } else {
             pnSanPham.removeAll();
