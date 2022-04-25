@@ -6,35 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$18.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$19.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/MainFormGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/MainFormGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/MainFormGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/MainFormGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/MainFormGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/CaLamViecBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/CaLamViecBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/ChucVuBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/ChucVuBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/LoaiMatHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/LoaiMatHangBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/NhaCungCapBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/NhaCungCapBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/PhieuGiamGiaBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/PhieuGiamGiaBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/MainFormGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/MainFormGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,17 +33,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Workspace/Mini-Store-Manager/resource/icon",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Workspace/Mini-Store-Manager/resource/icon&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Workspace\Mini-Store-Manager\resource\icon" />
