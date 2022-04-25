@@ -10,15 +10,7 @@ import java.awt.*;
 
 public class LoginGUI extends javax.swing.JDialog {
 
-    // Variables declaration - do not modify
-    private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnLogin;
-    private javax.swing.JLabel lbAccount;
-    private javax.swing.JLabel lbAvatar;
-    private javax.swing.JLabel lbPassword;
-    private javax.swing.JPanel pnMainForm;
-    private javax.swing.JTextField txtAccount;
-    private javax.swing.JPasswordField txtPassword;
+
 
     /**
      * Creates new form LoginDialog
@@ -211,5 +203,15 @@ public class LoginGUI extends javax.swing.JDialog {
     private void txtAccountChangeUpdate(DocumentEvent e) {
         btnLogin.setEnabled(!txtAccount.getText().isEmpty());
     }
+
+    // Variables declaration - do not modify
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel lbAccount;
+    private javax.swing.JLabel lbAvatar;
+    private javax.swing.JLabel lbPassword;
+    private javax.swing.JPanel pnMainForm;
+    private javax.swing.JTextField txtAccount;
+    private javax.swing.JPasswordField txtPassword;
     // End of variables declaration
 }
