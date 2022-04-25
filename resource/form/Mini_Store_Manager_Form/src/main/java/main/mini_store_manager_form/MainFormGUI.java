@@ -205,7 +205,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         plToolBarLayout.setHorizontalGroup(
             plToolBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(plToolBarLayout.createSequentialGroup()
-                .addComponent(tBar_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+                .addComponent(tBar_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 1190, Short.MAX_VALUE)
                 .addContainerGap())
         );
         plToolBarLayout.setVerticalGroup(
@@ -255,7 +255,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuManage_HoaDon.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuManage_HoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_HoaDon.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-paid-bill-16.png")); // NOI18N
+        mnuManage_HoaDon.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_bill_16px_1.png")); // NOI18N
         mnuManage_HoaDon.setText("Quản lý hoá đơn");
         mnuManage_HoaDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

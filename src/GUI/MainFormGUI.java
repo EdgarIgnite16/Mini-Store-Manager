@@ -211,7 +211,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         plToolBarLayout.setHorizontalGroup(
                 plToolBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(plToolBarLayout.createSequentialGroup()
-                                .addComponent(tBar_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+                                .addComponent(tBar_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 1190, Short.MAX_VALUE)
                                 .addContainerGap())
         );
         plToolBarLayout.setVerticalGroup(

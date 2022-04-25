@@ -69,13 +69,13 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Component id="lbTenSanPham" pref="88" max="32767" attributes="0"/>
+                  <Component id="lbTenSanPham" pref="113" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="txtTenSanPham" pref="178" max="32767" attributes="0"/>
+                  <Component id="txtTenSanPham" pref="203" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="lbLoaiSanPham" pref="88" max="32767" attributes="0"/>
+                  <Component id="lbLoaiSanPham" pref="113" max="32767" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="cboxLoaiSanPham" pref="178" max="32767" attributes="0"/>
+                  <Component id="cboxLoaiSanPham" pref="203" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -84,15 +84,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Group type="102" alignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbTenSanPham" alignment="3" max="32767" attributes="0"/>
                               <Component id="txtTenSanPham" alignment="3" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="3" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbLoaiSanPham" alignment="3" max="32767" attributes="0"/>
@@ -218,7 +218,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lbNVLapHD" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="lbNVLapHD_Res" pref="196" max="32767" attributes="0"/>
+                          <Component id="lbNVLapHD_Res" pref="296" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -240,10 +240,10 @@
                           </Group>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txt_NgayLap" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtNgayLap" alignment="0" max="32767" attributes="0"/>
                               <Component id="cboxMaGiamGia" alignment="1" max="32767" attributes="0"/>
                               <Component id="txtTongHoaDon" alignment="1" max="32767" attributes="0"/>
-                              <Component id="txt_SoLuong" alignment="1" max="32767" attributes="0"/>
+                              <Component id="txtSoLuong" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -262,12 +262,12 @@
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbNgayLap" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_NgayLap" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNgayLap" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbSoLuong" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_SoLuong" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtSoLuong" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -340,7 +340,7 @@
             <Property name="text" type="java.lang.String" value="M&#xe3; gi&#x1ea3;m gi&#xe1;:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txt_NgayLap">
+        <Component class="javax.swing.JTextField" name="txtNgayLap">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -348,7 +348,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txt_SoLuong">
+        <Component class="javax.swing.JTextField" name="txtSoLuong">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

@@ -42,8 +42,8 @@ public class BanHangGUI extends javax.swing.JPanel {
         lbSoLuong = new javax.swing.JLabel();
         lbTongHoaDon = new javax.swing.JLabel();
         lbMaGiamGia = new javax.swing.JLabel();
-        txt_NgayLap = new javax.swing.JTextField();
-        txt_SoLuong = new javax.swing.JTextField();
+        txtNgayLap = new javax.swing.JTextField();
+        txtSoLuong = new javax.swing.JTextField();
         txtTongHoaDon = new javax.swing.JTextField();
         cboxMaGiamGia = new javax.swing.JComboBox<>();
         btnHuyHoaDon = new javax.swing.JButton();
@@ -69,20 +69,20 @@ public class BanHangGUI extends javax.swing.JPanel {
             pnTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnTimKiemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lbTenSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                .addComponent(lbTenSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtTenSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                .addComponent(txtTenSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                 .addGap(30, 30, 30)
-                .addComponent(lbLoaiSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                .addComponent(lbLoaiSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cboxLoaiSanPham, 0, 178, Short.MAX_VALUE)
+                .addComponent(cboxLoaiSanPham, 0, 203, Short.MAX_VALUE)
                 .addGap(12, 12, 12))
         );
         pnTimKiemLayout.setVerticalGroup(
             pnTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnTimKiemLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnTimKiemLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(pnTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -136,11 +136,11 @@ public class BanHangGUI extends javax.swing.JPanel {
         lbMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbMaGiamGia.setText("Mã giảm giá:");
 
-        txt_NgayLap.setEditable(false);
-        txt_NgayLap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtNgayLap.setEditable(false);
+        txtNgayLap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
-        txt_SoLuong.setEditable(false);
-        txt_SoLuong.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtSoLuong.setEditable(false);
+        txtSoLuong.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         txtTongHoaDon.setEditable(false);
         txtTongHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -187,7 +187,7 @@ public class BanHangGUI extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnXulyGiohangLayout.createSequentialGroup()
                         .addComponent(lbNVLapHD)
                         .addGap(18, 18, 18)
-                        .addComponent(lbNVLapHD_Res, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
+                        .addComponent(lbNVLapHD_Res, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
                     .addGroup(pnXulyGiohangLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(pnXulyGiohangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -204,10 +204,10 @@ public class BanHangGUI extends javax.swing.JPanel {
                             .addComponent(lbMaGiamGia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(12, 12, 12)
                         .addGroup(pnXulyGiohangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_NgayLap)
+                            .addComponent(txtNgayLap)
                             .addComponent(cboxMaGiamGia, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtTongHoaDon, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_SoLuong, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(txtSoLuong, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         pnXulyGiohangLayout.setVerticalGroup(
@@ -220,11 +220,11 @@ public class BanHangGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnXulyGiohangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNgayLap)
-                    .addComponent(txt_NgayLap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNgayLap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnXulyGiohangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbSoLuong)
-                    .addComponent(txt_SoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnXulyGiohangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTongHoaDon)
@@ -307,9 +307,9 @@ public class BanHangGUI extends javax.swing.JPanel {
     private javax.swing.JScrollPane spGioHang;
     private javax.swing.JScrollPane spSanPham;
     private javax.swing.JTable tbGioHang;
+    private javax.swing.JTextField txtNgayLap;
+    private javax.swing.JTextField txtSoLuong;
     private javax.swing.JTextField txtTenSanPham;
     private javax.swing.JTextField txtTongHoaDon;
-    private javax.swing.JTextField txt_NgayLap;
-    private javax.swing.JTextField txt_SoLuong;
     // End of variables declaration//GEN-END:variables
 }

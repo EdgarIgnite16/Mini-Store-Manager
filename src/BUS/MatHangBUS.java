@@ -25,6 +25,16 @@ public class MatHangBUS {
         return null;
     }
 
+    public static ArrayList<MatHangDTO> fillDataByName(String name) {
+        ArrayList<MatHangDTO> listFillData = new ArrayList<>();
+        for(MatHangDTO item : listMatHang) {
+            if(item.getTenMH().contains(name)) {
+                listFillData.add(item);
+            }
+        }
+        return listFillData;
+    }
+
     public ArrayList<MatHangDTO> getData() {
         return listMatHang;
     }

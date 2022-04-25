@@ -4,12 +4,13 @@ import BUS.LoaiMatHangBUS;
 import BUS.MatHangBUS;
 import BUS.PhieuGiamGiaBUS;
 import BUS._MessageDialogHelper;
-import DTO.HoaDonDTO;
 import DTO.LoaiMatHangDTO;
 import DTO.MatHangDTO;
 import DTO.PhieuGiamGiaDTO;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -23,6 +24,11 @@ public class BanHangGUI extends javax.swing.JPanel {
     private DefaultTableModel model_table;
     private DefaultComboBoxModel model_combox_PGG;
     private DefaultComboBoxModel model_combox_LQP;
+
+    String ngayBan;
+    float tongtien;
+    int soLuong;
+    ArrayList<PhieuGiamGiaDTO> listPhieuGiamGia;
 
     private ArrayList<MatHangDTO> listMatHangSelected = new ArrayList<>();;
 
@@ -39,10 +45,11 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     public void initButtonFood() {
         ArrayList<MatHangDTO> listFood = new MatHangBUS().getData();
+
         int colItem = 4;
         int rowItem = listFood.size() / colItem;
 
-        pnSanPham.setLayout(new GridLayout(rowItem, colItem, 5, 5));
+        pnSanPham.setLayout(new GridLayout(rowItem, colItem, 4, 4));
         for (MatHangDTO item : listFood) {
             JButton jButton = new JButton();
             String titleBtn = String.format(
@@ -65,13 +72,14 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     public void initGioHangTable() {
-        String[] columnNames = new String[]{"Mã", "Tên", "Số lượng", "Thành tiền", "Giảm sp", "Xoá sp"};
+        String[] columnNames = new String[]{"Mã SP", "Tên SP", "Số lượng", "Thành tiền (VNĐ)", "Giảm SP", "Xoá SP"};
         model_table = new DefaultTableModel();
         model_table.setColumnIdentifiers(columnNames);
 
         try {
             tbGioHang.setFont(new Font("Segoe UI", 0, 12));
             tbGioHang.setModel(model_table);
+            tbGioHang.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         } catch (Exception ex) {
             ex.printStackTrace();
             _MessageDialogHelper.showErrorDialog(parentForm, ex.getMessage(), "Error !");
@@ -81,7 +89,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     public void initMaGiamGia() {
         model_combox_PGG = new DefaultComboBoxModel();
         model_combox_PGG.addElement("---");
-        ArrayList<PhieuGiamGiaDTO> listPhieuGiamGia = new PhieuGiamGiaBUS().getData();
+        listPhieuGiamGia = new PhieuGiamGiaBUS().getData();
         listPhieuGiamGia.forEach(item -> {
             model_combox_PGG.addElement(item.getTenGiamGia());
         });
@@ -139,6 +147,22 @@ public class BanHangGUI extends javax.swing.JPanel {
         lbLoaiSanPham.setText("Loại sản phẩm:");
 
         txtTenSanPham.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtTenSanPham.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                txtTenSanPhamDoccumentListener(e);
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                txtTenSanPhamDoccumentListener(e);
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                txtTenSanPhamDoccumentListener(e);
+            }
+        });
 
         cboxLoaiSanPham.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
@@ -148,20 +172,20 @@ public class BanHangGUI extends javax.swing.JPanel {
                 pnTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pnTimKiemLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(lbTenSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                                .addComponent(lbTenSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtTenSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                                .addComponent(txtTenSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
                                 .addGap(30, 30, 30)
-                                .addComponent(lbLoaiSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                                .addComponent(lbLoaiSanPham, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cboxLoaiSanPham, 0, 178, Short.MAX_VALUE)
+                                .addComponent(cboxLoaiSanPham, 0, 203, Short.MAX_VALUE)
                                 .addGap(12, 12, 12))
         );
         pnTimKiemLayout.setVerticalGroup(
                 pnTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(pnTimKiemLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(pnTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(pnTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(pnTimKiemLayout.createSequentialGroup()
                                                 .addGap(3, 3, 3)
                                                 .addGroup(pnTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -177,10 +201,10 @@ public class BanHangGUI extends javax.swing.JPanel {
 
         spSanPham.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh mục sản phẩm", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
 
+        pnSanPham.setLayout(new java.awt.GridLayout(1, 0));
         spSanPham.setViewportView(pnSanPham);
 
         spGioHang.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Giỏ hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
-
         spGioHang.setViewportView(tbGioHang);
 
         pnXulyGiohang.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Xử lý giỏ hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
@@ -213,7 +237,6 @@ public class BanHangGUI extends javax.swing.JPanel {
         txtTongHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         cboxMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cboxMaGiamGia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Item 1", "Item 2", "Item 3", "Item 4"}));
 
         btnHuyHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnHuyHoaDon.setIcon(new javax.swing.ImageIcon("resource\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
@@ -254,7 +277,7 @@ public class BanHangGUI extends javax.swing.JPanel {
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnXulyGiohangLayout.createSequentialGroup()
                                                 .addComponent(lbNVLapHD)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(lbNVLapHD_Res, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
+                                                .addComponent(lbNVLapHD_Res, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE))
                                         .addGroup(pnXulyGiohangLayout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addGroup(pnXulyGiohangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -340,6 +363,51 @@ public class BanHangGUI extends javax.swing.JPanel {
                                 .addContainerGap())
         );
     }// </editor-fold>
+
+    private void txtTenSanPhamDoccumentListener(DocumentEvent e) {
+        if(!txtTenSanPham.getText().isEmpty()) {
+            String name = txtTenSanPham.getText();
+            ArrayList<MatHangDTO> listFillData = MatHangBUS.fillDataByName(name);
+
+            for(MatHangDTO item : listFillData) {
+                System.out.println(item.toString());
+            }
+
+            pnSanPham.removeAll();
+            pnSanPham.revalidate();
+
+            int colItem = 4;
+            int rowItem = listFillData.size() / colItem;
+
+            pnSanPham.setLayout(new GridLayout(rowItem, colItem, 4, 4));
+            for (MatHangDTO item : listFillData) {
+                JButton jButton = new JButton();
+                String titleBtn = String.format(
+                        "<html> %s <br> %.1f VNĐ </html>",
+                        item.getTenMH(), item.getThanhTien());
+                jButton.setText(titleBtn);
+                jButton.setIcon(new ImageIcon("resource\\icon\\defaultIcon\\icons8_hamburger_64px.png"));
+                jButton.setToolTipText(String.format("%s - %.2f VNĐ ", item.getTenMH(), item.getThanhTien()));
+                jButton.setFocusable(false);
+                jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                jButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+                jButton.setFont(new Font("Segoe UI", 0, 12));
+                jButton.addActionListener(new ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        handleOnClickBtn(evt);
+                    }
+                });
+                pnSanPham.add(jButton);
+            }
+
+            pnSanPham.repaint();
+        } else {
+            pnSanPham.removeAll();
+            pnSanPham.revalidate();
+            initButtonFood();
+            pnSanPham.repaint();
+        }
+    }
 
     private void btnHuyHoaDonActionPerformed(java.awt.event.ActionEvent evt) {
         try {
@@ -456,9 +524,9 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     public void loadHoaDon() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        String ngayBan = dateFormat.format(new Date());
-        float tongtien = 0;
-        int soLuong = 0;
+        ngayBan = dateFormat.format(new Date());
+        tongtien = 0;
+        soLuong = 0;
 
         for(MatHangDTO item : listMatHangSelected) {
             tongtien += item.thanhTien_hientai;

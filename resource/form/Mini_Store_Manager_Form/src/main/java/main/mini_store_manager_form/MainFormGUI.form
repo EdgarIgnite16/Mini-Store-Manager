@@ -78,7 +78,7 @@
                   <Font name="Segoe UI" size="13" style="0"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="D:\Workspace\Mini-Store-Manager\resource\icon\icons8-paid-bill-16.png"/>
+                  <Image iconType="2" name="D:\Workspace\Mini-Store-Manager\resource\icon\icons8_bill_16px_1.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; ho&#xe1; &#x111;&#x1a1;n"/>
               </Properties>
@@ -257,7 +257,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="tBar_Main" pref="990" max="32767" attributes="0"/>
+                  <Component id="tBar_Main" pref="1190" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
