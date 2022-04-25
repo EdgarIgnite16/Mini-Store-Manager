@@ -11,7 +11,6 @@ import DTO.PhieuGiamGiaDTO;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
@@ -35,10 +34,10 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     public void initButtonFood() {
         ArrayList<MatHangDTO> listFood = new MatHangBUS().getData();
-        int rowItem = listFood.size();
-        int colItem = rowItem / 4 + 1;
+        int colItem = 4;
+        int rowItem = listFood.size() / colItem;
 
-        pnSanPham.setLayout(new GridLayout(colItem, rowItem, 5, 5));
+        pnSanPham.setLayout(new GridLayout(rowItem, colItem, 5, 5));
         for (MatHangDTO item : listFood) {
             JButton jButton = new JButton();
             String titleBtn = String.format(
@@ -365,7 +364,20 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     public void handleArraylistGioHang(MatHangDTO matHangDTO) {
+        listMatHangSelected.add(matHangDTO);
+    }
 
+    public void loadGioHang() {
+        model_table.setRowCount(0);
+        for(MatHangDTO item : listMatHangSelected) {
+            model_table.addRow(new Object[] {
+                    item.getMaMH(),
+                    item.getTenMH(),
+                    item.soLuong_hientai,
+                    item.thanhTien_hientai,
+                    "null"
+            });
+        }
     }
 
     // Variables declaration - do not modify

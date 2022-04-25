@@ -33,12 +33,12 @@ public class MatHangDAO {
     }
 
 
-    public ArrayList<MatHangDTO> getDataTest() throws Exception {
-        ArrayList<MatHangDTO> listFood = new ArrayList<>();
-        listFood.add(new MatHangDTO("MH01", "FOOD", "Com chien gion", (float) 15999.9, 12));
-        listFood.add(new MatHangDTO("MH02", "FOOD", "Ca chien gion", (float) 15999.9, 12));
-        listFood.add(new MatHangDTO("MH03", "FOOD", "Meo chien gion", (float) 15999.9, 12));
-        listFood.add(new MatHangDTO("MH04", "FOOD", "Mi chien gion", (float) 15999.9, 12));
-        return listFood;
-    }
+//    public ArrayList<MatHangDTO> getDataTest() throws Exception {
+//        ArrayList<MatHangDTO> listFood = new ArrayList<>();
+//        listFood.add(new MatHangDTO("MH01", "FOOD", "Com chien gion", (float) 15999.9, 12));
+//        listFood.add(new MatHangDTO("MH02", "FOOD", "Ca chien gion", (float) 15999.9, 12));
+//        listFood.add(new MatHangDTO("MH03", "FOOD", "Meo chien gion", (float) 15999.9, 12));
+//        listFood.add(new MatHangDTO("MH04", "FOOD", "Mi chien gion", (float) 15999.9, 12));
+//        return listFood;
+//    }
 }
