@@ -15,13 +15,10 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Objects;
 
 public class BanHangGUI extends javax.swing.JPanel {
     private MainFormGUI parentForm;
@@ -535,7 +532,6 @@ public class BanHangGUI extends javax.swing.JPanel {
                     "Mặt hàng bạn chọn không tồn tại", "Mặt hàng không tồn tại");
         }
     }
-
 
     public void handleArraylistGioHang(MatHangDTO matHangDTO) {
         try {

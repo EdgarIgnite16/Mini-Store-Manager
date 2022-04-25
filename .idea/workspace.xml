@@ -5,15 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
