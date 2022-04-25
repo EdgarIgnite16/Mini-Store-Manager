@@ -80,4 +80,29 @@ public class MatHangDTO {
                 ", soLuongHienTai=" + soLuong_hientai +
                 '}';
     }
+
+    // Xử lí các thông số trong giỏ hàng
+    public void increaseSoLuong() {
+        soLuong_hientai = soLuong_hientai + 1;
+    }
+
+    public void increaseThanhTien() {
+        thanhTien_hientai = thanhTien_hientai + getThanhTien();
+    }
+
+    public void decreaseSoLuong() {
+        soLuong_hientai = soLuong_hientai - 1;
+    }
+
+    public void decreaseThanhTien() {
+        thanhTien_hientai = thanhTien_hientai - getThanhTien();
+    }
+
+    public void resetSoLuong() {
+        soLuong_hientai = 0;
+    }
+
+    public void resetThanhTien() {
+        thanhTien_hientai = 0;
+    }
 }

@@ -4,6 +4,7 @@ import BUS.LoaiMatHangBUS;
 import BUS.MatHangBUS;
 import BUS.PhieuGiamGiaBUS;
 import BUS._MessageDialogHelper;
+import DTO.HoaDonDTO;
 import DTO.LoaiMatHangDTO;
 import DTO.MatHangDTO;
 import DTO.PhieuGiamGiaDTO;
@@ -12,14 +13,18 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class BanHangGUI extends javax.swing.JPanel {
     private MainFormGUI parentForm;
     private DefaultTableModel model_table;
     private DefaultComboBoxModel model_combox_PGG;
     private DefaultComboBoxModel model_combox_LQP;
-    private ArrayList<MatHangDTO> listMatHangSelected;
+
+    private ArrayList<MatHangDTO> listMatHangSelected = new ArrayList<>();;
 
     /**
      * Creates new form BanHangGUI
@@ -60,11 +65,12 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     public void initGioHangTable() {
-        String[] columnNames = new String[]{"maMH", "tenMH", "soLuong", "thanhTien", "Xoa"};
+        String[] columnNames = new String[]{"Mã", "Tên", "Số lượng", "Thành tiền", "Giảm sp", "Xoá sp"};
         model_table = new DefaultTableModel();
         model_table.setColumnIdentifiers(columnNames);
 
         try {
+            tbGioHang.setFont(new Font("Segoe UI", 0, 12));
             tbGioHang.setModel(model_table);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -116,8 +122,8 @@ public class BanHangGUI extends javax.swing.JPanel {
         lbSoLuong = new javax.swing.JLabel();
         lbTongHoaDon = new javax.swing.JLabel();
         lbMaGiamGia = new javax.swing.JLabel();
-        txt_NgayLap = new javax.swing.JTextField();
-        txt_SoLuong = new javax.swing.JTextField();
+        txtNgayLap = new javax.swing.JTextField();
+        txtSoLuong = new javax.swing.JTextField();
         txtTongHoaDon = new javax.swing.JTextField();
         cboxMaGiamGia = new javax.swing.JComboBox<>();
         btnHuyHoaDon = new javax.swing.JButton();
@@ -197,11 +203,11 @@ public class BanHangGUI extends javax.swing.JPanel {
         lbMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbMaGiamGia.setText("Mã giảm giá:");
 
-        txt_NgayLap.setEditable(false);
-        txt_NgayLap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtNgayLap.setEditable(false);
+        txtNgayLap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
-        txt_SoLuong.setEditable(false);
-        txt_SoLuong.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtSoLuong.setEditable(false);
+        txtSoLuong.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         txtTongHoaDon.setEditable(false);
         txtTongHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -265,10 +271,10 @@ public class BanHangGUI extends javax.swing.JPanel {
                                                         .addComponent(lbMaGiamGia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addGap(12, 12, 12)
                                                 .addGroup(pnXulyGiohangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(txt_NgayLap)
+                                                        .addComponent(txtNgayLap)
                                                         .addComponent(cboxMaGiamGia, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                         .addComponent(txtTongHoaDon, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(txt_SoLuong, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                                        .addComponent(txtSoLuong, javax.swing.GroupLayout.Alignment.TRAILING))))
                                 .addContainerGap())
         );
         pnXulyGiohangLayout.setVerticalGroup(
@@ -281,11 +287,11 @@ public class BanHangGUI extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pnXulyGiohangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lbNgayLap)
-                                        .addComponent(txt_NgayLap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtNgayLap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pnXulyGiohangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lbSoLuong)
-                                        .addComponent(txt_SoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pnXulyGiohangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lbTongHoaDon)
@@ -336,7 +342,32 @@ public class BanHangGUI extends javax.swing.JPanel {
     }// </editor-fold>
 
     private void btnHuyHoaDonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        try {
+            if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                    "Bạn có chắc là muốn xoá đi hoá đơn đang xử lí này ?", "Xoá hoá đơn đang xử lí")
+                    == JOptionPane.YES_OPTION) {
+                if(!txtSoLuong.getText().equals("") || !txtTongHoaDon.getText().equals("") || !txtNgayLap.getText().equals("")) {
+                    model_table.setRowCount(0); // reset table giỏ hàng
+                    listMatHangSelected.clear(); // reset arrayList giỏ hàng
+                    txtTongHoaDon.setText(""); // reset field hoá đơn
+                    txtSoLuong.setText(""); // reset field số lượng
+                    txtNgayLap.setText(""); // reset field ngày lập
+                    cboxMaGiamGia.setSelectedIndex(0); // set lại combox
+
+                    // reset lại các thông số: Số lượng, Thành tiền của từng mặt hàng đã xét trước đó
+                    for(MatHangDTO item : new MatHangBUS().getData()) {
+                        item.resetSoLuong();
+                        item.resetThanhTien();
+                    }
+                } else {
+                    _MessageDialogHelper.showErrorDialog(parentForm,
+                            "Không có gì để xoá !", "Lỗi quá trình");
+                }
+            }
+        } catch (Exception ex) {
+            String errorLog = String.format("Đã có lỗi sảy ra!\nMã: %s", ex.getMessage());
+            _MessageDialogHelper.showErrorDialog(parentForm, errorLog, "Lỗi khởi tạo hoá đơn");
+        }
     }
 
     private void btnLaphoaDonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,6 +379,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     private void handleOnClickBtn(java.awt.event.ActionEvent evt) {
+        // lấy tên sản phẩm
         String actionComand = evt.getActionCommand();
         String[] slashArr = actionComand.split(" ");
         String name = "";
@@ -359,12 +391,54 @@ public class BanHangGUI extends javax.swing.JPanel {
             }
             name = name.concat(String.format("%s ", item));
         }
-        MatHangDTO matHangDTO = new MatHangBUS().getItemByName(name);
-        System.out.println(matHangDTO.toString());
+
+        // xử lí chính
+        MatHangDTO matHangDTO = MatHangBUS.getItemByName(name); // lấy đối tượng được chọn thông qua tên
+        if(matHangDTO != null) {
+            handleArraylistGioHang(matHangDTO); // xử lý tiến trình thêm sản phẩm vào giỏ hàng
+            loadGioHang(); // load table giỏ hàng
+            loadHoaDon(); // load hoá đơn
+        } else {
+            _MessageDialogHelper.showErrorDialog(parentForm,
+                    "Mặt hàng bạn chọn không tồn tại", "Mặt hàng không tồn tại");
+        }
     }
 
+
     public void handleArraylistGioHang(MatHangDTO matHangDTO) {
-        listMatHangSelected.add(matHangDTO);
+        try {
+            if(checkItemExist(matHangDTO)) { // nếu sản phẩm đã tồn tại trong giỏ hàng
+                int index = getIndexOfItem(matHangDTO); // lấy vị trí của sản phẩm hiện tại trong arrayList
+                matHangDTO.increaseSoLuong(); // tăng số lượng sản phẩm trong giỏ hàng
+                matHangDTO.increaseThanhTien(); // tăng tổng tiền sản phẩm trong giỏ hàng
+                listMatHangSelected.set(index, matHangDTO); // cập nhật lại sản phẩm trong giỏ hàng
+            } else { // nếu sản phẩm chưa tồn tại trong giỏ hàng
+                matHangDTO.increaseSoLuong(); // tăng số lượng sản phẩm trong giỏ hàng
+                matHangDTO.increaseThanhTien(); // tăng tổng tiền sản phẩm trong giỏ hàng
+                listMatHangSelected.add(matHangDTO); // thêm mới sản phẩm vào giỏ hàng
+            }
+        } catch (Exception ex) {
+            String errorLog = String.format("Đã có lỗi sảy ra!\nMã: %s", ex.getMessage());
+            _MessageDialogHelper.showErrorDialog(parentForm, errorLog, "Lỗi nhập hoá đơn !");
+        }
+    }
+
+    public boolean checkItemExist(MatHangDTO matHangDTO) {
+        for(MatHangDTO item : listMatHangSelected) {
+            if(item.getMaMH().equals(matHangDTO.getMaMH())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int getIndexOfItem(MatHangDTO matHangDTO) {
+        for(int i=0;i<listMatHangSelected.size();i++) {
+            if(matHangDTO.getMaMH().equals(listMatHangSelected.get(i).getMaMH())) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     public void loadGioHang() {
@@ -378,6 +452,22 @@ public class BanHangGUI extends javax.swing.JPanel {
                     "null"
             });
         }
+    }
+
+    public void loadHoaDon() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String ngayBan = dateFormat.format(new Date());
+        float tongtien = 0;
+        int soLuong = 0;
+
+        for(MatHangDTO item : listMatHangSelected) {
+            tongtien += item.thanhTien_hientai;
+            soLuong += item.soLuong_hientai;
+        }
+
+        txtTongHoaDon.setText(String.valueOf(String.format("%s VNĐ", tongtien)));
+        txtSoLuong.setText(String.valueOf(soLuong));
+        txtNgayLap.setText(ngayBan);
     }
 
     // Variables declaration - do not modify
@@ -402,7 +492,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     private javax.swing.JTable tbGioHang;
     private javax.swing.JTextField txtTenSanPham;
     private javax.swing.JTextField txtTongHoaDon;
-    private javax.swing.JTextField txt_NgayLap;
-    private javax.swing.JTextField txt_SoLuong;
+    private javax.swing.JTextField txtNgayLap;
+    private javax.swing.JTextField txtSoLuong;
     // End of variables declaration
 }

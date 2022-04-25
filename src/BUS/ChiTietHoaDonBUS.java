@@ -5,6 +5,6 @@ import DTO.MatHangDTO;
 import java.util.ArrayList;
 
 public class ChiTietHoaDonBUS {
-    private ArrayList<MatHangDTO> listMatHang;
+    private static ArrayList<MatHangDTO> listMatHang;
 
 }

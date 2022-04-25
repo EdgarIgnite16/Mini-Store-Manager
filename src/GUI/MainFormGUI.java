@@ -65,6 +65,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Phần mềm quản lí sinh viên v1.2");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tBar_Main.setFloatable(false);
 
         plToolBar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 

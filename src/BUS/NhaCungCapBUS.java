@@ -7,18 +7,18 @@ import DTO.NhaCungCapDTO;
 import java.util.ArrayList;
 
 public class NhaCungCapBUS {
-    private ArrayList<NhaCungCapDTO> listNhaCungCap;
+    private static ArrayList<NhaCungCapDTO> listNhaCungCap;
 
     public NhaCungCapBUS() {
         try {
-            this.listNhaCungCap = new NhaCungCapDAO().getData(); // lấy dữ liệu từ Database thông qua DAO
+            listNhaCungCap = new NhaCungCapDAO().getData(); // lấy dữ liệu từ Database thông qua DAO
         } catch (Exception ex) {
             System.out.printf("Đã sảy ra lỗi: %s\n", ex.getMessage());
             ex.printStackTrace();
         }
     }
 
-    public NhaCungCapDTO getItemByName(String name) {
+    public static NhaCungCapDTO getItemByName(String name) {
         for(NhaCungCapDTO item : listNhaCungCap) {
             if(item.getTenNCC().equals(name)) {
                 return item;

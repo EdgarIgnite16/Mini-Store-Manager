@@ -6,7 +6,7 @@ import DTO.MatHangDTO;
 import java.util.ArrayList;
 
 public class MatHangBUS {
-    private ArrayList<MatHangDTO> listMatHang;
+    private static ArrayList<MatHangDTO> listMatHang;
 
     public MatHangBUS() {
         try {
@@ -16,7 +16,7 @@ public class MatHangBUS {
         }
     }
 
-    public MatHangDTO getItemByName(String name) {
+    public static MatHangDTO getItemByName(String name) {
         for(MatHangDTO item : listMatHang) {
             if(item.getTenMH().equals(name)) {
                 return item;
