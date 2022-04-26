@@ -30,8 +30,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     private float tongtien;
     private int soLuong;
     private ArrayList<PhieuGiamGiaDTO> listPhieuGiamGia;
-
-    private ArrayList<MatHangDTO> listMatHangSelected = new ArrayList<>();;
+    private final ArrayList<MatHangDTO> listMatHangSelected;
 
     /**
      * Creates new form BanHangGUI
@@ -42,6 +41,8 @@ public class BanHangGUI extends javax.swing.JPanel {
         initGioHangTable();
         initLoaiSanPham();
         initMaGiamGia();
+
+        listMatHangSelected = new ArrayList<>();
     }
 
     private void loadButton(ArrayList<MatHangDTO> listFillData) {
@@ -410,8 +411,8 @@ public class BanHangGUI extends javax.swing.JPanel {
 
                     // reset lại các thông số: Số lượng, Thành tiền của từng mặt hàng đã xét trước đó
                     for(MatHangDTO item : new MatHangBUS().getData()) {
-                        item.resetSoLuong();
-                        item.resetThanhTien();
+                        MatHangBUS.resetSoLuong(item);
+                        MatHangBUS.resetThanhTien(item);
                     }
                 } else {
                     _MessageDialogHelper.showErrorDialog(parentForm,
@@ -432,12 +433,14 @@ public class BanHangGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }
 
+    //===================================================================================================//
+    // xử lí nút bấm của mặt hàng
     private void handleOnClickBtn(java.awt.event.ActionEvent evt) {
         // lấy tên sản phẩm
-        String actionComand = evt.getActionCommand();
-        String[] slashArr = actionComand.split(" ");
         String name = "";
-        for (String item : slashArr) {
+        String actionComand = evt.getActionCommand(); // lấy tên của nút bấm được bấm vào
+        String[] hashArr = actionComand.split(" "); // băm name Button ra thành array => Mảng kí tự
+        for (String item : hashArr) {
             if (item.equals("<html>")) continue;
             if (item.equals("<br>")) {
                 name = name.trim();
@@ -458,17 +461,28 @@ public class BanHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // bắt sự kiện xử lí mặt hàng trong giỏ hàng
     public void handleArraylistGioHang(MatHangDTO matHangDTO) {
         try {
             if(checkItemExist(matHangDTO)) { // nếu sản phẩm đã tồn tại trong giỏ hàng
-                int index = getIndexOfItem(matHangDTO); // lấy vị trí của sản phẩm hiện tại trong arrayList
-                matHangDTO.increaseSoLuong(); // tăng số lượng sản phẩm trong giỏ hàng
-                matHangDTO.increaseThanhTien(); // tăng tổng tiền sản phẩm trong giỏ hàng
-                listMatHangSelected.set(index, matHangDTO); // cập nhật lại sản phẩm trong giỏ hàng
+                if(!MatHangBUS.isFull(matHangDTO)) {
+                    int index = getIndexOfItem(matHangDTO); // lấy vị trí của sản phẩm hiện tại trong giỏ hàng
+                    MatHangBUS.increaseSoLuong(matHangDTO); // tăng số lượng sản phẩm trong giỏ hàng
+                    MatHangBUS.increaseThanhTien(matHangDTO); // tăng tổng tiền sản phẩm trong giỏ hàng
+                    listMatHangSelected.set(index, matHangDTO); // cập nhật lại sản phẩm trong giỏ hàng
+//                    MatHangBUS.getDataItem(matHangDTO); // kiểm tra thônng tin qua terminal
+                } else {
+                    _MessageDialogHelper.showErrorDialog(parentForm, "Sản phẩm không còn hàng trong kho !", "Hết hàng");
+                }
             } else { // nếu sản phẩm chưa tồn tại trong giỏ hàng
-                matHangDTO.increaseSoLuong(); // tăng số lượng sản phẩm trong giỏ hàng
-                matHangDTO.increaseThanhTien(); // tăng tổng tiền sản phẩm trong giỏ hàng
-                listMatHangSelected.add(matHangDTO); // thêm mới sản phẩm vào giỏ hàng
+                if(!MatHangBUS.isFull(matHangDTO)) {
+                    MatHangBUS.increaseSoLuong(matHangDTO); // tăng số lượng sản phẩm trong giỏ hàng
+                    MatHangBUS.increaseThanhTien(matHangDTO); // tăng tổng tiền sản phẩm trong giỏ hàng
+                    listMatHangSelected.add(matHangDTO); // thêm mới sản phẩm vào giỏ hàng
+//                    MatHangBUS.getDataItem(matHangDTO); // kiểm tra thônng tin qua terminal
+                } else {
+                    _MessageDialogHelper.showErrorDialog(parentForm, "Sản phẩm không còn hàng trong kho !", "Hết hàng");
+                }
             }
         } catch (Exception ex) {
             String errorLog = String.format("Đã có lỗi sảy ra!\nMã: %s", ex.getMessage());
@@ -476,6 +490,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // kiểm tra hàng có tồn tại trong danh sách hàng đã chọn
     public boolean checkItemExist(MatHangDTO matHangDTO) {
         for(MatHangDTO item : listMatHangSelected) {
             if(item.getMaMH().equals(matHangDTO.getMaMH())) {
@@ -485,6 +500,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         return false;
     }
 
+    // lấy vị trí mặt hàng đã chọn trong danh sách mặt hàng đã chọn
     public int getIndexOfItem(MatHangDTO matHangDTO) {
         for(int i=0;i<listMatHangSelected.size();i++) {
             if(matHangDTO.getMaMH().equals(listMatHangSelected.get(i).getMaMH())) {
@@ -494,6 +510,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         return -1;
     }
 
+    // thực hiện load giỏ hàng
     public void loadGioHang() {
         model_table.setRowCount(0);
         for(MatHangDTO item : listMatHangSelected) {
@@ -508,6 +525,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // thực hiện load hoá đơn
     public void loadHoaDon() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         ngayBan = dateFormat.format(new Date());
@@ -519,6 +537,7 @@ public class BanHangGUI extends javax.swing.JPanel {
             soLuong += item.soLuong_hientai;
         }
 
+        // cập nhật thông tin lên text field
         txtTongHoaDon.setText(String.valueOf(String.format("%s VNĐ", tongtien)));
         txtSoLuong.setText(String.valueOf(soLuong));
         txtNgayLap.setText(ngayBan);
