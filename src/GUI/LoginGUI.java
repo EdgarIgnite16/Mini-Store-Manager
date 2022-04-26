@@ -9,9 +9,6 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 
 public class LoginGUI extends javax.swing.JDialog {
-
-
-
     /**
      * Creates new form LoginDialog
      */

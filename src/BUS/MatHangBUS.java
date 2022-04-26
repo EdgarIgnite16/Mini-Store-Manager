@@ -17,6 +17,16 @@ public class MatHangBUS {
     }
 
     // lọc dữ liệu thông qua tên mặt hàng
+    public static MatHangDTO getItemByID(String id) {
+        for(MatHangDTO item : listMatHang) {
+            if(item.getMaMH().equals(id)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    // lọc dữ liệu thông qua tên mặt hàng
     public static MatHangDTO getItemByName(String name) {
         for(MatHangDTO item : listMatHang) {
             if(item.getTenMH().equals(name)) {
