@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/AboutUSDIalogGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/AboutUSDIalogGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/AboutUSDIalogGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/AboutUSDIalogGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/BanHangGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/BanHangGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/BanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/BanHangGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/DialogXoaGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/DialogXoaGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/DialogXoaGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/DialogXoaGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/LoginGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/LoginGUI.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/LoginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/LoginGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/AboutUSDialogGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/AboutUSDialogGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,11 +31,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Workspace\Mini-Store-Manager\resource\icon" />
