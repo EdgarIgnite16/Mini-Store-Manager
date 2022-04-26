@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class LoginGUI extends javax.swing.JDialog {
     /**
@@ -75,6 +76,7 @@ public class LoginGUI extends javax.swing.JDialog {
         btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnLogin.setText("Đăng nhập");
         btnLogin.setEnabled(false);
+        btnLogin.setFocusable(false);
         btnLogin.setIcon(new javax.swing.ImageIcon("resource\\icon\\Login-icon-16.png"));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +86,7 @@ public class LoginGUI extends javax.swing.JDialog {
 
         btnExit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnExit.setText("Thoát");
+        btnExit.setFocusable(false);
         btnExit.setPreferredSize(new java.awt.Dimension(100, 26));
         btnExit.setIcon(new javax.swing.ImageIcon("resource\\icon\\Actions-edit-delete-icon-16.png"));
         btnExit.addActionListener(new java.awt.event.ActionListener() {

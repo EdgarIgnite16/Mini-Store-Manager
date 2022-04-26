@@ -125,6 +125,7 @@
           <Image iconType="2" name="D:\Workspace\Mini-Store-Manager\resource\icon\Actions-edit-delete-icon-16.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&#x110;&#xf3;ng"/>
+        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCloseActionPerformed"/>

@@ -1,5 +1,7 @@
 package GUI;
 
+import java.awt.event.KeyEvent;
+
 public class AboutUSDialogGUI extends javax.swing.JDialog {
     /**
      * Creates new form AboutUSDIalogGUI
@@ -46,6 +48,7 @@ public class AboutUSDialogGUI extends javax.swing.JDialog {
         btnClose.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnClose.setIcon(new javax.swing.ImageIcon("resource\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
         btnClose.setText("Đóng");
+        btnClose.setFocusable(false);
         btnClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCloseActionPerformed(evt);

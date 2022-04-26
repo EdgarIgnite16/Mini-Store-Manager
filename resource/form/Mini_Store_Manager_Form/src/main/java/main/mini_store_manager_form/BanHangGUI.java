@@ -70,6 +70,7 @@ public class BanHangGUI extends javax.swing.JPanel {
 
         btnLamMoi.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnLamMoi.setText("Làm mới");
+        btnLamMoi.setFocusable(false);
         btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLamMoiActionPerformed(evt);
@@ -78,6 +79,7 @@ public class BanHangGUI extends javax.swing.JPanel {
 
         btnTimKiem.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnTimKiem.setText("Tìm kiếm");
+        btnTimKiem.setFocusable(false);
         btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTimKiemActionPerformed(evt);
@@ -141,6 +143,7 @@ public class BanHangGUI extends javax.swing.JPanel {
 
         btnXoaMH.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnXoaMH.setText("Xoá mặt hàng");
+        btnXoaMH.setFocusable(false);
         btnXoaMH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXoaMHActionPerformed(evt);
@@ -149,6 +152,7 @@ public class BanHangGUI extends javax.swing.JPanel {
 
         btnGiamMH.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnGiamMH.setText("Giảm số lượng");
+        btnGiamMH.setFocusable(false);
         btnGiamMH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGiamMHActionPerformed(evt);
@@ -213,6 +217,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         btnHuyHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnHuyHoaDon.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
         btnHuyHoaDon.setText("Huỷ hoá đơn");
+        btnHuyHoaDon.setFocusable(false);
         btnHuyHoaDon.setPreferredSize(new java.awt.Dimension(130, 24));
         btnHuyHoaDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,6 +228,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         btnLaphoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnLaphoaDon.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-paid-bill-16 (1).png")); // NOI18N
         btnLaphoaDon.setText("Lập hoá đơn");
+        btnLaphoaDon.setFocusable(false);
         btnLaphoaDon.setPreferredSize(new java.awt.Dimension(130, 24));
         btnLaphoaDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,6 +239,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         btnDanhSachHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnDanhSachHoaDon.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_bill_16px_1.png")); // NOI18N
         btnDanhSachHoaDon.setText("Danh sách hoá đơn");
+        btnDanhSachHoaDon.setFocusable(false);
         btnDanhSachHoaDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDanhSachHoaDonActionPerformed(evt);

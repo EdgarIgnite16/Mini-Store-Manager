@@ -44,6 +44,7 @@ public class DialogXoaGUI extends javax.swing.JDialog {
 
         btnXacNhan.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnXacNhan.setText("Xác nhận");
+        btnXacNhan.setFocusable(false);
         btnXacNhan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXacNhanActionPerformed(evt);
