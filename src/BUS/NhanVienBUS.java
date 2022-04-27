@@ -6,7 +6,7 @@ import DTO.NhanVienDTO;
 import java.util.ArrayList;
 
 public class NhanVienBUS {
-    private static ArrayList<NhanVienDTO> listNhanVien;
+    private ArrayList<NhanVienDTO> listNhanVien;
 
     public NhanVienBUS() {
         try {
@@ -17,7 +17,7 @@ public class NhanVienBUS {
         }
     }
 
-    public static NhanVienDTO getItemByName(String name) {
+    public NhanVienDTO getItemByName(String name) {
         for (NhanVienDTO item : listNhanVien) {
             if (item.getTenNV().equals(name)) {
                 return item;

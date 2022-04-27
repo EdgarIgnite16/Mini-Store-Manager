@@ -26,8 +26,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     private String ngayBan;
     private float tongtien;
     private int soLuong;
-    private ArrayList<PhieuGiamGiaDTO> listPhieuGiamGia;
-    private ArrayList<MatHangDTO> listMatHangSelected;
+    private final ArrayList<MatHangDTO> listMatHangSelected;
 
     /**
      * Creates new form BanHangGUI
@@ -118,7 +117,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     public void initMaGiamGia() {
         model_combox_PGG = new DefaultComboBoxModel();
         model_combox_PGG.addElement("---");
-        listPhieuGiamGia = new PhieuGiamGiaBUS().getData();
+        ArrayList<PhieuGiamGiaDTO> listPhieuGiamGia = new PhieuGiamGiaBUS().getData();
         for (PhieuGiamGiaDTO item : listPhieuGiamGia) {
             if (item.getMaGiamGia().equals("NOTSHOCK")) {
                 continue;
@@ -471,10 +470,10 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {
-        LoaiMatHangDTO loaiMatHangDTO = LoaiMatHangBUS.getItemByName(String.valueOf(cboxLoaiMatHang.getSelectedItem()));
+        LoaiMatHangDTO loaiMatHangDTO = new LoaiMatHangBUS().getItemByName(String.valueOf(cboxLoaiMatHang.getSelectedItem()));
         String nameMH = txtTenMatHang.getText();
         String maLMH = loaiMatHangDTO != null ? loaiMatHangDTO.getMaLMH() : "";
-        ArrayList<MatHangDTO> listFillData = MatHangBUS.fillData(nameMH, maLMH);
+        ArrayList<MatHangDTO> listFillData = new MatHangBUS().fillData(nameMH, maLMH);
 
         pnMatHang.removeAll();
         pnMatHang.revalidate();
@@ -558,7 +557,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     private void cboxMaGiamGiaActionListener(ActionEvent e) {
         tongtien = _SaveData.tongTien; // lấy giá trị tổng hoá đơn trong local
         String name = String.valueOf(cboxMaGiamGia.getSelectedItem());
-        PhieuGiamGiaDTO phieuGiamGiaDTO = PhieuGiamGiaBUS.getItemByName(name);
+        PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaBUS().getItemByName(name);
         if (phieuGiamGiaDTO != null) {
             float tileGiam = (float) phieuGiamGiaDTO.getTiLeGiam();
             handle_Hd_PGG(tongtien, tileGiam);
@@ -584,7 +583,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         }
 
         // xử lí chính
-        MatHangDTO matHangDTO = MatHangBUS.getItemByName(name); // lấy đối tượng được chọn thông qua tên
+        MatHangDTO matHangDTO = new MatHangBUS().getItemByName(name); // lấy đối tượng được chọn thông qua tên
         if (matHangDTO != null) {
             handleArraylistGioHang(matHangDTO); // xử lý tiến trình thêm sản phẩm vào giỏ hàng
             loadGioHang(); // load table giỏ hàng
@@ -678,7 +677,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         txtNgayLap.setText(ngayBan);
 
         String name = String.valueOf(cboxMaGiamGia.getSelectedItem());
-        PhieuGiamGiaDTO phieuGiamGiaDTO = PhieuGiamGiaBUS.getItemByName(name);
+        PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaBUS().getItemByName(name);
         if (phieuGiamGiaDTO != null) {
             // cập nhật phiếu giảm giá áp dụng khi bấm nút
             handle_Hd_PGG(tongtien, (float) phieuGiamGiaDTO.getTiLeGiam());
@@ -690,7 +689,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         try {
             int selectedRow = tbGioHang.getSelectedRow();
             String idMH = String.valueOf(tbGioHang.getValueAt(selectedRow, 0));
-            return MatHangBUS.getItemByID(idMH);
+            return new MatHangBUS().getItemByID(idMH);
         } catch (Exception ex) {
             _MessageDialogHelper.showErrorDialog(parentForm,
                     "Vui lòng chọn một dòng trong bảng dữ liệu!", "Yêu cầu chọn dữ liệu");

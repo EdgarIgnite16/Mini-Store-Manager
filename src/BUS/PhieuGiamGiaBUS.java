@@ -6,7 +6,7 @@ import DTO.PhieuGiamGiaDTO;
 import java.util.ArrayList;
 
 public class PhieuGiamGiaBUS {
-    private static ArrayList<PhieuGiamGiaDTO> listPhieuGiamGia;
+    private ArrayList<PhieuGiamGiaDTO> listPhieuGiamGia;
 
     public PhieuGiamGiaBUS() {
         try {
@@ -17,7 +17,7 @@ public class PhieuGiamGiaBUS {
         }
     }
 
-    public static PhieuGiamGiaDTO getItemByName(String name) {
+    public PhieuGiamGiaDTO getItemByName(String name) {
         for (PhieuGiamGiaDTO item : listPhieuGiamGia) {
             if (item.getTenGiamGia().equals(name)) {
                 return item;

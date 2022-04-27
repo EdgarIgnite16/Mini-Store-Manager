@@ -6,7 +6,7 @@ import DTO.CaLamViecDTO;
 import java.util.ArrayList;
 
 public class CaLamViecBUS {
-    private static ArrayList<CaLamViecDTO> listCaLamViec;
+    private ArrayList<CaLamViecDTO> listCaLamViec;
 
     public CaLamViecBUS() {
         try {
@@ -17,7 +17,7 @@ public class CaLamViecBUS {
         }
     }
 
-    public static CaLamViecDTO getItemByName(String name) {
+    public CaLamViecDTO getItemByName(String name) {
         for (CaLamViecDTO item : listCaLamViec) {
             if (item.getTenCa().equals(name)) {
                 return item;

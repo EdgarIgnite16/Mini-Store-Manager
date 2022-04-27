@@ -6,7 +6,7 @@ import DTO.NhaCungCapDTO;
 import java.util.ArrayList;
 
 public class NhaCungCapBUS {
-    private static ArrayList<NhaCungCapDTO> listNhaCungCap;
+    private ArrayList<NhaCungCapDTO> listNhaCungCap;
 
     public NhaCungCapBUS() {
         try {
@@ -17,7 +17,7 @@ public class NhaCungCapBUS {
         }
     }
 
-    public static NhaCungCapDTO getItemByName(String name) {
+    public NhaCungCapDTO getItemByName(String name) {
         for (NhaCungCapDTO item : listNhaCungCap) {
             if (item.getTenNCC().equals(name)) {
                 return item;

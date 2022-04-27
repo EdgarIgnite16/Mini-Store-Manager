@@ -6,7 +6,7 @@ import DTO.ChucVuDTO;
 import java.util.ArrayList;
 
 public class ChucVuBUS {
-    private static ArrayList<ChucVuDTO> listChucVu;
+    private ArrayList<ChucVuDTO> listChucVu;
 
     public ChucVuBUS() {
         try {
@@ -17,7 +17,7 @@ public class ChucVuBUS {
         }
     }
 
-    public static ChucVuDTO getItemByName(String name) {
+    public ChucVuDTO getItemByName(String name) {
         for (ChucVuDTO item : listChucVu) {
             if (item.getTenCV().equals(name)) {
                 return item;

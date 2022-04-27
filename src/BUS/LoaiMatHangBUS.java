@@ -6,7 +6,7 @@ import DTO.LoaiMatHangDTO;
 import java.util.ArrayList;
 
 public class LoaiMatHangBUS {
-    private static ArrayList<LoaiMatHangDTO> listLoaiMatHang;
+    private ArrayList<LoaiMatHangDTO> listLoaiMatHang;
 
     public LoaiMatHangBUS() {
         try {
@@ -17,7 +17,7 @@ public class LoaiMatHangBUS {
         }
     }
 
-    public static LoaiMatHangDTO getItemByName(String name) {
+    public LoaiMatHangDTO getItemByName(String name) {
         for (LoaiMatHangDTO item : listLoaiMatHang) {
             if (item.getTenLMH().equals(name)) {
                 return item;

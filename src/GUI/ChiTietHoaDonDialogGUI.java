@@ -58,7 +58,7 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
     public void initThongtin() {
         txtMaHoaDon.setText(_SaveData.maHD);
         txtTenNhanVien.setText(_SaveData.tenNV);
-        txtTongHoaDon.setText(String.valueOf( _SaveData.tongTien));
+        txtTongHoaDon.setText(String.format("%f %s", _SaveData.tongTien, "VNĐ"));
         txtNgayBan.setText(_SaveData.ngayBan);
     }
 
@@ -249,15 +249,15 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
         // TODO add your handling code here:
     }
 
-    private void cbTenKhachHangActionListener(ActionEvent e) {
+    private KhachHangDTO cbTenKhachHangActionListener(ActionEvent e) {
         String rawItem = (String) cbTenKhachHang.getSelectedItem();
         if(rawItem.equals("---")) { // trường hợp là khách vãng lại
             KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById("---");
-            System.out.println(khachHangDTO.toString());
+            return khachHangDTO;
         } else { // trường hợp là khách hàng real
             String[] Arr = rawItem.split("-");
             KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(Arr[0]);
-            System.out.println(khachHangDTO.toString());
+            return khachHangDTO;
         }
     }
 
