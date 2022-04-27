@@ -10,7 +10,6 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.awt.event.KeyEvent;
 
 public class LoginGUI extends javax.swing.JDialog {
     /**
@@ -168,8 +167,8 @@ public class LoginGUI extends javax.swing.JDialog {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {
         StringBuilder sb = new StringBuilder();
-        _DataValidator.validateEmpty(txtAccount, sb, "Vui lòng nhập tên tài khoản !");
-        _DataValidator.validateEmpty(txtPassword, sb, "Vui lòng nhập mật khẩu !");
+        _DataValidator.validateEmpty(txtAccount, sb, "Vui lòng nhập tên tài khoản!");
+        _DataValidator.validateEmpty(txtPassword, sb, "Vui lòng nhập mật khẩu!");
 
         if (sb.length() > 0) {
             _MessageDialogHelper.showErrorDialog(this, String.valueOf(sb), "Error Login");
@@ -188,7 +187,7 @@ public class LoginGUI extends javax.swing.JDialog {
                         ex.printStackTrace();
                     }
                 } else {
-                    _MessageDialogHelper.showErrorDialog(this, "Tài khoản hoặc mật khẩu không chính xác !",
+                    _MessageDialogHelper.showErrorDialog(this, "Tài khoản hoặc mật khẩu không chính xác!",
                             "Error Login");
                 }
             } catch (Exception ex) {
@@ -199,7 +198,7 @@ public class LoginGUI extends javax.swing.JDialog {
     }
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {
-        if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn thoát khỏi chương trình không ?",
+        if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn thoát khỏi chương trình không?",
                 "Xác nhận thoát") == JOptionPane.YES_OPTION) {
             System.exit(0);
         }

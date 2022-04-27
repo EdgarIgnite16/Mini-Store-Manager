@@ -12,14 +12,14 @@ public class NhanVienBUS {
         try {
             listNhanVien = new NhanVienDAO().getData(); // lấy dữ liệu từ Database thông qua DAO
         } catch (Exception ex) {
-            System.out.printf("Đã sảy ra lỗi: %s\n", ex.getMessage());
+            System.out.printf("Đã xảy ra lỗi: %s\n", ex.getMessage());
             ex.printStackTrace();
         }
     }
 
     public static NhanVienDTO getItemByName(String name) {
-        for(NhanVienDTO item : listNhanVien) {
-            if(item.getTenNV().equals(name)) {
+        for (NhanVienDTO item : listNhanVien) {
+            if (item.getTenNV().equals(name)) {
                 return item;
             }
         }
@@ -37,8 +37,8 @@ public class NhanVienBUS {
     }
 
     public NhanVienDTO getNhanVienLogin(String username, String password) {
-        for(NhanVienDTO user : listNhanVien) {
-            if(user.getMaNV().equals(username) && password.equals("12345")) {
+        for (NhanVienDTO user : listNhanVien) {
+            if (user.getMaNV().equals(username) && password.equals("12345")) {
                 return user;
             }
         }

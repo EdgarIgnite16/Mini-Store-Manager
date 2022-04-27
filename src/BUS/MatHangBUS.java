@@ -18,8 +18,8 @@ public class MatHangBUS {
 
     // lọc dữ liệu thông qua tên mặt hàng
     public static MatHangDTO getItemByID(String id) {
-        for(MatHangDTO item : listMatHang) {
-            if(item.getMaMH().equals(id)) {
+        for (MatHangDTO item : listMatHang) {
+            if (item.getMaMH().equals(id)) {
                 return item;
             }
         }
@@ -28,8 +28,8 @@ public class MatHangBUS {
 
     // lọc dữ liệu thông qua tên mặt hàng
     public static MatHangDTO getItemByName(String name) {
-        for(MatHangDTO item : listMatHang) {
-            if(item.getTenMH().equals(name)) {
+        for (MatHangDTO item : listMatHang) {
+            if (item.getTenMH().equals(name)) {
                 return item;
             }
         }
@@ -38,8 +38,8 @@ public class MatHangBUS {
 
     // lọc dữ liệu thông qua mã loại mặt hàng
     public static MatHangDTO getItemByLMH(String idLMH) {
-        for(MatHangDTO item : listMatHang) {
-            if(item.getMaLMH().equals(idLMH)) {
+        for (MatHangDTO item : listMatHang) {
+            if (item.getMaLMH().equals(idLMH)) {
                 return item;
             }
         }
@@ -49,17 +49,17 @@ public class MatHangBUS {
     // lọc dữ liệu
     public static ArrayList<MatHangDTO> fillData(String name, String idLMH) {
         ArrayList<MatHangDTO> listFillData = new ArrayList<>();
-        for(MatHangDTO item : listMatHang) {
-            if(idLMH.equals("")) {
-                if(item.getTenMH().contains(name)) {
+        for (MatHangDTO item : listMatHang) {
+            if (idLMH.equals("")) {
+                if (item.getTenMH().contains(name)) {
                     listFillData.add(item);
                 }
-            } else if(name.equals("")){
-                if(item.getMaLMH().contains(idLMH)) {
+            } else if (name.equals("")) {
+                if (item.getMaLMH().contains(idLMH)) {
                     listFillData.add(item);
                 }
             } else {
-                if(item.getTenMH().contains(name) && item.getMaLMH().contains(idLMH)) {
+                if (item.getTenMH().contains(name) && item.getMaLMH().contains(idLMH)) {
                     listFillData.add(item);
                 }
             }

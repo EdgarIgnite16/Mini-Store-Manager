@@ -2,7 +2,6 @@ package BUS;
 
 import DAO.ChucVuDAO;
 import DTO.ChucVuDTO;
-import DTO.LoaiMatHangDTO;
 
 import java.util.ArrayList;
 
@@ -13,14 +12,14 @@ public class ChucVuBUS {
         try {
             listChucVu = new ChucVuDAO().getData(); // lấy dữ liệu từ Database thông qua DAO
         } catch (Exception ex) {
-            System.out.printf("Đã sảy ra lỗi: %s\n", ex.getMessage());
+            System.out.printf("Đã xảy ra lỗi: %s\n", ex.getMessage());
             ex.printStackTrace();
         }
     }
 
     public static ChucVuDTO getItemByName(String name) {
-        for(ChucVuDTO item : listChucVu) {
-            if(item.getTenCV().equals(name)) {
+        for (ChucVuDTO item : listChucVu) {
+            if (item.getTenCV().equals(name)) {
                 return item;
             }
         }

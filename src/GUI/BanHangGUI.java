@@ -38,12 +38,12 @@ public class BanHangGUI extends javax.swing.JPanel {
         initGioHangTable();
         initLoaiSanPham();
         initMaGiamGia();
-        listMatHangSelected =  new ArrayList<>();
+        listMatHangSelected = new ArrayList<>();
     }
 
     private void loadButton(ArrayList<MatHangDTO> listFillData) {
         int colItem = 0, rowItem = 0;
-        if(listFillData.size() / 4 < 1) {
+        if (listFillData.size() / 4 < 1) {
             colItem = 4;
             rowItem = listFillData.size() / colItem + 2; // tránh trường hợp row < 1
         } else {
@@ -89,7 +89,8 @@ public class BanHangGUI extends javax.swing.JPanel {
             tbGioHang.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
             tbGioHang.addMouseListener(new MouseListener() {
                 @Override
-                public void mouseClicked(MouseEvent e) {}
+                public void mouseClicked(MouseEvent e) {
+                }
 
                 @Override
                 public void mousePressed(MouseEvent e) {
@@ -97,17 +98,20 @@ public class BanHangGUI extends javax.swing.JPanel {
                 }
 
                 @Override
-                public void mouseEntered(MouseEvent e) {}
+                public void mouseEntered(MouseEvent e) {
+                }
 
                 @Override
-                public void mouseExited(MouseEvent e) {}
+                public void mouseExited(MouseEvent e) {
+                }
 
                 @Override
-                public void mouseReleased(MouseEvent e) {}
+                public void mouseReleased(MouseEvent e) {
+                }
             });
         } catch (Exception ex) {
             ex.printStackTrace();
-            _MessageDialogHelper.showErrorDialog(parentForm, ex.getMessage(), "Error !");
+            _MessageDialogHelper.showErrorDialog(parentForm, ex.getMessage(), "Error!");
         }
     }
 
@@ -115,8 +119,8 @@ public class BanHangGUI extends javax.swing.JPanel {
         model_combox_PGG = new DefaultComboBoxModel();
         model_combox_PGG.addElement("---");
         listPhieuGiamGia = new PhieuGiamGiaBUS().getData();
-        for(PhieuGiamGiaDTO item : listPhieuGiamGia) {
-            if(item.getMaGiamGia().equals("NOTSHOCK")) {
+        for (PhieuGiamGiaDTO item : listPhieuGiamGia) {
+            if (item.getMaGiamGia().equals("NOTSHOCK")) {
                 continue;
             } else {
                 model_combox_PGG.addElement(item.getTenGiamGia());
@@ -181,7 +185,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         pnTimKiem.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Quản lí danh mục mặt hàng ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
 
         lbTenMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbTenMatHang.setText("Tên mặt hàng: ");
+        lbTenMatHang.setText("Tên mặt hàng:");
 
         lbLoaiMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbLoaiMatHang.setText("Loại mặt hàng:");
@@ -295,7 +299,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         pnXulyGiohang.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Xử lý giỏ hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
 
         lbNVLapHD.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbNVLapHD.setText("Nhân viên lập hoá đơn: ");
+        lbNVLapHD.setText("Nhân viên lập hoá đơn:");
 
         lbNVLapHD_Res.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbNVLapHD_Res.setText(_SaveData.userLogin);
@@ -307,7 +311,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         lbSoLuong.setText("Số lượng:");
 
         lbTongHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbTongHoaDon.setText("Tổng hoá đơn: ");
+        lbTongHoaDon.setText("Tổng hoá đơn:");
 
         lbMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbMaGiamGia.setText("Mã giảm giá:");
@@ -480,14 +484,14 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     private void btnGiamMHActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbGioHangMousePressed();
-        if(matHangDTO != null) {
+        if (matHangDTO != null) {
             new DialogXoaGUI(new Frame(), true, matHangDTO).setVisible(true); // tạo form nhập số lượng xoá
 
             int soLuongxoa = _SaveData.soLuongXoa;
             int soLuong_HienTai = matHangDTO.soLuong_hientai;
 
-            for(int i=1;i<=soLuongxoa;i++) {
-                if(i == soLuong_HienTai) break;
+            for (int i = 1; i <= soLuongxoa; i++) {
+                if (i == soLuong_HienTai) break;
                 MatHangBUS.decreaseSoLuong(matHangDTO); // giảm số lượng hiện tại trong giỏ hàng
                 MatHangBUS.decreaseThanhTien(matHangDTO); // giảm thành tiền hiện tại trong giỏ hàng
                 loadGioHang(); // load table giỏ hàng
@@ -500,7 +504,7 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     private void btnXoaMHActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbGioHangMousePressed();
-        if(matHangDTO != null) {
+        if (matHangDTO != null) {
             listMatHangSelected.remove(matHangDTO); // xoá mặt hàng đó ra khỏi giỏ hàng
             loadGioHang(); // load table giỏ hàng
             loadHoaDon(); // load hoá đơn
@@ -509,8 +513,8 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     private void btnHuyHoaDonActionPerformed(java.awt.event.ActionEvent evt) {
         try {
-            if(_MessageDialogHelper.showConfirmDialog(parentForm,
-                    "Bạn có chắc là muốn xoá đi hoá đơn đang xử lí này ?", "Xoá hoá đơn đang xử lí") == JOptionPane.YES_OPTION) {
+            if (_MessageDialogHelper.showConfirmDialog(parentForm,
+                    "Bạn có chắc là muốn xoá đi hoá đơn đang xử lí này?", "Xoá hoá đơn đang xử lí") == JOptionPane.YES_OPTION) {
 
                 cboxMaGiamGia.setSelectedIndex(0); // set lại combox
                 model_table.setRowCount(0); // reset table giỏ hàng
@@ -521,7 +525,7 @@ public class BanHangGUI extends javax.swing.JPanel {
                 _SaveData.tongTien = 0; // reset giá trị trong local
 
                 // reset lại các thông số: Số lượng, Thành tiền của từng mặt hàng đã xét trước đó
-                for(MatHangDTO item : new MatHangBUS().getData()) {
+                for (MatHangDTO item : new MatHangBUS().getData()) {
                     MatHangBUS.resetSoLuong(item);
                     MatHangBUS.resetThanhTien(item);
                 }
@@ -533,13 +537,13 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     private void btnLaphoaDonActionPerformed(java.awt.event.ActionEvent evt) {
-         try {
-             String maHD = handleMHD();  // lấy mã hoá đơn
+        try {
+            String maHD = handleMHD();  // lấy mã hoá đơn
 
-         } catch (Exception ex) {
-             _MessageDialogHelper.showErrorDialog(parentForm,
-                     String.format("Đã có lỗi sảy ra!Lỗi: %s", ex.getMessage()), "Something wrong");
-         }
+        } catch (Exception ex) {
+            _MessageDialogHelper.showErrorDialog(parentForm,
+                    String.format("Đã có lỗi sảy ra! Lỗi: %s", ex.getMessage()), "Something wrong");
+        }
     }
 
     private void btnDanhSachHoaDonActionPerformed(java.awt.event.ActionEvent evt) {
@@ -551,7 +555,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         tongtien = _SaveData.tongTien; // lấy giá trị tổng hoá đơn trong local
         String name = String.valueOf(cboxMaGiamGia.getSelectedItem());
         PhieuGiamGiaDTO phieuGiamGiaDTO = PhieuGiamGiaBUS.getItemByName(name);
-        if(phieuGiamGiaDTO != null) {
+        if (phieuGiamGiaDTO != null) {
             float tileGiam = (float) phieuGiamGiaDTO.getTiLeGiam();
             handle_Hd_PGG(tongtien, tileGiam);
         } else {
@@ -577,7 +581,7 @@ public class BanHangGUI extends javax.swing.JPanel {
 
         // xử lí chính
         MatHangDTO matHangDTO = MatHangBUS.getItemByName(name); // lấy đối tượng được chọn thông qua tên
-        if(matHangDTO != null) {
+        if (matHangDTO != null) {
             handleArraylistGioHang(matHangDTO); // xử lý tiến trình thêm sản phẩm vào giỏ hàng
             loadGioHang(); // load table giỏ hàng
             loadHoaDon(); // load hoá đơn
@@ -590,36 +594,36 @@ public class BanHangGUI extends javax.swing.JPanel {
     // bắt sự kiện xử lí mặt hàng trong giỏ hàng
     public void handleArraylistGioHang(MatHangDTO matHangDTO) {
         try {
-            if(checkItemExist(matHangDTO)) { // nếu sản phẩm đã tồn tại trong giỏ hàng
-                if(!MatHangBUS.isFull(matHangDTO)) {
+            if (checkItemExist(matHangDTO)) { // nếu sản phẩm đã tồn tại trong giỏ hàng
+                if (!MatHangBUS.isFull(matHangDTO)) {
                     int index = getIndexOfItem(matHangDTO); // lấy vị trí của sản phẩm hiện tại trong giỏ hàng
                     MatHangBUS.increaseSoLuong(matHangDTO); // tăng số lượng sản phẩm trong giỏ hàng
                     MatHangBUS.increaseThanhTien(matHangDTO); // tăng tổng tiền sản phẩm trong giỏ hàng
                     listMatHangSelected.set(index, matHangDTO); // cập nhật lại sản phẩm trong giỏ hàng
 //                    MatHangBUS.getDataItem(matHangDTO); // kiểm tra thônng tin qua terminal
                 } else {
-                    _MessageDialogHelper.showErrorDialog(parentForm, "Sản phẩm không còn hàng trong kho !", "Hết hàng");
+                    _MessageDialogHelper.showErrorDialog(parentForm, "Sản phẩm không còn hàng trong kho!", "Hết hàng");
                 }
             } else { // nếu sản phẩm chưa tồn tại trong giỏ hàng
-                if(!MatHangBUS.isFull(matHangDTO)) {
+                if (!MatHangBUS.isFull(matHangDTO)) {
                     MatHangBUS.increaseSoLuong(matHangDTO); // tăng số lượng sản phẩm trong giỏ hàng
                     MatHangBUS.increaseThanhTien(matHangDTO); // tăng tổng tiền sản phẩm trong giỏ hàng
                     listMatHangSelected.add(matHangDTO); // thêm mới sản phẩm vào giỏ hàng
 //                    MatHangBUS.getDataItem(matHangDTO); // kiểm tra thônng tin qua terminal
                 } else {
-                    _MessageDialogHelper.showErrorDialog(parentForm, "Sản phẩm không còn hàng trong kho !", "Hết hàng");
+                    _MessageDialogHelper.showErrorDialog(parentForm, "Sản phẩm không còn hàng trong kho!", "Hết hàng");
                 }
             }
         } catch (Exception ex) {
-            String errorLog = String.format("Đã có lỗi sảy ra!\nMã: %s", ex.getMessage());
-            _MessageDialogHelper.showErrorDialog(parentForm, errorLog, "Lỗi nhập hoá đơn !");
+            String errorLog = String.format("Đã có lỗi xảy ra!\nMã: %s", ex.getMessage());
+            _MessageDialogHelper.showErrorDialog(parentForm, errorLog, "Lỗi nhập hoá đơn!");
         }
     }
 
     // kiểm tra hàng có tồn tại trong danh sách hàng đã chọn
     public boolean checkItemExist(MatHangDTO matHangDTO) {
-        for(MatHangDTO item : listMatHangSelected) {
-            if(item.getMaMH().equals(matHangDTO.getMaMH())) {
+        for (MatHangDTO item : listMatHangSelected) {
+            if (item.getMaMH().equals(matHangDTO.getMaMH())) {
                 return true;
             }
         }
@@ -628,8 +632,8 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     // lấy vị trí mặt hàng đã chọn trong danh sách mặt hàng đã chọn
     public int getIndexOfItem(MatHangDTO matHangDTO) {
-        for(int i=0;i<listMatHangSelected.size();i++) {
-            if(matHangDTO.getMaMH().equals(listMatHangSelected.get(i).getMaMH())) {
+        for (int i = 0; i < listMatHangSelected.size(); i++) {
+            if (matHangDTO.getMaMH().equals(listMatHangSelected.get(i).getMaMH())) {
                 return i;
             }
         }
@@ -639,8 +643,8 @@ public class BanHangGUI extends javax.swing.JPanel {
     // thực hiện load giỏ hàng
     public void loadGioHang() {
         model_table.setRowCount(0);
-        for(MatHangDTO item : listMatHangSelected) {
-            model_table.addRow(new Object[] {
+        for (MatHangDTO item : listMatHangSelected) {
+            model_table.addRow(new Object[]{
                     item.getMaMH(),
                     item.getTenMH(),
                     item.soLuong_hientai,
@@ -657,7 +661,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         tongtien = 0;
         soLuong = 0;
 
-        for(MatHangDTO item : listMatHangSelected) {
+        for (MatHangDTO item : listMatHangSelected) {
             tongtien += item.thanhTien_hientai;
             soLuong += item.soLuong_hientai;
         }
@@ -671,7 +675,7 @@ public class BanHangGUI extends javax.swing.JPanel {
 
         String name = String.valueOf(cboxMaGiamGia.getSelectedItem());
         PhieuGiamGiaDTO phieuGiamGiaDTO = PhieuGiamGiaBUS.getItemByName(name);
-        if(phieuGiamGiaDTO != null) {
+        if (phieuGiamGiaDTO != null) {
             // cập nhật phiếu giảm giá áp dụng khi bấm nút
             handle_Hd_PGG(tongtien, (float) phieuGiamGiaDTO.getTiLeGiam());
         }
@@ -679,37 +683,37 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     // lấy đối tượng mặt hàng khi ấn vào nút
     private MatHangDTO tbGioHangMousePressed() {
-        try{
+        try {
             int selectedRow = tbGioHang.getSelectedRow();
             String idMH = String.valueOf(tbGioHang.getValueAt(selectedRow, 0));
             return MatHangBUS.getItemByID(idMH);
         } catch (Exception ex) {
             _MessageDialogHelper.showErrorDialog(parentForm,
-                    "Vui lòng chọn một dòng trong bảng dữ liệu !", "Yêu cầu chọn dữ liệu");
+                    "Vui lòng chọn một dòng trong bảng dữ liệu!", "Yêu cầu chọn dữ liệu");
             return null;
         }
     }
 
     // xử lí phiếu giảm giá trên hoá đơn OnTime
     public void handle_Hd_PGG(float tongtien, float tileGiam) {
-        tongtien = (float) (tongtien - (tongtien * tileGiam));
+        tongtien = tongtien - (tongtien * tileGiam);
         txtTongHoaDon.setText(String.valueOf(String.format("%s VNĐ", tongtien))); // load lại tổng tiền thanh toán
     }
 
     // cắt chuỗi làm mã hoá đơn
     public String handleMHD() {
-        if(!txtNgayLap.getText().equals("")) {
+        if (!txtNgayLap.getText().equals("")) {
             String maHD = "HD";
             String[] arr = txtNgayLap.getText().split(" ");
-            for(int i=0;i<arr.length;i++) {
-                if(i == 0) {
+            for (int i = 0; i < arr.length; i++) {
+                if (i == 0) {
                     String[] supArr = arr[i].split("-");
-                    for(String item : supArr) {
+                    for (String item : supArr) {
                         maHD = maHD.concat(item);
                     }
                 } else {
                     String[] supArr = arr[i].split(":");
-                    for(String item : supArr) {
+                    for (String item : supArr) {
                         maHD = maHD.concat(item);
                     }
                 }

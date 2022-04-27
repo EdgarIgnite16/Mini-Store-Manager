@@ -12,14 +12,14 @@ public class PhieuGiamGiaBUS {
         try {
             listPhieuGiamGia = new PhieuGiamGiaDAO().getData(); // lấy dữ liệu từ Database thông qua DAO
         } catch (Exception ex) {
-            System.out.printf("Đã sảy ra lỗi: %s\n", ex.getMessage());
+            System.out.printf("Đã xảy ra lỗi: %s\n", ex.getMessage());
             ex.printStackTrace();
         }
     }
 
     public static PhieuGiamGiaDTO getItemByName(String name) {
-        for(PhieuGiamGiaDTO item : listPhieuGiamGia) {
-            if(item.getTenGiamGia().equals(name)) {
+        for (PhieuGiamGiaDTO item : listPhieuGiamGia) {
+            if (item.getTenGiamGia().equals(name)) {
                 return item;
             }
         }

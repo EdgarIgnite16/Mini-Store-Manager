@@ -1,7 +1,5 @@
 package GUI;
 
-import java.awt.event.KeyEvent;
-
 public class AboutUSDialogGUI extends javax.swing.JDialog {
     /**
      * Creates new form AboutUSDIalogGUI

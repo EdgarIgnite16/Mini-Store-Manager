@@ -1,6 +1,5 @@
 package GUI;
 
-import BUS._DataValidator;
 import BUS._MessageDialogHelper;
 import BUS._SaveData;
 import DTO.MatHangDTO;
@@ -118,11 +117,11 @@ public class DialogXoaGUI extends javax.swing.JDialog {
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         try {
-            if(Integer.parseInt(txtSoLuong.getText()) > matHangDTO.soLuong_hientai) {
-                _MessageDialogHelper.showErrorDialog(this, "Số lượng xoá không được phép lớn hơn số lượng sản phẩm trong giỏ hàng !",
+            if (Integer.parseInt(txtSoLuong.getText()) > matHangDTO.soLuong_hientai) {
+                _MessageDialogHelper.showErrorDialog(this, "Số lượng xoá không được phép lớn hơn số lượng sản phẩm trong giỏ hàng!",
                         "Kiểm tra số lượng xoá");
-            }else if(Integer.parseInt(txtSoLuong.getText()) == matHangDTO.soLuong_hientai) {
-                _MessageDialogHelper.showErrorDialog(this, "Phải có ít nhất 1 sản phẩm trong giỏ hàng !",
+            } else if (Integer.parseInt(txtSoLuong.getText()) == matHangDTO.soLuong_hientai) {
+                _MessageDialogHelper.showErrorDialog(this, "Phải có ít nhất 1 sản phẩm trong giỏ hàng!",
                         "Kiểm tra số lượng xoá");
             } else {
                 _SaveData.soLuongXoa = Integer.parseInt(txtSoLuong.getText());
@@ -130,7 +129,7 @@ public class DialogXoaGUI extends javax.swing.JDialog {
             }
         } catch (Exception ex) {
             // Bắt exception trong thẻ input
-            _MessageDialogHelper.showErrorDialog(this, "Vui lòng nhập chữ số !", "Lỗi đầu vào");
+            _MessageDialogHelper.showErrorDialog(this, "Vui lòng nhập chữ số!", "Lỗi đầu vào");
         }
     }
 
