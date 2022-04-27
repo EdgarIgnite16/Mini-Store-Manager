@@ -537,13 +537,12 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     private void btnLaphoaDonActionPerformed(java.awt.event.ActionEvent evt) {
          try {
-             // lưu các thông tin hoá đơn lên local
-             _SaveData.maHD = handleMHD();  // lấy mã hoá đơn
-             _SaveData.tenNV = lbNVLapHD_Res.getText(); // lấy tên nhân viên
-             _SaveData.ngayBan = txtNgayLap.getText(); // lấy ngày bán
-             _SaveData.ChiTietHoaDon = listMatHangSelected; // lấy chi tiết giỏ hàng
-
              if(listMatHangSelected.size() > 0) {
+                 // lưu các thông tin hoá đơn lên local
+                 _SaveData.maHD = handleMHD();  // lấy mã hoá đơn
+                 _SaveData.tenNV = lbNVLapHD_Res.getText(); // lấy tên nhân viên
+                 _SaveData.ngayBan = txtNgayLap.getText(); // lấy ngày bán
+                 _SaveData.ChiTietHoaDon = listMatHangSelected; // lấy chi tiết giỏ hàng
                  new ChiTietHoaDonDialogGUI(parentForm, true).setVisible(true); // Mở form xác nhận chi tiết hoá đơn lên
              } else {
                  _MessageDialogHelper.showErrorDialog(parentForm, "Giỏ hàng trống!\nVui lòng thêm sản phẩm vào giỏ hàng.", "Giỏ hàng trống");
