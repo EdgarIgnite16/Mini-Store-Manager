@@ -6,7 +6,7 @@ import DTO.MatHangDTO;
 import java.util.ArrayList;
 
 public class MatHangBUS {
-    private ArrayList<MatHangDTO> listMatHang;
+    private static ArrayList<MatHangDTO> listMatHang;
 
     public MatHangBUS() {
         try {
@@ -17,7 +17,7 @@ public class MatHangBUS {
     }
 
     // lọc dữ liệu thông qua tên mặt hàng
-    public MatHangDTO getItemByID(String id) {
+    public static MatHangDTO getItemByID(String id) {
         for (MatHangDTO item : listMatHang) {
             if (item.getMaMH().equals(id)) {
                 return item;
@@ -27,7 +27,7 @@ public class MatHangBUS {
     }
 
     // lọc dữ liệu thông qua tên mặt hàng
-    public MatHangDTO getItemByName(String name) {
+    public static MatHangDTO getItemByName(String name) {
         for (MatHangDTO item : listMatHang) {
             if (item.getTenMH().equals(name)) {
                 return item;

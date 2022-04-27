@@ -5,14 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/BUS/CaLamViecBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/CaLamViecBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/ChiTietHoaDonBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/ChiTietHoaDonBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/ChucVuBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/ChucVuBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/LoaiMatHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/LoaiMatHangBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/MatHangBUS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/MatHangBUS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/ChiTietHoaDonDialogGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/ChiTietHoaDonDialogGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/ChiTietHoaDonDialogGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/ChiTietHoaDonDialogGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/NhaCungCapBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/NhaCungCapBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/NhanVienBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/NhanVienBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/PhieuGiamGiaBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/PhieuGiamGiaBUS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -543,7 +543,11 @@ public class BanHangGUI extends javax.swing.JPanel {
              _SaveData.ngayBan = txtNgayLap.getText(); // lấy ngày bán
              _SaveData.ChiTietHoaDon = listMatHangSelected; // lấy chi tiết giỏ hàng
 
-             new ChiTietHoaDonDialogGUI(parentForm, true).setVisible(true); // Mở form xác nhận chi tiết hoá đơn lên
+             if(listMatHangSelected.size() > 0) {
+                 new ChiTietHoaDonDialogGUI(parentForm, true).setVisible(true); // Mở form xác nhận chi tiết hoá đơn lên
+             } else {
+                 _MessageDialogHelper.showErrorDialog(parentForm, "Giỏ hàng trống!\nVui lòng thêm sản phẩm vào giỏ hàng.", "Giỏ hàng trống");
+             }
          } catch (Exception ex) {
              _MessageDialogHelper.showErrorDialog(parentForm,
                      String.format("Đã có lỗi sảy ra!Lỗi: %s", ex.getMessage()), "Something wrong");
@@ -583,7 +587,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         }
 
         // xử lí chính
-        MatHangDTO matHangDTO = new MatHangBUS().getItemByName(name); // lấy đối tượng được chọn thông qua tên
+        MatHangDTO matHangDTO = MatHangBUS.getItemByName(name); // lấy đối tượng được chọn thông qua tên
         if (matHangDTO != null) {
             handleArraylistGioHang(matHangDTO); // xử lý tiến trình thêm sản phẩm vào giỏ hàng
             loadGioHang(); // load table giỏ hàng
@@ -689,7 +693,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         try {
             int selectedRow = tbGioHang.getSelectedRow();
             String idMH = String.valueOf(tbGioHang.getValueAt(selectedRow, 0));
-            return new MatHangBUS().getItemByID(idMH);
+            return MatHangBUS.getItemByID(idMH);
         } catch (Exception ex) {
             _MessageDialogHelper.showErrorDialog(parentForm,
                     "Vui lòng chọn một dòng trong bảng dữ liệu!", "Yêu cầu chọn dữ liệu");
@@ -705,28 +709,22 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     // cắt chuỗi làm mã hoá đơn
     public String handleMHD() {
-        if (!txtNgayLap.getText().equals("")) {
-            String maHD = "HD";
-            String[] arr = txtNgayLap.getText().split(" ");
-            for (int i = 0; i < arr.length; i++) {
-                if (i == 0) {
-                    String[] supArr = arr[i].split("-");
-                    for (String item : supArr) {
-                        maHD = maHD.concat(item);
-                    }
-                } else {
-                    String[] supArr = arr[i].split(":");
-                    for (String item : supArr) {
-                        maHD = maHD.concat(item);
-                    }
+        String maHD = "HD";
+        String[] arr = txtNgayLap.getText().split(" ");
+        for (int i = 0; i < arr.length; i++) {
+            if (i == 0) {
+                String[] supArr = arr[i].split("-");
+                for (String item : supArr) {
+                    maHD = maHD.concat(item);
+                }
+            } else {
+                String[] supArr = arr[i].split(":");
+                for (String item : supArr) {
+                    maHD = maHD.concat(item);
                 }
             }
-            return maHD;
-        } else {
-            _MessageDialogHelper.showErrorDialog(parentForm,
-                    "Vui lòng chọn sản phẩm vào giỏ hàng!", "Giỏ hàng trống");
-            return null;
         }
+        return maHD;
     }
 
     // Variables declaration - do not modify
