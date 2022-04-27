@@ -67,7 +67,9 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
         model_cbKhachHang.addElement("---");
         ArrayList<KhachHangDTO> listKhachHang = new KhachHangBUS().getData();
         for(KhachHangDTO item : listKhachHang) {
-            model_cbKhachHang.addElement(String.format("%s-%s", item.getMaKH(), item.getTenKH()));
+           if(!item.getMaKH().equals("---")) {
+               model_cbKhachHang.addElement(String.format("%s-%s", item.getMaKH(), item.getTenKH()));
+           }
         }
         cbTenKhachHang.setModel(model_cbKhachHang);
         cbTenKhachHang.addActionListener(new ActionListener() {
@@ -249,12 +251,14 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
 
     private void cbTenKhachHangActionListener(ActionEvent e) {
         String rawItem = (String) cbTenKhachHang.getSelectedItem();
-        String[] Arr = rawItem.split("-");
-        for(String item : Arr) {
-            System.out.println(item);
+        if(rawItem.equals("---")) { // trường hợp là khách vãng lại
+            KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById("---");
+            System.out.println(khachHangDTO.toString());
+        } else { // trường hợp là khách hàng real
+            String[] Arr = rawItem.split("-");
+            KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(Arr[0]);
+            System.out.println(khachHangDTO.toString());
         }
-        KhachHangDTO khachHangDTO = KhachHangBUS.getItemByName(Arr[0]);
-        System.out.println(khachHangDTO.toString());
     }
 
     // Variables declaration - do not modify

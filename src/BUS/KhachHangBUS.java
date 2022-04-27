@@ -6,7 +6,7 @@ import DTO.KhachHangDTO;
 import java.util.ArrayList;
 
 public class KhachHangBUS {
-    private static ArrayList<KhachHangDTO> listKhachHang;
+    private ArrayList<KhachHangDTO> listKhachHang;
 
     public KhachHangBUS() {
         try {
@@ -17,9 +17,18 @@ public class KhachHangBUS {
         }
     }
 
-    public static KhachHangDTO getItemByName(String name) {
+    public KhachHangDTO getItemByName(String name) {
         for(KhachHangDTO item : listKhachHang) {
             if(item.getTenKH().equals(name)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public KhachHangDTO getItemById(String id) {
+        for(KhachHangDTO item : listKhachHang) {
+            if(item.getMaKH().equals(id)) {
                 return item;
             }
         }
