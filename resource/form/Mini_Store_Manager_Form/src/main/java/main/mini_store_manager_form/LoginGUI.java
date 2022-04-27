@@ -60,6 +60,7 @@ public class LoginGUI extends javax.swing.JDialog {
         btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnLogin.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\Login-icon-16.png")); // NOI18N
         btnLogin.setText("Đăng nhập");
+        btnLogin.setFocusable(false);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -69,6 +70,7 @@ public class LoginGUI extends javax.swing.JDialog {
         btnExit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
         btnExit.setText("Thoát");
+        btnExit.setFocusable(false);
         btnExit.setPreferredSize(new java.awt.Dimension(100, 26));
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +89,6 @@ public class LoginGUI extends javax.swing.JDialog {
                         .addGroup(pnMainFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtPassword)
                             .addGroup(pnMainFormLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnLogin)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))

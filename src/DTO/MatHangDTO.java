@@ -7,6 +7,7 @@ public class MatHangDTO {
     private float thanhTien;
     private int soLuong;
 
+    // các thông số trong giỏ hàng
     public int soLuong_hientai = 0;
     public float thanhTien_hientai = 0;
 
@@ -78,31 +79,7 @@ public class MatHangDTO {
                 ", tenMH='" + tenMH + '\'' +
                 ", thanhTienHienTai='" + thanhTien_hientai + '\'' +
                 ", soLuongHienTai=" + soLuong_hientai +
+                ", soLuongToiDa=" + soLuong +
                 '}';
-    }
-
-    // Xử lí các thông số trong giỏ hàng
-    public void increaseSoLuong() {
-        soLuong_hientai = soLuong_hientai + 1;
-    }
-
-    public void increaseThanhTien() {
-        thanhTien_hientai = thanhTien_hientai + getThanhTien();
-    }
-
-    public void decreaseSoLuong() {
-        soLuong_hientai = soLuong_hientai - 1;
-    }
-
-    public void decreaseThanhTien() {
-        thanhTien_hientai = thanhTien_hientai - getThanhTien();
-    }
-
-    public void resetSoLuong() {
-        soLuong_hientai = 0;
-    }
-
-    public void resetThanhTien() {
-        thanhTien_hientai = 0;
     }
 }

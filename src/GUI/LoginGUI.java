@@ -1,7 +1,10 @@
 package GUI;
 
+import BUS.NhanVienBUS;
 import BUS._DataValidator;
 import BUS._MessageDialogHelper;
+import BUS._SaveData;
+import DTO.NhanVienDTO;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -9,9 +12,6 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 
 public class LoginGUI extends javax.swing.JDialog {
-
-
-
     /**
      * Creates new form LoginDialog
      */
@@ -78,6 +78,7 @@ public class LoginGUI extends javax.swing.JDialog {
         btnLogin.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnLogin.setText("Đăng nhập");
         btnLogin.setEnabled(false);
+        btnLogin.setFocusable(false);
         btnLogin.setIcon(new javax.swing.ImageIcon("resource\\icon\\Login-icon-16.png"));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,6 +88,7 @@ public class LoginGUI extends javax.swing.JDialog {
 
         btnExit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnExit.setText("Thoát");
+        btnExit.setFocusable(false);
         btnExit.setPreferredSize(new java.awt.Dimension(100, 26));
         btnExit.setIcon(new javax.swing.ImageIcon("resource\\icon\\Actions-edit-delete-icon-16.png"));
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -165,8 +167,8 @@ public class LoginGUI extends javax.swing.JDialog {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {
         StringBuilder sb = new StringBuilder();
-        _DataValidator.validateEmpty(txtAccount, sb, "Vui lòng nhập tên tài khoản !");
-        _DataValidator.validateEmpty(txtPassword, sb, "Vui lòng nhập mật khẩu !");
+        _DataValidator.validateEmpty(txtAccount, sb, "Vui lòng nhập tên tài khoản!");
+        _DataValidator.validateEmpty(txtPassword, sb, "Vui lòng nhập mật khẩu!");
 
         if (sb.length() > 0) {
             _MessageDialogHelper.showErrorDialog(this, String.valueOf(sb), "Error Login");
@@ -174,16 +176,18 @@ public class LoginGUI extends javax.swing.JDialog {
             try {
                 String username = txtAccount.getText();
                 String password = new String(txtPassword.getPassword());
-                if (username.equals("ad") && password.equals("123")) {
+                NhanVienDTO nhanVienDTO = new NhanVienBUS().getNhanVienLogin(username, password);
+                if (nhanVienDTO != null) {
                     this.dispose();
                     try {
+                        _SaveData.userLogin = nhanVienDTO.getTenNV();
                         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                         new MainFormGUI().setVisible(true);
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
                 } else {
-                    _MessageDialogHelper.showErrorDialog(this, "Tài khoản hoặc mật khẩu không chính xác !",
+                    _MessageDialogHelper.showErrorDialog(this, "Tài khoản hoặc mật khẩu không chính xác!",
                             "Error Login");
                 }
             } catch (Exception ex) {
@@ -194,7 +198,7 @@ public class LoginGUI extends javax.swing.JDialog {
     }
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {
-        if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn thoát khỏi chương trình không ?",
+        if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn thoát khỏi chương trình không?",
                 "Xác nhận thoát") == JOptionPane.YES_OPTION) {
             System.exit(0);
         }

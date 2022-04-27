@@ -2,7 +2,6 @@ package BUS;
 
 import DAO.LoaiMatHangDAO;
 import DTO.LoaiMatHangDTO;
-import DTO.MatHangDTO;
 
 import java.util.ArrayList;
 
@@ -13,14 +12,14 @@ public class LoaiMatHangBUS {
         try {
             listLoaiMatHang = new LoaiMatHangDAO().getData(); // lấy dữ liệu từ Database thông qua DAO
         } catch (Exception ex) {
-            System.out.printf("Đã sảy ra lỗi: %s\n", ex.getMessage());
+            System.out.printf("Đã xảy ra lỗi: %s\n", ex.getMessage());
             ex.printStackTrace();
         }
     }
 
     public static LoaiMatHangDTO getItemByName(String name) {
-        for(LoaiMatHangDTO item : listLoaiMatHang) {
-            if(item.getTenLMH().equals(name)) {
+        for (LoaiMatHangDTO item : listLoaiMatHang) {
+            if (item.getTenLMH().equals(name)) {
                 return item;
             }
         }

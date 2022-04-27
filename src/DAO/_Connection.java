@@ -24,10 +24,10 @@ public class _Connection {
     public void checkDriver() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); // tên driver của database sử dụng
-            System.out.println("Tim thay driver !");
+            System.out.println("Tìm thấy driver!");
         } catch (Exception ex) {
             ex.printStackTrace();
-            System.out.println("khong tim thay driver !");
+            System.out.println("Không tìm thấy driver!");
         }
     }
 
@@ -47,10 +47,10 @@ public class _Connection {
                     "jdbc:sqlserver://%s:%s;databaseName=%s;encrypt=true;trustServerCertificate=true;",
                     hostname, portNumber, dbName);
             this.conn = DriverManager.getConnection(connectionURL, username, password);
-            System.out.println("Ket noi database thanh cong !");
+            System.out.println("Kết nối database thành công!");
         } catch (Exception ex) {
             ex.printStackTrace();
-            System.out.println("Ket noi database that bai !");
+            System.out.println("Kết nối database thất bại!");
         }
     }
 
@@ -66,10 +66,10 @@ public class _Connection {
             if (pstm != null) {
                 pstm.close();
             }
-            System.out.println("Dong connection thanh cong !");
+            System.out.println("Đóng connection thành công!");
         } catch (Exception ex) {
             ex.printStackTrace();
-            System.out.println("Dong connection that bai !");
+            System.out.println("Đóng connection thất bại!");
         }
     }
 
