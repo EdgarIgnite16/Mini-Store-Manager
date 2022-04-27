@@ -35,6 +35,18 @@
       <change beforePath="$PROJECT_DIR$/src/GUI/AboutUSDialogGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/AboutUSDialogGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/ChiTietHoaDonDialogGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ChiTietHoaDonDialogGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/_SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/_SaveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/CaLamViecBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/CaLamViecBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/ChucVuBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/ChucVuBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/LoaiMatHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/LoaiMatHangBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/NhaCungCapBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/NhaCungCapBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/NhanVienBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/NhanVienBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/PhieuGiamGiaBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/PhieuGiamGiaBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/_Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/_Connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/AboutUSDialogGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/AboutUSDialogGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
