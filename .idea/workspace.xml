@@ -37,6 +37,8 @@
       <change beforePath="$PROJECT_DIR$/src/GUI/ChiTietHoaDonDialogGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ChiTietHoaDonDialogGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BUS/_SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/_SaveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/_SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/_SaveData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BUS/CaLamViecBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/CaLamViecBUS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BUS/ChucVuBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/ChucVuBUS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BUS/LoaiMatHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/LoaiMatHangBUS.java" afterDir="false" />
