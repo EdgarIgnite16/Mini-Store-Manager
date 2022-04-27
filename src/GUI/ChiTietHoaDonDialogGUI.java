@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
     private DefaultTableModel model_table;
     private DefaultComboBoxModel model_cbKhachHang;
-    private final ArrayList<KhachHangDTO> listKhachHang = new KhachHangBUS().getData();
 
     /**
      * Creates new form ChiTietHoaDonDialogGUI
@@ -58,7 +57,7 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
     public void initThongtin() {
         txtMaHoaDon.setText(_SaveData.maHD);
         txtTenNhanVien.setText(_SaveData.tenNV);
-        txtTongHoaDon.setText(String.format("%f %s", _SaveData.tongTien, "VNĐ"));
+        txtTongHoaDon.setText(String.format("%.2f %s", _SaveData.tongTien, "VNĐ"));
         txtNgayBan.setText(_SaveData.ngayBan);
     }
 

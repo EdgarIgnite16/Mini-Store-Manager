@@ -26,7 +26,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     private String ngayBan;
     private float tongtien;
     private int soLuong;
-    private final ArrayList<MatHangDTO> listMatHangSelected;
+    private static ArrayList<MatHangDTO> listMatHangSelected;
 
     /**
      * Creates new form BanHangGUI
@@ -473,7 +473,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         LoaiMatHangDTO loaiMatHangDTO = new LoaiMatHangBUS().getItemByName(String.valueOf(cboxLoaiMatHang.getSelectedItem()));
         String nameMH = txtTenMatHang.getText();
         String maLMH = loaiMatHangDTO != null ? loaiMatHangDTO.getMaLMH() : "";
-        ArrayList<MatHangDTO> listFillData = new MatHangBUS().fillData(nameMH, maLMH);
+        ArrayList<MatHangDTO> listFillData = MatHangBUS.fillData(nameMH, maLMH);
 
         pnMatHang.removeAll();
         pnMatHang.revalidate();
@@ -524,13 +524,13 @@ public class BanHangGUI extends javax.swing.JPanel {
                 _SaveData.tongTien = 0; // reset giá trị trong local
 
                 // reset lại các thông số: Số lượng, Thành tiền của từng mặt hàng đã xét trước đó
-                for (MatHangDTO item : new MatHangBUS().getData()) {
+                for (MatHangDTO item : MatHangBUS.getData()) {
                     MatHangBUS.resetSoLuong(item);
                     MatHangBUS.resetThanhTien(item);
                 }
             }
         } catch (Exception ex) {
-            String errorLog = String.format("Đã có lỗi sảy ra!\nMã: %s", ex.getMessage());
+            String errorLog = String.format("Đã có lỗi xảy ra!\nMã: %s", ex.getMessage());
             _MessageDialogHelper.showErrorDialog(parentForm, errorLog, "Lỗi khởi tạo hoá đơn");
         }
     }
@@ -549,7 +549,7 @@ public class BanHangGUI extends javax.swing.JPanel {
              }
          } catch (Exception ex) {
              _MessageDialogHelper.showErrorDialog(parentForm,
-                     String.format("Đã có lỗi sảy ra!Lỗi: %s", ex.getMessage()), "Something wrong");
+                     String.format("Đã có lỗi xảy ra!Lỗi: %s", ex.getMessage()), "Something wrong");
          }
     }
 
@@ -675,7 +675,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         _SaveData.tongTien = tongtien; //lưu lại giá trị trong local
 
         // cập nhật thông tin lên text field
-        txtTongHoaDon.setText(String.valueOf(String.format("%s VNĐ", tongtien)));
+        txtTongHoaDon.setText(String.valueOf(String.format("%.2f VNĐ", tongtien)));
         txtSoLuong.setText(String.valueOf(soLuong));
         txtNgayLap.setText(ngayBan);
 
@@ -703,7 +703,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     // xử lí phiếu giảm giá trên hoá đơn OnTime
     public void handle_Hd_PGG(float tongtien, float tileGiam) {
         tongtien = tongtien - (tongtien * tileGiam);
-        txtTongHoaDon.setText(String.valueOf(String.format("%s VNĐ", tongtien))); // load lại tổng tiền thanh toán
+        txtTongHoaDon.setText(String.valueOf(String.format("%.2f VNĐ", tongtien))); // load lại tổng tiền thanh toán
     }
 
     // cắt chuỗi làm mã hoá đơn

@@ -37,7 +37,7 @@ public class MatHangBUS {
     }
 
     // lọc dữ liệu thông qua mã loại mặt hàng
-    public MatHangDTO getItemByLMH(String idLMH) {
+    public static MatHangDTO getItemByLMH(String idLMH) {
         for (MatHangDTO item : listMatHang) {
             if (item.getMaLMH().equals(idLMH)) {
                 return item;
@@ -47,11 +47,11 @@ public class MatHangBUS {
     }
 
     // lọc dữ liệu
-    public ArrayList<MatHangDTO> fillData(String name, String idLMH) {
+    public static ArrayList<MatHangDTO> fillData(String name, String idLMH) {
         ArrayList<MatHangDTO> listFillData = new ArrayList<>();
         for (MatHangDTO item : listMatHang) {
             if (idLMH.equals("")) {
-                if (item.getTenMH().contains(name)) {
+                if (item.getTenMH().toLowerCase().contains(name.toLowerCase())) {
                     listFillData.add(item);
                 }
             } else if (name.equals("")) {
@@ -59,7 +59,7 @@ public class MatHangBUS {
                     listFillData.add(item);
                 }
             } else {
-                if (item.getTenMH().contains(name) && item.getMaLMH().contains(idLMH)) {
+                if (item.getTenMH().toLowerCase().contains(name.toLowerCase()) && item.getMaLMH().contains(idLMH)) {
                     listFillData.add(item);
                 }
             }
@@ -67,7 +67,7 @@ public class MatHangBUS {
         return listFillData;
     }
 
-    public ArrayList<MatHangDTO> getData() {
+    public static ArrayList<MatHangDTO> getData() {
         // trả về dữ liệu
         return listMatHang;
     }
