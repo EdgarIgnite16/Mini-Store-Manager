@@ -121,6 +121,9 @@ public class DialogXoaGUI extends javax.swing.JDialog {
             if(Integer.parseInt(txtSoLuong.getText()) > matHangDTO.soLuong_hientai) {
                 _MessageDialogHelper.showErrorDialog(this, "Số lượng xoá không được phép lớn hơn số lượng sản phẩm trong giỏ hàng !",
                         "Kiểm tra số lượng xoá");
+            }else if(Integer.parseInt(txtSoLuong.getText()) == matHangDTO.soLuong_hientai) {
+                _MessageDialogHelper.showErrorDialog(this, "Phải có ít nhất 1 sản phẩm trong giỏ hàng !",
+                        "Kiểm tra số lượng xoá");
             } else {
                 _SaveData.soLuongXoa = Integer.parseInt(txtSoLuong.getText());
                 this.dispose();

@@ -1,7 +1,10 @@
 package GUI;
 
+import BUS.NhanVienBUS;
 import BUS._DataValidator;
 import BUS._MessageDialogHelper;
+import BUS._SaveData;
+import DTO.NhanVienDTO;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -174,9 +177,11 @@ public class LoginGUI extends javax.swing.JDialog {
             try {
                 String username = txtAccount.getText();
                 String password = new String(txtPassword.getPassword());
-                if (username.equals("ad") && password.equals("123")) {
+                NhanVienDTO nhanVienDTO = new NhanVienBUS().getNhanVienLogin(username, password);
+                if (nhanVienDTO != null) {
                     this.dispose();
                     try {
+                        _SaveData.userLogin = nhanVienDTO.getTenNV();
                         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
                         new MainFormGUI().setVisible(true);
                     } catch (Exception ex) {
