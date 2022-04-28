@@ -15,7 +15,6 @@ public class _SaveData {
     // các thông tin hoá đơn
     public static String maHD = "";
     public static String tenNV = "";
-    public static String maKH = "";
     public static String maPhieuGiamGia = "";
     public static String ngayBan = "";
     public static float tongTien = 0;

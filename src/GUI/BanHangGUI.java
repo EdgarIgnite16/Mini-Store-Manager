@@ -521,7 +521,14 @@ public class BanHangGUI extends javax.swing.JPanel {
                 txtTongHoaDon.setText(""); // reset field hoá đơn
                 txtSoLuong.setText(""); // reset field số lượng
                 txtNgayLap.setText(""); // reset field ngày lập
+
+                // reset lại các thông số trong local
                 _SaveData.tongTien = 0; // reset giá trị trong local
+                _SaveData.maPhieuGiamGia = ""; // reset mã giảm giá trong local
+                _SaveData.maHD = ""; // reset mã hoá đơn trong local
+                _SaveData.tenNV = ""; // reset tên nhân viên trong local
+                _SaveData.ngayBan = ""; // reset ngày bán trong local
+                _SaveData.ChiTietHoaDon = null; // reset lại chi tiết hoá đơn
 
                 // reset lại các thông số: Số lượng, Thành tiền của từng mặt hàng đã xét trước đó
                 for (MatHangDTO item : MatHangBUS.getData()) {

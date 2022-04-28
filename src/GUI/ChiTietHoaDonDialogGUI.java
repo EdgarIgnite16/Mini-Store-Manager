@@ -268,9 +268,26 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
     }
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
-        if(_MessageDialogHelper.showConfirmDialog(this, "Vui lòng kiểm tra lại các thông tin trong hoá đơn!\nBấm YES để tiến hành lập hoá đơn lên database.",
+        if (_MessageDialogHelper.showConfirmDialog(this, "Vui lòng kiểm tra lại các thông tin trong hoá đơn!\nBấm YES để tiến hành lập hoá đơn lên database.",
                 "Kiểm tra thông tin hoá đơn") == JOptionPane.YES_OPTION) {
+
             System.out.println("đang làm");
+            System.out.println(_SaveData.tongTien);
+            System.out.println(_SaveData.maPhieuGiamGia);
+            System.out.println(_SaveData.maHD);
+            System.out.println(_SaveData.tenNV);
+            System.out.println(_SaveData.ngayBan);
+            for (MatHangDTO item : _SaveData.ChiTietHoaDon) {
+                System.out.println(item.toStringGioHang());
+            }
+
+            // reset lại các thuộc tính trong local sau khi đẩy đơn hàng lên db
+            _SaveData.tongTien = 0; // reset giá trị trong local
+            _SaveData.maPhieuGiamGia = ""; // reset mã giảm giá trong local
+            _SaveData.maHD = ""; // reset mã hoá đơn trong local
+            _SaveData.tenNV = ""; // reset tên nhân viên trong local
+            _SaveData.ngayBan = ""; // reset ngày bán trong local
+            _SaveData.ChiTietHoaDon = null; // reset lại chi tiết hoá đơn
         }
     }
 
