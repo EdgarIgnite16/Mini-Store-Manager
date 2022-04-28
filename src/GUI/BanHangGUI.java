@@ -496,6 +496,8 @@ public class BanHangGUI extends javax.swing.JPanel {
                 loadGioHang(); // load table giỏ hàng
                 loadHoaDon(); // load hoá đơn
             }
+
+            // reset lại số lượng xoá trong local
             _SaveData.soLuongXoa = 0;
             _SaveData.soLuongXoaToiDa = 0;
         }
