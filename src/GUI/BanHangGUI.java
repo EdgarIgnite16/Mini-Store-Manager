@@ -23,9 +23,9 @@ public class BanHangGUI extends javax.swing.JPanel {
     private DefaultComboBoxModel model_combox_PGG;
     private DefaultComboBoxModel model_combox_LQP;
 
-    private String ngayBan;
-    private float tongtien;
-    private int soLuong;
+    private static String ngayBan;
+    private static float tongtien;
+    private static int soLuong;
     private static ArrayList<MatHangDTO> listMatHangSelected;
 
     /**
@@ -40,7 +40,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         listMatHangSelected = new ArrayList<>();
     }
 
-    private void loadButton(ArrayList<MatHangDTO> listFillData) {
+    private static void loadButton(ArrayList<MatHangDTO> listFillData) {
         int colItem = 0, rowItem = 0;
         if (listFillData.size() / 4 < 1) {
             colItem = 4;
@@ -72,7 +72,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         }
     }
 
-    public void initButtonFood() {
+    public static void initButtonFood() {
         ArrayList<MatHangDTO> listSP = new MatHangBUS().getData();
         loadButton(listSP);
     }
@@ -564,7 +564,7 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     //===================================================================================================//
     // xử lí nút bấm của mặt hàng
-    private void handleOnClickBtn(java.awt.event.ActionEvent evt) {
+    private static void handleOnClickBtn(java.awt.event.ActionEvent evt) {
         // lấy tên sản phẩm
         String name = "";
         String actionComand = evt.getActionCommand(); // lấy tên của nút bấm được bấm vào
@@ -591,7 +591,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     // bắt sự kiện xử lí mặt hàng trong giỏ hàng
-    public void handleArraylistGioHang(MatHangDTO matHangDTO) {
+    public static void handleArraylistGioHang(MatHangDTO matHangDTO) {
         try {
             if (checkItemExist(matHangDTO)) { // nếu sản phẩm đã tồn tại trong giỏ hàng
                 if (!MatHangBUS.isFull(matHangDTO)) {
@@ -620,7 +620,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     // kiểm tra hàng có tồn tại trong danh sách hàng đã chọn
-    public boolean checkItemExist(MatHangDTO matHangDTO) {
+    public static boolean checkItemExist(MatHangDTO matHangDTO) {
         for (MatHangDTO item : listMatHangSelected) {
             if (item.getMaMH().equals(matHangDTO.getMaMH())) {
                 return true;
@@ -630,7 +630,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     // lấy vị trí mặt hàng đã chọn trong danh sách mặt hàng đã chọn
-    public int getIndexOfItem(MatHangDTO matHangDTO) {
+    public static int getIndexOfItem(MatHangDTO matHangDTO) {
         for (int i = 0; i < listMatHangSelected.size(); i++) {
             if (matHangDTO.getMaMH().equals(listMatHangSelected.get(i).getMaMH())) {
                 return i;
@@ -640,7 +640,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     // thực hiện load giỏ hàng
-    public void loadGioHang() {
+    public static void loadGioHang() {
         model_table.setRowCount(0);
         for (MatHangDTO item : listMatHangSelected) {
 
@@ -656,7 +656,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     // thực hiện load hoá đơn
-    public void loadHoaDon() {
+    public static void loadHoaDon() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         ngayBan = dateFormat.format(new Date());
         tongtien = 0;
@@ -696,7 +696,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     // xử lí phiếu giảm giá trên hoá đơn OnTime
-    public void handleLoadTongTien(float tongtien, float tileGiam) {
+    public static void handleLoadTongTien(float tongtien, float tileGiam) {
         // xử lí in ra tiền đã được xử lí qua mã giảm giá => chưa lưu thành tiền thực tế lên local
         tongtien = tongtien - (tongtien * tileGiam);
         txtTongHoaDon.setText(String.valueOf(String.format("%.2f VNĐ", tongtien))); // load lại tổng tiền thanh toán
@@ -721,7 +721,6 @@ public class BanHangGUI extends javax.swing.JPanel {
         }
         return maHD;
     }
-
 
     // reset lại tất cả form và value
     public static void hanleResetFormAndValue() {
@@ -766,12 +765,12 @@ public class BanHangGUI extends javax.swing.JPanel {
     private javax.swing.JLabel lbTenMatHang;
     private javax.swing.JLabel lbTongHoaDon;
     private javax.swing.JPanel pnGioHang;
-    private javax.swing.JPanel pnMatHang;
+    private static javax.swing.JPanel pnMatHang;
     private javax.swing.JPanel pnTimKiem;
     private javax.swing.JPanel pnXulyGiohang;
     private javax.swing.JScrollPane spGioHang;
     private javax.swing.JScrollPane spMatHang;
-    private javax.swing.JTable tbGioHang;
+    private static javax.swing.JTable tbGioHang;
     private static javax.swing.JTextField txtNgayLap;
     private static javax.swing.JTextField txtSoLuong;
     private javax.swing.JTextField txtTenMatHang;

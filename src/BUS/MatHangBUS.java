@@ -79,6 +79,16 @@ public class MatHangBUS {
         }
     }
 
+    // =================================================================================== //
+    // thực hiện hàm update
+    public void update(MatHangDTO matHangDTO) throws Exception {
+        if(matHangDTO != null) {
+            MatHangDAO matHangDAO = new MatHangDAO();
+            matHangDAO.update(matHangDTO);
+        }
+    }
+
+    // =================================================================================== //
     // Xử lý các tác vụ giỏ hàng
     public static void increaseSoLuong(MatHangDTO matHangDTO) {
         matHangDTO.soLuong_hientai = matHangDTO.soLuong_hientai + 1;

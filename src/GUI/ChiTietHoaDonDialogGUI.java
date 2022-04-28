@@ -263,37 +263,6 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>
 
-    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {
-        this.dispose();
-    }
-
-    private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
-        if (_MessageDialogHelper.showConfirmDialog(this, "Vui lòng kiểm tra lại các thông tin trong hoá đơn!\nBấm YES để tiến hành lập hoá đơn lên database.",
-                "Kiểm tra thông tin hoá đơn") == JOptionPane.YES_OPTION) {
-
-            String[] ar = txtTongHoaDon.getText().split(" ");
-            HoaDonDTO hoaDonDTO = new HoaDonDTO();
-            hoaDonDTO.setMaHD(_SaveData.maHD);
-            hoaDonDTO.setMaNV(_SaveData.maNV);
-            hoaDonDTO.setMaKH(cbTenKhachHangActionListener().getMaKH());
-            hoaDonDTO.setMaGiamGia(_SaveData.maPhieuGiamGia);
-            hoaDonDTO.setTongHoaDon(Float.parseFloat(ar[0]));
-            hoaDonDTO.setNgayBan(_SaveData.ngayBan);
-            System.out.println(hoaDonDTO.toString());
-
-            for(MatHangDTO item : _SaveData.ChiTietHoaDon) {
-                ChiTietHoaDonDTO chiTietHoaDonDTO = new ChiTietHoaDonDTO();
-                chiTietHoaDonDTO.setMaHD(_SaveData.maHD);
-                chiTietHoaDonDTO.setMaMH(item.getMaMH());
-                chiTietHoaDonDTO.setSoLuong(item.soLuong_hientai);
-                System.out.println(chiTietHoaDonDTO.toString());
-            }
-
-            _MessageDialogHelper.showMessageDialog(this, "Lập hoá đơn thành công!", "Xử lí thành công");
-            BanHangGUI.hanleResetFormAndValue();
-            this.dispose();
-        }
-    }
 
     private KhachHangDTO cbTenKhachHangActionListener() {
         String rawItem = (String) cbTenKhachHang.getSelectedItem();
@@ -307,6 +276,52 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
         }
     }
 
+    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {
+        this.dispose();
+    }
+
+    private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
+        if (_MessageDialogHelper.showConfirmDialog(this, "Vui lòng kiểm tra lại các thông tin trong hoá đơn!\nBấm YES để tiến hành lập hoá đơn lên database.",
+                "Kiểm tra thông tin hoá đơn") == JOptionPane.YES_OPTION) {
+
+            // lấy hoá đơn
+            String[] ar = txtTongHoaDon.getText().split(" ");
+            HoaDonDTO hoaDonDTO = new HoaDonDTO();
+            hoaDonDTO.setMaHD(_SaveData.maHD);
+            hoaDonDTO.setMaNV(_SaveData.maNV);
+            hoaDonDTO.setMaKH(cbTenKhachHangActionListener().getMaKH());
+            hoaDonDTO.setMaGiamGia(_SaveData.maPhieuGiamGia);
+            hoaDonDTO.setTongHoaDon(Float.parseFloat(ar[0]));
+            hoaDonDTO.setNgayBan(_SaveData.ngayBan);
+            handleHoaDon(hoaDonDTO); // gọi hàm xử lí hoá đơn
+
+            // lấy chi tiết hoá đơn
+            for(MatHangDTO item : _SaveData.ChiTietHoaDon) {
+                ChiTietHoaDonDTO chiTietHoaDonDTO = new ChiTietHoaDonDTO();
+                chiTietHoaDonDTO.setMaHD(_SaveData.maHD);
+                chiTietHoaDonDTO.setMaMH(item.getMaMH());
+                chiTietHoaDonDTO.setSoLuong(item.soLuong_hientai);
+                handleChiTietHoaDon(chiTietHoaDonDTO); // gọi hàm xử lí chi tiết hoá đơn
+            }
+
+            // xử lí giảm số lượng mặt hàng trong mặt hàng tương ứng với số lượng đã bán ra
+            for(MatHangDTO item : _SaveData.ChiTietHoaDon) {
+                MatHangDTO matHangDTO = MatHangBUS.getItemByID(item.getMaMH());
+                if(matHangDTO != null) {
+                    matHangDTO.setSoLuong(matHangDTO.getSoLuong() - item.soLuong_hientai);
+                    handleMatHang(matHangDTO); // gọi hàm xử lí mặt hàng
+                }
+            }
+
+            // xử lí hoá đơn thanh toán thành công
+            _MessageDialogHelper.showMessageDialog(this, "Lập hoá đơn thành công!", "Xử lí thành công");
+            BanHangGUI.hanleResetFormAndValue(); // load lại form
+            BanHangGUI.initButtonFood(); // load lại các nút bấm sản phẩm & số lượng mặt hàng của mỗi mặt hàng
+            this.dispose();
+        }
+    }
+
+
     //===================================================================================================//
     // hàm in số tiền đã được xử lí qua mã giảm giá
     public void handleLoadTongTien(float tongtien, float tileGiam) {
@@ -315,7 +330,44 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
         txtTongHoaDon.setText(String.valueOf(String.format("%.2f VNĐ", tongtien))); // load lại tổng tiền thanh toán
     }
 
+    // xử lí lưu hoá đơn lên database
+    public void handleHoaDon(HoaDonDTO hoaDonDTO) {
+        try {
+            HoaDonBUS hoaDonBUS = new HoaDonBUS();
+            hoaDonBUS.insert(hoaDonDTO);
+        } catch (Exception ex) {
+            String title = "Lỗi xử lí dữ liệu";
+            String error = String.format("Đã có lỗi sảy ra!\nNội dung lỗi: %s", ex.getMessage());
+            _MessageDialogHelper.showErrorDialog(this, error, title);
+            ex.printStackTrace();
+        }
+    }
 
+    // xử lí lưu chi tiết hoá đơn lên database
+    public void handleChiTietHoaDon(ChiTietHoaDonDTO chiTietHoaDonDTO) {
+        try {
+            ChiTietHoaDonBUS chiTietHoaDonBUS = new ChiTietHoaDonBUS();
+            chiTietHoaDonBUS.insert(chiTietHoaDonDTO);
+        } catch (Exception ex) {
+            String title = "Lỗi xử lí dữ liệu";
+            String error = String.format("Đã có lỗi sảy ra!\nNội dung lỗi: %s", ex.getMessage());
+            _MessageDialogHelper.showErrorDialog(this, error, title);
+            ex.printStackTrace();
+        }
+    }
+
+    // xử lí cập nhật số lượng mặt hàng lên database
+    public void handleMatHang(MatHangDTO matHangDTO) {
+        try {
+            MatHangBUS matHangBUS = new MatHangBUS();
+            matHangBUS.update(matHangDTO);
+        } catch (Exception ex) {
+            String title = "Lỗi xử lí dữ liệu";
+            String error = String.format("Đã có lỗi sảy ra!\nNội dung lỗi: %s", ex.getMessage());
+            _MessageDialogHelper.showErrorDialog(this, error, title);
+            ex.printStackTrace();
+        }
+    }
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnXacNhan;

@@ -7,16 +7,17 @@
     <list default="true" id="14ed0e8a-1623-4e66-99e3-6cfa59bfb0bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/ChiTietHoaDonBUS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/ChiTietHoaDonBUS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/_SaveData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/_SaveData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/HoaDonBUS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/HoaDonBUS.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/ChiTietHoaDonDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/ChiTietHoaDonDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/HoaDonDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/HoaDonDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/ChiTietHoaDonDialogGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/ChiTietHoaDonDialogGUI$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/ChiTietHoaDonDialogGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/ChiTietHoaDonDialogGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BUS/ChiTietHoaDonBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/ChiTietHoaDonBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/_SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/_SaveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/HoaDonBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/HoaDonBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAO/HoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/HoaDonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/MatHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/MatHangDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/ChiTietHoaDonDialogGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ChiTietHoaDonDialogGUI.java" afterDir="false" />
     </list>

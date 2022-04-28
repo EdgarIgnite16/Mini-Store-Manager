@@ -34,8 +34,8 @@ public class ChiTietHoaDonDAO {
 
     // hàm insert dữ liệu lên database
     public boolean insert(ChiTietHoaDonDTO chiTietHoaDonDTO) throws Exception {
-        String sql = "INSERT INTO [dbo].[HoaDon] ([maHD], [maMH], [soLuong])" +
-                "VALUES(?, ?, ?)";
+        String sql = "INSERT INTO [dbo].[CTHD] ([maHD], [maMH], [soLuong])" +
+                " VALUES(?, ?, ?)";
 
         try(
                 Connection conn = new _Connection().getConn();

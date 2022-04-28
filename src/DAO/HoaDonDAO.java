@@ -34,7 +34,7 @@ public class HoaDonDAO {
     // hàm insert dữ liệu lên database
     public boolean insert(HoaDonDTO hoaDonDTO) throws Exception {
         String sql = "INSERT INTO [dbo].[HoaDon] ([maHD] ,[maNV] ,[maKH] ,[maGiamGia] ,[tongHoaDon] ,[ngayBan])" +
-                "VALUES(?, ?, ?, ?, ?, ?)";
+                " VALUES(?, ?, ?, ?, ?, ?)";
 
         try(
                 Connection conn = new _Connection().getConn();

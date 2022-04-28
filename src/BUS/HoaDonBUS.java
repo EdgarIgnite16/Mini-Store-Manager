@@ -47,12 +47,6 @@ public class HoaDonBUS {
         return null;
     }
 
-    // thực hiện hàm insert
-    public void insert(HoaDonDTO hoaDonDTO) throws Exception {
-        HoaDonDAO hoaDonDAO = new HoaDonDAO();
-        hoaDonDAO.insert(hoaDonDTO);
-    }
-
     public ArrayList<HoaDonDTO> getData() {
         // lấy dữ liệu
         return listHoaDon;
@@ -61,6 +55,15 @@ public class HoaDonBUS {
     public void printData() {
         for (HoaDonDTO hoaDonDTO : listHoaDon) {
             System.out.println(hoaDonDTO.toString()); // in ra terminal
+        }
+    }
+
+    // =================================================================================== //
+    // thực hiện hàm insert
+    public void insert(HoaDonDTO hoaDonDTO) throws Exception {
+        if(hoaDonDTO != null) {
+            HoaDonDAO hoaDonDAO = new HoaDonDAO();
+            hoaDonDAO.insert(hoaDonDTO);
         }
     }
 }
