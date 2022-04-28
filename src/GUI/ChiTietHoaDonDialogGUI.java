@@ -1,9 +1,9 @@
 package GUI;
 
-import BUS.KhachHangBUS;
-import BUS.PhieuGiamGiaBUS;
-import BUS._MessageDialogHelper;
-import BUS._SaveData;
+import BUS.*;
+import DAO.HoaDonDAO;
+import DTO.ChiTietHoaDonDTO;
+import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 import DTO.MatHangDTO;
 
@@ -61,7 +61,7 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
         txtMaGiamGia.setText(_SaveData.maPhieuGiamGia);
 
         float tileGiam = (float) new PhieuGiamGiaBUS().getItemById(_SaveData.maPhieuGiamGia).getTiLeGiam();
-        handle_Hd_PGG(_SaveData.tongTien, tileGiam); // load thông tin đã được giảm giá lên ô thanh toán
+        handleLoadTongTien(_SaveData.tongTien, tileGiam); // load thông tin đã được giảm giá lên ô thanh toán
     }
 
     public void initKhachHang() {
@@ -77,7 +77,7 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
         cbTenKhachHang.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                cbTenKhachHangActionListener(e);
+                cbTenKhachHangActionListener();
             }
         });
     }
@@ -271,27 +271,31 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
         if (_MessageDialogHelper.showConfirmDialog(this, "Vui lòng kiểm tra lại các thông tin trong hoá đơn!\nBấm YES để tiến hành lập hoá đơn lên database.",
                 "Kiểm tra thông tin hoá đơn") == JOptionPane.YES_OPTION) {
 
-            System.out.println("đang làm");
-            System.out.println(_SaveData.tongTien);
-            System.out.println(_SaveData.maPhieuGiamGia);
-            System.out.println(_SaveData.maHD);
-            System.out.println(_SaveData.tenNV);
-            System.out.println(_SaveData.ngayBan);
-            for (MatHangDTO item : _SaveData.ChiTietHoaDon) {
-                System.out.println(item.toStringGioHang());
+            String[] ar = txtTongHoaDon.getText().split(" ");
+            HoaDonDTO hoaDonDTO = new HoaDonDTO();
+            hoaDonDTO.setMaHD(_SaveData.maHD);
+            hoaDonDTO.setMaNV(_SaveData.maNV);
+            hoaDonDTO.setMaKH(cbTenKhachHangActionListener().getMaKH());
+            hoaDonDTO.setMaGiamGia(_SaveData.maPhieuGiamGia);
+            hoaDonDTO.setTongHoaDon(Float.parseFloat(ar[0]));
+            hoaDonDTO.setNgayBan(_SaveData.ngayBan);
+            System.out.println(hoaDonDTO.toString());
+
+            for(MatHangDTO item : _SaveData.ChiTietHoaDon) {
+                ChiTietHoaDonDTO chiTietHoaDonDTO = new ChiTietHoaDonDTO();
+                chiTietHoaDonDTO.setMaHD(_SaveData.maHD);
+                chiTietHoaDonDTO.setMaMH(item.getMaMH());
+                chiTietHoaDonDTO.setSoLuong(item.soLuong_hientai);
+                System.out.println(chiTietHoaDonDTO.toString());
             }
 
-            // reset lại các thuộc tính trong local sau khi đẩy đơn hàng lên db
-            _SaveData.tongTien = 0; // reset giá trị trong local
-            _SaveData.maPhieuGiamGia = ""; // reset mã giảm giá trong local
-            _SaveData.maHD = ""; // reset mã hoá đơn trong local
-            _SaveData.tenNV = ""; // reset tên nhân viên trong local
-            _SaveData.ngayBan = ""; // reset ngày bán trong local
-            _SaveData.ChiTietHoaDon = null; // reset lại chi tiết hoá đơn
+            _MessageDialogHelper.showMessageDialog(this, "Lập hoá đơn thành công!", "Xử lí thành công");
+            BanHangGUI.hanleResetFormAndValue();
+            this.dispose();
         }
     }
 
-    private KhachHangDTO cbTenKhachHangActionListener(ActionEvent e) {
+    private KhachHangDTO cbTenKhachHangActionListener() {
         String rawItem = (String) cbTenKhachHang.getSelectedItem();
         if(rawItem.equals("---")) { // trường hợp là khách vãng lại
             KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById("---");
@@ -303,11 +307,15 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
         }
     }
 
-    public void handle_Hd_PGG(float tongtien, float tileGiam) {
+    //===================================================================================================//
+    // hàm in số tiền đã được xử lí qua mã giảm giá
+    public void handleLoadTongTien(float tongtien, float tileGiam) {
         // xử lí in ra tiền đã được xử lí qua mã giảm giá => chưa lưu thành tiền thực tế lên local
         tongtien = tongtien - (tongtien * tileGiam);
         txtTongHoaDon.setText(String.valueOf(String.format("%.2f VNĐ", tongtien))); // load lại tổng tiền thanh toán
     }
+
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnXacNhan;

@@ -2,9 +2,7 @@ package DAO;
 
 import DTO.HoaDonDTO;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class HoaDonDAO {
@@ -32,4 +30,29 @@ public class HoaDonDAO {
             }
         }
     }
+
+    // hàm insert dữ liệu lên database
+    public boolean insert(HoaDonDTO hoaDonDTO) throws Exception {
+        String sql = "INSERT INTO [dbo].[HoaDon] ([maHD] ,[maNV] ,[maKH] ,[maGiamGia] ,[tongHoaDon] ,[ngayBan])" +
+                "VALUES(?, ?, ?, ?, ?, ?)";
+
+        try(
+                Connection conn = new _Connection().getConn();
+                PreparedStatement pstm = conn.prepareStatement(sql);
+        ) {
+            pstm.setString(1, hoaDonDTO.getMaHD());
+            pstm.setString(2, hoaDonDTO.getMaNV());
+            pstm.setString(3, hoaDonDTO.getMaKH());
+            pstm.setString(4, hoaDonDTO.getMaGiamGia());
+            pstm.setFloat(5, hoaDonDTO.getTongHoaDon());
+            pstm.setString(6, hoaDonDTO.getNgayBan());
+
+
+            return pstm.executeUpdate() > 0; // trả về số lượng các hàng bị ảnh hưởng
+            // nếu executeUpdate trả về hơn 1 => query thành công
+            // ngược lại => query thất bại
+        }
+    }
+
+
 }

@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class BanHangGUI extends javax.swing.JPanel {
-    private MainFormGUI parentForm;
-    private DefaultTableModel model_table;
+    private static MainFormGUI parentForm;
+    private static DefaultTableModel model_table;
     private DefaultComboBoxModel model_combox_PGG;
     private DefaultComboBoxModel model_combox_LQP;
 
@@ -514,27 +514,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         try {
             if (_MessageDialogHelper.showConfirmDialog(parentForm,
                     "Bạn có chắc là muốn xoá đi hoá đơn đang xử lí này?", "Xoá hoá đơn đang xử lí") == JOptionPane.YES_OPTION) {
-
-                cboxMaGiamGia.setSelectedIndex(0); // set lại combox
-                model_table.setRowCount(0); // reset table giỏ hàng
-                listMatHangSelected.clear(); // reset arrayList giỏ hàng
-                txtTongHoaDon.setText(""); // reset field hoá đơn
-                txtSoLuong.setText(""); // reset field số lượng
-                txtNgayLap.setText(""); // reset field ngày lập
-
-                // reset lại các thông số trong local
-                _SaveData.tongTien = 0; // reset giá trị trong local
-                _SaveData.maPhieuGiamGia = ""; // reset mã giảm giá trong local
-                _SaveData.maHD = ""; // reset mã hoá đơn trong local
-                _SaveData.tenNV = ""; // reset tên nhân viên trong local
-                _SaveData.ngayBan = ""; // reset ngày bán trong local
-                _SaveData.ChiTietHoaDon = null; // reset lại chi tiết hoá đơn
-
-                // reset lại các thông số: Số lượng, Thành tiền của từng mặt hàng đã xét trước đó
-                for (MatHangDTO item : MatHangBUS.getData()) {
-                    MatHangBUS.resetSoLuong(item);
-                    MatHangBUS.resetThanhTien(item);
-                }
+                hanleResetFormAndValue();
             }
         } catch (Exception ex) {
             String errorLog = String.format("Đã có lỗi xảy ra!\nMã: %s", ex.getMessage());
@@ -546,13 +526,16 @@ public class BanHangGUI extends javax.swing.JPanel {
          try {
              if(listMatHangSelected.size() > 0) {
                  PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaBUS().getItemByName(String.valueOf(cboxMaGiamGia.getSelectedItem()));
+                NhanVienBUS nhanVienBUS = new NhanVienBUS();
 
                  // lưu các thông tin hoá đơn lên local
                  _SaveData.maHD = handleMHD();  // lấy mã hoá đơn
                  _SaveData.maPhieuGiamGia = phieuGiamGiaDTO.getMaGiamGia();  // lấy mã giảm giá
+                 _SaveData.maNV = nhanVienBUS.getItemByName(lbNVLapHD_Res.getText()).getMaNV();  // lấy mã nhân viên
                  _SaveData.tenNV = lbNVLapHD_Res.getText(); // lấy tên nhân viên
                  _SaveData.ngayBan = txtNgayLap.getText(); // lấy ngày bán
                  _SaveData.ChiTietHoaDon = listMatHangSelected; // lấy chi tiết giỏ hàng
+
                  new ChiTietHoaDonDialogGUI(parentForm, true).setVisible(true); // Mở form xác nhận chi tiết hoá đơn lên
              } else {
                  _MessageDialogHelper.showErrorDialog(parentForm, "Giỏ hàng trống!\nVui lòng thêm sản phẩm vào giỏ hàng.", "Giỏ hàng trống");
@@ -573,9 +556,9 @@ public class BanHangGUI extends javax.swing.JPanel {
         PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaBUS().getItemByName(name);
         if (phieuGiamGiaDTO != null) {
             float tileGiam = (float) phieuGiamGiaDTO.getTiLeGiam();
-            handle_Hd_PGG(tongtien, tileGiam);
+            handleLoadTongTien(tongtien, tileGiam);
         } else {
-            loadHoaDon(); // load lại hoá đơn nếu mã chọn ko tồn tại
+            loadHoaDon(); // load lại hoá đơn nếu mã chọn ko tồn tại => load lại tiền ban đầu
         }
     }
 
@@ -695,7 +678,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaBUS().getItemByName(name);
         if (phieuGiamGiaDTO != null) {
             // cập nhật phiếu giảm giá áp dụng khi bấm nút
-            handle_Hd_PGG(tongtien, (float) phieuGiamGiaDTO.getTiLeGiam());
+            handleLoadTongTien(tongtien, (float) phieuGiamGiaDTO.getTiLeGiam());
         }
     }
 
@@ -713,7 +696,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
 
     // xử lí phiếu giảm giá trên hoá đơn OnTime
-    public void handle_Hd_PGG(float tongtien, float tileGiam) {
+    public void handleLoadTongTien(float tongtien, float tileGiam) {
         // xử lí in ra tiền đã được xử lí qua mã giảm giá => chưa lưu thành tiền thực tế lên local
         tongtien = tongtien - (tongtien * tileGiam);
         txtTongHoaDon.setText(String.valueOf(String.format("%.2f VNĐ", tongtien))); // load lại tổng tiền thanh toán
@@ -739,6 +722,31 @@ public class BanHangGUI extends javax.swing.JPanel {
         return maHD;
     }
 
+
+    // reset lại tất cả form và value
+    public static void hanleResetFormAndValue() {
+        cboxMaGiamGia.setSelectedIndex(0); // set lại combox
+        model_table.setRowCount(0); // reset table giỏ hàng
+        listMatHangSelected.clear(); // reset arrayList giỏ hàng
+        txtTongHoaDon.setText(""); // reset field hoá đơn
+        txtSoLuong.setText(""); // reset field số lượng
+        txtNgayLap.setText(""); // reset field ngày lập
+
+        // reset lại các thông số trong local
+        _SaveData.tongTien = 0; // reset giá trị trong local
+        _SaveData.maPhieuGiamGia = ""; // reset mã giảm giá trong local
+        _SaveData.maHD = ""; // reset mã hoá đơn trong local
+        _SaveData.tenNV = ""; // reset tên nhân viên trong local
+        _SaveData.ngayBan = ""; // reset ngày bán trong local
+        _SaveData.ChiTietHoaDon = null; // reset lại chi tiết hoá đơn
+
+        // reset lại các thông số: Số lượng, Thành tiền của từng mặt hàng đã xét trước đó
+        for (MatHangDTO item : MatHangBUS.getData()) {
+            MatHangBUS.resetSoLuong(item);
+            MatHangBUS.resetThanhTien(item);
+        }
+    }
+
     // Variables declaration - do not modify
     private javax.swing.JButton btnDanhSachHoaDon;
     private javax.swing.JButton btnGiamMH;
@@ -748,7 +756,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     private javax.swing.JButton btnTimKiem;
     private javax.swing.JButton btnXoaMH;
     private javax.swing.JComboBox<String> cboxLoaiMatHang;
-    private javax.swing.JComboBox<String> cboxMaGiamGia;
+    private static javax.swing.JComboBox<String> cboxMaGiamGia;
     private javax.swing.JLabel lbLoaiMatHang;
     private javax.swing.JLabel lbMaGiamGia;
     private javax.swing.JLabel lbNVLapHD;
@@ -764,9 +772,9 @@ public class BanHangGUI extends javax.swing.JPanel {
     private javax.swing.JScrollPane spGioHang;
     private javax.swing.JScrollPane spMatHang;
     private javax.swing.JTable tbGioHang;
-    private javax.swing.JTextField txtNgayLap;
-    private javax.swing.JTextField txtSoLuong;
+    private static javax.swing.JTextField txtNgayLap;
+    private static javax.swing.JTextField txtSoLuong;
     private javax.swing.JTextField txtTenMatHang;
-    private javax.swing.JTextField txtTongHoaDon;
+    private static javax.swing.JTextField txtTongHoaDon;
     // End of variables declaration
 }
