@@ -17,6 +17,7 @@ public class LoaiMatHangBUS {
         }
     }
 
+    // tìm kiếm đối tượng thông qua tên
     public LoaiMatHangDTO getItemByName(String name) {
         for (LoaiMatHangDTO item : listLoaiMatHang) {
             if (item.getTenLMH().equals(name)) {
@@ -27,6 +28,7 @@ public class LoaiMatHangBUS {
     }
 
     public ArrayList<LoaiMatHangDTO> getData() {
+        // trả về dữ liệu
         return listLoaiMatHang;
     }
 
@@ -34,5 +36,13 @@ public class LoaiMatHangBUS {
         for (LoaiMatHangDTO loaiMatHang : listLoaiMatHang) {
             System.out.println(loaiMatHang.toString()); // in ra terminal
         }
+    }
+
+    public static String getDefaultIcon(String maLMH) {
+        String path = "";
+
+        // chưa biết ghi cái gì hết
+
+        return path;
     }
 }

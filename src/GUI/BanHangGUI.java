@@ -57,7 +57,7 @@ public class BanHangGUI extends javax.swing.JPanel {
                     "<html> %s <br> %.1f VNĐ </html>",
                     item.getTenMH(), item.getThanhTien());
             jButton.setText(titleBtn);
-            jButton.setIcon(new ImageIcon("resource\\icon\\defaultIcon\\icons8_hamburger_64px.png"));
+            jButton.setIcon(new ImageIcon("resource\\icon\\defaultIcon\\icons8_hamburger_80px.png"));
             jButton.setToolTipText(String.format("%s - %.2f VNĐ ", item.getTenMH(), item.getThanhTien()));
             jButton.setFocusable(false);
             jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
