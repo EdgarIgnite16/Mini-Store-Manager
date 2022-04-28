@@ -653,6 +653,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     public void loadGioHang() {
         model_table.setRowCount(0);
         for (MatHangDTO item : listMatHangSelected) {
+
             model_table.addRow(new Object[]{
                     item.getMaMH(),
                     item.getTenMH(),
@@ -660,6 +661,7 @@ public class BanHangGUI extends javax.swing.JPanel {
                     item.thanhTien_hientai,
             });
         }
+        tbGioHang.setDefaultEditor(Object.class, null);
         tbGioHang.setModel(model_table);
     }
 

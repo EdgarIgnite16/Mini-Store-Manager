@@ -6,7 +6,6 @@ import BUS._MessageDialogHelper;
 import BUS._SaveData;
 import DTO.KhachHangDTO;
 import DTO.MatHangDTO;
-import DTO.PhieuGiamGiaDTO;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -47,6 +46,7 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
                         item.thanhTien_hientai,
                 });
             }
+            tbChiTietGioHang.setDefaultEditor(Object.class, null);
             tbChiTietGioHang.setModel(model_table);
         } catch (Exception ex) {
             ex.printStackTrace();
