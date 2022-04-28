@@ -538,8 +538,11 @@ public class BanHangGUI extends javax.swing.JPanel {
     private void btnLaphoaDonActionPerformed(java.awt.event.ActionEvent evt) {
          try {
              if(listMatHangSelected.size() > 0) {
+                 PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaBUS().getItemByName(String.valueOf(cboxMaGiamGia.getSelectedItem()));
+
                  // lưu các thông tin hoá đơn lên local
                  _SaveData.maHD = handleMHD();  // lấy mã hoá đơn
+                 _SaveData.maPhieuGiamGia = phieuGiamGiaDTO.getMaGiamGia();  // lấy mã giảm giá
                  _SaveData.tenNV = lbNVLapHD_Res.getText(); // lấy tên nhân viên
                  _SaveData.ngayBan = txtNgayLap.getText(); // lấy ngày bán
                  _SaveData.ChiTietHoaDon = listMatHangSelected; // lấy chi tiết giỏ hàng
@@ -672,7 +675,7 @@ public class BanHangGUI extends javax.swing.JPanel {
             soLuong += item.soLuong_hientai;
         }
 
-        _SaveData.tongTien = tongtien; //lưu lại giá trị trong local
+        _SaveData.tongTien = tongtien; // lưu lại giá trị trong local => tiền này chưa được xử lí qua mã giảm giá
 
         // cập nhật thông tin lên text field
         txtTongHoaDon.setText(String.valueOf(String.format("%.2f VNĐ", tongtien)));
@@ -702,6 +705,7 @@ public class BanHangGUI extends javax.swing.JPanel {
 
     // xử lí phiếu giảm giá trên hoá đơn OnTime
     public void handle_Hd_PGG(float tongtien, float tileGiam) {
+        // xử lí in ra tiền đã được xử lí qua mã giảm giá => chưa lưu thành tiền thực tế lên local
         tongtien = tongtien - (tongtien * tileGiam);
         txtTongHoaDon.setText(String.valueOf(String.format("%.2f VNĐ", tongtien))); // load lại tổng tiền thanh toán
     }

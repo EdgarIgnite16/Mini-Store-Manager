@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b71733e8-da03-43ea-a8d6-0d58e9b1a659" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/PhieuGiamGiaBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/PhieuGiamGiaBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/_SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/_SaveData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/BanHangGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/ChiTietHoaDonDialogGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/ChiTietHoaDonDialogGUI.java" afterDir="false" />
     </list>

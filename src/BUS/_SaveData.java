@@ -16,6 +16,7 @@ public class _SaveData {
     public static String maHD = "";
     public static String tenNV = "";
     public static String maKH = "";
+    public static String maPhieuGiamGia = "";
     public static String ngayBan = "";
     public static float tongTien = 0;
     public static ArrayList<MatHangDTO> ChiTietHoaDon = null;

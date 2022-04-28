@@ -26,6 +26,15 @@ public class PhieuGiamGiaBUS {
         return null;
     }
 
+    public PhieuGiamGiaDTO getItemById(String id) {
+        for (PhieuGiamGiaDTO item : listPhieuGiamGia) {
+            if (item.getMaGiamGia().equals(id)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<PhieuGiamGiaDTO> getData() {
         return listPhieuGiamGia;
     }
