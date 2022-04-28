@@ -268,7 +268,10 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
     }
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        if(_MessageDialogHelper.showConfirmDialog(this, "Vui lòng kiểm tra lại các thông tin trong hoá đơn!\nBấm YES để tiến hành lập hoá đơn lên database.",
+                "Kiểm tra thông tin hoá đơn") == JOptionPane.YES_OPTION) {
+            System.out.println("đang làm");
+        }
     }
 
     private KhachHangDTO cbTenKhachHangActionListener(ActionEvent e) {
