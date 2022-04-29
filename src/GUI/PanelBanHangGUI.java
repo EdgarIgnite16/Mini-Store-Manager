@@ -42,7 +42,6 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
 
     private static void loadButton(ArrayList<MatHangDTO> listFillData)  {
         int colItem = 0, rowItem = 0;
-        System.out.println(listFillData.size());
 
         if (listFillData.size() / 4 < 1) {
             colItem = 4;
@@ -59,7 +58,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
                     "<html> %s <br> %.1f VNĐ </html>",
                     item.getTenMH(), item.getThanhTien());
             jButton.setText(titleBtn);
-            jButton.setIcon(new ImageIcon("resource\\icon\\defaultIcon\\icons8_hamburger_64px.png"));
+            jButton.setIcon(new ImageIcon("resource\\icon\\defaultIcon\\icons8_hamburger_80px.png"));
             jButton.setToolTipText(String.format("%s - %.2f VNĐ ", item.getTenMH(), item.getThanhTien()));
             jButton.setFocusable(false);
             jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
