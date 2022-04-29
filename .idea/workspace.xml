@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="14ed0e8a-1623-4e66-99e3-6cfa59bfb0bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/ChiTietHoaDonBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/ChiTietHoaDonBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/HoaDonBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/HoaDonBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/KhachHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/KhachHangBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/MatHangBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DAO/HoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/HoaDonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/KhachHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/KhachHangDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/MatHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/MatHangDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/DialogXacNhanHoaDonGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/DialogXacNhanHoaDonGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

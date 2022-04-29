@@ -275,7 +275,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
     }
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {
-        // đóng hàm hiện tại lại
+        // đóng hàm hiện tại la
         this.dispose();
     }
 
@@ -283,8 +283,11 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
         try {
             if (_MessageDialogHelper.showConfirmDialog(this, "Vui lòng kiểm tra lại các thông tin trong hoá đơn!\nBấm YES để tiến hành lập hoá đơn lên database.",
                     "Kiểm tra thông tin hoá đơn") == JOptionPane.YES_OPTION) {
-                // lấy hoá đơn
+
                 String[] ar = txtTongHoaDon.getText().split(" ");
+                boolean checkValid;
+
+                // lấy hoá đơn
                 HoaDonDTO hoaDonDTO = new HoaDonDTO();
                 hoaDonDTO.setMaHD(_SaveData.maHD);
                 hoaDonDTO.setMaNV(_SaveData.maNV);
@@ -292,7 +295,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
                 hoaDonDTO.setMaGiamGia(_SaveData.maPhieuGiamGia);
                 hoaDonDTO.setTongHoaDon(Float.parseFloat(ar[0]));
                 hoaDonDTO.setNgayBan(_SaveData.ngayBan);
-                handleHoaDon(hoaDonDTO); // gọi hàm xử lí hoá đơn
+                checkValid = handleHoaDon(hoaDonDTO); // gọi hàm xử lí hoá đơn
 
                 // lấy chi tiết hoá đơn
                 for (MatHangDTO item : _SaveData.ChiTietHoaDon) {
@@ -300,7 +303,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
                     chiTietHoaDonDTO.setMaHD(_SaveData.maHD);
                     chiTietHoaDonDTO.setMaMH(item.getMaMH());
                     chiTietHoaDonDTO.setSoLuong(item.soLuong_hientai);
-                    handleChiTietHoaDon(chiTietHoaDonDTO); // gọi hàm xử lí chi tiết hoá đơn
+                    checkValid = handleChiTietHoaDon(chiTietHoaDonDTO); // gọi hàm xử lí chi tiết hoá đơn
                 }
 
                 // xử lí giảm số lượng mặt hàng trong mặt hàng tương ứng với số lượng đã bán ra
@@ -308,22 +311,29 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
                     MatHangDTO matHangDTO = MatHangBUS.getItemByID(item.getMaMH());
                     if (matHangDTO != null) {
                         matHangDTO.setSoLuong(matHangDTO.getSoLuong() - item.soLuong_hientai);
-                        handleMatHang(matHangDTO); // gọi hàm xử lí mặt hàng
+                        checkValid = handleMatHang(matHangDTO); // gọi hàm xử lí mặt hàng
                     }
                 }
 
-                _MessageDialogHelper.showMessageDialog(this, "Lập hoá đơn thành công!", "Xử lí thành công");
-                PanelBanHangGUI.hanleResetFormAndValue(); // load lại form
-                // load lại các nút bấm sản phẩm & số lượng mặt hàng của mỗi mặt hàng
-                PanelBanHangGUI.pnMatHang.removeAll();
-                PanelBanHangGUI.pnMatHang.revalidate();
-                PanelBanHangGUI.initButtonFood();
-                PanelBanHangGUI.pnMatHang.repaint();
-                this.dispose(); // đóng hàm hiện tại lại
+                if(checkValid) {
+                    _MessageDialogHelper.showMessageDialog(this,
+                            "Lập hoá đơn thành công!", "Xử lí thành công");
+                    PanelBanHangGUI.hanleResetFormAndValue(); // load lại form
+                    // load lại các nút bấm sản phẩm & số lượng mặt hàng của mỗi mặt hàng
+                    PanelBanHangGUI.pnMatHang.removeAll();
+                    PanelBanHangGUI.pnMatHang.revalidate();
+                    PanelBanHangGUI.initButtonFood();
+                    PanelBanHangGUI.pnMatHang.repaint();
+                    this.dispose(); // đóng hàm hiện tại lại
+                } else {
+                    _MessageDialogHelper.showMessageDialog(this,
+                            "Lập hoá đơn thất bại!", "Xử lí thất bại");
+                }
+
             }
         } catch (Exception ex) {
-            String title = "Xử lí thất bại";
-            String error = String.format("Lập hoá đơn thất bại!\nNội dung lỗi: %s", ex.getMessage());
+            String title = "Lỗi xử lí tiến trình";
+            String error = String.format("Nội dung lỗi: %s", ex.getMessage());
             _MessageDialogHelper.showErrorDialog(this, error, title);
             ex.printStackTrace();
         }
@@ -338,21 +348,21 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
     }
 
     // xử lí lưu hoá đơn lên database
-    public void handleHoaDon(HoaDonDTO hoaDonDTO) throws Exception {
+    public boolean handleHoaDon(HoaDonDTO hoaDonDTO) throws Exception {
         HoaDonBUS hoaDonBUS = new HoaDonBUS();
-        hoaDonBUS.insertItem(hoaDonDTO);
+        return hoaDonBUS.insertItem(hoaDonDTO);
     }
 
     // xử lí lưu chi tiết hoá đơn lên database
-    public void handleChiTietHoaDon(ChiTietHoaDonDTO chiTietHoaDonDTO) throws Exception {
+    public boolean handleChiTietHoaDon(ChiTietHoaDonDTO chiTietHoaDonDTO) throws Exception {
         ChiTietHoaDonBUS chiTietHoaDonBUS = new ChiTietHoaDonBUS();
-        chiTietHoaDonBUS.insertItem(chiTietHoaDonDTO);
+        return chiTietHoaDonBUS.insertItem(chiTietHoaDonDTO);
     }
 
     // xử lí cập nhật số lượng mặt hàng lên database
-    public void handleMatHang(MatHangDTO matHangDTO) throws Exception {
+    public boolean handleMatHang(MatHangDTO matHangDTO) throws Exception {
         MatHangBUS matHangBUS = new MatHangBUS();
-        matHangBUS.updateItem(matHangDTO);
+        return matHangBUS.updateItem(matHangDTO);
     }
 
     // Variables declaration - do not modify
