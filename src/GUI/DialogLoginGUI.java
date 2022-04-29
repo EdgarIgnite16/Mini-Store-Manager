@@ -11,11 +11,11 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 
-public class LoginGUI extends javax.swing.JDialog {
+public class DialogLoginGUI extends javax.swing.JDialog {
     /**
      * Creates new form LoginDialog
      */
-    public LoginGUI(java.awt.Frame parent, boolean modal) {
+    public DialogLoginGUI(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         this.initComponents();
     }

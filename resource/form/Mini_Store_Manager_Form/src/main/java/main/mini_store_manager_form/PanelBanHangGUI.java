@@ -8,12 +8,12 @@ package main.mini_store_manager_form;
  *
  * @author edgar
  */
-public class BanHangGUI extends javax.swing.JPanel {
+public class PanelBanHangGUI extends javax.swing.JPanel {
 
     /**
      * Creates new form BanHangGUI
      */
-    public BanHangGUI() {
+    public PanelBanHangGUI() {
         initComponents();
     }
 

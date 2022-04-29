@@ -376,7 +376,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn đăng xuất hay không",
                 "Đăng xuất") == JOptionPane.YES_OPTION) {
             this.dispose(); // đóng form hiện tại lại
-            new LoginGUI(new Frame(), true).setVisible(true);
+            new DialogLoginGUI(new Frame(), true).setVisible(true);
         }
     }
 
@@ -425,7 +425,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn đăng xuất hay không",
                 "Đăng xuất") == JOptionPane.YES_OPTION) {
             this.dispose(); // đóng form hiện tại lại
-            new LoginGUI(new Frame(), true).setVisible(true);
+            new DialogLoginGUI(new Frame(), true).setVisible(true);
         }
     }
 

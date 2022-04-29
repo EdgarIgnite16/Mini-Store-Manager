@@ -8,12 +8,12 @@ package main.mini_store_manager_form;
  *
  * @author edgar
  */
-public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
+public class DialoXacNhanHoaDonGUI extends javax.swing.JDialog {
 
     /**
      * Creates new form ChiTietHoaDonDialogGUI
      */
-    public ChiTietHoaDonDialogGUI(java.awt.Frame parent, boolean modal) {
+    public DialoXacNhanHoaDonGUI(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -236,20 +236,23 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChiTietHoaDonDialogGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialoXacNhanHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChiTietHoaDonDialogGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialoXacNhanHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChiTietHoaDonDialogGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialoXacNhanHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChiTietHoaDonDialogGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialoXacNhanHoaDonGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ChiTietHoaDonDialogGUI dialog = new ChiTietHoaDonDialogGUI(new javax.swing.JFrame(), true);
+                DialoXacNhanHoaDonGUI dialog = new DialoXacNhanHoaDonGUI(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
