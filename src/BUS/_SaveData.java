@@ -10,7 +10,9 @@ public class _SaveData {
 
     // thông tin xoá số lượng mặt hàng
     public static int soLuongXoa = 0;
-    public static int soLuongXoaToiDa = 0;
+
+    // thông tin thêm số lượng mặt hàng
+    public static int soLuongThem = 0;
 
     // các thông tin hoá đơn
     public static String maHD = "";

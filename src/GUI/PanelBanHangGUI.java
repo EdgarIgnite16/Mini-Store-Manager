@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class BanHangGUI extends javax.swing.JPanel {
+public class PanelBanHangGUI extends javax.swing.JPanel {
     private static MainFormGUI parentForm;
     private static DefaultTableModel model_table;
     private DefaultComboBoxModel model_combox_PGG;
@@ -31,7 +31,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     /**
      * Creates new form BanHangGUI
      */
-    public BanHangGUI() {
+    public PanelBanHangGUI() {
         initComponents();
         initButtonFood();
         initGioHangTable();
@@ -40,8 +40,10 @@ public class BanHangGUI extends javax.swing.JPanel {
         listMatHangSelected = new ArrayList<>();
     }
 
-    private static void loadButton(ArrayList<MatHangDTO> listFillData) {
+    private static void loadButton(ArrayList<MatHangDTO> listFillData)  {
         int colItem = 0, rowItem = 0;
+        System.out.println(listFillData.size());
+
         if (listFillData.size() / 4 < 1) {
             colItem = 4;
             rowItem = listFillData.size() / colItem + 2; // tránh trường hợp row < 1
@@ -57,7 +59,7 @@ public class BanHangGUI extends javax.swing.JPanel {
                     "<html> %s <br> %.1f VNĐ </html>",
                     item.getTenMH(), item.getThanhTien());
             jButton.setText(titleBtn);
-            jButton.setIcon(new ImageIcon("resource\\icon\\defaultIcon\\icons8_hamburger_80px.png"));
+            jButton.setIcon(new ImageIcon("resource\\icon\\defaultIcon\\icons8_hamburger_64px.png"));
             jButton.setToolTipText(String.format("%s - %.2f VNĐ ", item.getTenMH(), item.getThanhTien()));
             jButton.setFocusable(false);
             jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -166,6 +168,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         tbGioHang = new javax.swing.JTable();
         btnXoaMH = new javax.swing.JButton();
         btnGiamMH = new javax.swing.JButton();
+        btnTangMH = new javax.swing.JButton();
         pnXulyGiohang = new javax.swing.JPanel();
         lbNVLapHD = new javax.swing.JLabel();
         lbNVLapHD_Res = new javax.swing.JLabel();
@@ -184,7 +187,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         pnTimKiem.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Quản lí danh mục mặt hàng ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
 
         lbTenMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbTenMatHang.setText("Tên mặt hàng:");
+        lbTenMatHang.setText("Tên mặt hàng: ");
 
         lbLoaiMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbLoaiMatHang.setText("Loại mặt hàng:");
@@ -272,13 +275,24 @@ public class BanHangGUI extends javax.swing.JPanel {
             }
         });
 
+        btnTangMH.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnTangMH.setText("Tăng số lượng");
+        btnTangMH.setFocusable(false);
+        btnTangMH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTangMHActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnGioHangLayout = new javax.swing.GroupLayout(pnGioHang);
         pnGioHang.setLayout(pnGioHangLayout);
         pnGioHangLayout.setHorizontalGroup(
                 pnGioHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(spGioHang, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(spGioHang, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
                         .addGroup(pnGioHangLayout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnTangMH)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnGiamMH)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnXoaMH)
@@ -291,17 +305,18 @@ public class BanHangGUI extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnGioHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(btnXoaMH)
-                                        .addComponent(btnGiamMH))
+                                        .addComponent(btnGiamMH)
+                                        .addComponent(btnTangMH))
                                 .addContainerGap())
         );
 
         pnXulyGiohang.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Xử lý giỏ hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
 
         lbNVLapHD.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbNVLapHD.setText("Nhân viên lập hoá đơn:");
+        lbNVLapHD.setText("Nhân viên lập hoá đơn: ");
 
         lbNVLapHD_Res.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbNVLapHD_Res.setText(_SaveData.userLogin);
+        lbNVLapHD_Res.setText("Admin");
 
         lbNgayLap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbNgayLap.setText("Ngày lập:");
@@ -310,7 +325,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         lbSoLuong.setText("Số lượng:");
 
         lbTongHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbTongHoaDon.setText("Tổng hoá đơn:");
+        lbTongHoaDon.setText("Tổng hoá đơn: ");
 
         lbMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbMaGiamGia.setText("Mã giảm giá:");
@@ -499,13 +514,34 @@ public class BanHangGUI extends javax.swing.JPanel {
 
             // reset lại số lượng xoá trong local
             _SaveData.soLuongXoa = 0;
-            _SaveData.soLuongXoaToiDa = 0;
+        }
+    }
+
+    private void btnTangMHActionPerformed(java.awt.event.ActionEvent evt) {
+        MatHangDTO matHangDTO = tbGioHangMousePressed();
+        if (matHangDTO != null) {
+            new DialogThemGUI(new Frame(), true, matHangDTO).setVisible(true); // tạo form nhập số lượng xoá
+
+            int soLuongThem = _SaveData.soLuongThem;
+            int soLuong_HienTai = matHangDTO.soLuong_hientai;
+
+            for (int i = soLuong_HienTai; i <= soLuongThem; i++) {
+                MatHangBUS.increaseSoLuong(matHangDTO); // tăng số lượng hiện tại trong giỏ hàng
+                MatHangBUS.increaseThanhTien(matHangDTO); // tăng thành tiền hiện tại trong giỏ hàng
+                loadGioHang(); // load table giỏ hàng
+                loadHoaDon(); // load hoá đơn
+            }
+
+            // reset lại số lượng xoá trong local
+            _SaveData.soLuongThem = 0;
         }
     }
 
     private void btnXoaMHActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbGioHangMousePressed();
         if (matHangDTO != null) {
+            MatHangBUS.resetSoLuong(matHangDTO); // reset lại số lượng của mặt hàng bị xoá
+            MatHangBUS.resetThanhTien(matHangDTO); // reset lại tổng thành tiền của mặt hàng bị xoá
             listMatHangSelected.remove(matHangDTO); // xoá mặt hàng đó ra khỏi giỏ hàng
             loadGioHang(); // load table giỏ hàng
             loadHoaDon(); // load hoá đơn
@@ -538,7 +574,7 @@ public class BanHangGUI extends javax.swing.JPanel {
                  _SaveData.ngayBan = txtNgayLap.getText(); // lấy ngày bán
                  _SaveData.ChiTietHoaDon = listMatHangSelected; // lấy chi tiết giỏ hàng
 
-                 new ChiTietHoaDonDialogGUI(parentForm, true).setVisible(true); // Mở form xác nhận chi tiết hoá đơn lên
+                 new DialogChiTietHoaDonGUI(parentForm, true).setVisible(true); // Mở form xác nhận chi tiết hoá đơn lên
              } else {
                  _MessageDialogHelper.showErrorDialog(parentForm, "Giỏ hàng trống!\nVui lòng thêm sản phẩm vào giỏ hàng.", "Giỏ hàng trống");
              }
@@ -742,7 +778,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         _SaveData.ChiTietHoaDon = null; // reset lại chi tiết hoá đơn
 
         // reset lại các thông số: Số lượng, Thành tiền của từng mặt hàng đã xét trước đó
-        for (MatHangDTO item : MatHangBUS.getData()) {
+        for (MatHangDTO item : new MatHangBUS().getData()) {
             MatHangBUS.resetSoLuong(item);
             MatHangBUS.resetThanhTien(item);
         }
@@ -756,6 +792,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     private javax.swing.JButton btnLaphoaDon;
     private javax.swing.JButton btnTimKiem;
     private javax.swing.JButton btnXoaMH;
+    private javax.swing.JButton btnTangMH;
     private javax.swing.JComboBox<String> cboxLoaiMatHang;
     private static javax.swing.JComboBox<String> cboxMaGiamGia;
     private javax.swing.JLabel lbLoaiMatHang;
@@ -767,7 +804,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     private javax.swing.JLabel lbTenMatHang;
     private javax.swing.JLabel lbTongHoaDon;
     private javax.swing.JPanel pnGioHang;
-    private static javax.swing.JPanel pnMatHang;
+    public static javax.swing.JPanel pnMatHang;
     private javax.swing.JPanel pnTimKiem;
     private javax.swing.JPanel pnXulyGiohang;
     private javax.swing.JScrollPane spGioHang;

@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.net.URI;
 
 public class MainFormGUI extends javax.swing.JFrame {
-    private BanHangGUI banHangGUI;
+    private PanelBanHangGUI banHangGUI;
 
     public MainFormGUI() {
         initComponents();
@@ -17,7 +17,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
     public void initForm() {
         // Bán hàng form
-        banHangGUI = new BanHangGUI();
+        banHangGUI = new PanelBanHangGUI();
         String pathBanHang = "resource\\icon\\icons8_bill_16px.png";
         tPane_Main.addTab("Quản lí bán hàng", new ImageIcon(pathBanHang), banHangGUI, "Quản lí bán hàng");
     }

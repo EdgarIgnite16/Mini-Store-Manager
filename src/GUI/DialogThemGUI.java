@@ -7,13 +7,13 @@ import DTO.MatHangDTO;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-public class DialogXoaGUI extends javax.swing.JDialog {
+public class DialogThemGUI extends javax.swing.JDialog {
     private final MatHangDTO matHangDTO;
 
     /**
      * Creates new form SoLuongXoaDialogGUI
      */
-    public DialogXoaGUI(java.awt.Frame parent, boolean modal, MatHangDTO item) {
+    public DialogThemGUI(java.awt.Frame parent, boolean modal, MatHangDTO item) {
         super(parent, modal);
         initComponents();
         this.matHangDTO = item;
@@ -34,9 +34,9 @@ public class DialogXoaGUI extends javax.swing.JDialog {
         btnXacNhan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Nhập số lượng xoá");
+        setTitle("Nhập số lượng thêm");
 
-        pnMain.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Nhập số lượng cần xoá", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
+        pnMain.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Nhập số lượng cần thêm", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
 
         lbSoLuong.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbSoLuong.setText("Số lượng:");
@@ -117,18 +117,18 @@ public class DialogXoaGUI extends javax.swing.JDialog {
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         try {
-            if (Integer.parseInt(txtSoLuong.getText()) > matHangDTO.soLuong_hientai) {
-                _MessageDialogHelper.showErrorDialog(this, "Số lượng xoá không được phép lớn hơn số lượng sản phẩm trong giỏ hàng!",
-                        "Kiểm tra số lượng xoá");
+            if (Integer.parseInt(txtSoLuong.getText()) + matHangDTO.soLuong_hientai > matHangDTO.getSoLuong()) {
+                _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm không được phép lớn hơn số lượng sản phẩm còn lại trong tồn kho!",
+                        "Kiểm tra số lượng thêm");
                 txtSoLuong.setText("");
                 txtSoLuong.requestFocus();
-            } else if (Integer.parseInt(txtSoLuong.getText()) == matHangDTO.soLuong_hientai) {
-                _MessageDialogHelper.showErrorDialog(this, "Phải có ít nhất 1 sản phẩm trong giỏ hàng!",
-                        "Kiểm tra số lượng xoá");
+            } else if(Integer.parseInt(txtSoLuong.getText()) <= 1) {
+                _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm phải lớn hơn 1!",
+                        "Kiểm tra số lượng thêm");
                 txtSoLuong.setText("");
                 txtSoLuong.requestFocus();
-            } else {
-                _SaveData.soLuongXoa = Integer.parseInt(txtSoLuong.getText());
+            }else {
+                _SaveData.soLuongThem = Integer.parseInt(txtSoLuong.getText());
                 this.dispose();
             }
         } catch (Exception ex) {

@@ -1,7 +1,6 @@
 package GUI;
 
 import BUS.*;
-import DAO.HoaDonDAO;
 import DTO.ChiTietHoaDonDTO;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
@@ -14,14 +13,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
+public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
     private DefaultTableModel model_table;
     private DefaultComboBoxModel model_cbKhachHang;
 
     /**
      * Creates new form ChiTietHoaDonDialogGUI
      */
-    public ChiTietHoaDonDialogGUI(java.awt.Frame parent, boolean modal) {
+    public DialogChiTietHoaDonGUI(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         initGioHangTable();
@@ -315,8 +314,13 @@ public class ChiTietHoaDonDialogGUI extends javax.swing.JDialog {
 
             // xử lí hoá đơn thanh toán thành công
             _MessageDialogHelper.showMessageDialog(this, "Lập hoá đơn thành công!", "Xử lí thành công");
-            BanHangGUI.hanleResetFormAndValue(); // load lại form
-            BanHangGUI.initButtonFood(); // load lại các nút bấm sản phẩm & số lượng mặt hàng của mỗi mặt hàng
+            PanelBanHangGUI.hanleResetFormAndValue(); // load lại form
+
+            // load lại các nút bấm sản phẩm & số lượng mặt hàng của mỗi mặt hàng
+            PanelBanHangGUI.pnMatHang.removeAll();
+            PanelBanHangGUI.pnMatHang.revalidate();
+            PanelBanHangGUI.initButtonFood();
+            PanelBanHangGUI.pnMatHang.repaint();
             this.dispose();
         }
     }

@@ -40,6 +40,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         tbGioHang = new javax.swing.JTable();
         btnXoaMH = new javax.swing.JButton();
         btnGiamMH = new javax.swing.JButton();
+        btnTangMH = new javax.swing.JButton();
         pnXulyGiohang = new javax.swing.JPanel();
         lbNVLapHD = new javax.swing.JLabel();
         lbNVLapHD_Res = new javax.swing.JLabel();
@@ -66,7 +67,6 @@ public class BanHangGUI extends javax.swing.JPanel {
         txtTenMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         cboxLoaiMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cboxLoaiMatHang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnLamMoi.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnLamMoi.setText("Làm mới");
@@ -159,13 +159,24 @@ public class BanHangGUI extends javax.swing.JPanel {
             }
         });
 
+        btnTangMH.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnTangMH.setText("Tăng số lượng");
+        btnTangMH.setFocusable(false);
+        btnTangMH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTangMHActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnGioHangLayout = new javax.swing.GroupLayout(pnGioHang);
         pnGioHang.setLayout(pnGioHangLayout);
         pnGioHangLayout.setHorizontalGroup(
             pnGioHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(spGioHang, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(spGioHang, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
             .addGroup(pnGioHangLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnTangMH)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnGiamMH)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnXoaMH)
@@ -178,7 +189,8 @@ public class BanHangGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnGioHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnXoaMH)
-                    .addComponent(btnGiamMH))
+                    .addComponent(btnGiamMH)
+                    .addComponent(btnTangMH))
                 .addContainerGap())
         );
 
@@ -212,7 +224,6 @@ public class BanHangGUI extends javax.swing.JPanel {
         txtTongHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         cboxMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cboxMaGiamGia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnHuyHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnHuyHoaDon.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
@@ -375,6 +386,10 @@ public class BanHangGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnXoaMHActionPerformed
 
+    private void btnTangMHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTangMHActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTangMHActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDanhSachHoaDon;
@@ -382,6 +397,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     private javax.swing.JButton btnHuyHoaDon;
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnLaphoaDon;
+    private javax.swing.JButton btnTangMH;
     private javax.swing.JButton btnTimKiem;
     private javax.swing.JButton btnXoaMH;
     private javax.swing.JComboBox<String> cboxLoaiMatHang;
