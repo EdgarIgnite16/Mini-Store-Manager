@@ -270,8 +270,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
             return khachHangDTO;
         } else { // trường hợp là khách hàng real
             String[] Arr = rawItem.split("-");
-            KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(Arr[0]);
-            return khachHangDTO;
+            return new KhachHangBUS().getItemById(Arr[0]);
         }
     }
 
