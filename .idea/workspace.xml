@@ -60,7 +60,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestJButton" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="GUI.TestJButton" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.TestJButton" />
       <module name="Mini-Store-Manager" />
       <extension name="coverage">

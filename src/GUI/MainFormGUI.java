@@ -392,7 +392,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void mnuHelper_IntroActionPerformed(java.awt.event.ActionEvent evt) {
-        AboutUSDialogGUI aboutUSDialogGUI = new AboutUSDialogGUI(this, true);
+        DialogAboutUSGUI aboutUSDialogGUI = new DialogAboutUSGUI(this, true);
         aboutUSDialogGUI.setVisible(true);
     }
 
@@ -430,7 +430,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void tBar_IntroActionPerformed(java.awt.event.ActionEvent evt) {
-        AboutUSDialogGUI aboutUSDialogGUI = new AboutUSDialogGUI(this, true);
+        DialogAboutUSGUI aboutUSDialogGUI = new DialogAboutUSGUI(this, true);
         aboutUSDialogGUI.setVisible(true);
     }
 

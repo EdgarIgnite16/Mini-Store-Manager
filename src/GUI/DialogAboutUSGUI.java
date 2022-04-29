@@ -1,10 +1,10 @@
 package GUI;
 
-public class AboutUSDialogGUI extends javax.swing.JDialog {
+public class DialogAboutUSGUI extends javax.swing.JDialog {
     /**
      * Creates new form AboutUSDIalogGUI
      */
-    public AboutUSDialogGUI(java.awt.Frame parent, boolean modal) {
+    public DialogAboutUSGUI(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
