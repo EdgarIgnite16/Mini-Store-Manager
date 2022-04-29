@@ -524,7 +524,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
             int soLuongThem = _SaveData.soLuongThem;
             int soLuong_HienTai = matHangDTO.soLuong_hientai;
 
-            for (int i = soLuong_HienTai; i <= soLuongThem; i++) {
+            for (int i = soLuong_HienTai; i < soLuongThem + soLuong_HienTai; i++) {
                 MatHangBUS.increaseSoLuong(matHangDTO); // tăng số lượng hiện tại trong giỏ hàng
                 MatHangBUS.increaseThanhTien(matHangDTO); // tăng thành tiền hiện tại trong giỏ hàng
                 loadGioHang(); // load table giỏ hàng

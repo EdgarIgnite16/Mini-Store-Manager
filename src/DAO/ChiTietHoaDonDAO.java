@@ -32,22 +32,29 @@ public class ChiTietHoaDonDAO {
     }
 
     // hàm insert dữ liệu lên database
-    public boolean insert(ChiTietHoaDonDTO chiTietHoaDonDTO) throws Exception {
+    public boolean insertItem(ChiTietHoaDonDTO chiTietHoaDonDTO) throws Exception {
         String sql = "INSERT INTO [dbo].[CTHD] ([maHD], [maMH], [soLuong])" +
                 " VALUES(?, ?, ?)";
 
-        try (
-                Connection conn = new _Connection().getConn();
-                PreparedStatement pstm = conn.prepareStatement(sql)
-        ) {
-            pstm.setString(1, chiTietHoaDonDTO.getMaHD());
-            pstm.setString(2, chiTietHoaDonDTO.getMaMH());
-            pstm.setInt(3, chiTietHoaDonDTO.getSoLuong());
+        // sử dụng try with resource
+        try (Connection conn = new _Connection().getConn()) {
+            conn.setAutoCommit(false);
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, chiTietHoaDonDTO.getMaHD());
+                pstm.setString(2, chiTietHoaDonDTO.getMaMH());
+                pstm.setInt(3, chiTietHoaDonDTO.getSoLuong());
 
+                boolean checkPSTM = pstm.executeUpdate() > 0;
+                conn.commit(); // commit thay đổi lên database
+                conn.setAutoCommit(true); // set AutoCommit lại thành true
 
-            return pstm.executeUpdate() > 0; // trả về số lượng các hàng bị ảnh hưởng
-            // nếu executeUpdate trả về hơn 1 => query thành công
-            // ngược lại => query thất bại
+                // nếu executeUpdate trả về hơn 1 => query thành công
+                // ngược lại => query thất bại
+                return checkPSTM;
+            } catch (Exception ex) {
+                conn.rollback(); // transactions roll back nếu sql thực thi thất bại
+                return false; // trả về false nếu khổi lệnh sql thực thi thất bại
+            }
         }
     }
 }

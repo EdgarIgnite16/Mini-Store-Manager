@@ -40,11 +40,12 @@ public class ChiTietHoaDonBUS {
 
     // =================================================================================== //
     // thực hiện hàm insert
-    public void insert(ChiTietHoaDonDTO chiTietHoaDonDTO) throws Exception {
+    public boolean insertItem(ChiTietHoaDonDTO chiTietHoaDonDTO) throws Exception {
         if (chiTietHoaDonDTO != null) {
             ChiTietHoaDonDAO chiTietHoaDonDAO = new ChiTietHoaDonDAO();
-            chiTietHoaDonDAO.insert(chiTietHoaDonDTO);
+            return chiTietHoaDonDAO.insertItem(chiTietHoaDonDTO);
         }
+        return false;
     }
 
 }

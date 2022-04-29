@@ -1,7 +1,9 @@
 package BUS;
 
 import DAO.KhachHangDAO;
+import DAO.MatHangDAO;
 import DTO.KhachHangDTO;
+import DTO.MatHangDTO;
 
 import java.util.ArrayList;
 
@@ -44,4 +46,33 @@ public class KhachHangBUS {
             System.out.println(khachHangDTO.toString()); // in ra terminal
         }
     }
+
+    // =================================================================================== //
+    // thực hiện hàm insert
+    public boolean insertItem(KhachHangDTO khachHangDTO) throws Exception {
+        if (khachHangDTO != null) {
+            KhachHangDAO khachHangDAO = new KhachHangDAO();
+            return khachHangDAO.insertItem(khachHangDTO);
+        }
+        return false;
+    }
+
+    // thực hiện hàm update
+    public boolean updateItem(KhachHangDTO khachHangDTO) throws Exception {
+        if (khachHangDTO != null) {
+            KhachHangDAO khachHangDAO = new KhachHangDAO();
+            return khachHangDAO.updateItem(khachHangDTO);
+        }
+        return false;
+    }
+
+    // thực hiện hàm delete
+    public boolean deleteItem(KhachHangDTO khachHangDTO) throws Exception {
+        if (khachHangDTO != null) {
+            KhachHangDAO khachHangDAO = new KhachHangDAO();
+            return khachHangDAO.deleteItem(khachHangDTO);
+        }
+        return false;
+    }
+
 }
