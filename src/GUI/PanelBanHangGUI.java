@@ -573,7 +573,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
                 _SaveData.ngayBan = txtNgayLap.getText(); // lấy ngày bán
                 _SaveData.ChiTietHoaDon = listMatHangSelected; // lấy chi tiết giỏ hàng
 
-                new DialogChiTietHoaDonGUI(parentForm, true).setVisible(true); // Mở form xác nhận chi tiết hoá đơn lên
+                new DialogXacNhanHoaDonGUI(parentForm, true).setVisible(true); // Mở form xác nhận chi tiết hoá đơn lên
             } else {
                 _MessageDialogHelper.showErrorDialog(parentForm, "Giỏ hàng trống!\nVui lòng thêm sản phẩm vào giỏ hàng.", "Giỏ hàng trống");
             }

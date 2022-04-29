@@ -13,14 +13,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
+public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
     private DefaultTableModel model_table;
     private DefaultComboBoxModel model_cbKhachHang;
 
     /**
      * Creates new form ChiTietHoaDonDialogGUI
      */
-    public DialogChiTietHoaDonGUI(java.awt.Frame parent, boolean modal) {
+    public DialogXacNhanHoaDonGUI(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         initGioHangTable();
