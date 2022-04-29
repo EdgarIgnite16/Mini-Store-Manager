@@ -2,7 +2,10 @@ package DAO;
 
 import DTO.HoaDonDTO;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class HoaDonDAO {
@@ -36,9 +39,9 @@ public class HoaDonDAO {
         String sql = "INSERT INTO [dbo].[HoaDon] ([maHD] ,[maNV] ,[maKH] ,[maGiamGia] ,[tongHoaDon] ,[ngayBan])" +
                 " VALUES(?, ?, ?, ?, ?, ?)";
 
-        try(
+        try (
                 Connection conn = new _Connection().getConn();
-                PreparedStatement pstm = conn.prepareStatement(sql);
+                PreparedStatement pstm = conn.prepareStatement(sql)
         ) {
             pstm.setString(1, hoaDonDTO.getMaHD());
             pstm.setString(2, hoaDonDTO.getMaNV());

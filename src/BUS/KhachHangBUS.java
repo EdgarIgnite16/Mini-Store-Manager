@@ -18,8 +18,8 @@ public class KhachHangBUS {
     }
 
     public KhachHangDTO getItemByName(String name) {
-        for(KhachHangDTO item : listKhachHang) {
-            if(item.getTenKH().equals(name)) {
+        for (KhachHangDTO item : listKhachHang) {
+            if (item.getTenKH().equals(name)) {
                 return item;
             }
         }
@@ -27,8 +27,8 @@ public class KhachHangBUS {
     }
 
     public KhachHangDTO getItemById(String id) {
-        for(KhachHangDTO item : listKhachHang) {
-            if(item.getMaKH().equals(id)) {
+        for (KhachHangDTO item : listKhachHang) {
+            if (item.getMaKH().equals(id)) {
                 return item;
             }
         }

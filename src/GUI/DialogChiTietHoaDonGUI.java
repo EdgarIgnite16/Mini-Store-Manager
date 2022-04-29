@@ -37,8 +37,8 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
             tbChiTietGioHang.setModel(model_table);
             tbChiTietGioHang.setFont(new Font("Segoe UI", 0, 12));
             tbChiTietGioHang.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-            for(MatHangDTO item : _SaveData.ChiTietHoaDon) {
-                model_table.addRow(new Object[] {
+            for (MatHangDTO item : _SaveData.ChiTietHoaDon) {
+                model_table.addRow(new Object[]{
                         item.getMaMH(),
                         item.getTenMH(),
                         item.soLuong_hientai,
@@ -67,10 +67,10 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
         model_cbKhachHang = new DefaultComboBoxModel();
         model_cbKhachHang.addElement("---");
         ArrayList<KhachHangDTO> listKhachHang = new KhachHangBUS().getData();
-        for(KhachHangDTO item : listKhachHang) {
-           if(!item.getMaKH().equals("---")) {
-               model_cbKhachHang.addElement(String.format("%s-%s", item.getMaKH(), item.getTenKH()));
-           }
+        for (KhachHangDTO item : listKhachHang) {
+            if (!item.getMaKH().equals("---")) {
+                model_cbKhachHang.addElement(String.format("%s-%s", item.getMaKH(), item.getTenKH()));
+            }
         }
         cbTenKhachHang.setModel(model_cbKhachHang);
         cbTenKhachHang.addActionListener(new ActionListener() {
@@ -265,7 +265,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
 
     private KhachHangDTO cbTenKhachHangActionListener() {
         String rawItem = (String) cbTenKhachHang.getSelectedItem();
-        if(rawItem.equals("---")) { // trường hợp là khách vãng lại
+        if (rawItem.equals("---")) { // trường hợp là khách vãng lại
             KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById("---");
             return khachHangDTO;
         } else { // trường hợp là khách hàng real
@@ -295,7 +295,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
             handleHoaDon(hoaDonDTO); // gọi hàm xử lí hoá đơn
 
             // lấy chi tiết hoá đơn
-            for(MatHangDTO item : _SaveData.ChiTietHoaDon) {
+            for (MatHangDTO item : _SaveData.ChiTietHoaDon) {
                 ChiTietHoaDonDTO chiTietHoaDonDTO = new ChiTietHoaDonDTO();
                 chiTietHoaDonDTO.setMaHD(_SaveData.maHD);
                 chiTietHoaDonDTO.setMaMH(item.getMaMH());
@@ -304,9 +304,9 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
             }
 
             // xử lí giảm số lượng mặt hàng trong mặt hàng tương ứng với số lượng đã bán ra
-            for(MatHangDTO item : _SaveData.ChiTietHoaDon) {
+            for (MatHangDTO item : _SaveData.ChiTietHoaDon) {
                 MatHangDTO matHangDTO = MatHangBUS.getItemByID(item.getMaMH());
-                if(matHangDTO != null) {
+                if (matHangDTO != null) {
                     matHangDTO.setSoLuong(matHangDTO.getSoLuong() - item.soLuong_hientai);
                     handleMatHang(matHangDTO); // gọi hàm xử lí mặt hàng
                 }

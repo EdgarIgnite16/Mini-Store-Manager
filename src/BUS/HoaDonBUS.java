@@ -61,7 +61,7 @@ public class HoaDonBUS {
     // =================================================================================== //
     // thực hiện hàm insert
     public void insert(HoaDonDTO hoaDonDTO) throws Exception {
-        if(hoaDonDTO != null) {
+        if (hoaDonDTO != null) {
             HoaDonDAO hoaDonDAO = new HoaDonDAO();
             hoaDonDAO.insert(hoaDonDTO);
         }

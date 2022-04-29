@@ -122,12 +122,12 @@ public class DialogThemGUI extends javax.swing.JDialog {
                         "Kiểm tra số lượng thêm");
                 txtSoLuong.setText("");
                 txtSoLuong.requestFocus();
-            } else if(Integer.parseInt(txtSoLuong.getText()) <= 1) {
+            } else if (Integer.parseInt(txtSoLuong.getText()) <= 1) {
                 _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm phải lớn hơn 1!",
                         "Kiểm tra số lượng thêm");
                 txtSoLuong.setText("");
                 txtSoLuong.requestFocus();
-            }else {
+            } else {
                 _SaveData.soLuongThem = Integer.parseInt(txtSoLuong.getText());
                 this.dispose();
             }

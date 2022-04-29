@@ -1,7 +1,6 @@
 package DAO;
 
 import DTO.ChiTietHoaDonDTO;
-import DTO.HoaDonDTO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -37,9 +36,9 @@ public class ChiTietHoaDonDAO {
         String sql = "INSERT INTO [dbo].[CTHD] ([maHD], [maMH], [soLuong])" +
                 " VALUES(?, ?, ?)";
 
-        try(
+        try (
                 Connection conn = new _Connection().getConn();
-                PreparedStatement pstm = conn.prepareStatement(sql);
+                PreparedStatement pstm = conn.prepareStatement(sql)
         ) {
             pstm.setString(1, chiTietHoaDonDTO.getMaHD());
             pstm.setString(2, chiTietHoaDonDTO.getMaMH());
