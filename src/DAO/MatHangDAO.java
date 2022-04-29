@@ -39,9 +39,9 @@ public class MatHangDAO {
                 " WHERE [maMH] = ?";
 
         // sử dụng try-with-resource
-        try(
+        try (
                 Connection conn = new _Connection().getConn();
-                PreparedStatement pstm = conn.prepareStatement(sql);
+                PreparedStatement pstm = conn.prepareStatement(sql)
         ) {
             pstm.setString(1, matHangDTO.getMaMH());
             pstm.setString(2, matHangDTO.getMaLMH());

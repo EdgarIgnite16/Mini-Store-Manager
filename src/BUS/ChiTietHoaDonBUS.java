@@ -41,7 +41,7 @@ public class ChiTietHoaDonBUS {
     // =================================================================================== //
     // thực hiện hàm insert
     public void insert(ChiTietHoaDonDTO chiTietHoaDonDTO) throws Exception {
-        if(chiTietHoaDonDTO != null) {
+        if (chiTietHoaDonDTO != null) {
             ChiTietHoaDonDAO chiTietHoaDonDAO = new ChiTietHoaDonDAO();
             chiTietHoaDonDAO.insert(chiTietHoaDonDTO);
         }

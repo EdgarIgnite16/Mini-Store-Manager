@@ -82,7 +82,7 @@ public class MatHangBUS {
     // =================================================================================== //
     // thực hiện hàm update
     public void update(MatHangDTO matHangDTO) throws Exception {
-        if(matHangDTO != null) {
+        if (matHangDTO != null) {
             MatHangDAO matHangDAO = new MatHangDAO();
             matHangDAO.update(matHangDTO);
         }

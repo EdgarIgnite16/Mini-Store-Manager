@@ -40,7 +40,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         listMatHangSelected = new ArrayList<>();
     }
 
-    private static void loadButton(ArrayList<MatHangDTO> listFillData)  {
+    private static void loadButton(ArrayList<MatHangDTO> listFillData) {
         int colItem = 0, rowItem = 0;
 
         if (listFillData.size() / 4 < 1) {
@@ -183,7 +183,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         btnLaphoaDon = new javax.swing.JButton();
         btnDanhSachHoaDon = new javax.swing.JButton();
 
-        pnTimKiem.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Quản lí danh mục mặt hàng ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
+        pnTimKiem.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Quản lí danh mục mặt hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
 
         lbTenMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbTenMatHang.setText("Tên mặt hàng: ");
@@ -560,27 +560,27 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
     }
 
     private void btnLaphoaDonActionPerformed(java.awt.event.ActionEvent evt) {
-         try {
-             if(listMatHangSelected.size() > 0) {
-                 PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaBUS().getItemByName(String.valueOf(cboxMaGiamGia.getSelectedItem()));
+        try {
+            if (listMatHangSelected.size() > 0) {
+                PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaBUS().getItemByName(String.valueOf(cboxMaGiamGia.getSelectedItem()));
                 NhanVienBUS nhanVienBUS = new NhanVienBUS();
 
-                 // lưu các thông tin hoá đơn lên local
-                 _SaveData.maHD = handleMHD();  // lấy mã hoá đơn
-                 _SaveData.maPhieuGiamGia = phieuGiamGiaDTO.getMaGiamGia();  // lấy mã giảm giá
-                 _SaveData.maNV = nhanVienBUS.getItemByName(lbNVLapHD_Res.getText()).getMaNV();  // lấy mã nhân viên
-                 _SaveData.tenNV = lbNVLapHD_Res.getText(); // lấy tên nhân viên
-                 _SaveData.ngayBan = txtNgayLap.getText(); // lấy ngày bán
-                 _SaveData.ChiTietHoaDon = listMatHangSelected; // lấy chi tiết giỏ hàng
+                // lưu các thông tin hoá đơn lên local
+                _SaveData.maHD = handleMHD();  // lấy mã hoá đơn
+                _SaveData.maPhieuGiamGia = phieuGiamGiaDTO.getMaGiamGia();  // lấy mã giảm giá
+                _SaveData.maNV = nhanVienBUS.getItemByName(lbNVLapHD_Res.getText()).getMaNV();  // lấy mã nhân viên
+                _SaveData.tenNV = lbNVLapHD_Res.getText(); // lấy tên nhân viên
+                _SaveData.ngayBan = txtNgayLap.getText(); // lấy ngày bán
+                _SaveData.ChiTietHoaDon = listMatHangSelected; // lấy chi tiết giỏ hàng
 
-                 new DialogChiTietHoaDonGUI(parentForm, true).setVisible(true); // Mở form xác nhận chi tiết hoá đơn lên
-             } else {
-                 _MessageDialogHelper.showErrorDialog(parentForm, "Giỏ hàng trống!\nVui lòng thêm sản phẩm vào giỏ hàng.", "Giỏ hàng trống");
-             }
-         } catch (Exception ex) {
-             _MessageDialogHelper.showErrorDialog(parentForm,
-                     String.format("Đã có lỗi xảy ra!Lỗi: %s", ex.getMessage()), "Something wrong");
-         }
+                new DialogChiTietHoaDonGUI(parentForm, true).setVisible(true); // Mở form xác nhận chi tiết hoá đơn lên
+            } else {
+                _MessageDialogHelper.showErrorDialog(parentForm, "Giỏ hàng trống!\nVui lòng thêm sản phẩm vào giỏ hàng.", "Giỏ hàng trống");
+            }
+        } catch (Exception ex) {
+            _MessageDialogHelper.showErrorDialog(parentForm,
+                    String.format("Đã có lỗi xảy ra!Lỗi: %s", ex.getMessage()), "Something wrong");
+        }
     }
 
     private void btnDanhSachHoaDonActionPerformed(java.awt.event.ActionEvent evt) {
