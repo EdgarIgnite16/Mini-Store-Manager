@@ -8,8 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/PanelKhachHangGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/PanelKhachHangGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/PanelKhachHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/PanelKhachHangGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/HoaDonBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/HoaDonBUS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/DialogXacNhanHoaDonGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/DialogXacNhanHoaDonGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/MainFormGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/MainFormGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/PanelBanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PanelBanHangGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/PanelKhachHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PanelKhachHangGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

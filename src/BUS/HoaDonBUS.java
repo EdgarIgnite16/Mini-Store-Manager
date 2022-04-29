@@ -58,6 +58,16 @@ public class HoaDonBUS {
         }
     }
 
+    public ArrayList<HoaDonDTO> fillData(String maKH) {
+        ArrayList<HoaDonDTO> listHD = new ArrayList<>();
+        for(HoaDonDTO item : listHoaDon) {
+            if(item.getMaKH().equals(maKH)) {
+                listHD.add(item);
+            }
+        }
+        return listHD;
+    }
+
     // =================================================================================== //
     // thực hiện hàm insert
     public boolean insertItem(HoaDonDTO hoaDonDTO) throws Exception {

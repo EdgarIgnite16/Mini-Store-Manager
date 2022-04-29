@@ -1,18 +1,17 @@
 package GUI;
 
+import BUS.HoaDonBUS;
 import BUS.KhachHangBUS;
 import BUS._MessageDialogHelper;
 import BUS._SaveData;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
-import DTO.MatHangDTO;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class PanelKhachHangGUI extends javax.swing.JPanel {
@@ -54,7 +53,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
     }
 
     public void initTableDonHang() {
-        String[] columnNames = new String[]{"Mã HD", "Mã NV", "Mã KH", "Mã giảm giá", "Tổng hoá đơn", "Ngày bán"};
+        String[] columnNames = new String[]{"Mã HD", "Mã NV", "Mã KH", "Mã giảm giá", "Tổng hoá đơn (VNĐ)", "Ngày bán"};
         modelTable_HD = new DefaultTableModel();
         modelTable_HD.setColumnIdentifiers(columnNames);
 
@@ -86,6 +85,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         txtTenKhachHang = new javax.swing.JTextField();
         txtSoDienThoai = new javax.swing.JTextField();
         btnLamMoi = new javax.swing.JButton();
+        btnTimKiem = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
         btnSua = new javax.swing.JButton();
@@ -120,6 +120,14 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             }
         });
 
+        btnTimKiem.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnTimKiem.setText("Tìm kiếm");
+        btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimKiemActionPerformed(evt);
+            }
+        });
+
         btnThem.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +153,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         });
 
         btnXemCTHD.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnXemCTHD.setText("Xem chi tiết hoá đơn");
+        btnXemCTHD.setText("CTHĐ");
         btnXemCTHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXemCTHDActionPerformed(evt);
@@ -170,16 +178,18 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                                                         .addComponent(txtMaKhachHang)
                                                         .addComponent(txtTenKhachHang)))
                                         .addGroup(pnThongTinKhachHangLayout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
                                                 .addComponent(btnLamMoi)
-                                                .addGap(18, 18, 18)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btnTimKiem)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(btnXemCTHD)
-                                                .addGap(0, 18, Short.MAX_VALUE)))
+                                                .addComponent(btnXemCTHD)))
                                 .addContainerGap())
         );
         pnThongTinKhachHangLayout.setVerticalGroup(
@@ -203,7 +213,8 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                                         .addComponent(btnLamMoi)
                                         .addComponent(btnThem)
                                         .addComponent(btnXoa)
-                                        .addComponent(btnSua))
+                                        .addComponent(btnSua)
+                                        .addComponent(btnTimKiem))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -274,7 +285,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(spDanhSachKhachHang)
+                                        .addComponent(spDanhSachKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
                                         .addComponent(pnThongTinKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(spLichSuGiaoDich, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
@@ -285,11 +296,11 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(spLichSuGiaoDich)
+                                        .addComponent(spLichSuGiaoDich, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
                                         .addGroup(layout.createSequentialGroup()
                                                 .addComponent(pnThongTinKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(spDanhSachKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)))
+                                                .addComponent(spDanhSachKhachHang)))
                                 .addContainerGap())
         );
     }// </editor-fold>
@@ -321,16 +332,24 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         loadHoaDon(); // load lại hoá đơn
     }
 
-    //===================================================================================================//
+    private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
 
+    //===================================================================================================//
     private void tbDanhSachKhachHangMouseListener(MouseEvent e) {
         int selectedRow = tbDanhSachKhachHang.getSelectedRow();
         String idKH = String.valueOf(tbDanhSachKhachHang.getValueAt(selectedRow, 0));
         KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(idKH);
 
+        // load thông tin lên field
         txtMaKhachHang.setText(khachHangDTO.getMaKH());
         txtTenKhachHang.setText(khachHangDTO.getTenKH());
         txtSoDienThoai.setText(khachHangDTO.getSdt());
+
+        // load lịch sử mua sắm lên tb
+        this.listHoaDon = new HoaDonBUS().fillData(idKH);
+        loadHoaDon(); // gọi lại hàm load Hoá đơn để load lại lịch sử mua hàng
     }
 
     private void tbLichSuGiaoDichMouseListener(MouseEvent e) {
@@ -339,13 +358,26 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
     }
 
     private void loadHoaDon() {
-
+        modelTable_HD.setRowCount(0);
+        for (HoaDonDTO item : listHoaDon) {
+            modelTable_HD.addRow(new Object[]{
+                    item.getMaHD(),
+                    item.getMaNV(),
+                    item.getMaKH(),
+                    item.getMaGiamGia(),
+                    item.getTongHoaDon(),
+                    item.getNgayBan()
+            });
+        }
+        tbLichSuGiaoDich.setDefaultEditor(Object.class, null);
+        tbLichSuGiaoDich.setModel(modelTable_HD);
     }
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnTimKiem;
     private javax.swing.JButton btnXemCTHD;
     private javax.swing.JButton btnXoa;
     private javax.swing.JLabel lbMaKhachHang;

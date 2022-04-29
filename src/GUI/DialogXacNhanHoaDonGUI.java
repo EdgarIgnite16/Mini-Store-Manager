@@ -324,6 +324,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
                     PanelBanHangGUI.pnMatHang.revalidate();
                     PanelBanHangGUI.initButtonFood();
                     PanelBanHangGUI.pnMatHang.repaint();
+
                     this.dispose(); // đóng hàm hiện tại lại
                 } else {
                     _MessageDialogHelper.showMessageDialog(this,

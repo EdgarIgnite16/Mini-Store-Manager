@@ -34,6 +34,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         txtTenKhachHang = new javax.swing.JTextField();
         txtSoDienThoai = new javax.swing.JTextField();
         btnLamMoi = new javax.swing.JButton();
+        btnTimKiem = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
         btnSua = new javax.swing.JButton();
@@ -68,6 +69,14 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             }
         });
 
+        btnTimKiem.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnTimKiem.setText("Tìm kiếm");
+        btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTimKiemActionPerformed(evt);
+            }
+        });
+
         btnThem.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnThem.setText("Thêm");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +102,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         });
 
         btnXemCTHD.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnXemCTHD.setText("Xem chi tiết hoá đơn");
+        btnXemCTHD.setText("CTHĐ");
         btnXemCTHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXemCTHDActionPerformed(evt);
@@ -118,16 +127,18 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                             .addComponent(txtMaKhachHang)
                             .addComponent(txtTenKhachHang)))
                     .addGroup(pnThongTinKhachHangLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnLamMoi)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnTimKiem)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnXemCTHD)
-                        .addGap(0, 18, Short.MAX_VALUE)))
+                        .addComponent(btnXemCTHD)))
                 .addContainerGap())
         );
         pnThongTinKhachHangLayout.setVerticalGroup(
@@ -151,7 +162,8 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                     .addComponent(btnLamMoi)
                     .addComponent(btnThem)
                     .addComponent(btnXoa)
-                    .addComponent(btnSua))
+                    .addComponent(btnSua)
+                    .addComponent(btnTimKiem))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -192,7 +204,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(spDanhSachKhachHang)
+                    .addComponent(spDanhSachKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
                     .addComponent(pnThongTinKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spLichSuGiaoDich, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
@@ -203,11 +215,11 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spLichSuGiaoDich)
+                    .addComponent(spLichSuGiaoDich, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnThongTinKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spDanhSachKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)))
+                        .addComponent(spDanhSachKhachHang)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -232,11 +244,16 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnXoaActionPerformed
 
+    private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnTimKiemActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnTimKiem;
     private javax.swing.JButton btnXemCTHD;
     private javax.swing.JButton btnXoa;
     private javax.swing.JLabel lbMaKhachHang;
