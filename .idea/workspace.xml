@@ -4,33 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14ed0e8a-1623-4e66-99e3-6cfa59bfb0bd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/CaLamViecBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/CaLamViecBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/CaLamViecDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CaLamViecDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/ChucVuDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/ChucVuDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/LoaiMatHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/LoaiMatHangDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/NhaCungCapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/NhaCungCapDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/NhanVienDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/NhanVienDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/PhieuGiamGiaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/PhieuGiamGiaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/PhieuNhapHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/PhieuNhapHangDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/ChiTietHoaDonDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/ChiTietHoaDonDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/ChucVuDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/ChucVuDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/HoaDonDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/HoaDonDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/KhachHangDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/KhachHangDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/LoaiMatHangDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/LoaiMatHangDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/MatHangDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/MatHangDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/NhaCungCapDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/NhaCungCapDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/NhanVienDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/NhanVienDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DTO/PhieuGiamGiaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/PhieuGiamGiaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/HoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/HoaDonDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/KhachHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/KhachHangDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/MatHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/MatHangDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/DialogChiTietHoaDonGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/DialogChiTietHoaDonGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/PanelKhachHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PanelKhachHangGUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="14ed0e8a-1623-4e66-99e3-6cfa59bfb0bd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
