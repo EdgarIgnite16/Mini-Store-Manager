@@ -18,13 +18,14 @@ public class ChiTietHoaDonBUS {
     }
 
     // lấy đối tượng thông qua mã hoá đơn
-    public ChiTietHoaDonDTO getItemByMaHD(String maHD) {
+    public ArrayList<ChiTietHoaDonDTO> getListItemByMaHD(String maHD) {
+        ArrayList<ChiTietHoaDonDTO> list = new ArrayList<>();
         for (ChiTietHoaDonDTO item : listMatHangMua) {
             if (item.getMaHD().equals(maHD)) {
-                return item;
+                list.add(item);
             }
         }
-        return null;
+        return list;
     }
 
     public ArrayList<ChiTietHoaDonDTO> getData() {

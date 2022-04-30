@@ -26,6 +26,15 @@ public class NhanVienBUS {
         return null;
     }
 
+    public NhanVienDTO getItemByID(String id) {
+        for (NhanVienDTO item : listNhanVien) {
+            if (item.getMaNV().equals(id)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<NhanVienDTO> getData() {
         return listNhanVien;
     }

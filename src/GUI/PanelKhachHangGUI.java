@@ -12,6 +12,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 public class PanelKhachHangGUI extends javax.swing.JPanel {
+    private static MainFormGUI parentForm;
     private DefaultTableModel modelTable_KH;
     private DefaultTableModel modelTable_HD;
 
@@ -233,38 +234,125 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         HoaDonDTO hoaDonDTO = tbLichSuGiaoDichMouseListener();
         if(hoaDonDTO != null) {
             System.out.println(hoaDonDTO.toString());
+            new DialogChiTietHoaDonGUI(new Frame(), true, hoaDonDTO).setVisible(true);
+        }
+    }
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
+            _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
+            _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
+            if(sb.length() > 0) {
+                _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
+            } else {
+                if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                        "Bạn có muốn thêm mới đối tượng này không", "Thêm đối tượng") == JOptionPane.YES_OPTION) {
+                    KhachHangDTO khachHangDTO = new KhachHangDTO();
+                    khachHangDTO.setMaKH(txtMaKhachHang.getText());
+                    khachHangDTO.setTenKH(txtTenKhachHang.getText());
+                    khachHangDTO.setSdt(txtSoDienThoai.getText());
+
+                    KhachHangBUS khachHangBUS = new KhachHangBUS();
+                    if(khachHangBUS.insertItem(khachHangDTO)) {
+                        refreshData(); // làm mới lại dữ liệu trên form
+                        _MessageDialogHelper.showMessageDialog(parentForm, "Tạo mới đối tượng thành công !", "Success Query Data");
+                    } else {
+                        _MessageDialogHelper.showErrorDialog(parentForm, "Tạo mới đối tượng thất bại !", "Failure Query Data");
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            // trong trường hợp CSDL đã có dữ liệu của đối tượng
+            ex.printStackTrace();
+            _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm đối tượng thất bại ");
+        }
+    }
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {
+        StringBuilder sb = new StringBuilder();
+        try {
+            _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
+            _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
+            _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
+            if(sb.length() > 0) {
+                _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
+            } else {
+                if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                        "Bạn có xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
+                    KhachHangDTO khachHangDTO = new KhachHangDTO();
+                    khachHangDTO.setMaKH(txtMaKhachHang.getText());
+                    khachHangDTO.setTenKH(txtTenKhachHang.getText());
+                    khachHangDTO.setSdt(txtSoDienThoai.getText());
+
+                    KhachHangBUS khachHangBUS = new KhachHangBUS();
+                    if(khachHangBUS.deleteItem(khachHangDTO)) {
+                        refreshData(); // làm mới lại dữ liệu trên form
+                        _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công !", "Success Query Data");
+                    } else {
+                        _MessageDialogHelper.showErrorDialog(parentForm, "Xoá đối tượng thất bại !", "Failure Query Data");
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            // trong trường hợp CSDL đã có dữ liệu của đối tượng
+            ex.printStackTrace();
+            _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng không tồn tại trong CSDL!\n Hoặc đối tượng bị ràng buộc", "Xoá đối tượng thất bại ");
         }
     }
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
+        StringBuilder sb = new StringBuilder();
+        try {
+            _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
+            _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
+            _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
+            if(sb.length() > 0) {
+                _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
+            } else {
+                if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                        "Bạn có muốn thay đổi thông tin đối tượng này không", "Sửa thông tin đối tượng") == JOptionPane.YES_OPTION) {
+                    KhachHangDTO khachHangDTO = new KhachHangDTO();
+                    khachHangDTO.setMaKH(txtMaKhachHang.getText());
+                    khachHangDTO.setTenKH(txtTenKhachHang.getText());
+                    khachHangDTO.setSdt(txtSoDienThoai.getText());
 
-    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+                    KhachHangBUS khachHangBUS = new KhachHangBUS();
+                    if(khachHangBUS.updateItem(khachHangDTO)) {
+                        refreshData(); // làm mới lại dữ liệu trên form
+                        _MessageDialogHelper.showMessageDialog(parentForm,
+                                "Sửa thông tin đối tượng thành công !", "Success Query Data");
+                    } else {
+                        _MessageDialogHelper.showErrorDialog(parentForm,
+                                "Sửa thông tin đối tượng thất bại !", "Failure Query Data");
+                    }
+                }
+            }
+        } catch (Exception ex) {
+            // trong trường hợp CSDL đã có dữ liệu của đối tượng
+            ex.printStackTrace();
+            _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng chưa tồn tại trong CSDL!", "Sửa đối tượng thất bại ");
+        }
     }
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {
-        txtMaKhachHang.setText(""); // refresh form mã khách hàng
-        txtTenKhachHang.setText(""); // refresh form tên khách hàng
-        txtSoDienThoai.setText(""); // refresh form số điện thoại
-        tbDanhSachKhachHang.clearSelection(); // refresh selected danh sách khách hàng
+        refreshData();
 
-        ArrayList<KhachHangDTO> listKH = new KhachHangBUS().getData();
-        loadTableKH(listKH); // load lại khách hàng
+        // set Background
+        txtMaKhachHang.setBackground(Color.WHITE);
+        txtTenKhachHang.setBackground(Color.WHITE);
+        txtSoDienThoai.setBackground(Color.WHITE);
 
-        ArrayList<HoaDonDTO> listHoaDon = new ArrayList<>();
-        loadHoaDon(listHoaDon); // load lại hoá đơn
+        // set Foreground
+        txtMaKhachHang.setForeground(Color.BLACK);
+        txtTenKhachHang.setForeground(Color.BLACK);
+        txtSoDienThoai.setForeground(Color.BLACK);
     }
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {
         new DialogTimKiemGUI(new Frame(), true).setVisible(true); // mở form tìm kiếm
-
-        KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(_SaveData.saveID);
+        KhachHangDTO khachHangDTO = _SaveData.khachHangTimThay;
         if(khachHangDTO != null) {
             ArrayList<HoaDonDTO> listHoaDon = new HoaDonBUS().fillData(khachHangDTO.getMaKH());
             ArrayList<KhachHangDTO> listKH = new ArrayList<>(); // tạo mới danh sách khách hàng
@@ -279,26 +367,31 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             txtSoDienThoai.setText(khachHangDTO.getSdt());
 
             _SaveData.saveID = ""; // refresh lại saveID trong local
-        } else {
-            _MessageDialogHelper.showErrorDialog(this,
-                "Không tìm thấy khách hàng cần tìm!", "Không tìm thấy đối tượng");
         }
     }
 
     //===================================================================================================//
-    private void tbDanhSachKhachHangMouseListener(MouseEvent e) {
-        int selectedRow = tbDanhSachKhachHang.getSelectedRow();
-        String idKH = String.valueOf(tbDanhSachKhachHang.getValueAt(selectedRow, 0));
-        KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(idKH);
+    private KhachHangDTO tbDanhSachKhachHangMouseListener() {
+        try {
+            int selectedRow = tbDanhSachKhachHang.getSelectedRow();
+            String idKH = String.valueOf(tbDanhSachKhachHang.getValueAt(selectedRow, 0));
+            KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(idKH);
 
-        // load thông tin lên field
-        txtMaKhachHang.setText(khachHangDTO.getMaKH());
-        txtTenKhachHang.setText(khachHangDTO.getTenKH());
-        txtSoDienThoai.setText(khachHangDTO.getSdt());
+            // load thông tin lên field
+            txtMaKhachHang.setText(khachHangDTO.getMaKH());
+            txtTenKhachHang.setText(khachHangDTO.getTenKH());
+            txtSoDienThoai.setText(khachHangDTO.getSdt());
 
-        // load lịch sử mua sắm lên tb
-        ArrayList<HoaDonDTO> listHoaDon = new HoaDonBUS().fillData(idKH);
-        loadHoaDon(listHoaDon); // gọi lại hàm load Hoá đơn để load lại lịch sử mua hàng
+            // load lịch sử mua sắm lên tb
+            ArrayList<HoaDonDTO> listHoaDon = new HoaDonBUS().fillData(idKH);
+            loadHoaDon(listHoaDon); // gọi lại hàm load Hoá đơn để load lại lịch sử mua hàng
+
+            return new KhachHangBUS().getItemById(idKH); // trả về khách hàng được nhấn vào
+        } catch (Exception ex) {
+            _MessageDialogHelper.showErrorDialog(this,
+                    "Vui lòng chọn một dòng trong lịch sử giao dịch!", "Yêu cầu chọn dữ liệu");
+            return null;
+        }
     }
 
     private HoaDonDTO tbLichSuGiaoDichMouseListener() {
@@ -383,7 +476,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                tbDanhSachKhachHangMouseListener(e);
+                tbDanhSachKhachHangMouseListener();
             }
 
             @Override
@@ -396,6 +489,19 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
 
             }
         });
+    }
+
+    private void refreshData() {
+        txtMaKhachHang.setText(""); // refresh form mã khách hàng
+        txtTenKhachHang.setText(""); // refresh form tên khách hàng
+        txtSoDienThoai.setText(""); // refresh form số điện thoại
+        tbDanhSachKhachHang.clearSelection(); // refresh selected danh sách khách hàng
+
+        ArrayList<KhachHangDTO> listKH = new KhachHangBUS().getData();
+        loadTableKH(listKH); // load lại khách hàng
+
+        ArrayList<HoaDonDTO> listHoaDon = new ArrayList<>();
+        loadHoaDon(listHoaDon); // load lại hoá đơn
     }
 
     // Variables declaration - do not modify

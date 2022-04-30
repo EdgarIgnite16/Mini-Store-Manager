@@ -1,6 +1,9 @@
 package GUI;
 
+import BUS.KhachHangBUS;
+import BUS._MessageDialogHelper;
 import BUS._SaveData;
+import DTO.KhachHangDTO;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -112,8 +115,21 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
     }// </editor-fold>
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
-        _SaveData.saveID = txtID.getText();
-        this.dispose();
+        if(!txtID.getText().equals("")) {
+            _SaveData.saveID = txtID.getText();
+            KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(_SaveData.saveID);
+            if(khachHangDTO != null) {
+                _SaveData.khachHangTimThay = khachHangDTO;
+                this.dispose();
+            } else {
+                _SaveData.khachHangTimThay = null;
+                _MessageDialogHelper.showErrorDialog(this,
+                        "Không tìm thấy khách hàng cần tìm!", "Không tìm thấy đối tượng");
+            }
+        } else {
+            _MessageDialogHelper.showErrorDialog(this,
+                    "Bạn cần nhập mã đối tượng vào ô tìm kiếm để tìm kiếm đối tượng", "Lỗi tìm kiếm");
+        }
     }
 
     private void txtIDDocumentListener(DocumentEvent e) {

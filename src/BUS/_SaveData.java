@@ -1,5 +1,6 @@
 package BUS;
 
+import DTO.KhachHangDTO;
 import DTO.MatHangDTO;
 
 import java.util.ArrayList;
@@ -28,5 +29,5 @@ public class _SaveData {
     //===============================================================//
     // Variable của form khách hàng
     public static String saveID = "";
-
+    public static KhachHangDTO khachHangTimThay = null;
 }
