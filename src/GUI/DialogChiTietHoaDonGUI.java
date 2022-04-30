@@ -44,8 +44,8 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
                         item.thanhTien_hientai,
                 });
             }
-            tbChiTietGioHang.setDefaultEditor(Object.class, null);
             tbChiTietGioHang.setModel(model_table);
+            tbChiTietGioHang.setDefaultEditor(Object.class, null);
 
             // reset lại số lượng và thành tiền của từng mặt hàng
             resetValueMatHangDTO();
