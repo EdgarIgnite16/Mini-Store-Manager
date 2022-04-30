@@ -13,28 +13,26 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
-    private HoaDonDTO hoaDonDTO;
-    private DefaultTableModel model_table;
-    private float tongTienItem;
-
+    private final HoaDonDTO hoaDonDTO;
 
     /**
      * Creates new form ChiTietHoaDonDialogGUI
      */
     public DialogChiTietHoaDonGUI(java.awt.Frame parent, boolean modal, HoaDonDTO temp) {
         super(parent, modal);
-        initComponents();
         this.hoaDonDTO = temp;
+        initComponents();
         initGioHangTable();
         initThongtin();
     }
 
     public void initGioHangTable() {
         String[] columnNames = new String[]{"Mã SP", "Tên SP", "Số lượng", "Thành tiền (VNĐ)"};
-        model_table = new DefaultTableModel();
+        DefaultTableModel model_table = new DefaultTableModel();
         model_table.setColumnIdentifiers(columnNames);
 
         ArrayList<ChiTietHoaDonDTO> listCTHD = new ChiTietHoaDonBUS().getListItemByMaHD(hoaDonDTO.getMaHD());
+        // truyền chi tiết hoá đơn vào để lọc và đọc dữ liệu
         try {
             tbChiTietGioHang.setFont(new Font("Segoe UI", 0, 12));
             tbChiTietGioHang.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
@@ -48,6 +46,9 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
             }
             tbChiTietGioHang.setDefaultEditor(Object.class, null);
             tbChiTietGioHang.setModel(model_table);
+
+            // reset lại số lượng và thành tiền của từng mặt hàng
+            resetValueMatHangDTO();
         } catch (Exception ex) {
             ex.printStackTrace();
             _MessageDialogHelper.showErrorDialog(this, ex.getMessage(), "Error !");
@@ -55,14 +56,12 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
     }
 
     public void initThongtin() {
-        txtMaHoaDon.setText(hoaDonDTO.getMaHD());
-        txtTenKhachHang.setText(new KhachHangBUS().getItemById(hoaDonDTO.getMaKH()).getTenKH());
-        txtTenNhanVien.setText(new NhanVienBUS().getItemByID(hoaDonDTO.getMaNV()).getTenNV());
-        txtNgayBan.setText(hoaDonDTO.getNgayBan());
-        txtMaGiamGia.setText(hoaDonDTO.getMaGiamGia());
-
-        PhieuGiamGiaDTO phieuGiamGiaDTO = new PhieuGiamGiaBUS().getItemById(hoaDonDTO.getMaGiamGia());
-        handleLoadTongTien(tongTienItem, (float) phieuGiamGiaDTO.getTiLeGiam());
+        txtMaHoaDon.setText(hoaDonDTO.getMaHD()); // in mã hoá đơn
+        txtMaGiamGia.setText(hoaDonDTO.getMaGiamGia()); // in ra mã giảm giá
+        txtTenKhachHang.setText(new KhachHangBUS().getItemById(hoaDonDTO.getMaKH()).getTenKH()); // in tên khách hàng
+        txtTenNhanVien.setText(new NhanVienBUS().getItemByID(hoaDonDTO.getMaNV()).getTenNV()); // in tên nhân viên
+        txtTongHoaDon.setText(String.valueOf(String.format("%.2f VNĐ", hoaDonDTO.getTongHoaDon()))); // in tổng tiền thanh toán
+        txtNgayBan.setText(hoaDonDTO.getNgayBan()); // in ra ngày bán
     }
 
     /**
@@ -238,10 +237,11 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
     }// </editor-fold>
 
     private void btnDongActionPerformed(java.awt.event.ActionEvent evt) {
+        // đóng form lại
         this.dispose();
     }
 
-
+    // hàm load lại giỏ hàng của hoá đơn đã mua
     public ArrayList<MatHangDTO> handleLoadGioHang(ArrayList<ChiTietHoaDonDTO> listCTHD) {
         ArrayList<MatHangDTO> gioHang = new ArrayList<>();
         for(ChiTietHoaDonDTO item : listCTHD) {
@@ -251,16 +251,16 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
             matHangDTO.soLuong_hientai = handleSoLuongHienTai(item);
             matHangDTO.thanhTien_hientai = handleThanhTienHienTai(item);
             gioHang.add(matHangDTO);
-
-            tongTienItem += matHangDTO.thanhTien_hientai;
         }
         return gioHang;
     }
 
+    // trả vêf số lượng mặt hàng đã mua của mặt hàng đó
     private int handleSoLuongHienTai(ChiTietHoaDonDTO item) {
         return item.getSoLuong();
     }
 
+    // xử lí thành tiền hiện tại của hoá đơn đã mua * số lượng
     private float handleThanhTienHienTai(ChiTietHoaDonDTO item) {
         MatHangDTO matHangDTO = MatHangBUS.getItemByID(item.getMaMH());
         if(matHangDTO != null) {
@@ -269,10 +269,13 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
         return 0;
     }
 
-    public void handleLoadTongTien(float tongtien, float tileGiam) {
-        // xử lí in ra tiền đã được xử lí qua mã giảm giá => chưa lưu thành tiền thực tế lên local
-        tongtien = tongtien - (tongtien * tileGiam);
-        txtTongHoaDon.setText(String.valueOf(String.format("%.2f VNĐ", tongtien))); // load lại tổng tiền thanh toán
+    // reset lại số lượng và thành tiền của từng mặt hàng
+    private void resetValueMatHangDTO() {
+        ArrayList<MatHangDTO> listMatHang = new MatHangBUS().getData();
+        for(MatHangDTO item : listMatHang) {
+            item.soLuong_hientai = 0;
+            item.thanhTien_hientai = 0;
+        }
     }
 
     // Variables declaration - do not modify

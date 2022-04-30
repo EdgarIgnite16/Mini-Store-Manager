@@ -233,7 +233,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
     private void btnXemCTHDActionPerformed(java.awt.event.ActionEvent evt) {
         HoaDonDTO hoaDonDTO = tbLichSuGiaoDichMouseListener();
         if(hoaDonDTO != null) {
-            System.out.println(hoaDonDTO.toString());
+            // gọi form chi tiết hoá đơn để xuất ra hoá đơn
             new DialogChiTietHoaDonGUI(new Frame(), true, hoaDonDTO).setVisible(true);
         }
     }
@@ -271,34 +271,33 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
     }
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {
-        StringBuilder sb = new StringBuilder();
-        try {
-            _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
-            _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
-            _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
-            if(sb.length() > 0) {
-                _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
-            } else {
-                if(_MessageDialogHelper.showConfirmDialog(parentForm,
-                        "Bạn có xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
-                    KhachHangDTO khachHangDTO = new KhachHangDTO();
-                    khachHangDTO.setMaKH(txtMaKhachHang.getText());
-                    khachHangDTO.setTenKH(txtTenKhachHang.getText());
-                    khachHangDTO.setSdt(txtSoDienThoai.getText());
-
-                    KhachHangBUS khachHangBUS = new KhachHangBUS();
-                    if(khachHangBUS.deleteItem(khachHangDTO)) {
-                        refreshData(); // làm mới lại dữ liệu trên form
-                        _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công !", "Success Query Data");
-                    } else {
-                        _MessageDialogHelper.showErrorDialog(parentForm, "Xoá đối tượng thất bại !", "Failure Query Data");
+        KhachHangDTO khachHangDTO = tbDanhSachKhachHangMouseListener();
+        if(khachHangDTO != null) {
+            StringBuilder sb = new StringBuilder();
+            try {
+                _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
+                _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
+                _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
+                if(sb.length() > 0) {
+                    _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
+                } else {
+                    if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                            "Bạn có xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
+                        KhachHangBUS khachHangBUS = new KhachHangBUS();
+                        if(khachHangBUS.deleteItem(khachHangDTO)) {
+                            refreshData(); // làm mới lại dữ liệu trên form
+                            _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công !", "Success Query Data");
+                        } else {
+                            _MessageDialogHelper.showErrorDialog(parentForm, "Xoá đối tượng thất bại !", "Failure Query Data");
+                        }
                     }
                 }
+            } catch (Exception ex) {
+                // trong trường hợp CSDL đã có dữ liệu của đối tượng
+                ex.printStackTrace();
+                _MessageDialogHelper.showErrorDialog(parentForm,
+                        "Đối tượng không tồn tại trong CSDL!", "Xoá đối tượng thất bại ");
             }
-        } catch (Exception ex) {
-            // trong trường hợp CSDL đã có dữ liệu của đối tượng
-            ex.printStackTrace();
-            _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng không tồn tại trong CSDL!\n Hoặc đối tượng bị ràng buộc", "Xoá đối tượng thất bại ");
         }
     }
 

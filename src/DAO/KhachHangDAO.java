@@ -53,9 +53,9 @@ public class KhachHangDAO {
                 return checkPSTM;
             } catch (Exception ex) {
                 conn.rollback(); // transactions roll back nếu sql thực thi thất bại
-                throw new Exception(); // trả về một exception nếu câu lệnh sql bị lỗi
             }
         }
+        return false;
     }
 
     // hàm update dữ liệu lên database
@@ -82,9 +82,9 @@ public class KhachHangDAO {
                 return checkPSTM;
             } catch (Exception ex) {
                 conn.rollback(); // transactions roll back nếu sql thực thi thất bại
-                throw new Exception(); // trả về một exception nếu câu lệnh sql bị lỗi
             }
         }
+        return false;
     }
 
     // hàm delete dữ liệu lên database
@@ -107,8 +107,8 @@ public class KhachHangDAO {
                 return checkPSTM;
             } catch (Exception ex) {
                 conn.rollback(); // transactions roll back nếu sql thực thi thất bại
-                throw new Exception(); // trả về một exception nếu câu lệnh sql bị lỗi
             }
         }
+        return false;
     }
 }

@@ -24,6 +24,12 @@
       <change beforePath="$PROJECT_DIR$/src/DTO/NhaCungCapDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/NhaCungCapDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DTO/NhanVienDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/NhanVienDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DTO/PhieuGiamGiaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/PhieuGiamGiaDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/HoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/HoaDonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/KhachHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/KhachHangDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/MatHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/MatHangDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/DialogChiTietHoaDonGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/DialogChiTietHoaDonGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/PanelKhachHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PanelKhachHangGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
