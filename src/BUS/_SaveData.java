@@ -27,5 +27,6 @@ public class _SaveData {
 
     //===============================================================//
     // Variable của form khách hàng
+    public static String saveID = "";
 
 }

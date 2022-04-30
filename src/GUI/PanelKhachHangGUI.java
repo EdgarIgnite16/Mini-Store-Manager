@@ -1,9 +1,6 @@
 package GUI;
 
-import BUS.HoaDonBUS;
-import BUS.KhachHangBUS;
-import BUS._MessageDialogHelper;
-import BUS._SaveData;
+import BUS.*;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 
@@ -17,7 +14,6 @@ import java.util.ArrayList;
 public class PanelKhachHangGUI extends javax.swing.JPanel {
     private DefaultTableModel modelTable_KH;
     private DefaultTableModel modelTable_HD;
-    private ArrayList<HoaDonDTO> listHoaDon;
 
     /**
      * Creates new form PanelKhachHangGUI
@@ -35,43 +31,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         modelTable_KH.setColumnIdentifiers(columnNames);
 
         try {
-            tbDanhSachKhachHang.setFont(new Font("Segoe UI", 0, 12));
-            tbDanhSachKhachHang.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-            for (KhachHangDTO item : listKH) {
-                modelTable_KH.addRow(new Object[]{
-                        item.getMaKH(),
-                        item.getTenKH(),
-                        item.getSdt()
-                });
-            }
-            tbDanhSachKhachHang.setDefaultEditor(Object.class, null);
-            tbDanhSachKhachHang.setModel(modelTable_KH);
-            tbDanhSachKhachHang.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                    tbDanhSachKhachHangMouseListener(e);
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-
-                }
-            });
+            loadTableKH(listKH); // gọi lại hàm load table khách hàng để load lại table
         } catch (Exception ex) {
             ex.printStackTrace();
             _MessageDialogHelper.showErrorDialog(this, ex.getMessage(), "Error !");
@@ -82,42 +42,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         String[] columnNames = new String[]{"Mã HD", "Mã NV", "Mã KH", "Mã giảm giá", "Tổng hoá đơn (VNĐ)", "Ngày bán"};
         modelTable_HD = new DefaultTableModel();
         modelTable_HD.setColumnIdentifiers(columnNames);
-
-        try {
-            tbLichSuGiaoDich.setFont(new Font("Segoe UI", 0, 12));
-            tbLichSuGiaoDich.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-            tbLichSuGiaoDich.setDefaultEditor(Object.class, null);
-            tbLichSuGiaoDich.setModel(modelTable_HD);
-            tbLichSuGiaoDich.addMouseListener(new MouseListener() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                    tbLichSuGiaoDichMouseListener(e);
-                }
-
-                @Override
-                public void mouseEntered(MouseEvent e) {
-
-                }
-
-                @Override
-                public void mouseExited(MouseEvent e) {
-
-                }
-            });
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            _MessageDialogHelper.showErrorDialog(this, ex.getMessage(), "Error !");
-        }
+        tbLichSuGiaoDich.setModel(modelTable_HD);
     }
 
     /**
@@ -305,7 +230,10 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
 
 
     private void btnXemCTHDActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        HoaDonDTO hoaDonDTO = tbLichSuGiaoDichMouseListener();
+        if(hoaDonDTO != null) {
+            System.out.println(hoaDonDTO.toString());
+        }
     }
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {
@@ -326,12 +254,35 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         txtSoDienThoai.setText(""); // refresh form số điện thoại
         tbDanhSachKhachHang.clearSelection(); // refresh selected danh sách khách hàng
 
-        listHoaDon.clear(); // refresh form mã khách hàng
-        loadHoaDon(); // load lại hoá đơn
+        ArrayList<KhachHangDTO> listKH = new KhachHangBUS().getData();
+        loadTableKH(listKH); // load lại khách hàng
+
+        ArrayList<HoaDonDTO> listHoaDon = new ArrayList<>();
+        loadHoaDon(listHoaDon); // load lại hoá đơn
     }
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        new DialogTimKiemGUI(new Frame(), true).setVisible(true); // mở form tìm kiếm
+
+        KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(_SaveData.saveID);
+        if(khachHangDTO != null) {
+            ArrayList<HoaDonDTO> listHoaDon = new HoaDonBUS().fillData(khachHangDTO.getMaKH());
+            ArrayList<KhachHangDTO> listKH = new ArrayList<>(); // tạo mới danh sách khách hàng
+            listKH.add(khachHangDTO); // add khách hàng vừa tìm được vào danh sách
+
+            loadTableKH(listKH); // khởi tạo lại table khách hàng
+            loadHoaDon(listHoaDon); // load lại lịch sử mua hàng của khách hàng được chọn
+
+            // load các thông tin của khách hàng lên text field
+            txtMaKhachHang.setText(khachHangDTO.getMaKH());
+            txtTenKhachHang.setText(khachHangDTO.getTenKH());
+            txtSoDienThoai.setText(khachHangDTO.getSdt());
+
+            _SaveData.saveID = ""; // refresh lại saveID trong local
+        } else {
+            _MessageDialogHelper.showErrorDialog(this,
+                "Không tìm thấy khách hàng cần tìm!", "Không tìm thấy đối tượng");
+        }
     }
 
     //===================================================================================================//
@@ -346,17 +297,26 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         txtSoDienThoai.setText(khachHangDTO.getSdt());
 
         // load lịch sử mua sắm lên tb
-        this.listHoaDon = new HoaDonBUS().fillData(idKH);
-        loadHoaDon(); // gọi lại hàm load Hoá đơn để load lại lịch sử mua hàng
+        ArrayList<HoaDonDTO> listHoaDon = new HoaDonBUS().fillData(idKH);
+        loadHoaDon(listHoaDon); // gọi lại hàm load Hoá đơn để load lại lịch sử mua hàng
     }
 
-    private void tbLichSuGiaoDichMouseListener(MouseEvent e) {
-        int selectedRow = tbLichSuGiaoDich.getSelectedRow();
-        String idMH = String.valueOf(tbLichSuGiaoDich.getValueAt(selectedRow, 0));
+    private HoaDonDTO tbLichSuGiaoDichMouseListener() {
+        try {
+            int selectedRow = tbLichSuGiaoDich.getSelectedRow();
+            String idHD = String.valueOf(tbLichSuGiaoDich.getValueAt(selectedRow, 0));
+            return new HoaDonBUS().getItemBymMaHD(idHD);
+        } catch (Exception ex) {
+            _MessageDialogHelper.showErrorDialog(this,
+                    "Vui lòng chọn một dòng trong lịch sử giao dịch!", "Yêu cầu chọn dữ liệu");
+            return null;
+        }
     }
 
-    private void loadHoaDon() {
+    private void loadHoaDon(ArrayList<HoaDonDTO> listHoaDon) {
         modelTable_HD.setRowCount(0);
+        tbLichSuGiaoDich.setFont(new Font("Segoe UI", 0, 12));
+        tbLichSuGiaoDich.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         for (HoaDonDTO item : listHoaDon) {
             modelTable_HD.addRow(new Object[]{
                     item.getMaHD(),
@@ -369,6 +329,73 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
         tbLichSuGiaoDich.setDefaultEditor(Object.class, null);
         tbLichSuGiaoDich.setModel(modelTable_HD);
+        tbLichSuGiaoDich.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                tbLichSuGiaoDichMouseListener();
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
+    }
+
+    private void loadTableKH(ArrayList<KhachHangDTO> listItem) {
+        modelTable_KH.setRowCount(0);
+        tbDanhSachKhachHang.setFont(new Font("Segoe UI", 0, 12));
+        tbDanhSachKhachHang.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+        for (KhachHangDTO item : listItem) {
+            modelTable_KH.addRow(new Object[]{
+                    item.getMaKH(),
+                    item.getTenKH(),
+                    item.getSdt()
+            });
+        }
+        tbDanhSachKhachHang.setDefaultEditor(Object.class, null);
+        tbDanhSachKhachHang.setModel(modelTable_KH);
+        tbDanhSachKhachHang.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                tbDanhSachKhachHangMouseListener(e);
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
     }
 
     // Variables declaration - do not modify
