@@ -6,6 +6,7 @@ public class KhachHangDTO {
     private String sdt;
 
     public KhachHangDTO() {
+
     }
 
     public KhachHangDTO(String maKH, String tenKH, String sdt) {

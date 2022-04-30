@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class CaLamViecBUS {
     private ArrayList<CaLamViecDTO> listCaLamViec;
-
     public CaLamViecBUS() {
         try {
             listCaLamViec = new CaLamViecDAO().getData(); // lấy dữ liệu từ Database thông qua DAO

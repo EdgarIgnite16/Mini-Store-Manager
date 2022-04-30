@@ -7,6 +7,7 @@ public class PhieuGiamGiaDTO {
     private float tiLeGiam;
 
     public PhieuGiamGiaDTO() {
+
     }
 
     public PhieuGiamGiaDTO(String maGiamGia, String tenGiamGia, String noiDung, float tiLeGiam) {

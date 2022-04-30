@@ -12,6 +12,7 @@ public class MatHangDTO {
     public float thanhTien_hientai = 0;
 
     public MatHangDTO() {
+
     }
 
     public MatHangDTO(String maMH, String maLMH, String tenMH, float thanhTien, int soLuong) {

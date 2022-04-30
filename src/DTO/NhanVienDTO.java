@@ -9,6 +9,7 @@ public class NhanVienDTO {
     private String cmnd;
 
     public NhanVienDTO() {
+
     }
 
     public NhanVienDTO(String maNV, String maCV, String maCa, String tenNV, String SDT, String cmnd) {

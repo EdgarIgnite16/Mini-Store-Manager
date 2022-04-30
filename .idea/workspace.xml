@@ -6,24 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="14ed0e8a-1623-4e66-99e3-6cfa59bfb0bd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/CaLamViecBUS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/CaLamViecBUS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/ChucVuBUS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/ChucVuBUS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/LoaiMatHangBUS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/LoaiMatHangBUS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/NhaCungCapBUS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/NhaCungCapBUS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/NhanVienBUS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/NhanVienBUS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/PhieuGiamGiaBUS.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/BUS/PhieuGiamGiaBUS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/_Connection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/_Connection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/DialogXoaGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/DialogXoaGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/LoginGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/LoginGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/DialoXacNhanHoaDOnGUI.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/DialoXacNhanHoaDOnGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/ChiTietHoaDonBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/ChiTietHoaDonBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/NhanVienBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/NhanVienBUS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BUS/_SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/_SaveData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/KhachHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/KhachHangDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/DialogTimKiemGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/DialogTimKiemGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/PanelKhachHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PanelKhachHangGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/CaLamViecBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/CaLamViecBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/CaLamViecDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/CaLamViecDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/ChiTietHoaDonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/ChucVuDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/ChucVuDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/LoaiMatHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/LoaiMatHangDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/NhaCungCapDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/NhaCungCapDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/NhanVienDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/NhanVienDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/PhieuGiamGiaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/PhieuGiamGiaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/PhieuNhapHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/PhieuNhapHangDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTO/ChiTietHoaDonDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/ChiTietHoaDonDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTO/ChucVuDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/ChucVuDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTO/HoaDonDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/HoaDonDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTO/KhachHangDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/KhachHangDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTO/LoaiMatHangDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/LoaiMatHangDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTO/MatHangDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/MatHangDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTO/NhaCungCapDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/NhaCungCapDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTO/NhanVienDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/NhanVienDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DTO/PhieuGiamGiaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DTO/PhieuGiamGiaDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,11 +121,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/DAO/LoaiMatHangDAO.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="com.microsoft.sqlserver.jdbc.SQLServerException" package="com.microsoft.sqlserver.jdbc" />
           <option name="timeStamp" value="3" />

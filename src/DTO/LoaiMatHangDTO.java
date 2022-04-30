@@ -5,6 +5,7 @@ public class LoaiMatHangDTO {
     private String tenLMH;
 
     public LoaiMatHangDTO() {
+
     }
 
     public LoaiMatHangDTO(String maLMH, String tenLMH) {

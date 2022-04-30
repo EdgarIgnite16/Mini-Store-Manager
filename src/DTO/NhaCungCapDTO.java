@@ -6,6 +6,7 @@ public class NhaCungCapDTO {
     private String SDT;
 
     public NhaCungCapDTO() {
+
     }
 
     public NhaCungCapDTO(String maNCC, String tenNCC, String SDT) {

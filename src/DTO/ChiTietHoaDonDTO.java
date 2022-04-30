@@ -7,6 +7,7 @@ public class ChiTietHoaDonDTO {
     private int soLuong;
 
     public ChiTietHoaDonDTO() {
+
     }
 
     public ChiTietHoaDonDTO(String maHD, String maMH, int soLuong) {

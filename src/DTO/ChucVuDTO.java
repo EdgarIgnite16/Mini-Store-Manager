@@ -5,6 +5,7 @@ public class ChucVuDTO {
     private String tenCV;
 
     public ChucVuDTO() {
+
     }
 
     public ChucVuDTO(String maCV, String tenCV) {
