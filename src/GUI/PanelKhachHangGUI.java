@@ -229,7 +229,6 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>
 
-
     private void btnXemCTHDActionPerformed(java.awt.event.ActionEvent evt) {
         HoaDonDTO hoaDonDTO = tbLichSuGiaoDichMouseListener();
         if(hoaDonDTO != null) {
