@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14ed0e8a-1623-4e66-99e3-6cfa59bfb0bd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/KhachHangBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/KhachHangBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/KhachHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/KhachHangDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/_Connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/_Connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/PanelBanHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PanelBanHangGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/PanelKhachHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PanelKhachHangGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,9 +38,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "D:/Workspace/Student-management-application-3"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Workspace\Mini-Store-Manager\resource\icon\defaultIcon" />

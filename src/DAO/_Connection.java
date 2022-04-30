@@ -10,9 +10,6 @@ public class _Connection {
     private String dbName;
 
     private Connection conn;
-    private Statement stm;
-    private PreparedStatement pstm;
-    private ResultSet rs;
 
     public _Connection() {
         checkDriver(); // kiểm tra driver có tồn tại hay không ?
@@ -54,25 +51,7 @@ public class _Connection {
         }
     }
 
-    // hàm đóng các connection, statement và preparedStatement
-    public void closeConnection() {
-        try {
-            if (conn != null) {
-                conn.close();
-            }
-            if (stm != null) {
-                stm.close();
-            }
-            if (pstm != null) {
-                pstm.close();
-            }
-            System.out.println("Đóng connection thành công!");
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            System.out.println("Đóng connection thất bại!");
-        }
-    }
-
+    // lấy Connection
     public Connection getConn() {
         return conn;
     }

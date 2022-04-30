@@ -36,6 +36,7 @@ public class KhachHangBUS {
     }
 
     public ArrayList<KhachHangDTO> getData() {
+        // trả về dữ liệu
         return listKhachHang;
     }
 

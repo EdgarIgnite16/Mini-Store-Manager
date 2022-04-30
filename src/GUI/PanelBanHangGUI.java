@@ -84,9 +84,10 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         model_table.setColumnIdentifiers(columnNames);
 
         try {
-            tbGioHang.setModel(model_table);
             tbGioHang.setFont(new Font("Segoe UI", 0, 12));
             tbGioHang.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+            tbGioHang.setModel(model_table);
+            tbGioHang.setDefaultEditor(Object.class, null);
             tbGioHang.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -687,8 +688,6 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
                     item.thanhTien_hientai,
             });
         }
-        tbGioHang.setDefaultEditor(Object.class, null);
-        tbGioHang.setModel(model_table);
     }
 
     // thực hiện load hoá đơn
