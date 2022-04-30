@@ -16,6 +16,14 @@
       <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/BanHangGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/DialogXoaGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/DialogXoaGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/LoginGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Mini-Store-Manager/GUI/LoginGUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/DialoXacNhanHoaDOnGUI.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource/form/Mini_Store_Manager_Form/src/main/java/main/mini_store_manager_form/DialoXacNhanHoaDOnGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/ChiTietHoaDonBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/ChiTietHoaDonBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/NhanVienBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/NhanVienBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/_SaveData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/_SaveData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DAO/KhachHangDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DAO/KhachHangDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/DialogTimKiemGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/DialogTimKiemGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/PanelKhachHangGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/PanelKhachHangGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

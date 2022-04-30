@@ -680,7 +680,6 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
     public static void loadGioHang() {
         model_table.setRowCount(0);
         for (MatHangDTO item : listMatHangSelected) {
-
             model_table.addRow(new Object[]{
                     item.getMaMH(),
                     item.getTenMH(),

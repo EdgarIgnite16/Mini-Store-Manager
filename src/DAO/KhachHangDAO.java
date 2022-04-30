@@ -71,6 +71,7 @@ public class KhachHangDAO {
                 pstm.setString(1, khachHangDTO.getMaKH());
                 pstm.setString(2, khachHangDTO.getTenKH());
                 pstm.setString(3, khachHangDTO.getSdt());
+                pstm.setString(4, khachHangDTO.getMaKH());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database

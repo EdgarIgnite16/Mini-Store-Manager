@@ -1,10 +1,13 @@
 package BUS;
 
+import DTO.KhachHangDTO;
 import DTO.MatHangDTO;
 
 import java.util.ArrayList;
 
 public class _SaveData {
+    //===============================================================//
+    // Variable của form Bán hàng
     // thông tin đăng nhập
     public static String userLogin = "";
 
@@ -22,4 +25,9 @@ public class _SaveData {
     public static String ngayBan = "";
     public static float tongTien = 0;
     public static ArrayList<MatHangDTO> ChiTietHoaDon = null;
+
+    //===============================================================//
+    // Variable của form khách hàng
+    public static String saveID = "";
+    public static KhachHangDTO khachHangTimThay = null;
 }

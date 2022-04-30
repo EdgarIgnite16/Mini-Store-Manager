@@ -9,6 +9,7 @@ import java.net.URI;
 
 public class MainFormGUI extends javax.swing.JFrame {
     private PanelBanHangGUI banHangGUI;
+    private PanelKhachHangGUI khachHangGUI;
 
     public MainFormGUI() {
         initComponents();
@@ -20,6 +21,11 @@ public class MainFormGUI extends javax.swing.JFrame {
         banHangGUI = new PanelBanHangGUI();
         String pathBanHang = "resource\\icon\\icons8_bill_16px.png";
         tPane_Main.addTab("Quản lí bán hàng", new ImageIcon(pathBanHang), banHangGUI, "Quản lí bán hàng");
+
+        // Khách  hàng form
+        khachHangGUI = new PanelKhachHangGUI();
+        String pathKhachHang = "resource\\icon\\icons8-customer-16.png";
+        tPane_Main.addTab("Quản lí khách hàng", new ImageIcon(pathKhachHang), khachHangGUI, "\"Quản lí khách hàng");
     }
 
     /**
@@ -63,7 +69,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuHelper_Contact = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Phần mềm quản lí sinh viên v1.2");
+        setTitle("Phần mềm quản lí cửa hàng tiện lợi Mini Store");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tBar_Main.setFloatable(false);
 
@@ -397,6 +403,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void mnuManage_BanHangActionPerformed(ActionEvent evt) {
+        // select vào panel đã chọn
         tPane_Main.setSelectedComponent(banHangGUI);
     }
 
@@ -409,7 +416,8 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void mnuManage_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        // select vào panel đã chọn
+        tPane_Main.setSelectedComponent(khachHangGUI);
     }
 
     private void mnuManage_MatHangActionPerformed(java.awt.event.ActionEvent evt) {
@@ -454,21 +462,11 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void tBar_NhanVienActionPerformed(java.awt.event.ActionEvent evt) {
-        CaLamViecBUS caLamViecBUS = new CaLamViecBUS();
-        ChucVuBUS chucVuBUS = new ChucVuBUS();
-        LoaiMatHangBUS loaiMatHangBUS = new LoaiMatHangBUS();
-        NhaCungCapBUS nhaCungCapBUS = new NhaCungCapBUS();
-        PhieuGiamGiaBUS phieuGiamGiaBUS = new PhieuGiamGiaBUS();
-
-        caLamViecBUS.printData();
-        chucVuBUS.printData();
-        loaiMatHangBUS.printData();
-        nhaCungCapBUS.printData();
-        phieuGiamGiaBUS.printData();
     }
 
     private void tBar_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        // select vào panel đã chọn
+        tPane_Main.setSelectedComponent(khachHangGUI);
     }
 
     private void tBar_MatHangActionPerformed(java.awt.event.ActionEvent evt) {
