@@ -1,3 +1,7 @@
 /resource/form/Mini_Store_Manager_Form/target/
 out/
 .idea/
+.idea_modules/
+*.iml
+*.ipr
+*.iws
