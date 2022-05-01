@@ -438,8 +438,8 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             new DialogTimKiemGUI(new Frame(), true,"HD").setVisible(true); // mở form tìm kiếm
             HoaDonDTO hoaDonDTO = _SaveData.hoaDonTimThay;
             if(hoaDonDTO != null) {
-                ArrayList<HoaDonDTO> listHD = new ArrayList<>(); // tạo mới danh sách khách hàng
-                listHD.add(hoaDonDTO); // add khách hàng vừa tìm được vào danh sách
+                ArrayList<HoaDonDTO> listHD = new ArrayList<>(); // tạo mới danh sách hoá đơn
+                listHD.add(hoaDonDTO); // add hoá đơn vừa tìm được vào danh sách
                 loadHoaDon(listHD); // load lại lịch sử mua hàng của khách hàng được chọn
 
                 // reset lại data tìm kiếm trong local

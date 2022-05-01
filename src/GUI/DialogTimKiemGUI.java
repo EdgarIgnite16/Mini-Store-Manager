@@ -120,6 +120,7 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         if(!txtID.getText().equals("")) {
+            // trường hợp là tìm kiếm Khách hàng
             if(this.key.equals("KH")) {
                 KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(txtID.getText());
                 if(khachHangDTO != null) {
@@ -132,6 +133,7 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
                 }
             }
 
+            // trường hợp là tìm kiếm Hoá đơn
             if(this.key.equals("HD")) {
                 HoaDonDTO hoaDonDTO = new HoaDonBUS().getItemBymMaHD(txtID.getText());
                 if(hoaDonDTO != null) {
