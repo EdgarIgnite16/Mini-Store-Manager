@@ -47,7 +47,7 @@ public class NhanVienBUS {
 
     public NhanVienDTO getNhanVienLogin(String username, String password) {
         for (NhanVienDTO user : listNhanVien) {
-            if (user.getMaNV().equals(username) && password.equals("12345")) {
+            if (user.getMaNV().trim().equals(username) && password.equals("12345")) {
                 return user;
             }
         }

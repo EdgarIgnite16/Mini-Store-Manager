@@ -14,6 +14,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
+    private DefaultTableModel model_table;
+    private DefaultComboBoxModel model_cbKhachHang;
+
     /**
      * Creates new form ChiTietHoaDonDialogGUI
      */
@@ -27,7 +30,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
 
     public void initGioHangTable() {
         String[] columnNames = new String[]{"Mã SP", "Tên SP", "Số lượng", "Thành tiền (VNĐ)"};
-        DefaultTableModel model_table = new DefaultTableModel();
+        model_table = new DefaultTableModel();
         model_table.setColumnIdentifiers(columnNames);
 
         try {
@@ -60,7 +63,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
     }
 
     public void initKhachHang() {
-        DefaultComboBoxModel model_cbKhachHang = new DefaultComboBoxModel();
+        model_cbKhachHang = new DefaultComboBoxModel();
         model_cbKhachHang.addElement("---");
         ArrayList<KhachHangDTO> listKhachHang = new KhachHangBUS().getData();
         for (KhachHangDTO item : listKhachHang) {

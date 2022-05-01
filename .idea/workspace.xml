@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14ed0e8a-1623-4e66-99e3-6cfa59bfb0bd" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/GUI/DialogChiTietHoaDonGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/DialogChiTietHoaDonGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Mini-Store-Manager/DAO/_Connection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BUS/NhanVienBUS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BUS/NhanVienBUS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/DialogLoginGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/DialogLoginGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/DialogXacNhanHoaDonGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/DialogXacNhanHoaDonGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,11 +37,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;D:/Workspace/Student-management-application-3&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/Workspace/Student-management-application-3",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Workspace\Mini-Store-Manager\resource\icon\defaultIcon" />
@@ -78,6 +84,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.EntryMain" />
+        <item itemvalue="Application.GUI.TestJButton" />
       </list>
     </recent_temporary>
   </component>

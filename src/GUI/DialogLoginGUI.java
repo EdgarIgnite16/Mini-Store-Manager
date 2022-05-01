@@ -174,7 +174,7 @@ public class DialogLoginGUI extends javax.swing.JDialog {
             _MessageDialogHelper.showErrorDialog(this, String.valueOf(sb), "Error Login");
         } else {
             try {
-                String username = txtAccount.getText();
+                String username = txtAccount.getText().trim();
                 String password = new String(txtPassword.getPassword());
                 NhanVienDTO nhanVienDTO = new NhanVienBUS().getNhanVienLogin(username, password);
                 if (nhanVienDTO != null) {
