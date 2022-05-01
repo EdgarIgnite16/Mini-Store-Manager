@@ -5,6 +5,7 @@ import GUI.DialogLoginGUI;
 import javax.swing.*;
 
 public class EntryMain {
+    // hàm main chạy chương trình
     public static void main(String[] args) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

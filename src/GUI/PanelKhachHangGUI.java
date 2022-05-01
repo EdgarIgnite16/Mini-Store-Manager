@@ -477,6 +477,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // tạo mới lại data
     private void refreshData() {
         txtMaKhachHang.setText(""); // refresh form mã khách hàng
         txtTenKhachHang.setText(""); // refresh form tên khách hàng
