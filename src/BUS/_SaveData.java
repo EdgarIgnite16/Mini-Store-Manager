@@ -1,5 +1,6 @@
 package BUS;
 
+import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 import DTO.MatHangDTO;
 
@@ -28,6 +29,6 @@ public class _SaveData {
 
     //===============================================================//
     // Variable của form khách hàng
-    public static String saveID = "";
     public static KhachHangDTO khachHangTimThay = null;
+    public static HoaDonDTO hoaDonTimThay = null;
 }

@@ -1,20 +1,24 @@
 package GUI;
 
+import BUS.HoaDonBUS;
 import BUS.KhachHangBUS;
 import BUS._MessageDialogHelper;
 import BUS._SaveData;
+import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 public class DialogTimKiemGUI extends javax.swing.JDialog {
+    private String key;
 
     /**
      * Creates new form SoLuongXoaDialogGUI
      */
-    public DialogTimKiemGUI(java.awt.Frame parent, boolean modal) {
+    public DialogTimKiemGUI(java.awt.Frame parent, boolean modal, String key) {
         super(parent, modal);
+        this.key = key;
         initComponents();
     }
 
@@ -116,16 +120,30 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         if(!txtID.getText().equals("")) {
-            _SaveData.saveID = txtID.getText();
-            KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(_SaveData.saveID);
-            if(khachHangDTO != null) {
-                _SaveData.khachHangTimThay = khachHangDTO;
-                this.dispose();
-            } else {
-                _SaveData.khachHangTimThay = null;
-                _MessageDialogHelper.showErrorDialog(this,
-                        "Không tìm thấy khách hàng cần tìm!", "Không tìm thấy đối tượng");
+            if(this.key.equals("KH")) {
+                KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(txtID.getText());
+                if(khachHangDTO != null) {
+                    _SaveData.khachHangTimThay = khachHangDTO;
+                    this.dispose();
+                } else {
+                    _SaveData.khachHangTimThay = null;
+                    _MessageDialogHelper.showErrorDialog(this,
+                            "Không tìm thấy khách hàng cần tìm!", "Không tìm thấy đối tượng");
+                }
             }
+
+            if(this.key.equals("HD")) {
+                HoaDonDTO hoaDonDTO = new HoaDonBUS().getItemBymMaHD(txtID.getText());
+                if(hoaDonDTO != null) {
+                    _SaveData.hoaDonTimThay = hoaDonDTO;
+                    this.dispose();
+                } else {
+                    _SaveData.hoaDonTimThay = null;
+                    _MessageDialogHelper.showErrorDialog(this,
+                            "Không tìm thấy hoá đơn cần tìm!", "Không tìm thấy đối tượng");
+                }
+            }
+
         } else {
             _MessageDialogHelper.showErrorDialog(this,
                     "Bạn cần nhập mã đối tượng vào ô tìm kiếm để tìm kiếm đối tượng", "Lỗi tìm kiếm");
