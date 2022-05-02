@@ -1,6 +1,8 @@
 package BUS;
 
+import DAO.KhachHangDAO;
 import DAO.NhanVienDAO;
+import DTO.KhachHangDTO;
 import DTO.NhanVienDTO;
 
 import java.util.ArrayList;
@@ -52,5 +54,33 @@ public class NhanVienBUS {
             }
         }
         return null;
+    }
+
+    // =================================================================================== //
+// thực hiện hàm insert
+    public boolean insertItem(NhanVienDTO nhanVienDTO) throws Exception {
+        if (nhanVienDTO != null) {
+            NhanVienDAO nhanVienDAO = new NhanVienDAO();
+            return nhanVienDAO.insertItem(nhanVienDTO);
+        }
+        return false;
+    }
+
+    // thực hiện hàm update
+    public boolean updateItem(NhanVienDTO nhanVienDTO) throws Exception {
+        if (nhanVienDTO != null) {
+            NhanVienDAO nhanVienDAO = new NhanVienDAO();
+            return nhanVienDAO.updateItem(nhanVienDTO);
+        }
+        return false;
+    }
+
+    // thực hiện hàm delete
+    public boolean deleteItem(NhanVienDTO nhanVienDTO) throws Exception {
+        if (nhanVienDTO != null) {
+            NhanVienDAO nhanVienDAO = new NhanVienDAO();
+            return nhanVienDAO.deleteItem(nhanVienDTO);
+        }
+        return false;
     }
 }

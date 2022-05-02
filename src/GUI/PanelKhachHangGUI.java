@@ -225,8 +225,8 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(pnThongTinKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(txtTenKhachHang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                                                        .addComponent(txtMaKhachHang)
-                                                        .addComponent(txtSoDienThoai, javax.swing.GroupLayout.Alignment.LEADING))
+                                                        .addComponent(txtSoDienThoai, javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(txtMaKhachHang, javax.swing.GroupLayout.Alignment.LEADING))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(pnThongTinKhachHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(btnXoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -282,22 +282,22 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(pnThongTinKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(spDanhSachKhachHang))
+                                        .addComponent(spDanhSachKhachHang)
+                                        .addComponent(pnThongTinKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(spLichSuGiaoDich, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
                                 .addContainerGap())
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(spLichSuGiaoDich)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addContainerGap()
                                                 .addComponent(pnThongTinKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(spDanhSachKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE))
-                                        .addComponent(spLichSuGiaoDich))
+                                                .addComponent(spDanhSachKhachHang, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)))
                                 .addContainerGap())
         );
     }// </editor-fold>
@@ -329,16 +329,16 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                     KhachHangBUS khachHangBUS = new KhachHangBUS();
                     if(khachHangBUS.insertItem(khachHangDTO)) {
                         refreshData(); // làm mới lại dữ liệu trên form
-                        _MessageDialogHelper.showMessageDialog(parentForm, "Tạo mới đối tượng thành công !", "Success Query Data");
+                        _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
                     } else {
-                        _MessageDialogHelper.showErrorDialog(parentForm, "Tạo mới đối tượng thất bại !", "Failure Query Data");
+                        _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
                     }
                 }
             }
         } catch (Exception ex) {
             // trong trường hợp CSDL đã có dữ liệu của đối tượng
             ex.printStackTrace();
-            _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm đối tượng thất bại ");
+            _MessageDialogHelper.showErrorDialog(parentForm, "Thêm đối tượng thất bại!", "Failure Query Data");
         }
     }
 
@@ -358,9 +358,9 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                         KhachHangBUS khachHangBUS = new KhachHangBUS();
                         if(khachHangBUS.deleteItem(khachHangDTO)) {
                             refreshData(); // làm mới lại dữ liệu trên form
-                            _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công !", "Success Query Data");
+                            _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công!", "Xoá thành công");
                         } else {
-                            _MessageDialogHelper.showErrorDialog(parentForm, "Xoá đối tượng thất bại !", "Failure Query Data");
+                            _MessageDialogHelper.showErrorDialog(parentForm, "Xoá đối tượng thất bại!", "Xoá thất bại");
                         }
                     }
                 }
@@ -368,7 +368,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                 // trong trường hợp CSDL đã có dữ liệu của đối tượng
                 ex.printStackTrace();
                 _MessageDialogHelper.showErrorDialog(parentForm,
-                        "Đối tượng không tồn tại trong CSDL!", "Xoá đối tượng thất bại ");
+                        "Xoá đối tượng thất bại!", "Failure Query Data");
             }
         }
     }
@@ -393,17 +393,17 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                     if(khachHangBUS.updateItem(khachHangDTO)) {
                         refreshData(); // làm mới lại dữ liệu trên form
                         _MessageDialogHelper.showMessageDialog(parentForm,
-                                "Sửa thông tin đối tượng thành công !", "Success Query Data");
+                                "Sửa thông tin đối tượng thành công!", "Sửa thành công");
                     } else {
                         _MessageDialogHelper.showErrorDialog(parentForm,
-                                "Sửa thông tin đối tượng thất bại !", "Failure Query Data");
+                                "Sửa thông tin đối tượng thất bại!", "Sửa thất bại");
                     }
                 }
             }
         } catch (Exception ex) {
             // trong trường hợp CSDL đã có dữ liệu của đối tượng
             ex.printStackTrace();
-            _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng chưa tồn tại trong CSDL!", "Sửa đối tượng thất bại ");
+            _MessageDialogHelper.showErrorDialog(parentForm, "Sửa đối tượng thất bại!", "Failure Query Data");
         }
     }
 
@@ -415,7 +415,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         new DialogTimKiemGUI(new Frame(), true,"KH").setVisible(true); // mở form tìm kiếm
         KhachHangDTO khachHangDTO = _SaveData.khachHangTimThay;
         if(khachHangDTO != null) {
-            ArrayList<HoaDonDTO> listHoaDon = new HoaDonBUS().fillData(khachHangDTO.getMaKH());
+            ArrayList<HoaDonDTO> listHoaDon = new HoaDonBUS().fillData(khachHangDTO.getMaKH(), "KH");
             ArrayList<KhachHangDTO> listKH = new ArrayList<>(); // tạo mới danh sách khách hàng
             listKH.add(khachHangDTO); // add khách hàng vừa tìm được vào danh sách
 
@@ -461,10 +461,10 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             txtSoDienThoai.setText(khachHangDTO.getSdt());
 
             // load lịch sử mua sắm lên tb
-            loadHoaDon(new HoaDonBUS().fillData(idKH)); // load lại lịch sử mua hàng
-            return new KhachHangBUS().getItemById(idKH); // trả về khách hàng được nhấn vào
+            loadHoaDon(new HoaDonBUS().fillData(idKH, "KH")); // load lại lịch sử mua hàng
+            return khachHangDTO; // trả về khách hàng được nhấn vào
         } catch (Exception ex) {
-            _MessageDialogHelper.showErrorDialog(this,
+            _MessageDialogHelper.showErrorDialog(parentForm,
                     "Vui lòng chọn một dòng trong danh sách khách hàng!", "Yêu cầu chọn dữ liệu");
             return null;
         }
@@ -476,7 +476,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             String idHD = String.valueOf(tbLichSuGiaoDich.getValueAt(selectedRow, 0));
             return new HoaDonBUS().getItemBymMaHD(idHD);
         } catch (Exception ex) {
-            _MessageDialogHelper.showErrorDialog(this,
+            _MessageDialogHelper.showErrorDialog(parentForm,
                     "Vui lòng chọn một dòng trong lịch sử giao dịch!", "Yêu cầu chọn dữ liệu");
             return null;
         }

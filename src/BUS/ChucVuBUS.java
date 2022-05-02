@@ -17,6 +17,15 @@ public class ChucVuBUS {
         }
     }
 
+    public ChucVuDTO getItemByID(String id) {
+        for (ChucVuDTO item : listChucVu) {
+            if (item.getMaCV().equals(id)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public ChucVuDTO getItemByName(String name) {
         for (ChucVuDTO item : listChucVu) {
             if (item.getTenCV().equals(name)) {

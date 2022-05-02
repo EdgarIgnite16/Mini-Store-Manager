@@ -1,8 +1,10 @@
 package DAO;
 
+import DTO.KhachHangDTO;
 import DTO.NhanVienDTO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -31,5 +33,92 @@ public class NhanVienDAO {
                 return listNhanVien;
             }
         }
+    }
+
+    // hàm insert dữ liệu lên database
+    public boolean insertItem(NhanVienDTO nhanVienDTO) throws Exception {
+        String sql = "INSERT INTO [dbo].[NhanVien] ([maNV] ,[maCV] ,[maCa], [tenNV], [cmnd], [sdt])" +
+                " VALUES(?, ?, ?, ?, ?, ?)";
+
+        // sử dụng try-with-resource
+        try (Connection conn = new _Connection().getConn()) {
+            conn.setAutoCommit(false);
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, nhanVienDTO.getMaNV());
+                pstm.setString(2, nhanVienDTO.getMaCV());
+                pstm.setString(3, nhanVienDTO.getMaCa());
+                pstm.setString(4, nhanVienDTO.getTenNV());
+                pstm.setString(5, nhanVienDTO.getCmnd());
+                pstm.setString(6, nhanVienDTO.getSdt());
+
+                boolean checkPSTM = pstm.executeUpdate() > 0;
+                conn.commit(); // commit thay đổi lên database
+                conn.setAutoCommit(true); // set AutoCommit lại thành true
+
+                // nếu executeUpdate trả về hơn 1 => query thành công
+                // ngược lại => query thất bại
+                return checkPSTM;
+            } catch (Exception ex) {
+                conn.rollback(); // transactions roll back nếu sql thực thi thất bại
+            }
+        }
+        return false;
+    }
+
+    // hàm update dữ liệu lên database
+    public boolean updateItem(NhanVienDTO nhanVienDTO) throws Exception {
+        String sql = "UPDATE [dbo].[NhanVien] " +
+                "SET [maNV] =  ?, [maCV] = ?, [maCa] = ?, [tenNV] = ?, [cmnd] = ?, [sdt] = ?" +
+                " WHERE [maNV] = ?";
+
+        // sử dụng try-with-resource
+        try (Connection conn = new _Connection().getConn()) {
+            conn.setAutoCommit(false);
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, nhanVienDTO.getMaNV());
+                pstm.setString(2, nhanVienDTO.getMaCV());
+                pstm.setString(3, nhanVienDTO.getMaCa());
+                pstm.setString(4, nhanVienDTO.getTenNV());
+                pstm.setString(5, nhanVienDTO.getCmnd());
+                pstm.setString(6, nhanVienDTO.getSdt());
+                pstm.setString(7, nhanVienDTO.getMaNV());
+
+                boolean checkPSTM = pstm.executeUpdate() > 0;
+                conn.commit(); // commit thay đổi lên database
+                conn.setAutoCommit(true); // set AutoCommit lại thành true
+
+                // nếu executeUpdate trả về hơn 1 => query thành công
+                // ngược lại => query thất bại
+                return checkPSTM;
+            } catch (Exception ex) {
+                conn.rollback(); // transactions roll back nếu sql thực thi thất bại
+            }
+        }
+        return false;
+    }
+
+    // hàm delete dữ liệu lên database
+    public boolean deleteItem(NhanVienDTO nhanVienDTO) throws Exception {
+        String sql = "DELETE FROM [dbo].[NhanVien] " +
+                " WHERE [maNV] = ?";
+
+        // sử dụng try-with-resource
+        try (Connection conn = new _Connection().getConn()) {
+            conn.setAutoCommit(false);
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, nhanVienDTO.getMaNV());
+
+                boolean checkPSTM = pstm.executeUpdate() > 0;
+                conn.commit(); // commit thay đổi lên database
+                conn.setAutoCommit(true); // set AutoCommit lại thành true
+
+                // nếu executeUpdate trả về hơn 1 => query thành công
+                // ngược lại => query thất bại
+                return checkPSTM;
+            } catch (Exception ex) {
+                conn.rollback(); // transactions roll back nếu sql thực thi thất bại
+            }
+        }
+        return false;
     }
 }

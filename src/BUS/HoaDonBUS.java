@@ -58,11 +58,20 @@ public class HoaDonBUS {
         }
     }
 
-    public ArrayList<HoaDonDTO> fillData(String maKH) {
+    public ArrayList<HoaDonDTO> fillData(String id, String type) {
         ArrayList<HoaDonDTO> listHD = new ArrayList<>();
-        for(HoaDonDTO item : listHoaDon) {
-            if(item.getMaKH().equals(maKH)) {
-                listHD.add(item);
+        if(type.equals("KH")) {
+            for(HoaDonDTO item : listHoaDon) {
+                if(item.getMaKH().equals(id)) {
+                    listHD.add(item);
+                }
+            }
+        }
+        if(type.equals("NV")) {
+            for(HoaDonDTO item : listHoaDon) {
+                if(item.getMaNV().equals(id)) {
+                    listHD.add(item);
+                }
             }
         }
         return listHD;
