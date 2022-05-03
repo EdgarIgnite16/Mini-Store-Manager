@@ -68,24 +68,24 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lbMaPhieuNhap" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lbNhaCungCap" alignment="1" max="32767" attributes="0"/>
-                      <Component id="lbNgayNhap" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lbMaPhieuNhap" pref="125" max="32767" attributes="0"/>
+                      <Component id="lbNhaCungCap" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lbNgayNhap" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="txtMaPhieuNhap" alignment="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="cbNhaCungCap" alignment="1" max="32767" attributes="0"/>
                       <Component id="txtNgayNhap" max="32767" attributes="0"/>
+                      <Component id="txtMaPhieuNhap" alignment="1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnTimKiem" min="-2" pref="117" max="-2" attributes="0"/>
                       <Component id="btnLamMoi" min="-2" pref="117" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

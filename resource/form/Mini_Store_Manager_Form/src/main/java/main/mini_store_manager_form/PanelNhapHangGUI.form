@@ -66,30 +66,30 @@
                       <Group type="102" attributes="0">
                           <Component id="btnLamMoi" min="-2" pref="107" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="btnTimKiem" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnTimKiemNV" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="lbNgayNhap" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lbSoLuongNhap" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lbSoLuongNhap" alignment="0" pref="125" max="32767" attributes="0"/>
                               <Component id="lbMaMatHang" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lbMaPhieuNhap" alignment="0" pref="125" max="32767" attributes="0"/>
                               <Component id="lbNhaCungCap" max="32767" attributes="0"/>
+                              <Component id="lbMaPhieuNhap" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txtMaPhieuNhap" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtMaMatHang" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cbNhaCungCap" alignment="1" max="32767" attributes="0"/>
+                              <Component id="cbNhaCungCap" alignment="1" pref="281" max="32767" attributes="0"/>
                               <Component id="txtNgayNhap" alignment="0" max="32767" attributes="0"/>
                               <Component id="txtSoLuongNhap" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtMaPhieuNhap" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="btnThem" max="32767" attributes="0"/>
-                              <Component id="btnXoa" max="32767" attributes="0"/>
+                              <Component id="btnSua" max="32767" attributes="0"/>
                               <Component id="btnTangSL" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnGiamSL" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnSua2" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -108,7 +108,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnXoa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSua" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtMaMatHang" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbMaMatHang" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -122,7 +122,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbNgayNhap" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtNgayNhap" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnGiamSL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSua2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -131,7 +131,7 @@
                   </Group>
                   <EmptySpace pref="12" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="btnTimKiem" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTimKiemNV" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnLamMoi" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -236,7 +236,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLamMoiActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnTimKiem">
+        <Component class="javax.swing.JButton" name="btnTimKiemNV">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
@@ -245,7 +245,7 @@
             <Property name="toolTipText" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m ho&#xe1; &#x111;&#x1a1;n th&#xf4;ng qua m&#xe3; ho&#xe1; &#x111;&#x1a1;n."/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemNVActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnThem">
@@ -259,7 +259,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnThemActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnXoa">
+        <Component class="javax.swing.JButton" name="btnSua">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
@@ -267,7 +267,7 @@
             <Property name="text" type="java.lang.String" value="Xo&#xe1; m&#x1eb7;t h&#xe0;ng"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXoaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnTangSL">
@@ -281,7 +281,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTangSLActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnGiamSL">
+        <Component class="javax.swing.JButton" name="btnSua2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
@@ -289,7 +289,7 @@
             <Property name="text" type="java.lang.String" value="Gi&#x1ea3;m SL nh&#x1ead;p"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGiamSLActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSua2ActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

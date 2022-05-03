@@ -78,17 +78,17 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="txtMaHoaDon" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtMaGiamGia" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtTenKhachHang" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtTenNhanVien" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtNgayBan" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtMaHoaDon" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnInHoaDon" max="32767" attributes="0"/>
                       <Component id="btnTimKiemNV" max="32767" attributes="0"/>
                       <Component id="btnLamMoi" max="32767" attributes="0"/>
+                      <Component id="btnInHoaDon" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
