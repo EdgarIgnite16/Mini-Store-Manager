@@ -1,6 +1,7 @@
 package BUS;
 
 import DAO.MatHangDAO;
+import DTO.KhachHangDTO;
 import DTO.MatHangDTO;
 
 import java.util.ArrayList;
@@ -77,6 +78,16 @@ public class MatHangBUS {
         for (MatHangDTO item : listMatHang) {
             System.out.println(item.toString());
         }
+    }
+
+    public boolean checkEquals(MatHangDTO matHangDTO) {
+        for(MatHangDTO item : listMatHang) {
+            // trong trường hợp khách hàng đã tồn tại và đang bị xoá ẩn
+            if(item.getMaMH().equals(matHangDTO.getMaMH()) && matHangDTO.getIsShow() == 0) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // =================================================================================== //

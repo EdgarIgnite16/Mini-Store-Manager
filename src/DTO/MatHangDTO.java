@@ -8,7 +8,7 @@ public class MatHangDTO {
     private int soLuong;
 
     // thuộc tính show ra màn hình
-    private byte isShow;
+    private int isShow;
 
     // các thông số trong giỏ hàng (thuộc tính dạng tĩnh)
     public int soLuong_hientai = 0;
@@ -21,7 +21,7 @@ public class MatHangDTO {
 
     }
 
-    public MatHangDTO(String maMH, String maLMH, String tenMH, float thanhTien, int soLuong, byte isShow) {
+    public MatHangDTO(String maMH, String maLMH, String tenMH, float thanhTien, int soLuong, int isShow) {
         this.maMH = maMH;
         this.maLMH = maLMH;
         this.tenMH = tenMH;
@@ -70,11 +70,11 @@ public class MatHangDTO {
         this.soLuong = soLuong;
     }
 
-    public byte getIsShow() {
+    public int getIsShow() {
         return isShow;
     }
 
-    public void setIsShow(byte isShow) {
+    public void setIsShow(int isShow) {
         this.isShow = isShow;
     }
 

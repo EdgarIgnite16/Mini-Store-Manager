@@ -321,6 +321,11 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             } else {
                 if(_MessageDialogHelper.showConfirmDialog(parentForm,
                         "Bạn có muốn thêm mới đối tượng này không", "Thêm đối tượng") == JOptionPane.YES_OPTION) {
+
+                    // lấy dữ liệu của khách hàng đang nhập vào
+                    KhachHangDTO testKH = new KhachHangBUS().getItemById(txtMaKhachHang.getText());
+
+                    // tạo mới đối tượng
                     KhachHangDTO khachHangDTO = new KhachHangDTO();
                     khachHangDTO.setMaKH(txtMaKhachHang.getText());
                     khachHangDTO.setTenKH(txtTenKhachHang.getText());
@@ -328,11 +333,29 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                     khachHangDTO.setIsShow((byte) 1);
 
                     KhachHangBUS khachHangBUS = new KhachHangBUS();
-                    if(khachHangBUS.insertItem(khachHangDTO)) {
-                        refreshData(); // làm mới lại dữ liệu trên form
-                        _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
+                    if(testKH != null) {
+                        if(!khachHangBUS.checkEquals(testKH)) {
+                            if(khachHangBUS.insertItem(khachHangDTO)) {
+                                refreshData(); // làm mới lại dữ liệu trên form
+                                _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
+                            } else {
+                                _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
+                            }
+                        } else {
+                            if(khachHangBUS.updateItem(khachHangDTO)) {
+                                refreshData(); // làm mới lại dữ liệu trên form
+                                _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
+                            } else {
+                                _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
+                            }
+                        }
                     } else {
-                        _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
+                        if(khachHangBUS.insertItem(khachHangDTO)) {
+                            refreshData(); // làm mới lại dữ liệu trên form
+                            _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
+                        } else {
+                            _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
+                        }
                     }
                 }
             }
@@ -386,6 +409,10 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             } else {
                 if(_MessageDialogHelper.showConfirmDialog(parentForm,
                         "Bạn có muốn thay đổi thông tin đối tượng này không", "Sửa thông tin đối tượng") == JOptionPane.YES_OPTION) {
+                    // lấy dữ liệu của khách hàng đang nhập vào
+                    KhachHangDTO testKH = new KhachHangBUS().getItemById(txtMaKhachHang.getText());
+
+                    // tạo mới đối tượng
                     KhachHangDTO khachHangDTO = new KhachHangDTO();
                     khachHangDTO.setMaKH(txtMaKhachHang.getText());
                     khachHangDTO.setTenKH(txtTenKhachHang.getText());
@@ -393,13 +420,23 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                     khachHangDTO.setIsShow((byte) 1);
 
                     KhachHangBUS khachHangBUS = new KhachHangBUS();
-                    if(khachHangBUS.updateItem(khachHangDTO)) {
-                        refreshData(); // làm mới lại dữ liệu trên form
-                        _MessageDialogHelper.showMessageDialog(parentForm,
-                                "Sửa thông tin đối tượng thành công!", "Sửa thành công");
+                    if(testKH != null) {
+                        if(!khachHangBUS.checkEquals(testKH)) {
+                            if(khachHangBUS.updateItem(khachHangDTO)) {
+                                refreshData(); // làm mới lại dữ liệu trên form
+                                _MessageDialogHelper.showMessageDialog(parentForm,
+                                        "Sửa thông tin đối tượng thành công!", "Sửa thành công");
+                            } else {
+                                _MessageDialogHelper.showErrorDialog(parentForm,
+                                        "Sửa thông tin đối tượng thất bại!", "Sửa thất bại");
+                            }
+                        } else {
+                            _MessageDialogHelper.showErrorDialog(parentForm,
+                                    "Đối tượng không tồn tại!\nSửa đối tượng thất bại!", "Sửa thất bại");
+                        }
                     } else {
                         _MessageDialogHelper.showErrorDialog(parentForm,
-                                "Sửa thông tin đối tượng thất bại!", "Sửa thất bại");
+                                "Đối tượng không tồn tại!\nSửa đối tượng thất bại!", "Sửa thất bại");
                     }
                 }
             }
@@ -502,11 +539,13 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
     private void loadTableKH(ArrayList<KhachHangDTO> listKhachHang) {
         modelTable_KH.setRowCount(0);
         for (KhachHangDTO item : listKhachHang) {
-            modelTable_KH.addRow(new Object[]{
-                    item.getMaKH(),
-                    item.getTenKH(),
-                    item.getSdt()
-            });
+            if(item.getIsShow() == 1) {
+                modelTable_KH.addRow(new Object[]{
+                        item.getMaKH(),
+                        item.getTenKH(),
+                        item.getSdt()
+                });
+            }
         }
     }
 

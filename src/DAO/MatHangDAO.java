@@ -27,6 +27,7 @@ public class MatHangDAO {
                     matHangDTO.setTenMH(rs.getString("tenMatHang").trim());
                     matHangDTO.setThanhTien(rs.getFloat("thanhTien"));
                     matHangDTO.setSoLuong(rs.getInt("soLuong"));
+                    matHangDTO.setIsShow(rs.getInt("isShow"));
                     listMatHang.add(matHangDTO);
                 }
                 return listMatHang;

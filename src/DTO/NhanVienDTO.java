@@ -9,13 +9,13 @@ public class NhanVienDTO {
     private String cmnd;
 
     // thuộc tính show ra màn hình
-    private byte isShow;
+    private int isShow;
 
     public NhanVienDTO() {
 
     }
 
-    public NhanVienDTO(String maNV, String maCV, String maCa, String tenNV, String SDT, String cmnd, byte isShow) {
+    public NhanVienDTO(String maNV, String maCV, String maCa, String tenNV, String SDT, String cmnd, int isShow) {
         this.maNV = maNV;
         this.maCV = maCV;
         this.maCa = maCa;
@@ -73,11 +73,11 @@ public class NhanVienDTO {
         this.cmnd = cmnd;
     }
 
-    public byte getIsShow() {
+    public int getIsShow() {
         return isShow;
     }
 
-    public void setIsShow(byte isShow) {
+    public void setIsShow(int isShow) {
         this.isShow = isShow;
     }
 

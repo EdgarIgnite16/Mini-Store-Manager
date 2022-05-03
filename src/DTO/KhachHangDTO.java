@@ -6,13 +6,13 @@ public class KhachHangDTO {
     private String sdt;
 
     // thuộc tính show ra màn hình
-    private byte isShow;
+    private int isShow;
 
     public KhachHangDTO() {
 
     }
 
-    public KhachHangDTO(String maKH, String tenKH, String sdt, byte isShow) {
+    public KhachHangDTO(String maKH, String tenKH, String sdt, int isShow) {
         this.maKH = maKH;
         this.tenKH = tenKH;
         this.sdt = sdt;
@@ -43,11 +43,11 @@ public class KhachHangDTO {
         this.sdt = sdt;
     }
 
-    public byte getIsShow() {
+    public int getIsShow() {
         return isShow;
     }
 
-    public void setIsShow(byte isShow) {
+    public void setIsShow(int isShow) {
         this.isShow = isShow;
     }
 

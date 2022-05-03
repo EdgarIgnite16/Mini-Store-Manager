@@ -446,6 +446,11 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             } else {
                 if(_MessageDialogHelper.showConfirmDialog(parentForm,
                         "Bạn có muốn thêm mới đối tượng này không", "Thêm đối tượng") == JOptionPane.YES_OPTION) {
+
+                    // lấy dữ liệu của khách hàng đang nhập vào
+                    NhanVienDTO testNV = new NhanVienBUS().getItemByID(txtMaNhanVien.getText());
+
+                    // tạo mới đối tượng
                     NhanVienDTO nhanVienDTO = new NhanVienDTO();
                     nhanVienDTO.setMaNV(txtMaNhanVien.getText());
                     nhanVienDTO.setTenNV(txtTenNhanVien.getText());
@@ -459,11 +464,29 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                     }
 
                     NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                    if(nhanVienBUS.insertItem(nhanVienDTO)) {
-                        refreshData(); // làm mới lại dữ liệu trên form
-                        _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
+                    if(testNV != null) {
+                        if(!nhanVienBUS.checkEquals(testNV)) {
+                            if(nhanVienBUS.insertItem(nhanVienDTO)) {
+                                refreshData(); // làm mới lại dữ liệu trên form
+                                _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
+                            } else {
+                                _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
+                            }
+                        } else {
+                            if(nhanVienBUS.updateItem(nhanVienDTO)) {
+                                refreshData(); // làm mới lại dữ liệu trên form
+                                _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
+                            } else {
+                                _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
+                            }
+                        }
                     } else {
-                        _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
+                        if(nhanVienBUS.insertItem(nhanVienDTO)) {
+                            refreshData(); // làm mới lại dữ liệu trên form
+                            _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
+                        } else {
+                            _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
+                        }
                     }
                 }
             }
@@ -542,6 +565,11 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             } else {
                 if(_MessageDialogHelper.showConfirmDialog(parentForm,
                         "Bạn có muốn thay đổi thông tin đối tượng này không", "Sửa thông tin đối tượng") == JOptionPane.YES_OPTION) {
+
+                    // lấy dữ liệu của khách hàng đang nhập vào
+                    NhanVienDTO testNV = new NhanVienBUS().getItemByID(txtMaNhanVien.getText());
+
+                    // tạo mới đối tượng
                     NhanVienDTO nhanVienDTO = new NhanVienDTO();
                     nhanVienDTO.setMaNV(txtMaNhanVien.getText());
                     nhanVienDTO.setTenNV(txtTenNhanVien.getText());
@@ -555,13 +583,23 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                     }
 
                     NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                    if(nhanVienBUS.updateItem(nhanVienDTO)) {
-                        refreshData();  // làm mới lại dữ liệu trên form
-                        _MessageDialogHelper.showMessageDialog(parentForm,
-                                "Sửa thông tin đối tượng thành công!", "Sửa thành công");
+                    if(testNV != null) {
+                        if(!nhanVienBUS.checkEquals(testNV)) {
+                            if(nhanVienBUS.updateItem(nhanVienDTO)) {
+                                refreshData();  // làm mới lại dữ liệu trên form
+                                _MessageDialogHelper.showMessageDialog(parentForm,
+                                        "Sửa thông tin đối tượng thành công!", "Sửa thành công");
+                            } else {
+                                _MessageDialogHelper.showErrorDialog(parentForm,
+                                        "Đối tượng không tồn tại!\nSửa đối tượng thất bại!", "Sửa thất bại");
+                            }
+                        } else {
+                            _MessageDialogHelper.showErrorDialog(parentForm,
+                                    "Đối tượng không tồn tại!\nSửa đối tượng thất bại!", "Sửa thất bại");
+                        }
                     } else {
                         _MessageDialogHelper.showErrorDialog(parentForm,
-                                "Sửa thông tin đối tượng thất bại!", "Sửa thất bại");
+                                "Đối tượng không tồn tại!\nSửa đối tượng thất bại!", "Sửa thất bại");
                     }
                 }
             }
@@ -629,14 +667,16 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
     private void loadTableNV(ArrayList<NhanVienDTO> listNhanVien) {
         modelTable_NV.setRowCount(0);
         for (NhanVienDTO item : listNhanVien) {
-            modelTable_NV.addRow(new Object[]{
-                    item.getMaNV(),
-                    item.getMaCV(),
-                    item.getMaCa(),
-                    item.getTenNV(),
-                    item.getCmnd(),
-                    item.getSdt()
-            });
+            if(item.getIsShow() == 1) {
+                modelTable_NV.addRow(new Object[]{
+                        item.getMaNV(),
+                        item.getMaCV(),
+                        item.getMaCa(),
+                        item.getTenNV(),
+                        item.getCmnd(),
+                        item.getSdt()
+                });
+            }
         }
     }
 

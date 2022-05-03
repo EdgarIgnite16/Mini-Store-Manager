@@ -27,7 +27,7 @@ public class NhanVienDAO {
                     nhanVienDTO.setTenNV(rs.getString("tenNV").trim());
                     nhanVienDTO.setCmnd(rs.getString("cmnd").trim());
                     nhanVienDTO.setSdt(rs.getString("sdt").trim());
-                    nhanVienDTO.setIsShow((byte) rs.getInt("isShow"));
+                    nhanVienDTO.setIsShow(rs.getInt("isShow"));
                     listNhanVien.add(nhanVienDTO);
                 }
                 return listNhanVien;

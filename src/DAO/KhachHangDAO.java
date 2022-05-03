@@ -24,7 +24,7 @@ public class KhachHangDAO {
                     khachHangDTO.setMaKH(rs.getString("maKH").trim());
                     khachHangDTO.setTenKH(rs.getString("tenKH").trim());
                     khachHangDTO.setSdt(rs.getString("SDT").trim());
-                    khachHangDTO.setIsShow((byte) rs.getInt("isShow"));
+                    khachHangDTO.setIsShow(rs.getInt("isShow"));
                     listKhachHang.add(khachHangDTO);
                 }
                 return listKhachHang;
@@ -44,6 +44,7 @@ public class KhachHangDAO {
                 pstm.setString(1, khachHangDTO.getMaKH());
                 pstm.setString(2, khachHangDTO.getTenKH());
                 pstm.setString(3, khachHangDTO.getSdt());
+                pstm.setInt(4, khachHangDTO.getIsShow());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database
