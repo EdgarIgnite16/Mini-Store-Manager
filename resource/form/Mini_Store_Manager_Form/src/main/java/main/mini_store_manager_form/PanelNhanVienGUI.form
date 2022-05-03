@@ -73,23 +73,27 @@
                           <Component id="cbCaLamViec" min="-2" pref="192" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="lbSoDienThoai" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lbTenNhanVien" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lbMaNhanVien" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lbCMND" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="lbSoDienThoai" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lbCMND" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lbMaNhanVien" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="lbTenNhanVien" min="-2" pref="121" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtTenNhanVien" alignment="1" pref="278" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="txtTenNhanVien" alignment="1" max="32767" attributes="0"/>
+                              <Component id="txtMaNhanVien" alignment="1" max="32767" attributes="0"/>
+                              <Component id="txtCMND" max="32767" attributes="0"/>
                               <Component id="txtSoDienThoai" alignment="1" max="32767" attributes="0"/>
-                              <Component id="txtCMND" alignment="1" max="32767" attributes="0"/>
-                              <Component id="txtMaNhanVien" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="btnSua" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnXoa" alignment="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnSua" alignment="0" pref="104" max="32767" attributes="0"/>
+                                  <Component id="btnXoa" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                               <Component id="btnThem" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
                           </Group>
                       </Group>

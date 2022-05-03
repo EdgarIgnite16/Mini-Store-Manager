@@ -31,10 +31,11 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         lbNhaCungCap = new javax.swing.JLabel();
         lbNgayNhap = new javax.swing.JLabel();
         txtMaPhieuNhap = new javax.swing.JTextField();
-        cbNhaCungCap = new javax.swing.JComboBox<>();
         txtNgayNhap = new javax.swing.JTextField();
         btnLamMoi = new javax.swing.JButton();
         btnTimKiem = new javax.swing.JButton();
+        btnLamMoi1 = new javax.swing.JButton();
+        txtNgayNhap1 = new javax.swing.JTextField();
         spDanhSachPhieuNhap = new javax.swing.JScrollPane();
         tbDanhSachPhieuNhap = new javax.swing.JTable();
         spChiTietPhieuNhap = new javax.swing.JScrollPane();
@@ -58,13 +59,6 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
 
         txtMaPhieuNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
-        cbNhaCungCap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cbNhaCungCap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbNhaCungCapActionPerformed(evt);
-            }
-        });
-
         txtNgayNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         btnLamMoi.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -85,6 +79,17 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
             }
         });
 
+        btnLamMoi1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnLamMoi1.setText("In phiếu nhập");
+        btnLamMoi1.setToolTipText("Làm mới lại form");
+        btnLamMoi1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLamMoi1ActionPerformed(evt);
+            }
+        });
+
+        txtNgayNhap1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
         javax.swing.GroupLayout pnTimKiemPhieuNhapLayout = new javax.swing.GroupLayout(pnTimKiemPhieuNhap);
         pnTimKiemPhieuNhap.setLayout(pnTimKiemPhieuNhapLayout);
         pnTimKiemPhieuNhapLayout.setHorizontalGroup(
@@ -97,13 +102,14 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
                     .addComponent(lbNgayNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnTimKiemPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cbNhaCungCap, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtNgayNhap)
-                    .addComponent(txtMaPhieuNhap, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(txtNgayNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                    .addComponent(txtMaPhieuNhap, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNgayNhap1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnTimKiemPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLamMoi1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         pnTimKiemPhieuNhapLayout.setVerticalGroup(
@@ -112,12 +118,13 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(pnTimKiemPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbMaPhieuNhap)
-                    .addComponent(txtMaPhieuNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtMaPhieuNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLamMoi1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnTimKiemPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbNhaCungCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbNhaCungCap)
-                    .addComponent(btnLamMoi))
+                    .addComponent(btnLamMoi)
+                    .addComponent(txtNgayNhap1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnTimKiemPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNgayNhap)
@@ -202,8 +209,8 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spDanhSachPhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)
-                    .addComponent(pnTimKiemPhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(spDanhSachPhieuNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnTimKiemPhieuNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(spChiTietPhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
@@ -216,20 +223,16 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(spChiTietPhieuNhap)
+                        .addComponent(spChiTietPhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pnThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnTimKiemPhieuNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spDanhSachPhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE)))
+                        .addComponent(spDanhSachPhieuNhap)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cbNhaCungCapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNhaCungCapActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbNhaCungCapActionPerformed
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         // TODO add your handling code here:
@@ -239,11 +242,15 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTimKiemActionPerformed
 
+    private void btnLamMoi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoi1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLamMoi1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLamMoi;
+    private javax.swing.JButton btnLamMoi1;
     private javax.swing.JButton btnTimKiem;
-    private javax.swing.JComboBox<String> cbNhaCungCap;
     private javax.swing.JLabel lbMaPhieuNhap;
     private javax.swing.JLabel lbNgayNhap;
     private javax.swing.JLabel lbNhaCungCap;
@@ -257,6 +264,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
     private javax.swing.JTable tbDanhSachPhieuNhap;
     private javax.swing.JTextField txtMaPhieuNhap;
     private javax.swing.JTextField txtNgayNhap;
+    private javax.swing.JTextField txtNgayNhap1;
     private javax.swing.JTextField txtTongSoLuong;
     private javax.swing.JTextField txtTongThanhTien;
     // End of variables declaration//GEN-END:variables

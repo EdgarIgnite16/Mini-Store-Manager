@@ -19,8 +19,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="spDanhSachPhieuNhap" pref="563" max="32767" attributes="0"/>
-                  <Component id="pnTimKiemPhieuNhap" max="32767" attributes="0"/>
+                  <Component id="spDanhSachPhieuNhap" min="-2" pref="563" max="-2" attributes="0"/>
+                  <Component id="pnTimKiemPhieuNhap" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -37,14 +37,14 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="spChiTietPhieuNhap" max="32767" attributes="0"/>
+                      <Component id="spChiTietPhieuNhap" pref="613" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pnThanhToan" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="pnTimKiemPhieuNhap" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="spDanhSachPhieuNhap" pref="541" max="32767" attributes="0"/>
+                      <Component id="spDanhSachPhieuNhap" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -76,16 +76,17 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cbNhaCungCap" alignment="1" max="32767" attributes="0"/>
-                      <Component id="txtNgayNhap" max="32767" attributes="0"/>
+                      <Component id="txtNgayNhap" pref="281" max="32767" attributes="0"/>
                       <Component id="txtMaPhieuNhap" alignment="1" max="32767" attributes="0"/>
+                      <Component id="txtNgayNhap1" alignment="1" pref="281" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnTimKiem" min="-2" pref="117" max="-2" attributes="0"/>
                       <Component id="btnLamMoi" min="-2" pref="117" max="-2" attributes="0"/>
+                      <Component id="btnLamMoi1" alignment="1" min="-2" pref="117" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -96,12 +97,13 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbMaPhieuNhap" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtMaPhieuNhap" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLamMoi1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cbNhaCungCap" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbNhaCungCap" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnLamMoi" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNgayNhap1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -146,22 +148,6 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbNhaCungCap">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="13" style="0"/>
-            </Property>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbNhaCungCapActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtNgayNhap">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -192,6 +178,25 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnLamMoi1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="13" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="In phi&#x1ebf;u nh&#x1ead;p"/>
+            <Property name="toolTipText" type="java.lang.String" value="L&#xe0;m m&#x1edb;i l&#x1ea1;i form"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLamMoi1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtNgayNhap1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="13" style="0"/>
+            </Property>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

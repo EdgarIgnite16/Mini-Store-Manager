@@ -65,19 +65,19 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lbMaKhachHang" pref="101" max="32767" attributes="0"/>
-                              <Component id="lbSoDienThoai" alignment="0" max="32767" attributes="0"/>
                               <Component id="lbTenKhachHang" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lbSoDienThoai" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lbMaKhachHang" alignment="0" pref="125" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="txtTenKhachHang" alignment="0" pref="280" max="32767" attributes="0"/>
-                              <Component id="txtSoDienThoai" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtMaKhachHang" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnXoa" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtSoDienThoai" max="32767" attributes="0"/>
+                              <Component id="txtMaKhachHang" max="32767" attributes="0"/>
+                              <Component id="txtTenKhachHang" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnXoa" alignment="1" pref="104" max="32767" attributes="0"/>
                               <Component id="btnThem" alignment="1" max="32767" attributes="0"/>
                               <Component id="btnSua" max="32767" attributes="0"/>
                           </Group>
