@@ -24,8 +24,8 @@
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="spChiTietPhieuNhap" pref="619" max="32767" attributes="0"/>
                   <Component id="pnThanhToan" max="32767" attributes="0"/>
+                  <Component id="spChiTietPhieuNhap" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -278,11 +278,11 @@
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="lbTongSoLuong" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTongSoLuong" max="32767" attributes="0"/>
+                  <Component id="txtTongSoLuong" pref="191" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="lbTongThanhTien" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTongThanhTien" max="32767" attributes="0"/>
+                  <Component id="txtTongThanhTien" pref="192" max="32767" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
