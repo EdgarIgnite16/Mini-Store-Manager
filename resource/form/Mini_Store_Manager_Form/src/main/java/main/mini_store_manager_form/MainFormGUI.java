@@ -35,6 +35,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_NhanVien = new javax.swing.JButton();
         tBar_KhachHang = new javax.swing.JButton();
         tBar_MatHang = new javax.swing.JButton();
+        tBar_NhapHang = new javax.swing.JButton();
         tBar_PhieuNhap = new javax.swing.JButton();
         tBar_Separator2 = new javax.swing.JToolBar.Separator();
         tBar_Intro = new javax.swing.JButton();
@@ -49,8 +50,9 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuManage_BanHang = new javax.swing.JMenuItem();
         mnuManage_HoaDon = new javax.swing.JMenuItem();
         mnuManage_NhanVien = new javax.swing.JMenuItem();
-        mnuManage_MatHang = new javax.swing.JMenuItem();
         mnuManage_KhachHang = new javax.swing.JMenuItem();
+        mnuManage_MatHang = new javax.swing.JMenuItem();
+        mnuManage_NhapHang = new javax.swing.JMenuItem();
         mnuManage_PhieuNhap = new javax.swing.JMenuItem();
         mnuHelper = new javax.swing.JMenu();
         mnuHelper_Intro = new javax.swing.JMenuItem();
@@ -58,7 +60,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         mnuHelper_Contact = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Phần mềm quản lí sinh viên v1.2");
+        setTitle("Phần mềm quản lí cửa hàng tiện lợi Mini Store");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         plToolBar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -81,7 +83,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         tBar_BanHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         tBar_BanHang.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_bill_32px.png")); // NOI18N
-        tBar_BanHang.setText("Bán Hàng");
+        tBar_BanHang.setText("Bán hàng");
         tBar_BanHang.setFocusable(false);
         tBar_BanHang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         tBar_BanHang.setMaximumSize(new java.awt.Dimension(75, 60));
@@ -153,6 +155,21 @@ public class MainFormGUI extends javax.swing.JFrame {
             }
         });
         tBar_Main.add(tBar_MatHang);
+
+        tBar_NhapHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        tBar_NhapHang.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_input_32px.png")); // NOI18N
+        tBar_NhapHang.setText("Nhập hàng");
+        tBar_NhapHang.setFocusable(false);
+        tBar_NhapHang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        tBar_NhapHang.setMaximumSize(new java.awt.Dimension(75, 60));
+        tBar_NhapHang.setMinimumSize(new java.awt.Dimension(75, 60));
+        tBar_NhapHang.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        tBar_NhapHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tBar_NhapHangActionPerformed(evt);
+            }
+        });
+        tBar_Main.add(tBar_NhapHang);
 
         tBar_PhieuNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         tBar_PhieuNhap.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-paid-bill-32 (1).png")); // NOI18N
@@ -275,18 +292,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         });
         mnuManage.add(mnuManage_NhanVien);
 
-        mnuManage_MatHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnuManage_MatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_MatHang.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-goods-16.png")); // NOI18N
-        mnuManage_MatHang.setText("Quản lý mặt hàng");
-        mnuManage_MatHang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuManage_MatHangActionPerformed(evt);
-            }
-        });
-        mnuManage.add(mnuManage_MatHang);
-
-        mnuManage_KhachHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuManage_KhachHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuManage_KhachHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         mnuManage_KhachHang.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-customer-16.png")); // NOI18N
         mnuManage_KhachHang.setText("Quản lý khách hàng");
@@ -297,7 +303,29 @@ public class MainFormGUI extends javax.swing.JFrame {
         });
         mnuManage.add(mnuManage_KhachHang);
 
-        mnuManage_PhieuNhap.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuManage_MatHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuManage_MatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        mnuManage_MatHang.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-goods-16.png")); // NOI18N
+        mnuManage_MatHang.setText("Quản lý mặt hàng");
+        mnuManage_MatHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuManage_MatHangActionPerformed(evt);
+            }
+        });
+        mnuManage.add(mnuManage_MatHang);
+
+        mnuManage_NhapHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        mnuManage_NhapHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        mnuManage_NhapHang.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_input_16px_1.png")); // NOI18N
+        mnuManage_NhapHang.setText("Quản lí nhập hàng");
+        mnuManage_NhapHang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuManage_NhapHangActionPerformed(evt);
+            }
+        });
+        mnuManage.add(mnuManage_NhapHang);
+
+        mnuManage_PhieuNhap.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_7, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuManage_PhieuNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         mnuManage_PhieuNhap.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-paid-bill-16 (1).png")); // NOI18N
         mnuManage_PhieuNhap.setText("Quản lý phiếu nhập");
@@ -434,6 +462,14 @@ public class MainFormGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mnuManage_BanHangActionPerformed
 
+    private void tBar_NhapHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBar_NhapHangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tBar_NhapHangActionPerformed
+
+    private void mnuManage_NhapHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuManage_NhapHangActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuManage_NhapHangActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -484,6 +520,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuManage_KhachHang;
     private javax.swing.JMenuItem mnuManage_MatHang;
     private javax.swing.JMenuItem mnuManage_NhanVien;
+    private javax.swing.JMenuItem mnuManage_NhapHang;
     private javax.swing.JMenuItem mnuManage_PhieuNhap;
     private javax.swing.JMenu mnuSystem;
     private javax.swing.JMenuItem mnuSystem_Exit;
@@ -499,6 +536,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     private javax.swing.JToolBar tBar_Main;
     private javax.swing.JButton tBar_MatHang;
     private javax.swing.JButton tBar_NhanVien;
+    private javax.swing.JButton tBar_NhapHang;
     private javax.swing.JButton tBar_PhieuNhap;
     private javax.swing.JToolBar.Separator tBar_Separator1;
     private javax.swing.JToolBar.Separator tBar_Separator2;

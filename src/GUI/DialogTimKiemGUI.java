@@ -1,11 +1,9 @@
 package GUI;
 
-import BUS.HoaDonBUS;
-import BUS.KhachHangBUS;
-import BUS._MessageDialogHelper;
-import BUS._SaveData;
+import BUS.*;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
+import DTO.NhanVienDTO;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -120,6 +118,19 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         if(!txtID.getText().equals("")) {
+            // trường hợp là tìm kiếm Khách hàng
+            if(this.key.equals("NV")) {
+                NhanVienDTO nhanVienDTO = new NhanVienBUS().getItemByID(txtID.getText());
+                if(nhanVienDTO != null) {
+                    _SaveData.nhanVienTimThay = nhanVienDTO;
+                    this.dispose();
+                } else {
+                    _SaveData.nhanVienTimThay = null;
+                    _MessageDialogHelper.showErrorDialog(this,
+                            "Không tìm thấy nhân viên cần tìm!", "Không tìm thấy đối tượng");
+                }
+            }
+
             // trường hợp là tìm kiếm Khách hàng
             if(this.key.equals("KH")) {
                 KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(txtID.getText());

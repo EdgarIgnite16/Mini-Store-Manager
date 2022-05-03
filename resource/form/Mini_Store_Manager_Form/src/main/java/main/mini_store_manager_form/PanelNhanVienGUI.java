@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package main.mini_store_manager_form;
 
@@ -8,10 +8,10 @@ package main.mini_store_manager_form;
  *
  * @author edgar
  */
-public class PanelNhanVienGUI extends javax.swing.JFrame {
+public class PanelNhanVienGUI extends javax.swing.JPanel {
 
     /**
-     * Creates new form MainForm
+     * Creates new form PanelNhanVienGUI
      */
     public PanelNhanVienGUI() {
         initComponents();
@@ -26,486 +26,312 @@ public class PanelNhanVienGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        plToolBar = new javax.swing.JPanel();
-        tBar_Main = new javax.swing.JToolBar();
-        tBar_Logout = new javax.swing.JButton();
-        tBar_Separator1 = new javax.swing.JToolBar.Separator();
-        tBar_BanHang = new javax.swing.JButton();
-        tBar_HoaDon = new javax.swing.JButton();
-        tBar_NhanVien = new javax.swing.JButton();
-        tBar_KhachHang = new javax.swing.JButton();
-        tBar_MatHang = new javax.swing.JButton();
-        tBar_PhieuNhap = new javax.swing.JButton();
-        tBar_Separator2 = new javax.swing.JToolBar.Separator();
-        tBar_Intro = new javax.swing.JButton();
-        tBar_Contact = new javax.swing.JButton();
-        tPane_Main = new javax.swing.JTabbedPane();
-        mnuBar_Main = new javax.swing.JMenuBar();
-        mnuSystem = new javax.swing.JMenu();
-        mnuSystem_Logout = new javax.swing.JMenuItem();
-        mnuSystem_Separator = new javax.swing.JPopupMenu.Separator();
-        mnuSystem_Exit = new javax.swing.JMenuItem();
-        mnuManage = new javax.swing.JMenu();
-        mnuManage_BanHang = new javax.swing.JMenuItem();
-        mnuManage_HoaDon = new javax.swing.JMenuItem();
-        mnuManage_NhanVien = new javax.swing.JMenuItem();
-        mnuManage_MatHang = new javax.swing.JMenuItem();
-        mnuManage_KhachHang = new javax.swing.JMenuItem();
-        mnuManage_PhieuNhap = new javax.swing.JMenuItem();
-        mnuHelper = new javax.swing.JMenu();
-        mnuHelper_Intro = new javax.swing.JMenuItem();
-        mnuHelper_Separator = new javax.swing.JPopupMenu.Separator();
-        mnuHelper_Contact = new javax.swing.JMenuItem();
+        pnThongTinNhanVien = new javax.swing.JPanel();
+        lbMaNhanVien = new javax.swing.JLabel();
+        lbTenNhanVien = new javax.swing.JLabel();
+        lbSoDienThoai = new javax.swing.JLabel();
+        lbCMND = new javax.swing.JLabel();
+        lbChucVu = new javax.swing.JLabel();
+        lbCaLamViec = new javax.swing.JLabel();
+        txtMaNhanVien = new javax.swing.JTextField();
+        txtTenNhanVien = new javax.swing.JTextField();
+        txtSoDienThoai = new javax.swing.JTextField();
+        txtCMND = new javax.swing.JTextField();
+        cbChucVu = new javax.swing.JComboBox<>();
+        cbCaLamViec = new javax.swing.JComboBox<>();
+        btnLamMoi = new javax.swing.JButton();
+        btnTimKiemHD = new javax.swing.JButton();
+        btnTimKiemNV = new javax.swing.JButton();
+        btnXemCTHD = new javax.swing.JButton();
+        btnThem = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
+        btnSua = new javax.swing.JButton();
+        spDanhSachNhanVien = new javax.swing.JScrollPane();
+        tbDanhSachNhanVien = new javax.swing.JTable();
+        spLichSuGiaoDich = new javax.swing.JScrollPane();
+        tbLichSuGiaoDich = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Phần mềm quản lí sinh viên v1.2");
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pnThongTinNhanVien.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thông tin nhân viên", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
 
-        plToolBar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lbMaNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbMaNhanVien.setText("Mã nhân viên:");
 
-        tBar_Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_Logout.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_Logout_32px_1.png")); // NOI18N
-        tBar_Logout.setText("Đăng xuất");
-        tBar_Logout.setFocusable(false);
-        tBar_Logout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        tBar_Logout.setMaximumSize(new java.awt.Dimension(75, 60));
-        tBar_Logout.setMinimumSize(new java.awt.Dimension(75, 60));
-        tBar_Logout.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tBar_Logout.addActionListener(new java.awt.event.ActionListener() {
+        lbTenNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbTenNhanVien.setText("Tên nhân viên:");
+
+        lbSoDienThoai.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbSoDienThoai.setText("Số điện thoại:");
+
+        lbCMND.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbCMND.setText("Chứng minh nhân dân:");
+
+        lbChucVu.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbChucVu.setText("Chức Vụ:");
+
+        lbCaLamViec.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbCaLamViec.setText("Ca Làm Việc:");
+
+        txtMaNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        txtTenNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        txtSoDienThoai.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        txtCMND.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        cbChucVu.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        cbCaLamViec.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+
+        btnLamMoi.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnLamMoi.setText("Làm mới");
+        btnLamMoi.setToolTipText("Làm mới lại form");
+        btnLamMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tBar_LogoutActionPerformed(evt);
+                btnLamMoiActionPerformed(evt);
             }
         });
-        tBar_Main.add(tBar_Logout);
-        tBar_Main.add(tBar_Separator1);
 
-        tBar_BanHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_BanHang.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_bill_32px.png")); // NOI18N
-        tBar_BanHang.setText("Bán Hàng");
-        tBar_BanHang.setFocusable(false);
-        tBar_BanHang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        tBar_BanHang.setMaximumSize(new java.awt.Dimension(75, 60));
-        tBar_BanHang.setMinimumSize(new java.awt.Dimension(75, 60));
-        tBar_BanHang.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tBar_BanHang.addActionListener(new java.awt.event.ActionListener() {
+        btnTimKiemHD.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnTimKiemHD.setText("Tìm kiếm hoá đơn");
+        btnTimKiemHD.setToolTipText("Tìm kiếm khách hàng thông qua mã khách hàng.");
+        btnTimKiemHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tBar_BanHangActionPerformed(evt);
+                btnTimKiemHDActionPerformed(evt);
             }
         });
-        tBar_Main.add(tBar_BanHang);
 
-        tBar_HoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_HoaDon.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_bill_32px_1.png")); // NOI18N
-        tBar_HoaDon.setText("Hoá đơn");
-        tBar_HoaDon.setFocusable(false);
-        tBar_HoaDon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        tBar_HoaDon.setMaximumSize(new java.awt.Dimension(75, 60));
-        tBar_HoaDon.setMinimumSize(new java.awt.Dimension(75, 60));
-        tBar_HoaDon.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tBar_HoaDon.addActionListener(new java.awt.event.ActionListener() {
+        btnTimKiemNV.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnTimKiemNV.setText("Tìm Kiếm Nhân Viên");
+        btnTimKiemNV.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
+        btnTimKiemNV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tBar_HoaDonActionPerformed(evt);
+                btnTimKiemNVActionPerformed(evt);
             }
         });
-        tBar_Main.add(tBar_HoaDon);
 
-        tBar_NhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_NhanVien.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-staff-32.png")); // NOI18N
-        tBar_NhanVien.setText("Nhân viên");
-        tBar_NhanVien.setFocusable(false);
-        tBar_NhanVien.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        tBar_NhanVien.setMaximumSize(new java.awt.Dimension(75, 60));
-        tBar_NhanVien.setMinimumSize(new java.awt.Dimension(75, 60));
-        tBar_NhanVien.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tBar_NhanVien.addActionListener(new java.awt.event.ActionListener() {
+        btnXemCTHD.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnXemCTHD.setText("Chi tiết hoá đơn");
+        btnXemCTHD.setToolTipText("show chi tiết hoá đơn của hoá đơn đã chọn.");
+        btnXemCTHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tBar_NhanVienActionPerformed(evt);
+                btnXemCTHDActionPerformed(evt);
             }
         });
-        tBar_Main.add(tBar_NhanVien);
 
-        tBar_KhachHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_KhachHang.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-customer-32.png")); // NOI18N
-        tBar_KhachHang.setText("Khách hàng");
-        tBar_KhachHang.setFocusable(false);
-        tBar_KhachHang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        tBar_KhachHang.setMaximumSize(new java.awt.Dimension(75, 60));
-        tBar_KhachHang.setMinimumSize(new java.awt.Dimension(75, 60));
-        tBar_KhachHang.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tBar_KhachHang.addActionListener(new java.awt.event.ActionListener() {
+        btnThem.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnThem.setText("Thêm");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tBar_KhachHangActionPerformed(evt);
+                btnThemActionPerformed(evt);
             }
         });
-        tBar_Main.add(tBar_KhachHang);
 
-        tBar_MatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_MatHang.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-goods-32.png")); // NOI18N
-        tBar_MatHang.setText("Mặt hàng");
-        tBar_MatHang.setFocusable(false);
-        tBar_MatHang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        tBar_MatHang.setMaximumSize(new java.awt.Dimension(75, 60));
-        tBar_MatHang.setMinimumSize(new java.awt.Dimension(75, 60));
-        tBar_MatHang.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tBar_MatHang.addActionListener(new java.awt.event.ActionListener() {
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnXoa.setText("Xoá");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tBar_MatHangActionPerformed(evt);
+                btnXoaActionPerformed(evt);
             }
         });
-        tBar_Main.add(tBar_MatHang);
 
-        tBar_PhieuNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_PhieuNhap.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-paid-bill-32 (1).png")); // NOI18N
-        tBar_PhieuNhap.setText("Phiếu nhập");
-        tBar_PhieuNhap.setFocusable(false);
-        tBar_PhieuNhap.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        tBar_PhieuNhap.setMaximumSize(new java.awt.Dimension(75, 60));
-        tBar_PhieuNhap.setMinimumSize(new java.awt.Dimension(75, 60));
-        tBar_PhieuNhap.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tBar_PhieuNhap.addActionListener(new java.awt.event.ActionListener() {
+        btnSua.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnSua.setText("Sửa");
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tBar_PhieuNhapActionPerformed(evt);
+                btnSuaActionPerformed(evt);
             }
         });
-        tBar_Main.add(tBar_PhieuNhap);
-        tBar_Main.add(tBar_Separator2);
 
-        tBar_Intro.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_Intro.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-mention-32.png")); // NOI18N
-        tBar_Intro.setText("GIới thiệu");
-        tBar_Intro.setFocusable(false);
-        tBar_Intro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        tBar_Intro.setMaximumSize(new java.awt.Dimension(75, 60));
-        tBar_Intro.setMinimumSize(new java.awt.Dimension(75, 60));
-        tBar_Intro.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tBar_Intro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tBar_IntroActionPerformed(evt);
-            }
-        });
-        tBar_Main.add(tBar_Intro);
-
-        tBar_Contact.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_Contact.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-contact-32.png")); // NOI18N
-        tBar_Contact.setText("Liên hệ");
-        tBar_Contact.setFocusable(false);
-        tBar_Contact.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        tBar_Contact.setMaximumSize(new java.awt.Dimension(75, 60));
-        tBar_Contact.setMinimumSize(new java.awt.Dimension(75, 60));
-        tBar_Contact.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        tBar_Contact.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tBar_ContactActionPerformed(evt);
-            }
-        });
-        tBar_Main.add(tBar_Contact);
-
-        javax.swing.GroupLayout plToolBarLayout = new javax.swing.GroupLayout(plToolBar);
-        plToolBar.setLayout(plToolBarLayout);
-        plToolBarLayout.setHorizontalGroup(
-            plToolBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plToolBarLayout.createSequentialGroup()
-                .addComponent(tBar_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 1190, Short.MAX_VALUE)
+        javax.swing.GroupLayout pnThongTinNhanVienLayout = new javax.swing.GroupLayout(pnThongTinNhanVien);
+        pnThongTinNhanVien.setLayout(pnThongTinNhanVienLayout);
+        pnThongTinNhanVienLayout.setHorizontalGroup(
+            pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnThongTinNhanVienLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnThongTinNhanVienLayout.createSequentialGroup()
+                        .addComponent(lbChucVu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lbCaLamViec)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbCaLamViec, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnThongTinNhanVienLayout.createSequentialGroup()
+                        .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lbSoDienThoai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbTenNhanVien, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbMaNhanVien, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lbCMND, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTenNhanVien, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                            .addComponent(txtSoDienThoai, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtCMND, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtMaNhanVien))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnSua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnXoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnThongTinNhanVienLayout.createSequentialGroup()
+                        .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnTimKiemNV)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnTimKiemHD, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnXemCTHD, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        plToolBarLayout.setVerticalGroup(
-            plToolBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tBar_Main, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+        pnThongTinNhanVienLayout.setVerticalGroup(
+            pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnThongTinNhanVienLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbMaNhanVien)
+                    .addComponent(txtMaNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnThem))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnXoa)
+                    .addComponent(txtTenNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbTenNhanVien))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSua)
+                    .addComponent(lbSoDienThoai)
+                    .addComponent(txtSoDienThoai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbCMND)
+                    .addComponent(txtCMND, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbChucVu)
+                    .addComponent(lbCaLamViec)
+                    .addComponent(cbCaLamViec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLamMoi)
+                    .addComponent(btnTimKiemNV)
+                    .addComponent(btnTimKiemHD)
+                    .addComponent(btnXemCTHD))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        mnuSystem.setText("Hệ thống");
+        spDanhSachNhanVien.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách nhân viên", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
 
-        mnuSystem_Logout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnuSystem_Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuSystem_Logout.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_Logout_16px.png")); // NOI18N
-        mnuSystem_Logout.setText("Đăng xuất");
-        mnuSystem_Logout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuSystem_LogoutActionPerformed(evt);
+        tbDanhSachNhanVien.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
             }
-        });
-        mnuSystem.add(mnuSystem_Logout);
-        mnuSystem.add(mnuSystem_Separator);
+        ));
+        spDanhSachNhanVien.setViewportView(tbDanhSachNhanVien);
 
-        mnuSystem_Exit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnuSystem_Exit.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuSystem_Exit.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
-        mnuSystem_Exit.setText("Thoát");
-        mnuSystem_Exit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuSystem_ExitActionPerformed(evt);
+        spLichSuGiaoDich.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lịch sử giao dịch", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
+
+        tbLichSuGiaoDich.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
             }
-        });
-        mnuSystem.add(mnuSystem_Exit);
+        ));
+        spLichSuGiaoDich.setViewportView(tbLichSuGiaoDich);
 
-        mnuBar_Main.add(mnuSystem);
-
-        mnuManage.setText("Quản lí");
-
-        mnuManage_BanHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnuManage_BanHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_BanHang.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_bill_16px.png")); // NOI18N
-        mnuManage_BanHang.setText("Quản lý bán hàng");
-        mnuManage_BanHang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuManage_BanHangActionPerformed(evt);
-            }
-        });
-        mnuManage.add(mnuManage_BanHang);
-
-        mnuManage_HoaDon.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnuManage_HoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_HoaDon.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_bill_16px_1.png")); // NOI18N
-        mnuManage_HoaDon.setText("Quản lý hoá đơn");
-        mnuManage_HoaDon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuManage_HoaDonActionPerformed(evt);
-            }
-        });
-        mnuManage.add(mnuManage_HoaDon);
-
-        mnuManage_NhanVien.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnuManage_NhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_NhanVien.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-staff-16.png")); // NOI18N
-        mnuManage_NhanVien.setText("Quản lý nhân viên");
-        mnuManage_NhanVien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuManage_NhanVienActionPerformed(evt);
-            }
-        });
-        mnuManage.add(mnuManage_NhanVien);
-
-        mnuManage_MatHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnuManage_MatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_MatHang.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-goods-16.png")); // NOI18N
-        mnuManage_MatHang.setText("Quản lý mặt hàng");
-        mnuManage_MatHang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuManage_MatHangActionPerformed(evt);
-            }
-        });
-        mnuManage.add(mnuManage_MatHang);
-
-        mnuManage_KhachHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnuManage_KhachHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_KhachHang.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-customer-16.png")); // NOI18N
-        mnuManage_KhachHang.setText("Quản lý khách hàng");
-        mnuManage_KhachHang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuManage_KhachHangActionPerformed(evt);
-            }
-        });
-        mnuManage.add(mnuManage_KhachHang);
-
-        mnuManage_PhieuNhap.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnuManage_PhieuNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_PhieuNhap.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8-paid-bill-16 (1).png")); // NOI18N
-        mnuManage_PhieuNhap.setText("Quản lý phiếu nhập");
-        mnuManage_PhieuNhap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuManage_PhieuNhapActionPerformed(evt);
-            }
-        });
-        mnuManage.add(mnuManage_PhieuNhap);
-
-        mnuBar_Main.add(mnuManage);
-
-        mnuHelper.setText("Trợ giúp");
-
-        mnuHelper_Intro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnuHelper_Intro.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuHelper_Intro.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_mention_16px.png")); // NOI18N
-        mnuHelper_Intro.setText("Giới thiệu");
-        mnuHelper_Intro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuHelper_IntroActionPerformed(evt);
-            }
-        });
-        mnuHelper.add(mnuHelper_Intro);
-        mnuHelper.add(mnuHelper_Separator);
-
-        mnuHelper_Contact.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        mnuHelper_Contact.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuHelper_Contact.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\icons8_contact_16px.png")); // NOI18N
-        mnuHelper_Contact.setText("Liên hệ");
-        mnuHelper_Contact.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuHelper_ContactActionPerformed(evt);
-            }
-        });
-        mnuHelper.add(mnuHelper_Contact);
-
-        mnuBar_Main.add(mnuHelper);
-
-        setJMenuBar(mnuBar_Main);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(plToolBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tPane_Main)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(spDanhSachNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pnThongTinNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(spLichSuGiaoDich, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(plToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tPane_Main, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(spLichSuGiaoDich)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnThongTinNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(spDanhSachNhanVien, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-
-        pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mnuManage_NhanVienActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         // TODO add your handling code here:
-    }                                                  
+    }//GEN-LAST:event_btnLamMoiActionPerformed
 
-    private void tBar_NhanVienActionPerformed(java.awt.event.ActionEvent evt) {                                              
+    private void btnTimKiemHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemHDActionPerformed
         // TODO add your handling code here:
-    }                                             
+    }//GEN-LAST:event_btnTimKiemHDActionPerformed
 
-    private void tBar_MatHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBar_MatHangActionPerformed
+    private void btnTimKiemNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemNVActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tBar_MatHangActionPerformed
+    }//GEN-LAST:event_btnTimKiemNVActionPerformed
 
-    private void tBar_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBar_LogoutActionPerformed
+    private void btnXemCTHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXemCTHDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tBar_LogoutActionPerformed
+    }//GEN-LAST:event_btnXemCTHDActionPerformed
 
-    private void tBar_IntroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBar_IntroActionPerformed
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tBar_IntroActionPerformed
+    }//GEN-LAST:event_btnThemActionPerformed
 
-    private void mnuManage_MatHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuManage_MatHangActionPerformed
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mnuManage_MatHangActionPerformed
+    }//GEN-LAST:event_btnXoaActionPerformed
 
-    private void mnuHelper_ContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuHelper_ContactActionPerformed
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_mnuHelper_ContactActionPerformed
+    }//GEN-LAST:event_btnSuaActionPerformed
 
-    private void mnuHelper_IntroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuHelper_IntroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuHelper_IntroActionPerformed
-
-    private void mnuSystem_ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSystem_ExitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuSystem_ExitActionPerformed
-
-    private void mnuSystem_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSystem_LogoutActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuSystem_LogoutActionPerformed
-
-    private void mnuManage_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuManage_PhieuNhapActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuManage_PhieuNhapActionPerformed
-
-    private void mnuManage_HoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuManage_HoaDonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuManage_HoaDonActionPerformed
-
-    private void mnuManage_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuManage_NhanVienActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuManage_NhanVienActionPerformed
-
-    private void tBar_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBar_PhieuNhapActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tBar_PhieuNhapActionPerformed
-
-    private void tBar_HoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBar_HoaDonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tBar_HoaDonActionPerformed
-
-    private void tBar_KhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBar_NhanVienActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tBar_NhanVienActionPerformed
-
-    private void tBar_ContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBar_ContactActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tBar_ContactActionPerformed
-
-    private void tBar_BanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tBar_BanHangActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tBar_BanHangActionPerformed
-
-    private void mnuManage_BanHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuManage_BanHangActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuManage_BanHangActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PanelNhanVienGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PanelNhanVienGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PanelNhanVienGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PanelNhanVienGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PanelNhanVienGUI().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar mnuBar_Main;
-    private javax.swing.JMenu mnuHelper;
-    private javax.swing.JMenuItem mnuHelper_Contact;
-    private javax.swing.JMenuItem mnuHelper_Intro;
-    private javax.swing.JPopupMenu.Separator mnuHelper_Separator;
-    private javax.swing.JMenu mnuManage;
-    private javax.swing.JMenuItem mnuManage_BanHang;
-    private javax.swing.JMenuItem mnuManage_HoaDon;
-    private javax.swing.JMenuItem mnuManage_KhachHang;
-    private javax.swing.JMenuItem mnuManage_MatHang;
-    private javax.swing.JMenuItem mnuManage_NhanVien;
-    private javax.swing.JMenuItem mnuManage_PhieuNhap;
-    private javax.swing.JMenu mnuSystem;
-    private javax.swing.JMenuItem mnuSystem_Exit;
-    private javax.swing.JMenuItem mnuSystem_Logout;
-    private javax.swing.JPopupMenu.Separator mnuSystem_Separator;
-    private javax.swing.JPanel plToolBar;
-    private javax.swing.JButton tBar_BanHang;
-    private javax.swing.JButton tBar_Contact;
-    private javax.swing.JButton tBar_HoaDon;
-    private javax.swing.JButton tBar_Intro;
-    private javax.swing.JButton tBar_KhachHang;
-    private javax.swing.JButton tBar_Logout;
-    private javax.swing.JToolBar tBar_Main;
-    private javax.swing.JButton tBar_MatHang;
-    private javax.swing.JButton tBar_NhanVien;
-    private javax.swing.JButton tBar_PhieuNhap;
-    private javax.swing.JToolBar.Separator tBar_Separator1;
-    private javax.swing.JToolBar.Separator tBar_Separator2;
-    private javax.swing.JTabbedPane tPane_Main;
+    private javax.swing.JButton btnLamMoi;
+    private javax.swing.JButton btnSua;
+    private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnTimKiemHD;
+    private javax.swing.JButton btnTimKiemNV;
+    private javax.swing.JButton btnXemCTHD;
+    private javax.swing.JButton btnXoa;
+    private javax.swing.JComboBox<String> cbCaLamViec;
+    private javax.swing.JComboBox<String> cbChucVu;
+    private javax.swing.JLabel lbCMND;
+    private javax.swing.JLabel lbCaLamViec;
+    private javax.swing.JLabel lbChucVu;
+    private javax.swing.JLabel lbMaNhanVien;
+    private javax.swing.JLabel lbSoDienThoai;
+    private javax.swing.JLabel lbTenNhanVien;
+    private javax.swing.JPanel pnThongTinNhanVien;
+    private javax.swing.JScrollPane spDanhSachNhanVien;
+    private javax.swing.JScrollPane spLichSuGiaoDich;
+    private javax.swing.JTable tbDanhSachNhanVien;
+    private javax.swing.JTable tbLichSuGiaoDich;
+    private javax.swing.JTextField txtCMND;
+    private javax.swing.JTextField txtMaNhanVien;
+    private javax.swing.JTextField txtSoDienThoai;
+    private javax.swing.JTextField txtTenNhanVien;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,6 +3,7 @@ package BUS;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 import DTO.MatHangDTO;
+import DTO.NhanVienDTO;
 
 import java.util.ArrayList;
 
@@ -30,5 +31,6 @@ public class _SaveData {
     //===============================================================//
     // Variable của form khách hàng
     public static KhachHangDTO khachHangTimThay = null;
+    public static NhanVienDTO nhanVienTimThay = null;
     public static HoaDonDTO hoaDonTimThay = null;
 }

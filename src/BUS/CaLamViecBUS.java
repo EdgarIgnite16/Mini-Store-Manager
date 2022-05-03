@@ -16,6 +16,15 @@ public class CaLamViecBUS {
         }
     }
 
+    public CaLamViecDTO getItemByID(String id) {
+        for (CaLamViecDTO item : listCaLamViec) {
+            if (item.getMaCa().equals(id)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public CaLamViecDTO getItemByName(String name) {
         for (CaLamViecDTO item : listCaLamViec) {
             if (item.getTenCa().equals(name)) {
