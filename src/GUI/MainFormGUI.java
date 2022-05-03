@@ -82,7 +82,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         plToolBar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tBar_Main.setFloatable(false);
-        
+
         tBar_Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         tBar_Logout.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_Logout_32px_1.png")); // NOI18N
         tBar_Logout.setText("Đăng xuất");

@@ -70,14 +70,19 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         lbNgayBan.setText("Ngày bán:");
 
         txtMaHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtMaHoaDon.setEnabled(false);
 
         txtMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtMaGiamGia.setEnabled(false);
 
         txtTenNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtTenNhanVien.setEnabled(false);
 
         txtTenKhachHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtTenKhachHang.setEnabled(false);
 
         txtNgayBan.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtNgayBan.setEnabled(false);
 
         btnLamMoi.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnLamMoi.setText("Làm mới");
