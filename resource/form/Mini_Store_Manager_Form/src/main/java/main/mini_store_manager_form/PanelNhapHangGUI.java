@@ -38,11 +38,11 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         txtNgayNhap = new javax.swing.JTextField();
         cbNhaCungCap = new javax.swing.JComboBox<>();
         btnLamMoi = new javax.swing.JButton();
-        btnTimKiemNV = new javax.swing.JButton();
+        btnTimKiem = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
-        btnSua = new javax.swing.JButton();
-        btnSua1 = new javax.swing.JButton();
-        btnSua2 = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
+        btnTangSL = new javax.swing.JButton();
+        btnGiamSL = new javax.swing.JButton();
         spDanhSachMatHang = new javax.swing.JScrollPane();
         tbDanhSachMatHang = new javax.swing.JTable();
         spDanhSachMatHangNhap = new javax.swing.JScrollPane();
@@ -89,12 +89,12 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             }
         });
 
-        btnTimKiemNV.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnTimKiemNV.setText("Tìm kiếm mặt hàng");
-        btnTimKiemNV.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
-        btnTimKiemNV.addActionListener(new java.awt.event.ActionListener() {
+        btnTimKiem.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnTimKiem.setText("Tìm kiếm mặt hàng");
+        btnTimKiem.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
+        btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTimKiemNVActionPerformed(evt);
+                btnTimKiemActionPerformed(evt);
             }
         });
 
@@ -106,27 +106,27 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             }
         });
 
-        btnSua.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnSua.setText("Xoá mặt hàng");
-        btnSua.addActionListener(new java.awt.event.ActionListener() {
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnXoa.setText("Xoá mặt hàng");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuaActionPerformed(evt);
+                btnXoaActionPerformed(evt);
             }
         });
 
-        btnSua1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnSua1.setText("Tăng SL nhập");
-        btnSua1.addActionListener(new java.awt.event.ActionListener() {
+        btnTangSL.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnTangSL.setText("Tăng SL nhập");
+        btnTangSL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSua1ActionPerformed(evt);
+                btnTangSLActionPerformed(evt);
             }
         });
 
-        btnSua2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnSua2.setText("Giảm SL nhập");
-        btnSua2.addActionListener(new java.awt.event.ActionListener() {
+        btnGiamSL.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnGiamSL.setText("Giảm SL nhập");
+        btnGiamSL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSua2ActionPerformed(evt);
+                btnGiamSLActionPerformed(evt);
             }
         });
 
@@ -140,7 +140,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
                     .addGroup(pnThongTinPhieuNhapLayout.createSequentialGroup()
                         .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnTimKiemNV))
+                        .addComponent(btnTimKiem))
                     .addGroup(pnThongTinPhieuNhapLayout.createSequentialGroup()
                         .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(lbNgayNhap, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -158,9 +158,9 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSua1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSua2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnXoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnTangSL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnGiamSL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         pnThongTinPhieuNhapLayout.setVerticalGroup(
@@ -173,26 +173,26 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
                     .addComponent(btnThem))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSua)
+                    .addComponent(btnXoa)
                     .addComponent(txtMaMatHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbMaMatHang))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbSoLuongNhap)
                     .addComponent(txtSoLuongNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSua1))
+                    .addComponent(btnTangSL))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNgayNhap)
                     .addComponent(txtNgayNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSua2))
+                    .addComponent(btnGiamSL))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbNhaCungCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbNhaCungCap))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTimKiemNV)
+                    .addComponent(btnTimKiem)
                     .addComponent(btnLamMoi))
                 .addContainerGap())
         );
@@ -233,7 +233,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(pnThongTinPhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(spDanhSachMatHang, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -258,9 +258,9 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
-    private void btnTimKiemNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemNVActionPerformed
+    private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnTimKiemNVActionPerformed
+    }//GEN-LAST:event_btnTimKiemActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
@@ -270,26 +270,26 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbNhaCungCapActionPerformed
 
-    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuaActionPerformed
+    }//GEN-LAST:event_btnXoaActionPerformed
 
-    private void btnSua1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua1ActionPerformed
+    private void btnTangSLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTangSLActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSua1ActionPerformed
+    }//GEN-LAST:event_btnTangSLActionPerformed
 
-    private void btnSua2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua2ActionPerformed
+    private void btnGiamSLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGiamSLActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSua2ActionPerformed
+    }//GEN-LAST:event_btnGiamSLActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGiamSL;
     private javax.swing.JButton btnLamMoi;
-    private javax.swing.JButton btnSua;
-    private javax.swing.JButton btnSua1;
-    private javax.swing.JButton btnSua2;
+    private javax.swing.JButton btnTangSL;
     private javax.swing.JButton btnThem;
-    private javax.swing.JButton btnTimKiemNV;
+    private javax.swing.JButton btnTimKiem;
+    private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cbNhaCungCap;
     private javax.swing.JLabel lbMaMatHang;
     private javax.swing.JLabel lbMaPhieuNhap;
