@@ -3,13 +3,15 @@ package GUI;
 import BUS.*;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
+import DTO.MatHangDTO;
 import DTO.NhanVienDTO;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import java.util.ArrayList;
 
 public class DialogTimKiemGUI extends javax.swing.JDialog {
-    private String key;
+    private final String key;
 
     /**
      * Creates new form SoLuongXoaDialogGUI
@@ -118,9 +120,9 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         if (!txtID.getText().equals("")) {
-            // trường hợp là tìm kiếm Khách hàng
+            // trường hợp là tìm kiếm nhân viên
             if (this.key.equals("NV")) {
-                NhanVienDTO nhanVienDTO = new NhanVienBUS().getItemByID(txtID.getText());
+                NhanVienDTO nhanVienDTO = new NhanVienBUS().getItemByID(txtID.getText().trim());
                 if (nhanVienDTO != null) {
                     _SaveData.nhanVienTimThay = nhanVienDTO;
                     this.dispose();
@@ -131,9 +133,9 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
                 }
             }
 
-            // trường hợp là tìm kiếm Khách hàng
+            // trường hợp là tìm kiếm khách hàng
             if (this.key.equals("KH")) {
-                KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(txtID.getText());
+                KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(txtID.getText().trim());
                 if (khachHangDTO != null) {
                     _SaveData.khachHangTimThay = khachHangDTO;
                     this.dispose();
@@ -144,9 +146,9 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
                 }
             }
 
-            // trường hợp là tìm kiếm Hoá đơn
+            // trường hợp là tìm kiếm hoá đơn
             if (this.key.equals("HD")) {
-                HoaDonDTO hoaDonDTO = new HoaDonBUS().getItemBymMaHD(txtID.getText());
+                HoaDonDTO hoaDonDTO = new HoaDonBUS().getItemBymMaHD(txtID.getText().trim());
                 if (hoaDonDTO != null) {
                     _SaveData.hoaDonTimThay = hoaDonDTO;
                     this.dispose();
@@ -154,6 +156,19 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
                     _SaveData.hoaDonTimThay = null;
                     _MessageDialogHelper.showErrorDialog(this,
                             "Không tìm thấy hoá đơn cần tìm!", "Không tìm thấy đối tượng");
+                }
+            }
+
+            // trường hợp là tìm kiếm mặt hàng
+            if (this.key.equals("MH")) {
+                MatHangDTO matHangDTO = MatHangBUS.getItemByID(txtID.getText().trim());
+                if (matHangDTO != null) {
+                    _SaveData.matHangTimThay = matHangDTO;
+                    this.dispose();
+                } else {
+                    _SaveData.matHangTimThay = null;
+                    _MessageDialogHelper.showErrorDialog(this,
+                            "Không tìm thấy mặt hàng cần tìm!", "Không tìm thấy đối tượng");
                 }
             }
 

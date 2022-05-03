@@ -425,9 +425,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             loadHoaDon(listHoaDon); // load lại lịch sử mua hàng của khách hàng được chọn
 
             // load các thông tin của khách hàng lên text field
-            txtMaKhachHang.setText(khachHangDTO.getMaKH());
-            txtTenKhachHang.setText(khachHangDTO.getTenKH());
-            txtSoDienThoai.setText(khachHangDTO.getSdt());
+            loadForm(khachHangDTO);
 
             // reset lại data tìm kiếm trong local
             _SaveData.khachHangTimThay = null;
@@ -459,9 +457,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
 
             if(khachHangDTO != null) {
                 // load thông tin lên field
-                txtMaKhachHang.setText(khachHangDTO.getMaKH());
-                txtTenKhachHang.setText(khachHangDTO.getTenKH());
-                txtSoDienThoai.setText(khachHangDTO.getSdt());
+                loadForm(khachHangDTO);
 
                 // load lịch sử mua sắm lên tb
                 loadHoaDon(new HoaDonBUS().fillData(idKH, "KH")); // load lại lịch sử mua hàng
@@ -511,6 +507,12 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                     item.getSdt()
             });
         }
+    }
+
+    private void loadForm(KhachHangDTO khachHangDTO) {
+        txtMaKhachHang.setText(khachHangDTO.getMaKH());
+        txtTenKhachHang.setText(khachHangDTO.getTenKH());
+        txtSoDienThoai.setText(khachHangDTO.getSdt());
     }
 
     // tạo mới lại data

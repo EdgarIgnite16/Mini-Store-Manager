@@ -400,12 +400,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             loadHoaDon(listHoaDon); // load lại lịch sử mua hàng của khách hàng được chọn
 
             // load các thông tin của khách hàng lên text field
-            txtMaNhanVien.setText(nhanVienDTO.getMaNV());
-            txtTenNhanVien.setText(nhanVienDTO.getTenNV());
-            txtSoDienThoai.setText(nhanVienDTO.getSdt());
-            txtCMND.setText(nhanVienDTO.getCmnd());
-            cbChucVu.setSelectedItem(new ChucVuBUS().getItemByID(nhanVienDTO.getMaCV()).getTenCV());
-            cbCaLamViec.setSelectedItem(new CaLamViecBUS().getItemByID(nhanVienDTO.getMaCa()).getTenCa());
+            loadForm(nhanVienDTO);
 
             // reset lại data tìm kiếm trong local
             _SaveData.nhanVienTimThay = null;
@@ -582,12 +577,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
 
             if(nhanVienDTO != null) {
                 // load thông tin lên field
-                txtMaNhanVien.setText(nhanVienDTO.getMaNV());
-                txtTenNhanVien.setText(nhanVienDTO.getTenNV());
-                txtSoDienThoai.setText(nhanVienDTO.getSdt());
-                txtCMND.setText(nhanVienDTO.getCmnd());
-                cbChucVu.setSelectedItem(new ChucVuBUS().getItemByID(nhanVienDTO.getMaCV()).getTenCV());
-                cbCaLamViec.setSelectedItem(new CaLamViecBUS().getItemByID(nhanVienDTO.getMaCa()).getTenCa());
+                loadForm(nhanVienDTO);
 
                 // load lịch sử mua sắm lên tb
                 loadHoaDon(new HoaDonBUS().fillData(idNV, "NV")); // load lại lịch sử mua hàng
@@ -642,6 +632,15 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         }
     }
 
+    private void loadForm(NhanVienDTO nhanVienDTO) {
+        txtMaNhanVien.setText(nhanVienDTO.getMaNV());
+        txtTenNhanVien.setText(nhanVienDTO.getTenNV());
+        txtSoDienThoai.setText(nhanVienDTO.getSdt());
+        txtCMND.setText(nhanVienDTO.getCmnd());
+        cbChucVu.setSelectedItem(new ChucVuBUS().getItemByID(nhanVienDTO.getMaCV()).getTenCV());
+        cbCaLamViec.setSelectedItem(new CaLamViecBUS().getItemByID(nhanVienDTO.getMaCa()).getTenCa());
+    }
+
     // tạo mới lại data
     private void refreshData() {
         txtMaNhanVien.setText(""); // refresh form mã nhân viên
@@ -657,7 +656,6 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         txtTenNhanVien.setBackground(Color.WHITE);
         txtSoDienThoai.setBackground(Color.WHITE);
         txtCMND.setBackground(Color.WHITE);
-
 
         // set Foreground
         txtMaNhanVien.setForeground(Color.BLACK);

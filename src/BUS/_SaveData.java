@@ -29,8 +29,9 @@ public class _SaveData {
     public static ArrayList<MatHangDTO> ChiTietHoaDon = null;
 
     //===============================================================//
-    // Variable của form khách hàng
+    // Variable của form khách hàng, hoá đơn, nhân viên, mặt hàng
     public static KhachHangDTO khachHangTimThay = null;
     public static NhanVienDTO nhanVienTimThay = null;
     public static HoaDonDTO hoaDonTimThay = null;
+    public static MatHangDTO matHangTimThay = null;
 }
