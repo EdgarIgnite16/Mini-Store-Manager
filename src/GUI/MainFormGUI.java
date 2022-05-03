@@ -11,6 +11,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     private PanelBanHangGUI banHangGUI;
     private PanelKhachHangGUI khachHangGUI;
     private PanelNhanVienGUI nhanVienGUI;
+    private PanelMatHangGUI matHangGUI;
 
     public MainFormGUI() {
         initComponents();
@@ -32,6 +33,11 @@ public class MainFormGUI extends javax.swing.JFrame {
         khachHangGUI = new PanelKhachHangGUI();
         String pathKhachHang = "resource\\icon\\icons8-customer-16.png";
         tPane_Main.addTab("Quản lí khách hàng", new ImageIcon(pathKhachHang), khachHangGUI, "\"Quản lí khách hàng");
+
+        // Khách hàng form
+        matHangGUI = new PanelMatHangGUI();
+        String pathMatHang = "resource\\icon\\icons8-goods-16.png";
+        tPane_Main.addTab("Quản lí mặt hàng", new ImageIcon(pathMatHang), matHangGUI, "\"Quản lí  mặt hàng");
     }
 
     /**
@@ -453,7 +459,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void mnuManage_MatHangActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        tPane_Main.setSelectedComponent(matHangGUI);
     }
 
     private void mnuManage_NhapHangActionPerformed(java.awt.event.ActionEvent evt) {
@@ -506,7 +512,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void tBar_MatHangActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        tPane_Main.setSelectedComponent(matHangGUI);
     }
 
     private void tBar_NhapHangActionPerformed(java.awt.event.ActionEvent evt) {

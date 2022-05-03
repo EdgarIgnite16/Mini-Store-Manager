@@ -457,14 +457,18 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             String idKH = String.valueOf(tbDanhSachKhachHang.getValueAt(selectedRow, 0));
             KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(idKH);
 
-            // load thông tin lên field
-            txtMaKhachHang.setText(khachHangDTO.getMaKH());
-            txtTenKhachHang.setText(khachHangDTO.getTenKH());
-            txtSoDienThoai.setText(khachHangDTO.getSdt());
+            if(khachHangDTO != null) {
+                // load thông tin lên field
+                txtMaKhachHang.setText(khachHangDTO.getMaKH());
+                txtTenKhachHang.setText(khachHangDTO.getTenKH());
+                txtSoDienThoai.setText(khachHangDTO.getSdt());
 
-            // load lịch sử mua sắm lên tb
-            loadHoaDon(new HoaDonBUS().fillData(idKH, "KH")); // load lại lịch sử mua hàng
-            return khachHangDTO; // trả về khách hàng được nhấn vào
+                // load lịch sử mua sắm lên tb
+                loadHoaDon(new HoaDonBUS().fillData(idKH, "KH")); // load lại lịch sử mua hàng
+                return khachHangDTO; // trả về khách hàng được nhấn vào
+            } else {
+                return null;
+            }
         } catch (Exception ex) {
             _MessageDialogHelper.showErrorDialog(parentForm,
                     "Vui lòng chọn một dòng trong danh sách khách hàng!", "Yêu cầu chọn dữ liệu");

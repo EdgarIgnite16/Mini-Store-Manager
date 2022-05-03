@@ -580,19 +580,21 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             String idNV = String.valueOf(tbDanhSachNhanVien.getValueAt(selectedRow, 0));
             NhanVienDTO nhanVienDTO = new NhanVienBUS().getItemByID(idNV);
 
-            System.out.println(nhanVienDTO.toString());
+            if(nhanVienDTO != null) {
+                // load thông tin lên field
+                txtMaNhanVien.setText(nhanVienDTO.getMaNV());
+                txtTenNhanVien.setText(nhanVienDTO.getTenNV());
+                txtSoDienThoai.setText(nhanVienDTO.getSdt());
+                txtCMND.setText(nhanVienDTO.getCmnd());
+                cbChucVu.setSelectedItem(new ChucVuBUS().getItemByID(nhanVienDTO.getMaCV()).getTenCV());
+                cbCaLamViec.setSelectedItem(new CaLamViecBUS().getItemByID(nhanVienDTO.getMaCa()).getTenCa());
 
-            // load thông tin lên field
-            txtMaNhanVien.setText(nhanVienDTO.getMaNV());
-            txtTenNhanVien.setText(nhanVienDTO.getTenNV());
-            txtSoDienThoai.setText(nhanVienDTO.getSdt());
-            txtCMND.setText(nhanVienDTO.getCmnd());
-            cbChucVu.setSelectedItem(new ChucVuBUS().getItemByID(nhanVienDTO.getMaCV()).getTenCV());
-            cbCaLamViec.setSelectedItem(new CaLamViecBUS().getItemByID(nhanVienDTO.getMaCa()).getTenCa());
-
-            // load lịch sử mua sắm lên tb
-            loadHoaDon(new HoaDonBUS().fillData(idNV, "NV")); // load lại lịch sử mua hàng
-            return nhanVienDTO; // trả về khách hàng được nhấn vào
+                // load lịch sử mua sắm lên tb
+                loadHoaDon(new HoaDonBUS().fillData(idNV, "NV")); // load lại lịch sử mua hàng
+                return nhanVienDTO; // trả về khách hàng được nhấn vào
+            } else {
+                return null;
+            }
         } catch (Exception ex) {
             _MessageDialogHelper.showErrorDialog(parentForm,
                     "Vui lòng chọn một dòng trong danh sách khách hàng!", "Yêu cầu chọn dữ liệu");

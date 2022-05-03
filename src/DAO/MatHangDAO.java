@@ -35,7 +35,7 @@ public class MatHangDAO {
 
     // hàm insert dữ liệu lên database
     public boolean insertItem(MatHangDTO matHangDTO) throws Exception {
-        String sql = "INSERT INTO [dbo].[KhachHang] ([maMH], [maLMH] ,[tenMatHang], [thanhTien], [soLuong])" +
+        String sql = "INSERT INTO [dbo].[MatHang] ([maMH], [maLMH] ,[tenMatHang], [thanhTien], [soLuong])" +
                 " VALUES(?, ?, ?, ?, ?)";
 
         // sử dụng try-with-resource

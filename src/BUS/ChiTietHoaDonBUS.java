@@ -2,6 +2,7 @@ package BUS;
 
 import DAO.ChiTietHoaDonDAO;
 import DTO.ChiTietHoaDonDTO;
+import DTO.MatHangDTO;
 
 import java.util.ArrayList;
 
@@ -39,6 +40,28 @@ public class ChiTietHoaDonBUS {
         }
     }
 
+    public int tinhTonhSLBan(String maMH) {
+        int soLuong = 0;
+        for(ChiTietHoaDonDTO item : listMatHangMua) {
+            if(item.getMaMH().equals(maMH)) {
+                soLuong += item.getSoLuong();
+            }
+        }
+
+        return soLuong;
+    }
+
+    public float tinhTongThanhTien(String maMH, float thanhTien) {
+        float tongTien = 0;
+        for(ChiTietHoaDonDTO item : listMatHangMua) {
+            if(item.getMaMH().equals(maMH)) {
+                tongTien += thanhTien * item.getSoLuong();
+            }
+        }
+        return tongTien;
+    }
+
+
     // =================================================================================== //
     // thực hiện hàm insert
     public boolean insertItem(ChiTietHoaDonDTO chiTietHoaDonDTO) throws Exception {
@@ -48,5 +71,4 @@ public class ChiTietHoaDonBUS {
         }
         return false;
     }
-
 }

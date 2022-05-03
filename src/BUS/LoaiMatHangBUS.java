@@ -17,6 +17,16 @@ public class LoaiMatHangBUS {
         }
     }
 
+    // tìm kiếm đối tượng thông qua id
+    public LoaiMatHangDTO getItemByID(String id) {
+        for (LoaiMatHangDTO item : listLoaiMatHang) {
+            if (item.getMaLMH().equals(id)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     // tìm kiếm đối tượng thông qua tên
     public LoaiMatHangDTO getItemByName(String name) {
         for (LoaiMatHangDTO item : listLoaiMatHang) {

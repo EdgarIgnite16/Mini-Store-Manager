@@ -79,6 +79,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         txtThanhTien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         txtSoLuong.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtSoLuong.setEnabled(false);
 
         cbLoaiMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         cbLoaiMatHang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -215,10 +216,13 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         lbAvatar.setIcon(new javax.swing.ImageIcon("D:\\Workspace\\Mini-Store-Manager\\resource\\icon\\best-seller2.jpeg")); // NOI18N
 
         txtTongSLBan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTongSLBan.setEnabled(false);
 
         txtThanhTienThu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtThanhTienThu.setEnabled(false);
 
         txtPhanTramDoanhThu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtPhanTramDoanhThu.setEnabled(false);
 
         javax.swing.GroupLayout pbThongKeBanHangLayout = new javax.swing.GroupLayout(pbThongKeBanHang);
         pbThongKeBanHang.setLayout(pbThongKeBanHangLayout);
@@ -297,7 +301,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pbThongKeBanHang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnThongTinMatHang, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(pnThongTinMatHang, javax.swing.GroupLayout.PREFERRED_SIZE, 563, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(spDanhSachMatHang, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
                 .addContainerGap())

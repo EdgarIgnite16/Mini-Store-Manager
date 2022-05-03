@@ -81,6 +81,24 @@ public class MatHangBUS {
 
     // =================================================================================== //
     // thực hiện hàm update
+    public boolean insertItem(MatHangDTO matHangDTO) throws Exception {
+        if (matHangDTO != null) {
+            MatHangDAO matHangDAO = new MatHangDAO();
+            return matHangDAO.insertItem(matHangDTO);
+        }
+        return false;
+    }
+
+    // thực hiện hàm update
+    public boolean deleteItem(MatHangDTO matHangDTO) throws Exception {
+        if (matHangDTO != null) {
+            MatHangDAO matHangDAO = new MatHangDAO();
+            return matHangDAO.deleteItem(matHangDTO);
+        }
+        return false;
+    }
+
+    // thực hiện hàm update
     public boolean updateItem(MatHangDTO matHangDTO) throws Exception {
         if (matHangDTO != null) {
             MatHangDAO matHangDAO = new MatHangDAO();

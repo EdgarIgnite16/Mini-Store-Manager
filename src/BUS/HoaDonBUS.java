@@ -77,6 +77,14 @@ public class HoaDonBUS {
         return listHD;
     }
 
+    public float tinhTongThanhTienAll() {
+        float tongThanhTien = 0;
+        for(HoaDonDTO item : listHoaDon) {
+            tongThanhTien += item.getTongHoaDon();
+        }
+        return tongThanhTien;
+    }
+
     // =================================================================================== //
     // thực hiện hàm insert
     public boolean insertItem(HoaDonDTO hoaDonDTO) throws Exception {
