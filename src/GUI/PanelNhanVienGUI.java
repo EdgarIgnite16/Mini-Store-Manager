@@ -451,6 +451,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                     nhanVienDTO.setTenNV(txtTenNhanVien.getText());
                     nhanVienDTO.setSdt(txtSoDienThoai.getText());
                     nhanVienDTO.setCmnd(txtCMND.getText());
+                    nhanVienDTO.setIsShow((byte) 1);
 
                     if(caLamViecDTO != null && chucVuDTO != null) {
                         nhanVienDTO.setMaCa(caLamViecDTO.getMaCa());
@@ -499,8 +500,9 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                 } else {
                     if(_MessageDialogHelper.showConfirmDialog(parentForm,
                             "Bạn có xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
+                        nhanVienDTO.setIsShow((byte) 0); // set ẩn
                         NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                        if(nhanVienBUS.deleteItem(nhanVienDTO)) {
+                        if(nhanVienBUS.updateItem(nhanVienDTO)) {
                             refreshData(); // làm mới lại dữ liệu trên form
                             _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công!", "Xoá thành công");
                         } else {
@@ -545,6 +547,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                     nhanVienDTO.setTenNV(txtTenNhanVien.getText());
                     nhanVienDTO.setSdt(txtSoDienThoai.getText());
                     nhanVienDTO.setCmnd(txtCMND.getText());
+                    nhanVienDTO.setIsShow((byte) 1);
 
                     if(caLamViecDTO != null && chucVuDTO != null) {
                         nhanVienDTO.setMaCa(caLamViecDTO.getMaCa());

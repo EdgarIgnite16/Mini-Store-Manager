@@ -1,5 +1,6 @@
 package DAO;
 
+import DTO.KhachHangDTO;
 import DTO.MatHangDTO;
 
 import java.sql.Connection;
@@ -33,9 +34,39 @@ public class MatHangDAO {
         }
     }
 
+    // hàm insert dữ liệu lên database
+    public boolean insertItem(MatHangDTO matHangDTO) throws Exception {
+        String sql = "INSERT INTO [dbo].[KhachHang] ([maMH], [maLMH] ,[tenMatHang], [thanhTien], [soLuong], [isShow])" +
+                " VALUES(?, ?, ?, ?, ?, ?)";
+
+        // sử dụng try-with-resource
+        try (Connection conn = new _Connection().getConn()) {
+            conn.setAutoCommit(false);
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, matHangDTO.getMaMH());
+                pstm.setString(2, matHangDTO.getMaLMH());
+                pstm.setString(3, matHangDTO.getTenMH());
+                pstm.setFloat(4, matHangDTO.getThanhTien());
+                pstm.setInt(5, matHangDTO.getSoLuong());
+                pstm.setInt(6, matHangDTO.getIsShow());
+
+                boolean checkPSTM = pstm.executeUpdate() > 0;
+                conn.commit(); // commit thay đổi lên database
+                conn.setAutoCommit(true); // set AutoCommit lại thành true
+
+                // nếu executeUpdate trả về hơn 1 => query thành công
+                // ngược lại => query thất bại
+                return checkPSTM;
+            } catch (Exception ex) {
+                conn.rollback(); // transactions roll back nếu sql thực thi thất bại
+            }
+        }
+        return false;
+    }
+
     public boolean updateItem(MatHangDTO matHangDTO) throws Exception {
         String sql = "UPDATE [dbo].[MatHang] " +
-                "SET [maMH] = ?, [maLMH] = ?, [tenMatHang] = ?, [thanhTien] = ?, [soLuong] = ?" +
+                "SET [maMH] = ?, [maLMH] = ?, [tenMatHang] = ?, [thanhTien] = ?, [soLuong] = ?, [isShow] = ?" +
                 " WHERE [maMH] = ?";
 
         // sử dụng try with resource
@@ -47,7 +78,33 @@ public class MatHangDAO {
                 pstm.setString(3, matHangDTO.getTenMH());
                 pstm.setFloat(4, matHangDTO.getThanhTien());
                 pstm.setInt(5, matHangDTO.getSoLuong());
-                pstm.setString(6, matHangDTO.getMaMH());
+                pstm.setInt(6, matHangDTO.getIsShow());
+                pstm.setString(7, matHangDTO.getMaMH());
+
+                boolean checkPSTM = pstm.executeUpdate() > 0;
+                conn.commit(); // commit thay đổi lên database
+                conn.setAutoCommit(true); // set AutoCommit lại thành true
+
+                // nếu executeUpdate trả về hơn 1 => query thành công
+                // ngược lại => query thất bại
+                return checkPSTM;
+            } catch (Exception ex) {
+                conn.rollback(); // transactions roll back nếu sql thực thi thất bại
+            }
+        }
+        return false;
+    }
+
+    // hàm delete dữ liệu lên database
+    public boolean deleteItem(MatHangDTO matHangDTO) throws Exception {
+        String sql = "DELETE FROM [dbo].[MatHang]" +
+                " WHERE [maMH] = ?";
+
+        // sử dụng try-with-resource
+        try (Connection conn = new _Connection().getConn()) {
+            conn.setAutoCommit(false);
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, matHangDTO.getMaMH());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database

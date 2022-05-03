@@ -325,6 +325,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                     khachHangDTO.setMaKH(txtMaKhachHang.getText());
                     khachHangDTO.setTenKH(txtTenKhachHang.getText());
                     khachHangDTO.setSdt(txtSoDienThoai.getText());
+                    khachHangDTO.setIsShow((byte) 1);
 
                     KhachHangBUS khachHangBUS = new KhachHangBUS();
                     if(khachHangBUS.insertItem(khachHangDTO)) {
@@ -355,8 +356,9 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                 } else {
                     if(_MessageDialogHelper.showConfirmDialog(parentForm,
                             "Bạn có xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
+                        khachHangDTO.setIsShow((byte) 0); // set ẩn
                         KhachHangBUS khachHangBUS = new KhachHangBUS();
-                        if(khachHangBUS.deleteItem(khachHangDTO)) {
+                        if(khachHangBUS.updateItem(khachHangDTO)) {
                             refreshData(); // làm mới lại dữ liệu trên form
                             _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công!", "Xoá thành công");
                         } else {
@@ -388,6 +390,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                     khachHangDTO.setMaKH(txtMaKhachHang.getText());
                     khachHangDTO.setTenKH(txtTenKhachHang.getText());
                     khachHangDTO.setSdt(txtSoDienThoai.getText());
+                    khachHangDTO.setIsShow((byte) 1);
 
                     KhachHangBUS khachHangBUS = new KhachHangBUS();
                     if(khachHangBUS.updateItem(khachHangDTO)) {
