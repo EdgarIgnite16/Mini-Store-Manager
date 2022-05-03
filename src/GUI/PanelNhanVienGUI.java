@@ -610,7 +610,6 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         }
     }
 
-
     //===================================================================================================//
     private NhanVienDTO tbDanhSachNhanVienListener() {
         try {
