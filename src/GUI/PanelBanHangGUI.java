@@ -53,25 +53,23 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
 
         pnMatHang.setLayout(new GridLayout(rowItem, colItem, 4, 4));
         for (MatHangDTO item : listFillData) {
-            if (item.getIsShow() == 1) {
-                JButton jButton = new JButton();
-                String titleBtn = String.format(
-                        "<html> %s <br> %.1f VNĐ </html>",
-                        item.getTenMH(), item.getThanhTien());
-                jButton.setText(titleBtn);
-                jButton.setIcon(new ImageIcon(LoaiMatHangBUS.getDefaultIcon(item.getMaLMH())));
-                jButton.setToolTipText(String.format("%s - %.2f VNĐ ", item.getTenMH(), item.getThanhTien()));
-                jButton.setFocusable(false);
-                jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                jButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-                jButton.setFont(new Font("Segoe UI", 0, 12));
-                jButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        handleOnClickBtn(evt);
-                    }
-                });
-                pnMatHang.add(jButton);
-            }
+            JButton jButton = new JButton();
+            String titleBtn = String.format(
+                    "<html> %s <br> %.1f VNĐ </html>",
+                    item.getTenMH(), item.getThanhTien());
+            jButton.setText(titleBtn);
+            jButton.setIcon(new ImageIcon(LoaiMatHangBUS.getDefaultIcon(item.getMaLMH())));
+            jButton.setToolTipText(String.format("%s - %.2f VNĐ ", item.getTenMH(), item.getThanhTien()));
+            jButton.setFocusable(false);
+            jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+            jButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+            jButton.setFont(new Font("Segoe UI", 0, 12));
+            jButton.addActionListener(new ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    handleOnClickBtn(evt);
+                }
+            });
+            pnMatHang.add(jButton);
         }
     }
 

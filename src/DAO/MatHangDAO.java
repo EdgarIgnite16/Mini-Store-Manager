@@ -26,7 +26,6 @@ public class MatHangDAO {
                     matHangDTO.setTenMH(rs.getString("tenMatHang").trim());
                     matHangDTO.setThanhTien(rs.getFloat("thanhTien"));
                     matHangDTO.setSoLuong(rs.getInt("soLuong"));
-                    matHangDTO.setIsShow(rs.getInt("isShow"));
                     listMatHang.add(matHangDTO);
                 }
                 return listMatHang;
@@ -36,8 +35,8 @@ public class MatHangDAO {
 
     // hàm insert dữ liệu lên database
     public boolean insertItem(MatHangDTO matHangDTO) throws Exception {
-        String sql = "INSERT INTO [dbo].[KhachHang] ([maMH], [maLMH] ,[tenMatHang], [thanhTien], [soLuong], [isShow])" +
-                " VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO [dbo].[KhachHang] ([maMH], [maLMH] ,[tenMatHang], [thanhTien], [soLuong])" +
+                " VALUES(?, ?, ?, ?, ?)";
 
         // sử dụng try-with-resource
         try (Connection conn = new _Connection().getConn()) {
@@ -48,7 +47,6 @@ public class MatHangDAO {
                 pstm.setString(3, matHangDTO.getTenMH());
                 pstm.setFloat(4, matHangDTO.getThanhTien());
                 pstm.setInt(5, matHangDTO.getSoLuong());
-                pstm.setInt(6, matHangDTO.getIsShow());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database
@@ -66,7 +64,7 @@ public class MatHangDAO {
 
     public boolean updateItem(MatHangDTO matHangDTO) throws Exception {
         String sql = "UPDATE [dbo].[MatHang] " +
-                "SET [maMH] = ?, [maLMH] = ?, [tenMatHang] = ?, [thanhTien] = ?, [soLuong] = ?, [isShow] = ?" +
+                "SET [maMH] = ?, [maLMH] = ?, [tenMatHang] = ?, [thanhTien] = ?, [soLuong] = ?" +
                 " WHERE [maMH] = ?";
 
         // sử dụng try with resource
@@ -78,8 +76,7 @@ public class MatHangDAO {
                 pstm.setString(3, matHangDTO.getTenMH());
                 pstm.setFloat(4, matHangDTO.getThanhTien());
                 pstm.setInt(5, matHangDTO.getSoLuong());
-                pstm.setInt(6, matHangDTO.getIsShow());
-                pstm.setString(7, matHangDTO.getMaMH());
+                pstm.setString(6, matHangDTO.getMaMH());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database

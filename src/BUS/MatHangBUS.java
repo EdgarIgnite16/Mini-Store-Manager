@@ -79,16 +79,6 @@ public class MatHangBUS {
         }
     }
 
-    public boolean checkEquals(MatHangDTO matHangDTO) {
-        for (MatHangDTO item : listMatHang) {
-            // trong trường hợp khách hàng đã tồn tại và đang bị xoá ẩn
-            if (item.getMaMH().equals(matHangDTO.getMaMH()) && matHangDTO.getIsShow() == 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     // =================================================================================== //
     // thực hiện hàm update
     public boolean updateItem(MatHangDTO matHangDTO) throws Exception {

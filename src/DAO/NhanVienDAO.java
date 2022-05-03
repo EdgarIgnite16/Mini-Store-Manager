@@ -15,7 +15,7 @@ public class NhanVienDAO {
         String sql = "Select * from dbo.NhanVien";
         try (
                 Connection conn = new _Connection().getConn();
-                Statement stm = conn.createStatement()
+                Statement stm = conn.createStatement();
         ) {
             try (ResultSet rs = stm.executeQuery(sql)) {
                 ArrayList<NhanVienDTO> listNhanVien = new ArrayList<NhanVienDTO>();
@@ -27,7 +27,6 @@ public class NhanVienDAO {
                     nhanVienDTO.setTenNV(rs.getString("tenNV").trim());
                     nhanVienDTO.setCmnd(rs.getString("cmnd").trim());
                     nhanVienDTO.setSdt(rs.getString("sdt").trim());
-                    nhanVienDTO.setIsShow(rs.getInt("isShow"));
                     listNhanVien.add(nhanVienDTO);
                 }
                 return listNhanVien;
@@ -37,8 +36,8 @@ public class NhanVienDAO {
 
     // hàm insert dữ liệu lên database
     public boolean insertItem(NhanVienDTO nhanVienDTO) throws Exception {
-        String sql = "INSERT INTO [dbo].[NhanVien] ([maNV] ,[maCV] ,[maCa], [tenNV], [cmnd], [sdt], [isShow])" +
-                " VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO [dbo].[NhanVien] ([maNV] ,[maCV] ,[maCa], [tenNV], [cmnd], [sdt])" +
+                " VALUES(?, ?, ?, ?, ?, ?)";
 
         // sử dụng try-with-resource
         try (Connection conn = new _Connection().getConn()) {
@@ -50,7 +49,6 @@ public class NhanVienDAO {
                 pstm.setString(4, nhanVienDTO.getTenNV());
                 pstm.setString(5, nhanVienDTO.getCmnd());
                 pstm.setString(6, nhanVienDTO.getSdt());
-                pstm.setInt(7, nhanVienDTO.getIsShow());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database
@@ -69,7 +67,7 @@ public class NhanVienDAO {
     // hàm update dữ liệu lên database
     public boolean updateItem(NhanVienDTO nhanVienDTO) throws Exception {
         String sql = "UPDATE [dbo].[NhanVien] " +
-                "SET [maNV] =  ?, [maCV] = ?, [maCa] = ?, [tenNV] = ?, [cmnd] = ?, [sdt] = ?, [isShow] = ?" +
+                "SET [maNV] =  ?, [maCV] = ?, [maCa] = ?, [tenNV] = ?, [cmnd] = ?, [sdt] = ?" +
                 " WHERE [maNV] = ?";
 
         // sử dụng try-with-resource
@@ -82,8 +80,7 @@ public class NhanVienDAO {
                 pstm.setString(4, nhanVienDTO.getTenNV());
                 pstm.setString(5, nhanVienDTO.getCmnd());
                 pstm.setString(6, nhanVienDTO.getSdt());
-                pstm.setInt(7, nhanVienDTO.getIsShow());
-                pstm.setString(8, nhanVienDTO.getMaNV());
+                pstm.setString(7, nhanVienDTO.getMaNV());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database
@@ -101,7 +98,7 @@ public class NhanVienDAO {
 
     // hàm delete dữ liệu lên database
     public boolean deleteItem(NhanVienDTO nhanVienDTO) throws Exception {
-        String sql = "DELETE FROM [dbo].[NhanVien]" +
+        String sql = "DELETE FROM [dbo].[NhanVien] " +
                 " WHERE [maNV] = ?";
 
         // sử dụng try-with-resource

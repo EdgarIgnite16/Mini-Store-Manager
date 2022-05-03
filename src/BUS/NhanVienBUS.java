@@ -54,16 +54,6 @@ public class NhanVienBUS {
         return null;
     }
 
-    public boolean checkEquals(NhanVienDTO nhanVienDTO) {
-        for (NhanVienDTO item : listNhanVien) {
-            // trong trường hợp khách hàng đã tồn tại và đang bị xoá ẩn
-            if (item.getMaNV().equals(nhanVienDTO.getMaNV()) && nhanVienDTO.getIsShow() == 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     // =================================================================================== //
     // thực hiện hàm insert
     public boolean insertItem(NhanVienDTO nhanVienDTO) throws Exception {

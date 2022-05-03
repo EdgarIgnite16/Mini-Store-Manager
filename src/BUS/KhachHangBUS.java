@@ -46,16 +46,6 @@ public class KhachHangBUS {
         }
     }
 
-    public boolean checkEquals(KhachHangDTO khachHangDTO) {
-        for (KhachHangDTO item : listKhachHang) {
-            // trong trường hợp khách hàng đã tồn tại và đang bị xoá ẩn
-            if (item.getMaKH().equals(khachHangDTO.getMaKH()) && khachHangDTO.getIsShow() == 0) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     // =================================================================================== //
     // thực hiện hàm insert
     public boolean insertItem(KhachHangDTO khachHangDTO) throws Exception {

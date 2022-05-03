@@ -7,27 +7,23 @@ public class MatHangDTO {
     private float thanhTien;
     private int soLuong;
 
-    // thuộc tính show ra màn hình
-    private int isShow;
-
-    // các thông số trong giỏ hàng (thuộc tính dạng tĩnh)
+    // các thông số trong giỏ hàng
     public int soLuong_hientai = 0;
     public float thanhTien_hientai = 0;
 
-    // các thông số trong nhập hàng (thuộc tính dạng tĩnh)
+    // các thông số trong nhập hàng
     public int soLuongNhap = 0;
 
     public MatHangDTO() {
 
     }
 
-    public MatHangDTO(String maMH, String maLMH, String tenMH, float thanhTien, int soLuong, int isShow) {
+    public MatHangDTO(String maMH, String maLMH, String tenMH, float thanhTien, int soLuong) {
         this.maMH = maMH;
         this.maLMH = maLMH;
         this.tenMH = tenMH;
         this.thanhTien = thanhTien;
         this.soLuong = soLuong;
-        this.isShow = isShow;
     }
 
     public String getMaMH() {
@@ -70,23 +66,14 @@ public class MatHangDTO {
         this.soLuong = soLuong;
     }
 
-    public int getIsShow() {
-        return isShow;
-    }
-
-    public void setIsShow(int isShow) {
-        this.isShow = isShow;
-    }
-
     @Override
     public String toString() {
-        return "MatHangDTO{" +
+        return "MatHang{" +
                 "maMH='" + maMH + '\'' +
                 ", maLMH='" + maLMH + '\'' +
                 ", tenMH='" + tenMH + '\'' +
-                ", thanhTien=" + thanhTien +
+                ", thanhTien='" + thanhTien + '\'' +
                 ", soLuong=" + soLuong +
-                ", isShow=" + isShow +
                 '}';
     }
 

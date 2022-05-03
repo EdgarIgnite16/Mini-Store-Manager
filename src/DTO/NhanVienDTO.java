@@ -8,21 +8,17 @@ public class NhanVienDTO {
     private String SDT;
     private String cmnd;
 
-    // thuộc tính show ra màn hình
-    private int isShow;
-
     public NhanVienDTO() {
 
     }
 
-    public NhanVienDTO(String maNV, String maCV, String maCa, String tenNV, String SDT, String cmnd, int isShow) {
+    public NhanVienDTO(String maNV, String maCV, String maCa, String tenNV, String SDT, String cmnd) {
         this.maNV = maNV;
         this.maCV = maCV;
         this.maCa = maCa;
         this.tenNV = tenNV;
         this.SDT = SDT;
         this.cmnd = cmnd;
-        this.isShow = isShow;
     }
 
     public String getMaNV() {
@@ -73,14 +69,6 @@ public class NhanVienDTO {
         this.cmnd = cmnd;
     }
 
-    public int getIsShow() {
-        return isShow;
-    }
-
-    public void setIsShow(int isShow) {
-        this.isShow = isShow;
-    }
-
     @Override
     public String toString() {
         return "NhanVienDTO{" +
@@ -88,9 +76,8 @@ public class NhanVienDTO {
                 ", maCV='" + maCV + '\'' +
                 ", maCa='" + maCa + '\'' +
                 ", tenNV='" + tenNV + '\'' +
-                ", SDT='" + SDT + '\'' +
+                ", sdt='" + SDT + '\'' +
                 ", cmnd='" + cmnd + '\'' +
-                ", isShow=" + isShow +
                 '}';
     }
 }

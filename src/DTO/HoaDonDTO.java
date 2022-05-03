@@ -1,6 +1,5 @@
 package DTO;
 
-
 public class HoaDonDTO {
     private String maHD; // primary key
     private String maNV; // foreign key

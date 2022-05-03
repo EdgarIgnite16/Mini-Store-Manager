@@ -5,18 +5,14 @@ public class KhachHangDTO {
     private String tenKH;
     private String sdt;
 
-    // thuộc tính show ra màn hình
-    private int isShow;
-
     public KhachHangDTO() {
 
     }
 
-    public KhachHangDTO(String maKH, String tenKH, String sdt, int isShow) {
+    public KhachHangDTO(String maKH, String tenKH, String sdt) {
         this.maKH = maKH;
         this.tenKH = tenKH;
         this.sdt = sdt;
-        this.isShow = isShow;
     }
 
     public String getMaKH() {
@@ -43,21 +39,12 @@ public class KhachHangDTO {
         this.sdt = sdt;
     }
 
-    public int getIsShow() {
-        return isShow;
-    }
-
-    public void setIsShow(int isShow) {
-        this.isShow = isShow;
-    }
-
     @Override
     public String toString() {
         return "KhachHangDTO{" +
                 "maKH='" + maKH + '\'' +
                 ", tenKH='" + tenKH + '\'' +
                 ", sdt='" + sdt + '\'' +
-                ", isShow=" + isShow +
                 '}';
     }
 }

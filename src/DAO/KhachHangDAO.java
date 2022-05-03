@@ -24,7 +24,6 @@ public class KhachHangDAO {
                     khachHangDTO.setMaKH(rs.getString("maKH").trim());
                     khachHangDTO.setTenKH(rs.getString("tenKH").trim());
                     khachHangDTO.setSdt(rs.getString("SDT").trim());
-                    khachHangDTO.setIsShow(rs.getInt("isShow"));
                     listKhachHang.add(khachHangDTO);
                 }
                 return listKhachHang;
@@ -34,8 +33,8 @@ public class KhachHangDAO {
 
     // hàm insert dữ liệu lên database
     public boolean insertItem(KhachHangDTO khachHangDTO) throws Exception {
-        String sql = "INSERT INTO [dbo].[KhachHang] ([maKH] ,[tenKH] ,[SDT], [isShow])" +
-                " VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO [dbo].[KhachHang] ([maKH] ,[tenKH] ,[SDT])" +
+                " VALUES(?, ?, ?)";
 
         // sử dụng try-with-resource
         try (Connection conn = new _Connection().getConn()) {
@@ -44,7 +43,6 @@ public class KhachHangDAO {
                 pstm.setString(1, khachHangDTO.getMaKH());
                 pstm.setString(2, khachHangDTO.getTenKH());
                 pstm.setString(3, khachHangDTO.getSdt());
-                pstm.setInt(4, khachHangDTO.getIsShow());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database
@@ -63,7 +61,7 @@ public class KhachHangDAO {
     // hàm update dữ liệu lên database
     public boolean updateItem(KhachHangDTO khachHangDTO) throws Exception {
         String sql = "UPDATE [dbo].[KhachHang] " +
-                "SET [maKH] =  ?, [tenKH] = ?, [SDT] = ?, [isShow] = ?" +
+                "SET [maKH] =  ?, [tenKH] = ?, [SDT] = ?" +
                 " WHERE [maKH] = ?";
 
         // sử dụng try-with-resource
@@ -73,8 +71,7 @@ public class KhachHangDAO {
                 pstm.setString(1, khachHangDTO.getMaKH());
                 pstm.setString(2, khachHangDTO.getTenKH());
                 pstm.setString(3, khachHangDTO.getSdt());
-                pstm.setInt(4, khachHangDTO.getIsShow());
-                pstm.setString(5, khachHangDTO.getMaKH());
+                pstm.setString(4, khachHangDTO.getMaKH());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database
@@ -92,7 +89,7 @@ public class KhachHangDAO {
 
     // hàm delete dữ liệu lên database
     public boolean deleteItem(KhachHangDTO khachHangDTO) throws Exception {
-        String sql = "DELETE FROM [dbo].[KhachHang]" +
+        String sql = "DELETE FROM [dbo].[KhachHang] " +
                 " WHERE [maKH] = ?";
 
         // sử dụng try-with-resource
