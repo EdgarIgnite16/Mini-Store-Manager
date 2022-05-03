@@ -49,13 +49,13 @@ public class LoaiMatHangBUS {
             case "FRUIT" -> path = "resource\\icon\\defaulticon\\icons8-group-of-fruits-80.png";
             case "HOUSEHOLD" -> path = "resource\\icon\\defaulticon\\icons8-household-80.png";
             case "MILK" -> path = "resource\\icon\\defaulticon\\icons8-milk-carton-80.png";
-            case "RICE" -> path ="resource\\icon\\defaulticon\\icons8-rice-bowl-80.png";
+            case "RICE" -> path = "resource\\icon\\defaulticon\\icons8-rice-bowl-80.png";
             case "SNACK" -> path = "resource\\icon\\defaulticon\\icons8-snack-80.png";
             case "STUDIES" -> path = "resource\\icon\\defaulticon\\icons8-studies-80.png";
             case "VEGATABLE" -> path = "resource\\icon\\defaulticon\\icons8-group-of-vegetables-80.png";
             case "WATER" -> path = "resource\\icon\\defaulticon\\icons8-bottle-of-water-80.png";
             default -> path = "resource\\icon\\defaulticon\\icons8_question_mark_80px.png";
-        };
+        }
 
         return path;
     }

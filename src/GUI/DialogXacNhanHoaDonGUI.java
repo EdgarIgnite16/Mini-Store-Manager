@@ -315,7 +315,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
                     }
                 }
 
-                if(checkValid) {
+                if (checkValid) {
                     _MessageDialogHelper.showMessageDialog(this,
                             "Lập hoá đơn thành công!", "Xử lí thành công");
                     PanelBanHangGUI.hanleResetFormAndValue(); // load lại form

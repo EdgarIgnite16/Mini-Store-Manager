@@ -1,6 +1,6 @@
 package GUI;
 
-import BUS.*;
+import BUS._MessageDialogHelper;
 
 import javax.swing.*;
 import java.awt.*;

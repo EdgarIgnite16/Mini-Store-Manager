@@ -4,7 +4,6 @@ import BUS.*;
 import DTO.ChiTietHoaDonDTO;
 import DTO.HoaDonDTO;
 import DTO.MatHangDTO;
-import DTO.PhieuGiamGiaDTO;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -244,7 +243,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
     // hàm load lại giỏ hàng của hoá đơn đã mua
     public ArrayList<MatHangDTO> handleLoadGioHang(ArrayList<ChiTietHoaDonDTO> listCTHD) {
         ArrayList<MatHangDTO> gioHang = new ArrayList<>();
-        for(ChiTietHoaDonDTO item : listCTHD) {
+        for (ChiTietHoaDonDTO item : listCTHD) {
             MatHangDTO matHangDTO = new MatHangDTO();
             matHangDTO.setMaMH(item.getMaMH());
             matHangDTO.setTenMH(Objects.requireNonNull(MatHangBUS.getItemByID(item.getMaMH())).getTenMH());
@@ -263,7 +262,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
     // xử lí thành tiền hiện tại của hoá đơn đã mua * số lượng
     private float handleThanhTienHienTai(ChiTietHoaDonDTO item) {
         MatHangDTO matHangDTO = MatHangBUS.getItemByID(item.getMaMH());
-        if(matHangDTO != null) {
+        if (matHangDTO != null) {
             return handleSoLuongHienTai(item) * matHangDTO.getThanhTien();
         }
         return 0;
@@ -272,7 +271,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
     // reset lại số lượng và thành tiền của từng mặt hàng
     private void resetValueMatHangDTO() {
         ArrayList<MatHangDTO> listMatHang = new MatHangBUS().getData();
-        for(MatHangDTO item : listMatHang) {
+        for (MatHangDTO item : listMatHang) {
             item.soLuong_hientai = 0;
             item.thanhTien_hientai = 0;
         }

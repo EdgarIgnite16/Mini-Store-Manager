@@ -14,7 +14,7 @@ public class NhaCungCapDAO {
         String sql = "Select * from dbo.NhaCungCap";
         try (
                 Connection conn = new _Connection().getConn();
-                Statement stm = conn.createStatement();
+                Statement stm = conn.createStatement()
         ) {
             try (ResultSet rs = stm.executeQuery(sql)) {
                 ArrayList<NhaCungCapDTO> listNhaCungCap = new ArrayList<NhaCungCapDTO>();

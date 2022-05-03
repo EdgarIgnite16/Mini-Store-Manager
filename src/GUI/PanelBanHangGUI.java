@@ -53,7 +53,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
 
         pnMatHang.setLayout(new GridLayout(rowItem, colItem, 4, 4));
         for (MatHangDTO item : listFillData) {
-            if(item.getIsShow() == 1) {
+            if (item.getIsShow() == 1) {
                 JButton jButton = new JButton();
                 String titleBtn = String.format(
                         "<html> %s <br> %.1f VNĐ </html>",

@@ -1,6 +1,7 @@
 package DAO;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 public class _Connection {
     private String hostname;

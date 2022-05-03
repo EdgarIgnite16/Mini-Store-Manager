@@ -1,8 +1,6 @@
 package BUS;
 
-import DAO.KhachHangDAO;
 import DAO.NhanVienDAO;
-import DTO.KhachHangDTO;
 import DTO.NhanVienDTO;
 
 import java.util.ArrayList;
@@ -57,9 +55,9 @@ public class NhanVienBUS {
     }
 
     public boolean checkEquals(NhanVienDTO nhanVienDTO) {
-        for(NhanVienDTO item : listNhanVien) {
+        for (NhanVienDTO item : listNhanVien) {
             // trong trường hợp khách hàng đã tồn tại và đang bị xoá ẩn
-            if(item.getMaNV().equals(nhanVienDTO.getMaNV()) && nhanVienDTO.getIsShow() == 0) {
+            if (item.getMaNV().equals(nhanVienDTO.getMaNV()) && nhanVienDTO.getIsShow() == 0) {
                 return true;
             }
         }

@@ -117,11 +117,11 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
     }// </editor-fold>
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
-        if(!txtID.getText().equals("")) {
+        if (!txtID.getText().equals("")) {
             // trường hợp là tìm kiếm Khách hàng
-            if(this.key.equals("NV")) {
+            if (this.key.equals("NV")) {
                 NhanVienDTO nhanVienDTO = new NhanVienBUS().getItemByID(txtID.getText());
-                if(nhanVienDTO != null) {
+                if (nhanVienDTO != null) {
                     _SaveData.nhanVienTimThay = nhanVienDTO;
                     this.dispose();
                 } else {
@@ -132,9 +132,9 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
             }
 
             // trường hợp là tìm kiếm Khách hàng
-            if(this.key.equals("KH")) {
+            if (this.key.equals("KH")) {
                 KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(txtID.getText());
-                if(khachHangDTO != null) {
+                if (khachHangDTO != null) {
                     _SaveData.khachHangTimThay = khachHangDTO;
                     this.dispose();
                 } else {
@@ -145,9 +145,9 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
             }
 
             // trường hợp là tìm kiếm Hoá đơn
-            if(this.key.equals("HD")) {
+            if (this.key.equals("HD")) {
                 HoaDonDTO hoaDonDTO = new HoaDonBUS().getItemBymMaHD(txtID.getText());
-                if(hoaDonDTO != null) {
+                if (hoaDonDTO != null) {
                     _SaveData.hoaDonTimThay = hoaDonDTO;
                     this.dispose();
                 } else {
