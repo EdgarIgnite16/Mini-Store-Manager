@@ -499,7 +499,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                     if(_MessageDialogHelper.showConfirmDialog(parentForm,
                             "Bạn có xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
                         NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                        if(nhanVienBUS.updateItem(nhanVienDTO)) {
+                        if(nhanVienBUS.deleteItem(nhanVienDTO)) {
                             refreshData(); // làm mới lại dữ liệu trên form
                             _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công!", "Xoá thành công");
                         } else {

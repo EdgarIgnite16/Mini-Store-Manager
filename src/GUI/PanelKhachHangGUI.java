@@ -357,7 +357,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                     if(_MessageDialogHelper.showConfirmDialog(parentForm,
                             "Bạn có xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
                         KhachHangBUS khachHangBUS = new KhachHangBUS();
-                        if(khachHangBUS.updateItem(khachHangDTO)) {
+                        if(khachHangBUS.deleteItem(khachHangDTO)) {
                             refreshData(); // làm mới lại dữ liệu trên form
                             _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công!", "Xoá thành công");
                         } else {
