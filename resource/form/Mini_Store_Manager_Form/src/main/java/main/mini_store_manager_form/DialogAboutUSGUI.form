@@ -109,7 +109,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Member_1: Tr&#x1ea7;n Nguy&#xea;n L&#x1ed9;c"/>
+        <Property name="text" type="java.lang.String" value="Member 1: Tr&#x1ea7;n Nguy&#xea;n L&#x1ed9;c"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator2">
@@ -136,7 +136,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Member_2: V&#xf5; &#x110;&#x103;ng Quang"/>
+        <Property name="text" type="java.lang.String" value="Member 2: V&#xf5; &#x110;&#x103;ng Quang"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbAuthor2">
@@ -144,7 +144,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Member_4: Tr&#x1b0;&#x1a1;ng T&#x1ea5;n &#x110;&#x1ea1;t"/>
+        <Property name="text" type="java.lang.String" value="Member 4: Tr&#x1b0;&#x1a1;ng T&#x1ea5;n &#x110;&#x1ea1;t"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbAuthor3">
@@ -152,7 +152,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Member_3: Nguy&#x1ec5;n V&#x103;n T&#x1ea5;n Qu&#xe2;n"/>
+        <Property name="text" type="java.lang.String" value="Member 3: Nguy&#x1ec5;n V&#x103;n T&#x1ea5;n Qu&#xe2;n"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbAuthor4">
@@ -160,7 +160,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Member_5: Tri&#x1ec7;u Kh&#xe1;nh Quang"/>
+        <Property name="text" type="java.lang.String" value="Member 5: Tri&#x1ec7;u Kh&#xe1;nh Quang"/>
       </Properties>
     </Component>
   </SubComponents>

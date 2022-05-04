@@ -39,7 +39,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
         txtTongHoaDon = new javax.swing.JTextField();
         txtMaGiamGia = new javax.swing.JTextField();
         txtTenNhanVien = new javax.swing.JTextField();
-        txtTongHoaDon1 = new javax.swing.JTextField();
+        txtTenKhachHang = new javax.swing.JTextField();
         spChiTietGioHang = new javax.swing.JScrollPane();
         tbChiTietGioHang = new javax.swing.JTable();
         btnDong = new javax.swing.JButton();
@@ -68,23 +68,23 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
         lbMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbMaGiamGia.setText("Mã giảm giá: ");
 
+        txtMaHoaDon.setEditable(false);
         txtMaHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtMaHoaDon.setEnabled(false);
 
+        txtNgayBan.setEditable(false);
         txtNgayBan.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtNgayBan.setEnabled(false);
 
         txtTongHoaDon.setEditable(false);
         txtTongHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
+        txtMaGiamGia.setEditable(false);
         txtMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtMaGiamGia.setEnabled(false);
 
+        txtTenNhanVien.setEditable(false);
         txtTenNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtTenNhanVien.setEnabled(false);
 
-        txtTongHoaDon1.setEditable(false);
-        txtTongHoaDon1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtTenKhachHang.setEditable(false);
+        txtTenKhachHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         javax.swing.GroupLayout pnThongTinHDChiTietLayout = new javax.swing.GroupLayout(pnThongTinHDChiTiet);
         pnThongTinHDChiTiet.setLayout(pnThongTinHDChiTietLayout);
@@ -111,7 +111,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
                     .addGroup(pnThongTinHDChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtTongHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtTenNhanVien))
-                    .addComponent(txtTongHoaDon1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTenKhachHang, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         pnThongTinHDChiTietLayout.setVerticalGroup(
@@ -129,7 +129,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
                     .addGroup(pnThongTinHDChiTietLayout.createSequentialGroup()
                         .addGroup(pnThongTinHDChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbTenKhachhang)
-                            .addComponent(txtTongHoaDon1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtTenKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnThongTinHDChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbTongHoaDon)
@@ -175,12 +175,9 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(spChiTietGioHang, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(pnThongTinHDChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                    .addComponent(spChiTietGioHang, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                    .addComponent(pnThongTinHDChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnDong)
@@ -325,8 +322,8 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
     private javax.swing.JTextField txtMaGiamGia;
     private javax.swing.JTextField txtMaHoaDon;
     private javax.swing.JTextField txtNgayBan;
+    private javax.swing.JTextField txtTenKhachHang;
     private javax.swing.JTextField txtTenNhanVien;
     private javax.swing.JTextField txtTongHoaDon;
-    private javax.swing.JTextField txtTongHoaDon1;
     // End of variables declaration//GEN-END:variables
 }

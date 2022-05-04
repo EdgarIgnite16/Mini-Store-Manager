@@ -24,7 +24,7 @@
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="spChiTietHoaDon" pref="619" max="32767" attributes="0"/>
+                  <Component id="spChiTietHoaDon" pref="618" max="32767" attributes="0"/>
                   <Component id="pnThanhToan" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
@@ -70,25 +70,29 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="lbTenKhachHang" alignment="0" pref="125" max="32767" attributes="0"/>
-                      <Component id="lbTenNhanVien" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lbTenNhanVien" alignment="0" pref="125" max="32767" attributes="0"/>
                       <Component id="lbMaGiamGia" alignment="0" max="32767" attributes="0"/>
                       <Component id="lbMaHoaDon" alignment="0" max="32767" attributes="0"/>
                       <Component id="lbNgayBan" alignment="1" max="32767" attributes="0"/>
+                      <Component id="lbTenKhachHang" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="txtMaGiamGia" alignment="0" pref="267" max="32767" attributes="0"/>
+                      <Component id="txtMaGiamGia" alignment="0" pref="261" max="32767" attributes="0"/>
                       <Component id="txtTenKhachHang" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtTenNhanVien" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtNgayBan" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtMaHoaDon" alignment="1" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnTimKiemNV" max="32767" attributes="0"/>
-                      <Component id="btnLamMoi" max="32767" attributes="0"/>
-                      <Component id="btnInHoaDon" alignment="1" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="btnTimKiemNV" pref="144" max="32767" attributes="0"/>
+                          <Component id="btnLamMoi" max="32767" attributes="0"/>
+                          <Component id="btnInHoaDon" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="btnLocKHMua" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnLocNVBan" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -107,11 +111,13 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtMaGiamGia" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbMaGiamGia" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLocNVBan" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbTenNhanVien" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTenNhanVien" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnLocKHMua" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -173,42 +179,42 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtMaHoaDon">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
             </Property>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMaGiamGia">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
             </Property>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTenNhanVien">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
             </Property>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtTenKhachHang">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
             </Property>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNgayBan">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
             </Property>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnLamMoi">
@@ -244,6 +250,30 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInHoaDonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnLocNVBan">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="13" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="L&#x1ecd;c nh&#xe2;n vi&#xea;n b&#xe1;n"/>
+            <Property name="toolTipText" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m ho&#xe1; &#x111;&#x1a1;n th&#xf4;ng qua m&#xe3; ho&#xe1; &#x111;&#x1a1;n."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLocNVBanActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnLocKHMua">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="13" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="L&#x1ecd;c kh&#xe1;ch h&#xe0;ng mua"/>
+            <Property name="toolTipText" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m ho&#xe1; &#x111;&#x1a1;n th&#xf4;ng qua m&#xe3; ho&#xe1; &#x111;&#x1a1;n."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLocKHMuaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -387,6 +417,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtTongHoaDonBanDau">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
             </Property>
@@ -394,6 +425,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtChietKhau">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
             </Property>
@@ -401,6 +433,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtTongTienHoaDon">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
             </Property>

@@ -1,6 +1,7 @@
 package GUI;
 
 public class DialogAboutUSGUI extends javax.swing.JDialog {
+
     /**
      * Creates new form AboutUSDIalogGUI
      */
@@ -41,7 +42,7 @@ public class DialogAboutUSGUI extends javax.swing.JDialog {
         lbInformation.setText("Phần mềm quản lí cửa hàng tiện lợi");
 
         lbAuthor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbAuthor.setText("Member_1: Trần Nguyên Lộc");
+        lbAuthor.setText("Member 1: Trần Nguyên Lộc");
 
         btnClose.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnClose.setIcon(new javax.swing.ImageIcon("resource\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
@@ -54,16 +55,16 @@ public class DialogAboutUSGUI extends javax.swing.JDialog {
         });
 
         lbAuthor1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbAuthor1.setText("Member_2: Võ Đăng Quang");
+        lbAuthor1.setText("Member 2: Võ Đăng Quang");
 
         lbAuthor2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbAuthor2.setText("Member_4: Trương Tấn Đạt");
+        lbAuthor2.setText("Member 4: Trương Tấn Đạt");
 
         lbAuthor3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbAuthor3.setText("Member_3: Nguyễn Văn Tấn Quân");
+        lbAuthor3.setText("Member 3: Nguyễn Văn Tấn Quân");
 
         lbAuthor4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lbAuthor4.setText("Member_5: Triệu Khánh Quang");
+        lbAuthor4.setText("Member 5: Triệu Khánh Quang");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

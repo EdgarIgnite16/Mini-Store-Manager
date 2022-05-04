@@ -113,20 +113,20 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
         lbMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbMaGiamGia.setText("Mã giảm giá: ");
 
+        txtMaHoaDon.setEditable(false);
         txtMaHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtMaHoaDon.setEnabled(false);
 
+        txtNgayBan.setEditable(false);
         txtNgayBan.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtNgayBan.setEnabled(false);
 
         txtTongHoaDon.setEditable(false);
         txtTongHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
+        txtMaGiamGia.setEditable(false);
         txtMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtMaGiamGia.setEnabled(false);
 
+        txtTenNhanVien.setEditable(false);
         txtTenNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtTenNhanVien.setEnabled(false);
 
         txtTenKhachHang.setEditable(false);
         txtTenKhachHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -208,12 +208,9 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
                         .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(spChiTietGioHang, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
-                                                .addContainerGap())
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(pnThongTinHDChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addContainerGap())))
+                                        .addComponent(spChiTietGioHang, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                                        .addComponent(pnThongTinHDChiTiet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnDong)

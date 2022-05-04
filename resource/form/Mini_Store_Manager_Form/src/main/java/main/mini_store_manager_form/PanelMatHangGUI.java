@@ -78,8 +78,8 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
 
         txtThanhTien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
+        txtSoLuong.setEditable(false);
         txtSoLuong.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtSoLuong.setEnabled(false);
 
         cbLoaiMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         cbLoaiMatHang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));

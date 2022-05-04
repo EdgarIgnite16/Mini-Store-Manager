@@ -40,6 +40,8 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         btnLamMoi = new javax.swing.JButton();
         btnTimKiemNV = new javax.swing.JButton();
         btnInHoaDon = new javax.swing.JButton();
+        btnLocNVBan = new javax.swing.JButton();
+        btnLocKHMua = new javax.swing.JButton();
         spDanhSachHoaDon = new javax.swing.JScrollPane();
         tbDanhSachHoaDon = new javax.swing.JTable();
         spChiTietHoaDon = new javax.swing.JScrollPane();
@@ -69,20 +71,20 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         lbNgayBan.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbNgayBan.setText("Ngày bán:");
 
+        txtMaHoaDon.setEditable(false);
         txtMaHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtMaHoaDon.setEnabled(false);
 
+        txtMaGiamGia.setEditable(false);
         txtMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtMaGiamGia.setEnabled(false);
 
+        txtTenNhanVien.setEditable(false);
         txtTenNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtTenNhanVien.setEnabled(false);
 
+        txtTenKhachHang.setEditable(false);
         txtTenKhachHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtTenKhachHang.setEnabled(false);
 
+        txtNgayBan.setEditable(false);
         txtNgayBan.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtNgayBan.setEnabled(false);
 
         btnLamMoi.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnLamMoi.setText("Làm mới");
@@ -110,6 +112,24 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
             }
         });
 
+        btnLocNVBan.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnLocNVBan.setText("Lọc nhân viên bán");
+        btnLocNVBan.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
+        btnLocNVBan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLocNVBanActionPerformed(evt);
+            }
+        });
+
+        btnLocKHMua.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnLocKHMua.setText("Lọc khách hàng mua");
+        btnLocKHMua.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
+        btnLocKHMua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLocKHMuaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnThongTinHoaDonLayout = new javax.swing.GroupLayout(pnThongTinHoaDon);
         pnThongTinHoaDon.setLayout(pnThongTinHoaDonLayout);
         pnThongTinHoaDonLayout.setHorizontalGroup(
@@ -117,23 +137,26 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
             .addGroup(pnThongTinHoaDonLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(lbTenKhachHang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
-                    .addComponent(lbTenNhanVien, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbTenNhanVien, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                     .addComponent(lbMaGiamGia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lbMaHoaDon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lbNgayBan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lbNgayBan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lbTenKhachHang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtMaGiamGia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                    .addComponent(txtMaGiamGia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
                     .addComponent(txtTenKhachHang, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtTenNhanVien, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNgayBan, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtMaHoaDon))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnTimKiemNV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLamMoi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnInHoaDon, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnTimKiemNV, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                        .addComponent(btnLamMoi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnInHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnLocKHMua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLocNVBan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnThongTinHoaDonLayout.setVerticalGroup(
@@ -147,11 +170,13 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMaGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbMaGiamGia))
+                    .addComponent(lbMaGiamGia)
+                    .addComponent(btnLocNVBan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTenNhanVien)
-                    .addComponent(txtTenNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTenNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLocKHMua))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTenKhachHang)
@@ -206,10 +231,13 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         lbTongTienHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbTongTienHoaDon.setText("Tổng tiền hoá đơn:");
 
+        txtTongHoaDonBanDau.setEditable(false);
         txtTongHoaDonBanDau.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
+        txtChietKhau.setEditable(false);
         txtChietKhau.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
+        txtTongTienHoaDon.setEditable(false);
         txtTongTienHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         javax.swing.GroupLayout pnThanhToanLayout = new javax.swing.GroupLayout(pnThanhToan);
@@ -259,7 +287,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
                     .addComponent(pnThongTinHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spChiTietHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, 619, Short.MAX_VALUE)
+                    .addComponent(spChiTietHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
                     .addComponent(pnThanhToan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -292,10 +320,20 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInHoaDonActionPerformed
 
+    private void btnLocKHMuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocKHMuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLocKHMuaActionPerformed
+
+    private void btnLocNVBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocNVBanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLocNVBanActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInHoaDon;
     private javax.swing.JButton btnLamMoi;
+    private javax.swing.JButton btnLocKHMua;
+    private javax.swing.JButton btnLocNVBan;
     private javax.swing.JButton btnTimKiemNV;
     private javax.swing.JLabel lbChietKhau;
     private javax.swing.JLabel lbMaGiamGia;

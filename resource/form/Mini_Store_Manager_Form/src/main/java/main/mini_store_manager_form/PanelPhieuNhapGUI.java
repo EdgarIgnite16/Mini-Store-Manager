@@ -57,12 +57,12 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         lbNgayNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbNgayNhap.setText("Ngày nhập: ");
 
+        txtMaPhieuNhap.setEditable(false);
         txtMaPhieuNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtMaPhieuNhap.setEnabled(false);
         txtMaPhieuNhap.setFocusCycleRoot(true);
 
+        txtNgayNhap.setEditable(false);
         txtNgayNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtNgayNhap.setEnabled(false);
 
         btnLamMoi.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnLamMoi.setText("Làm mới");
@@ -91,8 +91,8 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
             }
         });
 
+        txtNgayNhap1.setEditable(false);
         txtNgayNhap1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtNgayNhap1.setEnabled(false);
 
         javax.swing.GroupLayout pnTimKiemPhieuNhapLayout = new javax.swing.GroupLayout(pnTimKiemPhieuNhap);
         pnTimKiemPhieuNhap.setLayout(pnTimKiemPhieuNhapLayout);

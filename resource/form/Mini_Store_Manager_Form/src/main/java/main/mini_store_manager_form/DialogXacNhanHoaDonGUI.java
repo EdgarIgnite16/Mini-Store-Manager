@@ -69,22 +69,22 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
         lbMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbMaGiamGia.setText("Mã giảm giá: ");
 
+        txtMaHoaDon.setEditable(false);
         txtMaHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtMaHoaDon.setEnabled(false);
 
+        txtNgayBan.setEditable(false);
         txtNgayBan.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtNgayBan.setEnabled(false);
 
         txtTongHoaDon.setEditable(false);
         txtTongHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         cbTenKhachHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
+        txtMaGiamGia.setEditable(false);
         txtMaGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtMaGiamGia.setEnabled(false);
 
+        txtTenNhanVien.setEditable(false);
         txtTenNhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtTenNhanVien.setEnabled(false);
 
         javax.swing.GroupLayout pnThongTinHDChiTietLayout = new javax.swing.GroupLayout(pnThongTinHDChiTiet);
         pnThongTinHDChiTiet.setLayout(pnThongTinHDChiTietLayout);
