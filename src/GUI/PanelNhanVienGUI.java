@@ -213,7 +213,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         });
 
         btnTimKiemNV.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnTimKiemNV.setText("Tìm Kiếm Nhân Viên");
+        btnTimKiemNV.setText("Tìm kiếm nhân viên");
         btnTimKiemNV.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
         btnTimKiemNV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
