@@ -18,9 +18,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="spDanhSachHoaDon" min="-2" pref="563" max="-2" attributes="0"/>
-                  <Component id="pnThongTinHoaDon" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="pnThongTinHoaDon" max="32767" attributes="0"/>
+                  <Component id="spDanhSachHoaDon" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -87,7 +87,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnTimKiemNV" pref="144" max="32767" attributes="0"/>
+                          <Component id="btnTimKiemHD" pref="144" max="32767" attributes="0"/>
                           <Component id="btnLamMoi" max="32767" attributes="0"/>
                           <Component id="btnInHoaDon" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -123,7 +123,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbTenKhachHang" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTenKhachHang" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnTimKiemNV" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTimKiemHD" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -229,7 +229,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLamMoiActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnTimKiemNV">
+        <Component class="javax.swing.JButton" name="btnTimKiemHD">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
@@ -238,7 +238,7 @@
             <Property name="toolTipText" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m ho&#xe1; &#x111;&#x1a1;n th&#xf4;ng qua m&#xe3; ho&#xe1; &#x111;&#x1a1;n."/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemNVActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemHDActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnInHoaDon">

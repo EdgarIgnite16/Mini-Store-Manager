@@ -9,6 +9,7 @@ import java.net.URI;
 
 public class MainFormGUI extends javax.swing.JFrame {
     private PanelBanHangGUI banHangGUI;
+    private PanelHoaDonGUI hoaDonGUI;
     private PanelKhachHangGUI khachHangGUI;
     private PanelNhanVienGUI nhanVienGUI;
     private PanelMatHangGUI matHangGUI;
@@ -23,6 +24,11 @@ public class MainFormGUI extends javax.swing.JFrame {
         banHangGUI = new PanelBanHangGUI();
         String pathBanHang = "resource\\icon\\icons8_bill_16px.png";
         tPane_Main.addTab("Quản lí bán hàng", new ImageIcon(pathBanHang), banHangGUI, "Quản lí bán hàng");
+
+        // Hoá đơn form
+        hoaDonGUI = new PanelHoaDonGUI();
+        String pathHoaDon = "resource\\icon\\icons8_bill_16px_1.png";
+        tPane_Main.addTab("Quản lí hoá đơn", new ImageIcon(pathHoaDon), hoaDonGUI, "Quản lí hoá đơn");
 
         // Nhân viên form
         nhanVienGUI = new PanelNhanVienGUI();
@@ -447,7 +453,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void mnuManage_HoaDonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        tPane_Main.setSelectedComponent(hoaDonGUI);
     }
 
     private void mnuManage_NhanVienActionPerformed(java.awt.event.ActionEvent evt) {
@@ -500,7 +506,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void tBar_HoaDonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        tPane_Main.setSelectedComponent(hoaDonGUI);
     }
 
     private void tBar_NhanVienActionPerformed(java.awt.event.ActionEvent evt) {

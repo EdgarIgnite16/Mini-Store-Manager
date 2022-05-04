@@ -38,7 +38,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         txtTenKhachHang = new javax.swing.JTextField();
         txtNgayBan = new javax.swing.JTextField();
         btnLamMoi = new javax.swing.JButton();
-        btnTimKiemNV = new javax.swing.JButton();
+        btnTimKiemHD = new javax.swing.JButton();
         btnInHoaDon = new javax.swing.JButton();
         btnTimKiemNVBan = new javax.swing.JButton();
         btnTimKiemKHMua = new javax.swing.JButton();
@@ -95,12 +95,12 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
             }
         });
 
-        btnTimKiemNV.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnTimKiemNV.setText("Tìm kiếm hoá đơn");
-        btnTimKiemNV.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
-        btnTimKiemNV.addActionListener(new java.awt.event.ActionListener() {
+        btnTimKiemHD.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnTimKiemHD.setText("Tìm kiếm hoá đơn");
+        btnTimKiemHD.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
+        btnTimKiemHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTimKiemNVActionPerformed(evt);
+                btnTimKiemHDActionPerformed(evt);
             }
         });
 
@@ -152,7 +152,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnTimKiemNV, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                        .addComponent(btnTimKiemHD, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                         .addComponent(btnLamMoi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnInHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(btnTimKiemKHMua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
@@ -181,7 +181,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTenKhachHang)
                     .addComponent(txtTenKhachHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTimKiemNV))
+                    .addComponent(btnTimKiemHD))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNgayBan)
@@ -282,9 +282,9 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(spDanhSachHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnThongTinHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(pnThongTinHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(spDanhSachHoaDon))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(spChiTietHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
@@ -312,9 +312,9 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLamMoiActionPerformed
 
-    private void btnTimKiemNVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemNVActionPerformed
+    private void btnTimKiemHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemHDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnTimKiemNVActionPerformed
+    }//GEN-LAST:event_btnTimKiemHDActionPerformed
 
     private void btnInHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInHoaDonActionPerformed
         // TODO add your handling code here:
@@ -332,8 +332,8 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInHoaDon;
     private javax.swing.JButton btnLamMoi;
+    private javax.swing.JButton btnTimKiemHD;
     private javax.swing.JButton btnTimKiemKHMua;
-    private javax.swing.JButton btnTimKiemNV;
     private javax.swing.JButton btnTimKiemNVBan;
     private javax.swing.JLabel lbChietKhau;
     private javax.swing.JLabel lbMaGiamGia;
