@@ -485,15 +485,22 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
     }
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {
-        LoaiMatHangDTO loaiMatHangDTO = new LoaiMatHangBUS().getItemByName(String.valueOf(cboxLoaiMatHang.getSelectedItem()));
-        String nameMH = txtTenMatHang.getText();
-        String maLMH = loaiMatHangDTO != null ? loaiMatHangDTO.getMaLMH() : "";
-        ArrayList<MatHangDTO> listFillData = MatHangBUS.fillData(nameMH, maLMH);
+        try  {
+            LoaiMatHangDTO loaiMatHangDTO = new LoaiMatHangBUS().getItemByName(String.valueOf(cboxLoaiMatHang.getSelectedItem()));
+            String nameMH = txtTenMatHang.getText();
+            String maLMH = loaiMatHangDTO != null ? loaiMatHangDTO.getMaLMH() : "";
+            ArrayList<MatHangDTO> listFillData = MatHangBUS.fillData(nameMH, maLMH);
 
-        pnMatHang.removeAll();
-        pnMatHang.revalidate();
-        loadButton(listFillData);
-        pnMatHang.repaint();
+            // load dữ liệu lên màn hình
+            pnMatHang.removeAll();
+            pnMatHang.revalidate();
+            loadButton(listFillData);
+            pnMatHang.repaint();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            _MessageDialogHelper.showErrorDialog(parentForm,
+                    String.format("Tìm kiếm thất bại, đã có lỗi sảy ra!\nLỗi: %s", ex.getMessage()), "Tìm kiếm thất bại");
+        }
     }
 
     private void btnGiamMHActionPerformed(java.awt.event.ActionEvent evt) {

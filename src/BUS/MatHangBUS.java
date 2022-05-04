@@ -47,24 +47,25 @@ public class MatHangBUS {
     }
 
     // lọc dữ liệu
-    public static ArrayList<MatHangDTO> fillData(String name, String idLMH) {
-        ArrayList<MatHangDTO> listFillData = new ArrayList<>();
-        for (MatHangDTO item : listMatHang) {
-            if (idLMH.equals("")) {
-                if (item.getTenMH().toLowerCase().contains(name.toLowerCase())) {
-                    listFillData.add(item);
-                }
-            } else if (name.equals("")) {
-                if (item.getMaLMH().contains(idLMH)) {
-                    listFillData.add(item);
-                }
-            } else {
-                if (item.getTenMH().toLowerCase().contains(name.toLowerCase()) && item.getMaLMH().contains(idLMH)) {
-                    listFillData.add(item);
-                }
-            }
+    public static ArrayList<MatHangDTO> fillData(String tenMH, String idLMH) throws Exception {
+        ArrayList<MatHangDTO> listFillData;
+        if (idLMH.equals("") && !tenMH.isEmpty()) {
+           // nếu loại mặt hàng là trống thì tìm theo tên mặt hàng
+            listFillData = new MatHangDAO().fillDataByTenMH(tenMH);
+            return listFillData;
+        } else if (tenMH.equals("") && !idLMH.isEmpty()) {
+            // nếu tên mặt hàng là trống thì tìm theo loại mặt hàng
+            listFillData = new MatHangDAO().fillDataByLoaiMH(idLMH);
+            return listFillData;
+        } else if (!idLMH.isEmpty() && !tenMH.isEmpty()) {
+            // nếu có cả hai điều kiện thì tìm cả hai
+            listFillData = new MatHangDAO().fillDataByTenMH_LoaiMH(tenMH, idLMH);
+            return listFillData;
+        } else {
+            // trong trường hợp ko nhập gì vào field mà vẫn bấm nút tím kiến
+            listFillData = new MatHangDAO().getData();
+            return listFillData;
         }
-        return listFillData;
     }
 
     public ArrayList<MatHangDTO> getData() {

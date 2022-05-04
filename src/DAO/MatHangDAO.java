@@ -18,7 +18,7 @@ public class MatHangDAO {
                 Statement stm = conn.createStatement()
         ) {
             try (ResultSet rs = stm.executeQuery(sql)) {
-                ArrayList<MatHangDTO> listMatHang = new ArrayList<MatHangDTO>();
+                ArrayList<MatHangDTO> listMatHang = new ArrayList<>();
                 while (rs.next()) {
                     MatHangDTO matHangDTO = new MatHangDTO();
                     matHangDTO.setMaMH(rs.getString("maMH").trim());
@@ -115,5 +115,77 @@ public class MatHangDAO {
             }
         }
         return false;
+    }
+
+    public ArrayList<MatHangDTO> fillDataByTenMH(String tenMH) throws Exception {
+        String sql = "SELECT * FROM [dbo].[MatHang] WHERE [tenMatHang] like '%" + tenMH + "%'";
+
+        // sử dụng try-with-resource
+        try (
+                Connection conn = new _Connection().getConn();
+                Statement stm = conn.createStatement()
+        ) {
+            try (ResultSet rs = stm.executeQuery(sql)) {
+                ArrayList<MatHangDTO> listMatHang = new ArrayList<>();
+                while (rs.next()) {
+                    MatHangDTO matHangDTO = new MatHangDTO();
+                    matHangDTO.setMaMH(rs.getString("maMH").trim());
+                    matHangDTO.setMaLMH(rs.getString("maLMH").trim());
+                    matHangDTO.setTenMH(rs.getString("tenMatHang").trim());
+                    matHangDTO.setThanhTien(rs.getFloat("thanhTien"));
+                    matHangDTO.setSoLuong(rs.getInt("soLuong"));
+                    listMatHang.add(matHangDTO);
+                }
+                return listMatHang;
+            }
+        }
+    }
+
+    public ArrayList<MatHangDTO> fillDataByLoaiMH(String maLoaiMatHang) throws Exception {
+        String sql = "SELECT * FROM [dbo].[MatHang] WHERE [maLMH] = '" + maLoaiMatHang + "'";
+
+        // sử dụng try-with-resource
+        try (
+                Connection conn = new _Connection().getConn();
+                Statement stm = conn.createStatement()
+        ) {
+            try (ResultSet rs = stm.executeQuery(sql)) {
+                ArrayList<MatHangDTO> listMatHang = new ArrayList<>();
+                while (rs.next()) {
+                    MatHangDTO matHangDTO = new MatHangDTO();
+                    matHangDTO.setMaMH(rs.getString("maMH").trim());
+                    matHangDTO.setMaLMH(rs.getString("maLMH").trim());
+                    matHangDTO.setTenMH(rs.getString("tenMatHang").trim());
+                    matHangDTO.setThanhTien(rs.getFloat("thanhTien"));
+                    matHangDTO.setSoLuong(rs.getInt("soLuong"));
+                    listMatHang.add(matHangDTO);
+                }
+                return listMatHang;
+            }
+        }
+    }
+
+    public ArrayList<MatHangDTO> fillDataByTenMH_LoaiMH(String tenMH, String maLoaiMatHang) throws Exception {
+        String sql = "SELECT * FROM [dbo].[MatHang] WHERE [maLMH] = '" + maLoaiMatHang + "' AND [tenMatHang] like '%" + tenMH + "%'";
+
+        // sử dụng try-with-resource
+        try (
+                Connection conn = new _Connection().getConn();
+                Statement stm = conn.createStatement()
+        ) {
+            try (ResultSet rs = stm.executeQuery(sql)) {
+                ArrayList<MatHangDTO> listMatHang = new ArrayList<>();
+                while (rs.next()) {
+                    MatHangDTO matHangDTO = new MatHangDTO();
+                    matHangDTO.setMaMH(rs.getString("maMH").trim());
+                    matHangDTO.setMaLMH(rs.getString("maLMH").trim());
+                    matHangDTO.setTenMH(rs.getString("tenMatHang").trim());
+                    matHangDTO.setThanhTien(rs.getFloat("thanhTien"));
+                    matHangDTO.setSoLuong(rs.getInt("soLuong"));
+                    listMatHang.add(matHangDTO);
+                }
+                return listMatHang;
+            }
+        }
     }
 }
