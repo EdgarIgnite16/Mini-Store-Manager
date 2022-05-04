@@ -40,8 +40,8 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         btnLamMoi = new javax.swing.JButton();
         btnTimKiemNV = new javax.swing.JButton();
         btnInHoaDon = new javax.swing.JButton();
-        btnLocNVBan = new javax.swing.JButton();
-        btnLocKHMua = new javax.swing.JButton();
+        btnTimKiemNVBan = new javax.swing.JButton();
+        btnTimKiemKHMua = new javax.swing.JButton();
         spDanhSachHoaDon = new javax.swing.JScrollPane();
         tbDanhSachHoaDon = new javax.swing.JTable();
         spChiTietHoaDon = new javax.swing.JScrollPane();
@@ -112,21 +112,21 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
             }
         });
 
-        btnLocNVBan.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnLocNVBan.setText("Lọc nhân viên bán");
-        btnLocNVBan.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
-        btnLocNVBan.addActionListener(new java.awt.event.ActionListener() {
+        btnTimKiemNVBan.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnTimKiemNVBan.setText("Tìm kiếm NV bán");
+        btnTimKiemNVBan.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
+        btnTimKiemNVBan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLocNVBanActionPerformed(evt);
+                btnTimKiemNVBanActionPerformed(evt);
             }
         });
 
-        btnLocKHMua.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnLocKHMua.setText("Lọc khách hàng mua");
-        btnLocKHMua.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
-        btnLocKHMua.addActionListener(new java.awt.event.ActionListener() {
+        btnTimKiemKHMua.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnTimKiemKHMua.setText("Tìm kiếm KH mua");
+        btnTimKiemKHMua.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
+        btnTimKiemKHMua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLocKHMuaActionPerformed(evt);
+                btnTimKiemKHMuaActionPerformed(evt);
             }
         });
 
@@ -155,8 +155,8 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
                         .addComponent(btnTimKiemNV, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                         .addComponent(btnLamMoi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnInHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btnLocKHMua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLocNVBan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnTimKiemKHMua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                    .addComponent(btnTimKiemNVBan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnThongTinHoaDonLayout.setVerticalGroup(
@@ -171,12 +171,12 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMaGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbMaGiamGia)
-                    .addComponent(btnLocNVBan))
+                    .addComponent(btnTimKiemNVBan))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTenNhanVien)
                     .addComponent(txtTenNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLocKHMua))
+                    .addComponent(btnTimKiemKHMua))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTenKhachHang)
@@ -320,21 +320,21 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInHoaDonActionPerformed
 
-    private void btnLocKHMuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocKHMuaActionPerformed
+    private void btnTimKiemKHMuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemKHMuaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLocKHMuaActionPerformed
+    }//GEN-LAST:event_btnTimKiemKHMuaActionPerformed
 
-    private void btnLocNVBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLocNVBanActionPerformed
+    private void btnTimKiemNVBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemNVBanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnLocNVBanActionPerformed
+    }//GEN-LAST:event_btnTimKiemNVBanActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInHoaDon;
     private javax.swing.JButton btnLamMoi;
-    private javax.swing.JButton btnLocKHMua;
-    private javax.swing.JButton btnLocNVBan;
+    private javax.swing.JButton btnTimKiemKHMua;
     private javax.swing.JButton btnTimKiemNV;
+    private javax.swing.JButton btnTimKiemNVBan;
     private javax.swing.JLabel lbChietKhau;
     private javax.swing.JLabel lbMaGiamGia;
     private javax.swing.JLabel lbMaHoaDon;

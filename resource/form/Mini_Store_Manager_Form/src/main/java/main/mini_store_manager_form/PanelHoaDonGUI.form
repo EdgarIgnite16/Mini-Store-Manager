@@ -91,8 +91,8 @@
                           <Component id="btnLamMoi" max="32767" attributes="0"/>
                           <Component id="btnInHoaDon" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="btnLocKHMua" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnLocNVBan" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnTimKiemKHMua" alignment="1" pref="144" max="32767" attributes="0"/>
+                      <Component id="btnTimKiemNVBan" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -111,13 +111,13 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtMaGiamGia" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbMaGiamGia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnLocNVBan" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTimKiemNVBan" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbTenNhanVien" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtTenNhanVien" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnLocKHMua" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTimKiemKHMua" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -252,28 +252,28 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInHoaDonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLocNVBan">
+        <Component class="javax.swing.JButton" name="btnTimKiemNVBan">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="L&#x1ecd;c nh&#xe2;n vi&#xea;n b&#xe1;n"/>
+            <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m NV b&#xe1;n"/>
             <Property name="toolTipText" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m ho&#xe1; &#x111;&#x1a1;n th&#xf4;ng qua m&#xe3; ho&#xe1; &#x111;&#x1a1;n."/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLocNVBanActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemNVBanActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnLocKHMua">
+        <Component class="javax.swing.JButton" name="btnTimKiemKHMua">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="L&#x1ecd;c kh&#xe1;ch h&#xe0;ng mua"/>
+            <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m KH mua"/>
             <Property name="toolTipText" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m ho&#xe1; &#x111;&#x1a1;n th&#xf4;ng qua m&#xe3; ho&#xe1; &#x111;&#x1a1;n."/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLocKHMuaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemKHMuaActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
