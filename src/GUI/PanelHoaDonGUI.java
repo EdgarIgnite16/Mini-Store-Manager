@@ -434,7 +434,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         return thanhTien/(1-tileGiam);
     }
 
-    // hàm load lại giỏ hàng của hoá đơn đã mua
+    // trả lại danh sách mặt hàng đã mua
     public ArrayList<MatHangDTO> handleLoadCTHD(ArrayList<ChiTietHoaDonDTO> listCTHD) {
         ArrayList<MatHangDTO> gioHang = new ArrayList<>();
         for (ChiTietHoaDonDTO item : listCTHD) {
