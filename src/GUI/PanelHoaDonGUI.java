@@ -3,6 +3,7 @@ package GUI;
 import BUS.*;
 import DTO.ChiTietHoaDonDTO;
 import DTO.HoaDonDTO;
+import DTO.KhachHangDTO;
 import DTO.MatHangDTO;
 
 import javax.swing.table.DefaultTableModel;
@@ -359,15 +360,38 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
     }
 
     private void btnTimKiemHDActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        new DialogTimKiemGUI(new Frame(), true,"HD").setVisible(true); // mở form tìm kiếm
+        HoaDonDTO hoaDonDTO = _SaveData.hoaDonTimThay;
+        if(hoaDonDTO != null) {
+            ArrayList<HoaDonDTO> listHD = new ArrayList<>(); // tạo mới danh sách hoá đơn
+            listHD.add(hoaDonDTO); // add hoá đơn vừa tìm được vào danh sách
+            loadHoaDon(listHD); // load lại lịch sử mua hàng của khách hàng được chọn
+
+            // reset lại data tìm kiếm trong local
+            _SaveData.hoaDonTimThay = null;
+        }
     }
 
     private void btnTimKiemKHMuaActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        new DialogTimKiemGUI(new Frame(), true,"LHD_KH").setVisible(true); // mở form tìm kiếm
+        ArrayList<HoaDonDTO> listHD = _SaveData.ListHoaDonTimThay;
+        if(listHD != null) {
+            loadHoaDon(listHD); // load lại hoá đơn
+
+            // reset lại data tìm kiếm trong local
+            _SaveData.ListHoaDonTimThay = null;
+        }
     }
 
     private void btnTimKiemNVBanActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        new DialogTimKiemGUI(new Frame(), true,"LHD_NV").setVisible(true); // mở form tìm kiếm
+        ArrayList<HoaDonDTO> listHD = _SaveData.ListHoaDonTimThay;
+        if(listHD != null) {
+            loadHoaDon(listHD); // load lại hoá đơn
+
+            // reset lại data tìm kiếm trong local
+            _SaveData.ListHoaDonTimThay = null;
+        }
     }
 
     //===================================================================================================//

@@ -159,6 +159,32 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
                 }
             }
 
+            // trường hợp là tìm kiếm danh sách hoá đơn theo khách hàng
+            if (this.key.equals("LHD_KH")) {
+                ArrayList<HoaDonDTO> listHD = new HoaDonBUS().fillData(txtID.getText().trim(), "KH");
+                if (listHD.size() != 0) {
+                    _SaveData.ListHoaDonTimThay = listHD;
+                    this.dispose();
+                } else {
+                    _SaveData.ListHoaDonTimThay = null;
+                    _MessageDialogHelper.showErrorDialog(this,
+                            "Không tìm thấy hoá đơn cần tìm!", "Không tìm thấy đối tượng");
+                }
+            }
+
+            // trường hợp là tìm kiếm danh sách hoá đơn theo nhân viên
+            if (this.key.equals("LHD_NV")) {
+                ArrayList<HoaDonDTO> listHD = new HoaDonBUS().fillData(txtID.getText().trim(), "NV");
+                if (listHD.size() != 0) {
+                    _SaveData.ListHoaDonTimThay = listHD;
+                    this.dispose();
+                } else {
+                    _SaveData.ListHoaDonTimThay = null;
+                    _MessageDialogHelper.showErrorDialog(this,
+                            "Không tìm thấy hoá đơn cần tìm!", "Không tìm thấy đối tượng");
+                }
+            }
+
             // trường hợp là tìm kiếm mặt hàng
             if (this.key.equals("MH")) {
                 MatHangDTO matHangDTO = MatHangBUS.getItemByID(txtID.getText().trim());
