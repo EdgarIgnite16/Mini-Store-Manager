@@ -37,9 +37,9 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         txtTenNhanVien = new javax.swing.JTextField();
         txtTenKhachHang = new javax.swing.JTextField();
         txtNgayBan = new javax.swing.JTextField();
+        btnExportExcel = new javax.swing.JButton();
         btnLamMoi = new javax.swing.JButton();
         btnTimKiemHD = new javax.swing.JButton();
-        btnInHoaDon = new javax.swing.JButton();
         btnTimKiemNVBan = new javax.swing.JButton();
         btnTimKiemKHMua = new javax.swing.JButton();
         spDanhSachHoaDon = new javax.swing.JScrollPane();
@@ -86,6 +86,14 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         txtNgayBan.setEditable(false);
         txtNgayBan.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
+        btnExportExcel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnExportExcel.setText("Export Excel");
+        btnExportExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportExcelActionPerformed(evt);
+            }
+        });
+
         btnLamMoi.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnLamMoi.setText("Làm mới");
         btnLamMoi.setToolTipText("Làm mới lại form");
@@ -101,14 +109,6 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         btnTimKiemHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTimKiemHDActionPerformed(evt);
-            }
-        });
-
-        btnInHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnInHoaDon.setText("In hoá đơn");
-        btnInHoaDon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInHoaDonActionPerformed(evt);
             }
         });
 
@@ -154,7 +154,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
                     .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btnTimKiemHD, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                         .addComponent(btnLamMoi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnInHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnExportExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(btnTimKiemKHMua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                     .addComponent(btnTimKiemNVBan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -166,7 +166,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbMaHoaDon)
                     .addComponent(txtMaHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInHoaDon))
+                    .addComponent(btnExportExcel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtMaGiamGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,9 +316,9 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTimKiemHDActionPerformed
 
-    private void btnInHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInHoaDonActionPerformed
+    private void btnExportExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportExcelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnInHoaDonActionPerformed
+    }//GEN-LAST:event_btnExportExcelActionPerformed
 
     private void btnTimKiemKHMuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemKHMuaActionPerformed
         // TODO add your handling code here:
@@ -330,7 +330,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnInHoaDon;
+    private javax.swing.JButton btnExportExcel;
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnTimKiemHD;
     private javax.swing.JButton btnTimKiemKHMua;
