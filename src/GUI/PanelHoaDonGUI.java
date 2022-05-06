@@ -3,13 +3,15 @@ package GUI;
 import BUS.*;
 import DTO.ChiTietHoaDonDTO;
 import DTO.HoaDonDTO;
-import DTO.KhachHangDTO;
 import DTO.MatHangDTO;
 
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -342,7 +344,21 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
     }// </editor-fold>
 
     private void btnExportExcelActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        ArrayList<HoaDonDTO> listHD = new HoaDonBUS().getData();
+        JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("Chọn file Excel");
+        fc.setAcceptAllFileFilterUsed(false);
+        fc.addChoosableFileFilter(new FileNameExtensionFilter(".xlsx", "Microsoft Excel Documents"));
+        int returnVal = fc.showSaveDialog(parentForm);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            String path = file.getAbsolutePath().concat(".xlsx");
+            _ExportExcel.ExportHoaDon(listHD, path); // truyền vào hàm để sử lí xuất excel
+
+            // xuất thông báo
+            _MessageDialogHelper.showMessageDialog(parentForm,
+                    "Export excel thành công!", "Export thành công");
+        }
     }
 
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {
@@ -494,6 +510,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
             item.thanhTien_hientai = 0;
         }
     }
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnExportExcel;

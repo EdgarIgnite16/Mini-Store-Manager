@@ -4,10 +4,12 @@ import BUS.*;
 import DTO.*;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.util.ArrayList;
 
 public class PanelMatHangGUI extends javax.swing.JPanel {
@@ -543,13 +545,32 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
     }
 
     private void btnExportExcelActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        ArrayList<MatHangDTO> listMH = new MatHangBUS().getData();
+        JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("Chọn file Excel");
+        fc.setAcceptAllFileFilterUsed(false);
+        fc.addChoosableFileFilter(new FileNameExtensionFilter(".xlsx", "Microsoft Excel Documents"));
+        int returnVal = fc.showSaveDialog(parentForm);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            String path = file.getAbsolutePath().concat(".xlsx");
+            _ExportExcel.ExportMatHang(listMH, path); // truyền vào hàm để sử lí xuất excel
+
+            // xuất thông báo
+            _MessageDialogHelper.showMessageDialog(parentForm,
+                    "Export excel thành công!", "Export thành công");
+        }
     }
 
     private void btnImportExcelActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        JFileChooser fc = new JFileChooser();
+        fc.addChoosableFileFilter(new FileNameExtensionFilter("*.xlsx", "xlsx"));
+        int returnVal = fc.showOpenDialog(parentForm);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            System.out.println(file.getAbsolutePath());
+        }
     }
-
 
     //===================================================================================================//
     private MatHangDTO tbDanhSachMatHangMouseListener() {
@@ -626,6 +647,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
 
         loadMatHang(new MatHangBUS().getData()); // load lại khách hàng
     }
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnExportExcel;
