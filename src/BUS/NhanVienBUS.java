@@ -1,6 +1,7 @@
 package BUS;
 
 import DAO.NhanVienDAO;
+import DTO.MatHangDTO;
 import DTO.NhanVienDTO;
 
 import java.util.ArrayList;
@@ -54,6 +55,17 @@ public class NhanVienBUS {
         return null;
     }
 
+    // kiểm tra nhân viên có trạng thái offline hay không
+    public boolean checkStatusIsClose(NhanVienDTO nhanVienDTO) {
+        for(NhanVienDTO item : listNhanVien) {
+            // nếu mặt hàng đã tồn tại và status của mặt hàng đó là 0
+            if(item.getMaNV().equals(nhanVienDTO.getMaNV()) && item.getStatus() == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     // =================================================================================== //
     // thực hiện hàm insert
     public boolean insertItem(NhanVienDTO nhanVienDTO) throws Exception {
@@ -69,6 +81,15 @@ public class NhanVienBUS {
         if (nhanVienDTO != null) {
             NhanVienDAO nhanVienDAO = new NhanVienDAO();
             return nhanVienDAO.updateItem(nhanVienDTO);
+        }
+        return false;
+    }
+
+    // thực hiện hàm updateChangeStatus
+    public boolean updateChangeStatus(NhanVienDTO nhanVienDTO, int status) throws Exception {
+        if (nhanVienDTO != null) {
+            NhanVienDAO nhanVienDAO = new NhanVienDAO();
+            return nhanVienDAO.updateChangeStatus(nhanVienDTO, status);
         }
         return false;
     }

@@ -96,7 +96,7 @@ public class MatHangDAO {
         return false;
     }
     // hàm update trạng thái dữ liệu lên database
-    public boolean updateChangeStatus(MatHangDTO matHangDTO) throws Exception {
+    public boolean updateChangeStatus(MatHangDTO matHangDTO, int status) throws Exception {
         String sql = "UPDATE [dbo].[MatHang] " +
                 "SET [maMH] = ?, [maLMH] = ?, [tenMatHang] = ?, [thanhTien] = ?, [soLuong] = ?, [status] = ?" +
                 " WHERE [maMH] = ?";
@@ -110,7 +110,7 @@ public class MatHangDAO {
                 pstm.setString(3, matHangDTO.getTenMH());
                 pstm.setFloat(4, matHangDTO.getThanhTien());
                 pstm.setInt(5, matHangDTO.getSoLuong());
-                pstm.setInt(6, 0);
+                pstm.setInt(6, status);
                 pstm.setString(7, matHangDTO.getMaMH());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;

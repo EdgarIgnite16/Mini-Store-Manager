@@ -61,6 +61,15 @@ public class ChiTietHoaDonBUS {
         return tongTien;
     }
 
+    // kiểm tra mặt hàng đã tồn tại trong chi tiết bán hàng hay chưa
+    public boolean checkMatHangExist(MatHangDTO matHangDTO) {
+        for(ChiTietHoaDonDTO item : listMatHangMua) {
+            if(item.getMaMH().equals(matHangDTO.getMaMH())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     // =================================================================================== //
     // thực hiện hàm insert

@@ -392,25 +392,42 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
             if(sb.length() > 0) {
                 _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
             } else {
-                if(_MessageDialogHelper.showConfirmDialog(parentForm,
-                        "Bạn có muốn thêm mới đối tượng này không", "Thêm đối tượng") == JOptionPane.YES_OPTION) {
-                    // tạo mới đối tượng
-                    MatHangDTO matHangDTO = new MatHangDTO();
-                    matHangDTO.setMaMH(txtMaMatHang.getText());
-                    matHangDTO.setTenMH(txtTenMatHang.getText());
-                    matHangDTO.setThanhTien(Float.parseFloat(txtThanhTien.getText()));
-                    matHangDTO.setSoLuong(1);
+                // tạo mới đối tượng
+                MatHangDTO matHangDTO = new MatHangDTO();
+                matHangDTO.setMaMH(txtMaMatHang.getText());
+                matHangDTO.setTenMH(txtTenMatHang.getText());
+                matHangDTO.setThanhTien(Float.parseFloat(txtThanhTien.getText()));
 
-                    if(loaiMatHangDTO != null) {
-                        matHangDTO.setMaLMH(loaiMatHangDTO.getMaLMH());
+                if(loaiMatHangDTO != null) {
+                    matHangDTO.setMaLMH(loaiMatHangDTO.getMaLMH());
+                }
+
+                MatHangBUS check = new MatHangBUS();
+                // trường hợp mặt hàng đã có sẵn trong CSDL và mặt hàng đang bị ẩn
+                if(check.checkStatusIsClose(matHangDTO)) {
+                    if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                            "Mặt hàng này đã tồn tại trong CSDL và đang bị ẩn!\nBạn có muốn hiện mặt hàng này không!",
+                            "Hiện đối tượng") == JOptionPane.YES_OPTION) {
+                        matHangDTO.setSoLuong(Integer.parseInt(txtSoLuong.getText())); // nếu là hiện lại mặt hàng thì set số lượng như ban đầu
+                        MatHangBUS matHangBUS = new MatHangBUS();
+                        if(matHangBUS.updateChangeStatus(matHangDTO, 1)) {
+                            refreshData(); // làm mới lại dữ liệu trên form
+                            _MessageDialogHelper.showMessageDialog(parentForm, "Hiện đối tượng thành công!", "Hiện thành công");
+                        } else {
+                            _MessageDialogHelper.showErrorDialog(parentForm, "Hiện đối tượng thất bại!", "Hiện thất bại");
+                        }
                     }
-
-                    MatHangBUS matHangBUS = new MatHangBUS();
-                    if(matHangBUS.insertItem(matHangDTO)) {
-                        refreshData(); // làm mới lại dữ liệu trên form
-                        _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
-                    } else {
-                        _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
+                } else { // trường hợp ngược lại
+                    if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                            "Bạn có muốn thêm mới đối tượng này không", "Thêm đối tượng") == JOptionPane.YES_OPTION) {
+                        matHangDTO.setSoLuong(1); // set số lượng bằng 1 nếu là mặt hàng thêm mới
+                        MatHangBUS matHangBUS = new MatHangBUS();
+                        if(matHangBUS.insertItem(matHangDTO)) {
+                            refreshData(); // làm mới lại dữ liệu trên form
+                            _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
+                        } else {
+                            _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
+                        }
                     }
                 }
             }
@@ -440,15 +457,37 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
                 if(sb.length() > 0) {
                     _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
                 } else {
-                    if(_MessageDialogHelper.showConfirmDialog(parentForm,
-                            "Bạn có muốn xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
-
-                        MatHangBUS matHangBUS = new MatHangBUS();
-                        if(matHangBUS.deleteItem(matHangDTO)) {
-                            refreshData(); // làm mới lại dữ liệu trên form
-                            _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công!", "Xoá thành công");
+                    ChiTietHoaDonBUS chiTietHoaDonBUS = new ChiTietHoaDonBUS();
+                    // trường hợp mặt hàng đã tồn tại trong danh sách bán hàng
+                    if(chiTietHoaDonBUS.checkMatHangExist(matHangDTO)) {
+                        MatHangBUS check2 = new MatHangBUS();
+                        // tiếp tục với trường hợp mặt hàng có tồn tại trong danh sách mặt hàng hay chưa
+                        if(check2.checkStatusIsClose(matHangDTO)) {
+                            _MessageDialogHelper.showErrorDialog(parentForm, "Mặt hàng đã bị ẩn!",
+                                    "Thao tác thất bại");
                         } else {
-                            _MessageDialogHelper.showErrorDialog(parentForm, "Xoá đối tượng thất bại!", "Xoá thất bại");
+                            if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                                    "Mặt hàng này đã tồn tại trong lịch sử hoá đơn, bạn không thể xoá!\nBạn có muốn ẩn mặt hàng này không!",
+                                    "Ẩn đối tượng") == JOptionPane.YES_OPTION) {
+                                MatHangBUS matHangBUS = new MatHangBUS();
+                                if(matHangBUS.updateChangeStatus(matHangDTO, 0)) {
+                                    refreshData(); // làm mới lại dữ liệu trên form
+                                    _MessageDialogHelper.showMessageDialog(parentForm, "Ẩn đối tượng thành công!", "Ẩn thành công");
+                                } else {
+                                    _MessageDialogHelper.showErrorDialog(parentForm, "Ẩn đối tượng thất bại!", "Ẩn thất bại");
+                                }
+                            }
+                        }
+                    } else { // trường hợp ngược lại
+                        if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                                "Bạn có muốn xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
+                            MatHangBUS matHangBUS = new MatHangBUS();
+                            if(matHangBUS.deleteItem(matHangDTO)) {
+                                refreshData(); // làm mới lại dữ liệu trên form
+                                _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công!", "Xoá thành công");
+                            } else {
+                                _MessageDialogHelper.showErrorDialog(parentForm, "Xoá đối tượng thất bại!", "Xoá thất bại");
+                            }
                         }
                     }
                 }
@@ -574,7 +613,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
                     item.getTenMH(),
                     item.getThanhTien(),
                     item.getSoLuong(),
-                    item.getStatus() == 1 ? "Còn hàng" : "Đã hết"
+                    item.getStatus() == 1 ? "Ẩn" : "Hiện"
             });
         }
     }

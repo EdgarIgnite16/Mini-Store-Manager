@@ -91,7 +91,7 @@ public class KhachHangDAO {
     }
 
     // hàm update trạng thái dữ liệu lên database
-    public boolean updateChangeStatus(KhachHangDTO khachHangDTO) throws Exception {
+    public boolean updateChangeStatus(KhachHangDTO khachHangDTO, int status) throws Exception {
         String sql = "UPDATE [dbo].[KhachHang] " +
                 "SET [maKH] =  ?, [tenKH] = ?, [SDT] = ?, [status] = ?" +
                 " WHERE [maKH] = ?";
@@ -103,7 +103,7 @@ public class KhachHangDAO {
                 pstm.setString(1, khachHangDTO.getMaKH());
                 pstm.setString(2, khachHangDTO.getTenKH());
                 pstm.setString(3, khachHangDTO.getSdt());
-                pstm.setInt(4, 0);
+                pstm.setInt(4, status);
                 pstm.setString(5, khachHangDTO.getMaKH());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;

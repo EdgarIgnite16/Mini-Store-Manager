@@ -100,7 +100,7 @@ public class NhanVienDAO {
     }
 
     // hàm update trạng thái dữ liệu lên database
-    public boolean updateChangeStatus(NhanVienDTO nhanVienDTO) throws Exception {
+    public boolean updateChangeStatus(NhanVienDTO nhanVienDTO, int status) throws Exception {
         String sql = "UPDATE [dbo].[NhanVien] " +
                 "SET [maNV] =  ?, [maCV] = ?, [maCa] = ?, [tenNV] = ?, [cmnd] = ?, [sdt] = ?, [status ] = ?" +
                 " WHERE [maNV] = ?";
@@ -115,7 +115,7 @@ public class NhanVienDAO {
                 pstm.setString(4, nhanVienDTO.getTenNV());
                 pstm.setString(5, nhanVienDTO.getCmnd());
                 pstm.setString(6, nhanVienDTO.getSdt());
-                pstm.setInt(7, 0);
+                pstm.setInt(7, status);
                 pstm.setString(8, nhanVienDTO.getMaNV());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
