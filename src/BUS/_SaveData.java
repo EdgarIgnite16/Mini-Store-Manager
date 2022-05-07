@@ -32,6 +32,7 @@ public class _SaveData {
     public static NhanVienDTO nhanVienTimThay = null;
     public static HoaDonDTO hoaDonTimThay = null;
     public static ArrayList<HoaDonDTO> ListHoaDonTimThay = null;
+
     public static MatHangDTO matHangTimThay = null;
     public static PhieuNhapHangDTO phieunhapTimThay = null;
 }

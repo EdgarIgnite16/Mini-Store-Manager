@@ -7,6 +7,8 @@ public class PhieuNhapHangDTO {
     private String maPhieuNhap; // primary key
     private String maNCC; // foreign key
     private String ngayNhap;
+    public int soLuong_hientai = 0;
+    public float thanhTien_hientai = 0;
 
 //    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 

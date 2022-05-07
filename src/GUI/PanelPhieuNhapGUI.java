@@ -8,11 +8,13 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class PanelPhieuNhapGUI extends javax.swing.JPanel {
     private static MainFormGUI parentForm;
     private DefaultTableModel modelTable_PN;
+    private DefaultTableModel modelTable_CTPN;
 
     /**
      * Creates new form PanelPhieuNhapGUI
@@ -20,7 +22,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
     public PanelPhieuNhapGUI() {
         initComponents();
         initTablePhieuNhap();
-
+        initListCTPN();
     }
     public void initTablePhieuNhap() {
         String[] columnNames = new String[]{"Mã PN", "Mã NCC", "Ngày nhập"};
@@ -64,7 +66,15 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
             _MessageDialogHelper.showErrorDialog(this, ex.getMessage(), "Error !");
         }
     }
+    public void initListCTPN() {
+        String[] columnNames = new String[]{"Mã PN", "Mã MH", "Số lượng",};
+        modelTable_CTPN = new DefaultTableModel();
+        modelTable_CTPN.setColumnIdentifiers(columnNames);
 
+        tbChiTietPhieuNhap.setFont(new Font("Segoe UI", 0, 12));
+        tbChiTietPhieuNhap.setModel(modelTable_CTPN);
+        tbChiTietPhieuNhap.setDefaultEditor(Object.class, null);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -318,6 +328,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
             // load các thông tin của khách hàng lên text field
             loadForm(phieuNhapHangDTO);
 
+
             // reset lại data tìm kiếm trong local
             _SaveData.phieunhapTimThay = null;
         }
@@ -341,8 +352,11 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
             PhieuNhapHangDTO phieuNhapHangDTO = new PhieuNhapBUS().getItemByID(MaPN);
 
             if(phieuNhapHangDTO != null) {
+                ArrayList<ChiTietPhieuNhapDTO> listCTPN = new ChiTietPhieuNhapBUS().getListItemByMaHD(phieuNhapHangDTO.getMaPhieuNhap());
+
                 // load thông tin lên field
                 loadForm(phieuNhapHangDTO);
+                loadChiTietPhieuNhap(listCTPN); // load chi tiết hoá đơn lên filed
                 return phieuNhapHangDTO; // trả về khách hàng được nhấn vào
             } else {
                 return null;
@@ -361,6 +375,18 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
                     item.getMaNCC(),
                     item.getNgayNhap()
             });
+        }
+    }
+    private void loadChiTietPhieuNhap(ArrayList<ChiTietPhieuNhapDTO> listCTPN){
+        if(listCTPN != null) {
+            modelTable_CTPN.setRowCount(0);
+            for (ChiTietPhieuNhapDTO item : listCTPN) {
+                modelTable_CTPN.addRow(new Object[]{
+                        item.getMaPhieuNhap(),
+                        item.getMaMH(),
+                        item.getSoLuong()
+                });
+            }
         }
     }
     private void loadForm(PhieuNhapHangDTO phieuNhapHangDTO) {
@@ -386,6 +412,20 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
 
         loadTablePN(new PhieuNhapBUS().getData()); // load lại khách hàng
 
+    }
+
+    // trả vêf số lượng mặt hàng đã mua của mặt hàng đó
+    private int handleSoLuongHienTai(ChiTietHoaDonDTO item) {
+        return item.getSoLuong();
+    }
+
+    // xử lí thành tiền hiện tại của hoá đơn đã mua * số lượng
+    private float handleThanhTienHienTai(ChiTietHoaDonDTO item) {
+        MatHangDTO matHangDTO = MatHangBUS.getItemByID(item.getMaMH());
+        if (matHangDTO != null) {
+            return handleSoLuongHienTai(item) * matHangDTO.getThanhTien();
+        }
+        return 0;
     }
 
     // Variables declaration - do not modify

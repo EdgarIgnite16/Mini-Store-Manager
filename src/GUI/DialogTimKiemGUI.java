@@ -1,10 +1,7 @@
 package GUI;
 
 import BUS.*;
-import DTO.HoaDonDTO;
-import DTO.KhachHangDTO;
-import DTO.MatHangDTO;
-import DTO.NhanVienDTO;
+import DTO.*;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -159,32 +156,6 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
                 }
             }
 
-            // trường hợp là tìm kiếm danh sách hoá đơn theo khách hàng
-            if (this.key.equals("LHD_KH")) {
-                ArrayList<HoaDonDTO> listHD = new HoaDonBUS().fillData(txtID.getText().trim(), "KH");
-                if (listHD.size() != 0) {
-                    _SaveData.ListHoaDonTimThay = listHD;
-                    this.dispose();
-                } else {
-                    _SaveData.ListHoaDonTimThay = null;
-                    _MessageDialogHelper.showErrorDialog(this,
-                            "Không tìm thấy hoá đơn cần tìm!", "Không tìm thấy đối tượng");
-                }
-            }
-
-            // trường hợp là tìm kiếm danh sách hoá đơn theo nhân viên
-            if (this.key.equals("LHD_NV")) {
-                ArrayList<HoaDonDTO> listHD = new HoaDonBUS().fillData(txtID.getText().trim(), "NV");
-                if (listHD.size() != 0) {
-                    _SaveData.ListHoaDonTimThay = listHD;
-                    this.dispose();
-                } else {
-                    _SaveData.ListHoaDonTimThay = null;
-                    _MessageDialogHelper.showErrorDialog(this,
-                            "Không tìm thấy hoá đơn cần tìm!", "Không tìm thấy đối tượng");
-                }
-            }
-
             // trường hợp là tìm kiếm mặt hàng
             if (this.key.equals("MH")) {
                 MatHangDTO matHangDTO = MatHangBUS.getItemByID(txtID.getText().trim());
@@ -195,6 +166,18 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
                     _SaveData.matHangTimThay = null;
                     _MessageDialogHelper.showErrorDialog(this,
                             "Không tìm thấy mặt hàng cần tìm!", "Không tìm thấy đối tượng");
+                }
+            }
+            //trường hợp là tìm kiếm phiếu nhập
+            if (this.key.equals("PN")) {
+                PhieuNhapHangDTO phieuNhapHangDTO = PhieuNhapBUS.getItemByID(txtID.getText().trim());
+                if (phieuNhapHangDTO != null) {
+                    _SaveData.phieunhapTimThay = phieuNhapHangDTO;
+                    this.dispose();
+                } else {
+                    _SaveData.phieunhapTimThay = null;
+                    _MessageDialogHelper.showErrorDialog(this,
+                            "Không tìm thấy phiếu nhập cần tìm!", "Không tìm thấy đối tượng");
                 }
             }
 
