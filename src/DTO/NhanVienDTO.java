@@ -7,18 +7,20 @@ public class NhanVienDTO {
     private String tenNV;
     private String SDT;
     private String cmnd;
+    private int status;
 
     public NhanVienDTO() {
 
     }
 
-    public NhanVienDTO(String maNV, String maCV, String maCa, String tenNV, String SDT, String cmnd) {
+    public NhanVienDTO(String maNV, String maCV, String maCa, String tenNV, String SDT, String cmnd, int status) {
         this.maNV = maNV;
         this.maCV = maCV;
         this.maCa = maCa;
         this.tenNV = tenNV;
         this.SDT = SDT;
         this.cmnd = cmnd;
+        this.status = status;
     }
 
     public String getMaNV() {
@@ -69,6 +71,14 @@ public class NhanVienDTO {
         this.cmnd = cmnd;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "NhanVienDTO{" +
@@ -76,8 +86,9 @@ public class NhanVienDTO {
                 ", maCV='" + maCV + '\'' +
                 ", maCa='" + maCa + '\'' +
                 ", tenNV='" + tenNV + '\'' +
-                ", sdt='" + SDT + '\'' +
+                ", SDT='" + SDT + '\'' +
                 ", cmnd='" + cmnd + '\'' +
+                ", status=" + status +
                 '}';
     }
 }

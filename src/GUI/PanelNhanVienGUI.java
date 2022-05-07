@@ -49,7 +49,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
     }
 
     public void initTableKhachHang() {
-        String[] columnNames = new String[]{"Mã KH", "Mã CV", "Mã ca", "Tên KH", "CMND", "Số điện thoại"};
+        String[] columnNames = new String[]{"Mã KH", "Mã CV", "Mã ca", "Tên KH", "CMND", "Số điện thoại", "Trạng thái"};
         modelTable_NV = new DefaultTableModel();
         modelTable_NV.setColumnIdentifiers(columnNames);
 
@@ -627,7 +627,8 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                     item.getMaCa(),
                     item.getTenNV(),
                     item.getCmnd(),
-                    item.getSdt()
+                    item.getSdt(),
+                    item.getStatus() == 1  ? "Online" : "Offline"
             });
         }
     }

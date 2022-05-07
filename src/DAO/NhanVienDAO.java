@@ -27,6 +27,7 @@ public class NhanVienDAO {
                     nhanVienDTO.setTenNV(rs.getString("tenNV").trim());
                     nhanVienDTO.setCmnd(rs.getString("cmnd").trim());
                     nhanVienDTO.setSdt(rs.getString("sdt").trim());
+                    nhanVienDTO.setStatus(rs.getInt("status"));
                     listNhanVien.add(nhanVienDTO);
                 }
                 return listNhanVien;
@@ -36,8 +37,8 @@ public class NhanVienDAO {
 
     // hàm insert dữ liệu lên database
     public boolean insertItem(NhanVienDTO nhanVienDTO) throws Exception {
-        String sql = "INSERT INTO [dbo].[NhanVien] ([maNV] ,[maCV] ,[maCa], [tenNV], [cmnd], [sdt])" +
-                " VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO [dbo].[NhanVien] ([maNV] ,[maCV] ,[maCa], [tenNV], [cmnd], [sdt], [status])" +
+                " VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         // sử dụng try-with-resource
         try (Connection conn = new _Connection().getConn()) {
@@ -49,6 +50,7 @@ public class NhanVienDAO {
                 pstm.setString(4, nhanVienDTO.getTenNV());
                 pstm.setString(5, nhanVienDTO.getCmnd());
                 pstm.setString(6, nhanVienDTO.getSdt());
+                pstm.setInt(7, nhanVienDTO.getStatus());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database
@@ -67,7 +69,7 @@ public class NhanVienDAO {
     // hàm update dữ liệu lên database
     public boolean updateItem(NhanVienDTO nhanVienDTO) throws Exception {
         String sql = "UPDATE [dbo].[NhanVien] " +
-                "SET [maNV] =  ?, [maCV] = ?, [maCa] = ?, [tenNV] = ?, [cmnd] = ?, [sdt] = ?" +
+                "SET [maNV] =  ?, [maCV] = ?, [maCa] = ?, [tenNV] = ?, [cmnd] = ?, [sdt] = ?, [status ] = ?" +
                 " WHERE [maNV] = ?";
 
         // sử dụng try-with-resource
@@ -80,7 +82,8 @@ public class NhanVienDAO {
                 pstm.setString(4, nhanVienDTO.getTenNV());
                 pstm.setString(5, nhanVienDTO.getCmnd());
                 pstm.setString(6, nhanVienDTO.getSdt());
-                pstm.setString(7, nhanVienDTO.getMaNV());
+                pstm.setInt(7, nhanVienDTO.getStatus());
+                pstm.setString(8, nhanVienDTO.getMaNV());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database

@@ -27,7 +27,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
     }
 
     private void initTableMatHang() {
-        String[] columnNames = new String[]{"Mã MH", "Mã LMH", "Tên MH", "Thành tiền", "Số lượng"};
+        String[] columnNames = new String[]{"Mã MH", "Mã LMH", "Tên MH", "Thành tiền", "Số lượng", "Trạng thái"};
         modelTable_MH = new DefaultTableModel();
         modelTable_MH.setColumnIdentifiers(columnNames);
 
@@ -573,7 +573,8 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
                     item.getMaLMH(),
                     item.getTenMH(),
                     item.getThanhTien(),
-                    item.getSoLuong()
+                    item.getSoLuong(),
+                    item.getStatus() == 1 ? "Còn hàng" : "Đã hết"
             });
         }
     }

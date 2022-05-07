@@ -26,7 +26,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
     }
 
     public void initTableKhachHang() {
-        String[] columnNames = new String[]{"Mã KH", "Tên KH", "Số điện thoại"};
+        String[] columnNames = new String[]{"Mã KH", "Tên KH", "Số điện thoại", "Trạng thái"};
         modelTable_KH = new DefaultTableModel();
         modelTable_KH.setColumnIdentifiers(columnNames);
 
@@ -493,7 +493,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                     item.getMaKH(),
                     item.getMaGiamGia(),
                     item.getTongHoaDon(),
-                    item.getNgayBan()
+                    item.getNgayBan(),
             });
         }
     }
@@ -504,7 +504,8 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             modelTable_KH.addRow(new Object[]{
                     item.getMaKH(),
                     item.getTenKH(),
-                    item.getSdt()
+                    item.getSdt(),
+                    item.getStatus() == 1 ? "Online" : "Offline"
             });
         }
     }
