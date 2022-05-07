@@ -1,5 +1,6 @@
 # Mini-Store-Manager
-Có làm thì mới có ăn - Không làm thì ăn bưởi ăn trứng cút !  
+Ứng dụng quản lí cửa hàng tiện lợi Mini Store!
+<br>Công nghệ phát triển: Java Swing, JSBC, POI Apache
  
 ## Team Member
 | TenSV                  | MaSV       |
