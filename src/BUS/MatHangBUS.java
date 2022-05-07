@@ -80,6 +80,18 @@ public class MatHangBUS {
         }
     }
 
+    // kiểm tra mặt hàng có trạng thái đang đóng hay không
+    public boolean checkStatusIsClose(MatHangDTO matHangDTO) {
+        for(MatHangDTO item : listMatHang) {
+            // nếu mặt hàng đã tồn tại và status của mặt hàng đó là 0
+            if(item.getMaMH().equals(matHangDTO.getMaMH()) && item.getStatus() == 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     // =================================================================================== //
     // thực hiện hàm update
     public boolean insertItem(MatHangDTO matHangDTO) throws Exception {
@@ -95,6 +107,15 @@ public class MatHangBUS {
         if (matHangDTO != null) {
             MatHangDAO matHangDAO = new MatHangDAO();
             return matHangDAO.deleteItem(matHangDTO);
+        }
+        return false;
+    }
+
+    // thực hiện hàm updateChangeStatus
+    public boolean updateChangeStatus(MatHangDTO matHangDTO, int status) throws Exception {
+        if (matHangDTO != null) {
+            MatHangDAO matHangDAO = new MatHangDAO();
+            return matHangDAO.updateChangeStatus(matHangDTO, status);
         }
         return false;
     }

@@ -6,6 +6,7 @@ public class MatHangDTO {
     private String tenMH;
     private float thanhTien;
     private int soLuong;
+    private int status;
 
     // các thông số trong giỏ hàng
     public int soLuong_hientai = 0;
@@ -18,12 +19,13 @@ public class MatHangDTO {
 
     }
 
-    public MatHangDTO(String maMH, String maLMH, String tenMH, float thanhTien, int soLuong) {
+    public MatHangDTO(String maMH, String maLMH, String tenMH, float thanhTien, int soLuong, int status) {
         this.maMH = maMH;
         this.maLMH = maLMH;
         this.tenMH = tenMH;
         this.thanhTien = thanhTien;
         this.soLuong = soLuong;
+        this.status = status;
     }
 
     public String getMaMH() {
@@ -66,14 +68,23 @@ public class MatHangDTO {
         this.soLuong = soLuong;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "MatHang{" +
+        return "MatHangDTO{" +
                 "maMH='" + maMH + '\'' +
                 ", maLMH='" + maLMH + '\'' +
                 ", tenMH='" + tenMH + '\'' +
-                ", thanhTien='" + thanhTien + '\'' +
+                ", thanhTien=" + thanhTien +
                 ", soLuong=" + soLuong +
+                ", status=" + status +
                 '}';
     }
 

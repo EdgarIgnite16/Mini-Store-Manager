@@ -2,6 +2,8 @@ package BUS;
 
 import DAO.HoaDonDAO;
 import DTO.HoaDonDTO;
+import DTO.KhachHangDTO;
+import DTO.NhanVienDTO;
 
 import java.util.ArrayList;
 
@@ -83,6 +85,26 @@ public class HoaDonBUS {
             tongThanhTien += item.getTongHoaDon();
         }
         return tongThanhTien;
+    }
+
+    // kiểm tra khách hàng đã tồn tại trong danh sách hoá đơn
+    public boolean checkKhachHangExist(KhachHangDTO khachHangDTO) {
+        for(HoaDonDTO item : listHoaDon) {
+            if(item.getMaKH().equals(khachHangDTO.getMaKH())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // kiểm tra nhân viên đã tồn tại trong danh sách hoá đơn
+    public boolean checkNhanVienExist(NhanVienDTO nhanVienDTO) {
+        for(HoaDonDTO item : listHoaDon) {
+            if(item.getMaNV().equals(nhanVienDTO.getMaNV())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // =================================================================================== //

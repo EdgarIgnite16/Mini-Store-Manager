@@ -4,15 +4,17 @@ public class KhachHangDTO {
     private String maKH; // primary key
     private String tenKH;
     private String sdt;
+    private int status;
 
     public KhachHangDTO() {
 
     }
 
-    public KhachHangDTO(String maKH, String tenKH, String sdt) {
+    public KhachHangDTO(String maKH, String tenKH, String sdt, int status) {
         this.maKH = maKH;
         this.tenKH = tenKH;
         this.sdt = sdt;
+        this.status = status;
     }
 
     public String getMaKH() {
@@ -39,12 +41,21 @@ public class KhachHangDTO {
         this.sdt = sdt;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "KhachHangDTO{" +
                 "maKH='" + maKH + '\'' +
                 ", tenKH='" + tenKH + '\'' +
                 ", sdt='" + sdt + '\'' +
+                ", status=" + status +
                 '}';
     }
 }
