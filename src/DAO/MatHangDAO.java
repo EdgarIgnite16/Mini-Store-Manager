@@ -48,7 +48,7 @@ public class MatHangDAO {
                 pstm.setString(3, matHangDTO.getTenMH());
                 pstm.setFloat(4, matHangDTO.getThanhTien());
                 pstm.setInt(5, matHangDTO.getSoLuong());
-                pstm.setInt(6, matHangDTO.getStatus());
+                pstm.setInt(6, 1);
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database
@@ -64,6 +64,7 @@ public class MatHangDAO {
         return false;
     }
 
+    // hàm update dữ liệu lên database
     public boolean updateItem(MatHangDTO matHangDTO) throws Exception {
         String sql = "UPDATE [dbo].[MatHang] " +
                 "SET [maMH] = ?, [maLMH] = ?, [tenMatHang] = ?, [thanhTien] = ?, [soLuong] = ?, [status] = ?" +
@@ -79,6 +80,37 @@ public class MatHangDAO {
                 pstm.setFloat(4, matHangDTO.getThanhTien());
                 pstm.setInt(5, matHangDTO.getSoLuong());
                 pstm.setInt(6, matHangDTO.getStatus());
+                pstm.setString(7, matHangDTO.getMaMH());
+
+                boolean checkPSTM = pstm.executeUpdate() > 0;
+                conn.commit(); // commit thay đổi lên database
+                conn.setAutoCommit(true); // set AutoCommit lại thành true
+
+                // nếu executeUpdate trả về hơn 1 => query thành công
+                // ngược lại => query thất bại
+                return checkPSTM;
+            } catch (Exception ex) {
+                conn.rollback(); // transactions roll back nếu sql thực thi thất bại
+            }
+        }
+        return false;
+    }
+    // hàm update trạng thái dữ liệu lên database
+    public boolean updateChangeStatus(MatHangDTO matHangDTO) throws Exception {
+        String sql = "UPDATE [dbo].[MatHang] " +
+                "SET [maMH] = ?, [maLMH] = ?, [tenMatHang] = ?, [thanhTien] = ?, [soLuong] = ?, [status] = ?" +
+                " WHERE [maMH] = ?";
+
+        // sử dụng try with resource
+        try (Connection conn = new _Connection().getConn()) {
+            conn.setAutoCommit(false);
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, matHangDTO.getMaMH());
+                pstm.setString(2, matHangDTO.getMaLMH());
+                pstm.setString(3, matHangDTO.getTenMH());
+                pstm.setFloat(4, matHangDTO.getThanhTien());
+                pstm.setInt(5, matHangDTO.getSoLuong());
+                pstm.setInt(6, 0);
                 pstm.setString(7, matHangDTO.getMaMH());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;

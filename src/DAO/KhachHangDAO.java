@@ -44,7 +44,7 @@ public class KhachHangDAO {
                 pstm.setString(1, khachHangDTO.getMaKH());
                 pstm.setString(2, khachHangDTO.getTenKH());
                 pstm.setString(3, khachHangDTO.getSdt());
-                pstm.setInt(4, khachHangDTO.getStatus());
+                pstm.setInt(4, 1);
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database
@@ -74,6 +74,36 @@ public class KhachHangDAO {
                 pstm.setString(2, khachHangDTO.getTenKH());
                 pstm.setString(3, khachHangDTO.getSdt());
                 pstm.setInt(4, khachHangDTO.getStatus());
+                pstm.setString(5, khachHangDTO.getMaKH());
+
+                boolean checkPSTM = pstm.executeUpdate() > 0;
+                conn.commit(); // commit thay đổi lên database
+                conn.setAutoCommit(true); // set AutoCommit lại thành true
+
+                // nếu executeUpdate trả về hơn 1 => query thành công
+                // ngược lại => query thất bại
+                return checkPSTM;
+            } catch (Exception ex) {
+                conn.rollback(); // transactions roll back nếu sql thực thi thất bại
+            }
+        }
+        return false;
+    }
+
+    // hàm update trạng thái dữ liệu lên database
+    public boolean updateChangeStatus(KhachHangDTO khachHangDTO) throws Exception {
+        String sql = "UPDATE [dbo].[KhachHang] " +
+                "SET [maKH] =  ?, [tenKH] = ?, [SDT] = ?, [status] = ?" +
+                " WHERE [maKH] = ?";
+
+        // sử dụng try-with-resource
+        try (Connection conn = new _Connection().getConn()) {
+            conn.setAutoCommit(false);
+            try (PreparedStatement pstm = conn.prepareStatement(sql)) {
+                pstm.setString(1, khachHangDTO.getMaKH());
+                pstm.setString(2, khachHangDTO.getTenKH());
+                pstm.setString(3, khachHangDTO.getSdt());
+                pstm.setInt(4, 0);
                 pstm.setString(5, khachHangDTO.getMaKH());
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
