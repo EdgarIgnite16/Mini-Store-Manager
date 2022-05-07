@@ -613,7 +613,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
                     item.getTenMH(),
                     item.getThanhTien(),
                     item.getSoLuong(),
-                    item.getStatus() == 1 ? "Ẩn" : "Hiện"
+                    item.getStatus() == 1 ? "Hiện" : "Ẩn"
             });
         }
     }
