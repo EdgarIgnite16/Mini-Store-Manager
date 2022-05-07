@@ -19,7 +19,7 @@ public class ChiTietPhieuNhapBUS {
     }
 
     // lấy đối tượng thông qua mã hoá đơn
-    public ArrayList<ChiTietPhieuNhapDTO> getListItemByMaHD(String maPhieuNhap) {
+    public ArrayList<ChiTietPhieuNhapDTO> getListItemByMaPN(String maPhieuNhap) {
         ArrayList<ChiTietPhieuNhapDTO> list = new ArrayList<>();
         for (ChiTietPhieuNhapDTO item : listPhieuNhapMua) {
             if (item.getMaPhieuNhap().equals(maPhieuNhap)) {
@@ -39,28 +39,6 @@ public class ChiTietPhieuNhapBUS {
             System.out.println(chiTietPhieuNhapDTO.toString()); // in ra terminal
         }
     }
-
-    public int tinhTonhSLBan(String maPhieuNhap) {
-        int soLuong = 0;
-        for(ChiTietPhieuNhapDTO item : listPhieuNhapMua) {
-            if(item.getMaPhieuNhap().equals(maPhieuNhap)) {
-                soLuong += item.getSoLuong();
-            }
-        }
-
-        return soLuong;
-    }
-
-    public float tinhTongThanhTien(String maMH, float thanhTien) {
-        float tongTien = 0;
-        for(ChiTietPhieuNhapDTO item : listPhieuNhapMua) {
-            if(item.getMaPhieuNhap().equals(maMH)) {
-                tongTien += thanhTien * item.getSoLuong();
-            }
-        }
-        return tongTien;
-    }
-
 
     // =================================================================================== //
     // thực hiện hàm insert

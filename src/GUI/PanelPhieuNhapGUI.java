@@ -3,13 +3,13 @@ package GUI;
 import BUS.*;
 import DTO.*;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.Objects;
-
 
 public class PanelPhieuNhapGUI extends javax.swing.JPanel {
     private static MainFormGUI parentForm;
@@ -24,6 +24,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         initTablePhieuNhap();
         initListCTPN();
     }
+
     public void initTablePhieuNhap() {
         String[] columnNames = new String[]{"Mã PN", "Mã NCC", "Ngày nhập"};
         modelTable_PN = new DefaultTableModel();
@@ -33,7 +34,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
             tbDanhSachPhieuNhap.setFont(new Font("Segoe UI", 0, 12));
             tbDanhSachPhieuNhap.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
             tbDanhSachPhieuNhap.setModel(modelTable_PN);
-            loadTablePN(new PhieuNhapBUS().getData()); // gọi lại hàm load table phiếu nhập để load lại table
+            loadTablePN(new PhieuNhapHangBUS().getData()); // gọi lại hàm load table phiếu nhập để load lại table
             tbDanhSachPhieuNhap.setDefaultEditor(Object.class, null);
             tbDanhSachPhieuNhap.addMouseListener(new MouseListener() {
                 @Override
@@ -66,6 +67,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
             _MessageDialogHelper.showErrorDialog(this, ex.getMessage(), "Error !");
         }
     }
+
     public void initListCTPN() {
         String[] columnNames = new String[]{"Mã PN", "Mã MH", "Số lượng",};
         modelTable_CTPN = new DefaultTableModel();
@@ -75,6 +77,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         tbChiTietPhieuNhap.setModel(modelTable_CTPN);
         tbChiTietPhieuNhap.setDefaultEditor(Object.class, null);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -89,11 +92,11 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         lbNhaCungCap = new javax.swing.JLabel();
         lbNgayNhap = new javax.swing.JLabel();
         txtMaPhieuNhap = new javax.swing.JTextField();
+        txtNhaCungCap = new javax.swing.JTextField();
         txtNgayNhap = new javax.swing.JTextField();
         btnLamMoi = new javax.swing.JButton();
-        btnInPhieuNhap = new javax.swing.JButton();
+        btnExportExcel = new javax.swing.JButton();
         btnTimKiem = new javax.swing.JButton();
-        txtNhaCungCap = new javax.swing.JTextField();
         spDanhSachPhieuNhap = new javax.swing.JScrollPane();
         tbDanhSachPhieuNhap = new javax.swing.JTable();
         spChiTietPhieuNhap = new javax.swing.JScrollPane();
@@ -118,11 +121,9 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         txtMaPhieuNhap.setEditable(false);
         txtMaPhieuNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         txtMaPhieuNhap.setFocusCycleRoot(true);
-        txtMaPhieuNhap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaPhieuNhapActionPerformed(evt);
-            }
-        });
+
+        txtNhaCungCap.setEditable(false);
+        txtNhaCungCap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         txtNgayNhap.setEditable(false);
         txtNgayNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -136,12 +137,12 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
             }
         });
 
-        btnInPhieuNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnInPhieuNhap.setText("In phiếu nhập");
-        btnInPhieuNhap.setToolTipText("Làm mới lại form");
-        btnInPhieuNhap.addActionListener(new java.awt.event.ActionListener() {
+        btnExportExcel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnExportExcel.setText("Export excel");
+        btnExportExcel.setToolTipText("Làm mới lại form");
+        btnExportExcel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInPhieuNhapActionPerformed(evt);
+                btnExportExcelActionPerformed(evt);
             }
         });
 
@@ -167,11 +168,11 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
                                 .addGroup(pnTimKiemPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtNgayNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
                                         .addComponent(txtMaPhieuNhap, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtNhaCungCap))
+                                        .addComponent(txtNhaCungCap, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pnTimKiemPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(btnLamMoi, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                                        .addComponent(btnInPhieuNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                                        .addComponent(btnExportExcel, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                                         .addComponent(btnTimKiem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap())
         );
@@ -182,12 +183,12 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
                                 .addGroup(pnTimKiemPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lbMaPhieuNhap)
                                         .addComponent(txtMaPhieuNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btnTimKiem))
+                                        .addComponent(btnExportExcel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pnTimKiemPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lbNhaCungCap)
-                                        .addComponent(btnInPhieuNhap)
-                                        .addComponent(txtNhaCungCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtNhaCungCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnTimKiem))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pnTimKiemPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(lbNgayNhap)
@@ -197,33 +198,9 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         );
 
         spDanhSachPhieuNhap.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách phiếu nhập", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
-
-        tbDanhSachPhieuNhap.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {},
-                        {},
-                        {},
-                        {}
-                },
-                new String [] {
-
-                }
-        ));
         spDanhSachPhieuNhap.setViewportView(tbDanhSachPhieuNhap);
 
         spChiTietPhieuNhap.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chi tiết phiếu nhập", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
-
-        tbChiTietPhieuNhap.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {},
-                        {},
-                        {},
-                        {}
-                },
-                new String [] {
-
-                }
-        ));
         spChiTietPhieuNhap.setViewportView(tbChiTietPhieuNhap);
 
         pnThanhToan.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Thanh toán", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
@@ -234,19 +211,11 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         lbTongThanhTien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbTongThanhTien.setText("Tổng thành tiền:");
 
+        txtTongSoLuong.setEditable(false);
         txtTongSoLuong.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtTongSoLuong.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTongSoLuongActionPerformed(evt);
-            }
-        });
 
+        txtTongThanhTien.setEditable(false);
         txtTongThanhTien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        txtTongThanhTien.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTongThanhTienActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout pnThanhToanLayout = new javax.swing.GroupLayout(pnThanhToan);
         pnThanhToan.setLayout(pnThanhToanLayout);
@@ -256,12 +225,12 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
                                 .addContainerGap()
                                 .addComponent(lbTongSoLuong)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtTongSoLuong, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                                .addComponent(txtTongSoLuong, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(lbTongThanhTien)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtTongThanhTien, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                                .addGap(24, 24, 24))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtTongThanhTien, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                .addContainerGap())
         );
         pnThanhToanLayout.setVerticalGroup(
                 pnThanhToanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -301,7 +270,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
                                                 .addComponent(pnThanhToan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
                                                 .addComponent(pnTimKiemPhieuNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(spDanhSachPhieuNhap)))
                                 .addContainerGap())
         );
@@ -311,62 +280,65 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         refreshData();
     }
 
-    private void btnInPhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnExportExcelActionPerformed(java.awt.event.ActionEvent evt) {
+        ArrayList<PhieuNhapHangDTO> listPN = new PhieuNhapHangBUS().getData();
+        JFileChooser fc = new JFileChooser();
+        fc.setDialogTitle("Chọn file Excel");
+        fc.setAcceptAllFileFilterUsed(false);
+        fc.addChoosableFileFilter(new FileNameExtensionFilter(".xlsx", "Microsoft Excel Documents"));
+        int returnVal = fc.showSaveDialog(parentForm);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            String path = file.getAbsolutePath().concat(".xlsx");
+            _ExportExcel.ExportPhieuNhap(listPN, path); // truyền vào hàm để sử lí xuất excel
 
+            // xuất thông báo
+            _MessageDialogHelper.showMessageDialog(parentForm,
+                    "Export excel thành công!", "Export thành công");
+        }
     }
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {
         new DialogTimKiemGUI(new Frame(), true,"PN").setVisible(true); // mở form tìm kiếm
         PhieuNhapHangDTO phieuNhapHangDTO = _SaveData.phieunhapTimThay;
         if(phieuNhapHangDTO != null) {
-            ArrayList<PhieuNhapHangDTO> listPN = new ArrayList<>(); // tạo mới danh sách khách hàng
-            listPN.add(phieuNhapHangDTO); // add khách hàng vừa tìm được vào danh sách
+            ArrayList<PhieuNhapHangDTO> listPN = new ArrayList<>();
+            listPN.add(phieuNhapHangDTO); // add phiếu nhập vừa tìm được vào danh sách phiếu nhập
+            ArrayList<ChiTietPhieuNhapDTO> listCTPN =
+                    new ChiTietPhieuNhapBUS().getListItemByMaPN(phieuNhapHangDTO.getMaPhieuNhap());
 
-            loadTablePN(listPN); // khởi tạo lại table khách hàng
-
-
-            // load các thông tin của khách hàng lên text field
-            loadForm(phieuNhapHangDTO);
-
+            loadTablePN(listPN); // khởi tạo lại table phiếu nhập
+            loadForm(phieuNhapHangDTO); // load thông tin lên field
+            loadChiTietPhieuNhap(listCTPN); // load chi tiết phiếu nhập lên filed
+            loadThanhToan(listCTPN); // load thông tin thanh toán của phiếu nhập đó
 
             // reset lại data tìm kiếm trong local
             _SaveData.phieunhapTimThay = null;
         }
     }
 
-    private void txtTongThanhTienActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void txtTongSoLuongActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void txtMaPhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-    private PhieuNhapHangDTO tbDanhSachPhieuNhapMouseListener() {
+    //===================================================================================================//
+    private void tbDanhSachPhieuNhapMouseListener() {
         try {
             int selectedRow = tbDanhSachPhieuNhap.getSelectedRow();
             String MaPN = String.valueOf(tbDanhSachPhieuNhap.getValueAt(selectedRow, 0));
-            PhieuNhapHangDTO phieuNhapHangDTO = new PhieuNhapBUS().getItemByID(MaPN);
+            PhieuNhapHangDTO phieuNhapHangDTO = new PhieuNhapHangBUS().getItemByID(MaPN);
 
             if(phieuNhapHangDTO != null) {
-                ArrayList<ChiTietPhieuNhapDTO> listCTPN = new ChiTietPhieuNhapBUS().getListItemByMaHD(phieuNhapHangDTO.getMaPhieuNhap());
+                ArrayList<ChiTietPhieuNhapDTO> listCTPN =
+                        new ChiTietPhieuNhapBUS().getListItemByMaPN(phieuNhapHangDTO.getMaPhieuNhap());
 
-                // load thông tin lên field
-                loadForm(phieuNhapHangDTO);
-                loadChiTietPhieuNhap(listCTPN); // load chi tiết hoá đơn lên filed
-                return phieuNhapHangDTO; // trả về khách hàng được nhấn vào
-            } else {
-                return null;
+                loadForm(phieuNhapHangDTO); // load thông tin lên field
+                loadChiTietPhieuNhap(listCTPN); // load chi tiết phiếu nhậpn lên filed
+                loadThanhToan(listCTPN); // load thông tin thanh toán của phiếu nhập đó
             }
         } catch (Exception ex) {
-
-            return null;
+            ex.printStackTrace();
+            _MessageDialogHelper.showErrorDialog(parentForm, "Đã có lỗi sảy ra!", "Lỗi");
         }
     }
 
+    // hàm load phiếu nhập lên table
     private void loadTablePN(ArrayList<PhieuNhapHangDTO> listPhieuNhap) {
         modelTable_PN.setRowCount(0);
         for (PhieuNhapHangDTO item : listPhieuNhap) {
@@ -377,6 +349,8 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
             });
         }
     }
+
+    // hàm load chi tiết của phiếu nhập được chọn
     private void loadChiTietPhieuNhap(ArrayList<ChiTietPhieuNhapDTO> listCTPN){
         if(listCTPN != null) {
             modelTable_CTPN.setRowCount(0);
@@ -389,16 +363,37 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
             }
         }
     }
+
+    // load txt thanh toán
+    private void loadThanhToan(ArrayList<ChiTietPhieuNhapDTO> listCTPN) {
+        int soLuong = 0;
+        float thanhTien = 0;
+
+        for(ChiTietPhieuNhapDTO item : listCTPN) {
+            MatHangDTO matHangDTO = MatHangBUS.getItemByID(item.getMaMH());
+            if(matHangDTO != null) {
+                soLuong += item.getSoLuong(); // tính toán số lượng chung
+                thanhTien += item.getSoLuong() * matHangDTO.getThanhTien(); // tính toàn thành tiền chung
+            }
+        }
+
+        txtTongSoLuong.setText(String.format("%d món hàng", soLuong));
+        txtTongThanhTien.setText(String.format("%.2f VNĐ", thanhTien));
+    }
+
+    // hàm load các form txt
     private void loadForm(PhieuNhapHangDTO phieuNhapHangDTO) {
         txtMaPhieuNhap.setText(phieuNhapHangDTO.getMaPhieuNhap());
         txtNhaCungCap.setText(phieuNhapHangDTO.getMaNCC());
         txtNgayNhap.setText(phieuNhapHangDTO.getNgayNhap());
     }
+
+    // làm mới lại text field và data
     private void refreshData() {
-        txtMaPhieuNhap.setText(""); // refresh form mã khách hàng
-        txtNhaCungCap.setText(""); // refresh form tên khách hàng
+        txtMaPhieuNhap.setText(""); // refresh form mã phiếu nhập
+        txtNhaCungCap.setText(""); // refresh form tên phiếu nhập
         txtNgayNhap.setText(""); // refresh form số điện thoại
-        tbDanhSachPhieuNhap.clearSelection(); // refresh selected danh sách khách hàng
+        tbDanhSachPhieuNhap.clearSelection(); // refresh selected danh sách phiếu nhập
 
         // set Background
         txtMaPhieuNhap.setBackground(Color.WHITE);
@@ -410,26 +405,12 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         txtNhaCungCap.setForeground(Color.BLACK);
         txtNgayNhap.setForeground(Color.BLACK);
 
-        loadTablePN(new PhieuNhapBUS().getData()); // load lại khách hàng
-
-    }
-
-    // trả vêf số lượng mặt hàng đã mua của mặt hàng đó
-    private int handleSoLuongHienTai(ChiTietHoaDonDTO item) {
-        return item.getSoLuong();
-    }
-
-    // xử lí thành tiền hiện tại của hoá đơn đã mua * số lượng
-    private float handleThanhTienHienTai(ChiTietHoaDonDTO item) {
-        MatHangDTO matHangDTO = MatHangBUS.getItemByID(item.getMaMH());
-        if (matHangDTO != null) {
-            return handleSoLuongHienTai(item) * matHangDTO.getThanhTien();
-        }
-        return 0;
+        loadTablePN(new PhieuNhapHangBUS().getData()); // load form phiếu nhập
+        loadChiTietPhieuNhap(new ArrayList<>()); // load lại form chi tiết
     }
 
     // Variables declaration - do not modify
-    private javax.swing.JButton btnInPhieuNhap;
+    private javax.swing.JButton btnExportExcel;
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnTimKiem;
     private javax.swing.JLabel lbMaPhieuNhap;

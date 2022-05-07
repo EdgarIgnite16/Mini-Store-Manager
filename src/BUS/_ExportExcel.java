@@ -2,6 +2,7 @@ package BUS;
 
 import DTO.HoaDonDTO;
 import DTO.MatHangDTO;
+import DTO.PhieuNhapHangDTO;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.status.StatusLogger;
 import org.apache.poi.ss.usermodel.Cell;
@@ -83,7 +84,7 @@ public class _ExportExcel {
         }
     }
 
-
+    // xuất dữ liệu hoá đơn
     public static void ExportHoaDon(ArrayList<HoaDonDTO> listHD, String path) {
         try {
             StatusLogger.getLogger().setLevel(Level.OFF);
@@ -143,6 +144,58 @@ public class _ExportExcel {
             sheet.autoSizeColumn(4);
             sheet.autoSizeColumn(5);
 
+
+            File file = new File(path);
+            try {
+                FileOutputStream fos = new FileOutputStream(file);
+                workbook.write(fos);
+                fos.close();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    // xuất dữ liệu phiếu nhập hàng
+    public static void ExportPhieuNhap(ArrayList<PhieuNhapHangDTO> listPN, String path) {
+        try {
+            StatusLogger.getLogger().setLevel(Level.OFF);
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            XSSFSheet sheet = workbook.createSheet("Phiếu nhập hàng");
+
+            XSSFRow row = null;
+            Cell cell = null;
+            row = sheet.createRow(0);
+
+            // config cột
+            cell = row.createCell(0, CellType.STRING);
+            cell.setCellValue("Mã phiếu nhập");
+
+            cell = row.createCell(1, CellType.STRING);
+            cell.setCellValue("Mã nhà cung cấp");
+
+            cell = row.createCell(2, CellType.STRING);
+            cell.setCellValue("Ngày nhập");
+
+            // config dòng
+            for(int i=0;i<listPN.size();i++) {
+                row = sheet.createRow(i+1);
+
+                cell = row.createCell(0, CellType.STRING);
+                cell.setCellValue(listPN.get(i).getMaPhieuNhap());
+
+                cell = row.createCell(1, CellType.STRING);
+                cell.setCellValue(listPN.get(i).getMaNCC());
+
+                cell = row.createCell(2, CellType.STRING);
+                cell.setCellValue(listPN.get(i).getNgayNhap());
+            }
+
+            sheet.autoSizeColumn(0);
+            sheet.autoSizeColumn(1);
+            sheet.autoSizeColumn(2);
 
             File file = new File(path);
             try {
