@@ -96,9 +96,9 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         txtTenNhanVien = new javax.swing.JTextField();
         txtTenKhachHang = new javax.swing.JTextField();
         txtNgayBan = new javax.swing.JTextField();
+        btnExportExcel = new javax.swing.JButton();
         btnLamMoi = new javax.swing.JButton();
         btnTimKiemHD = new javax.swing.JButton();
-        btnExportExcel = new javax.swing.JButton();
         btnTimKiemNVBan = new javax.swing.JButton();
         btnTimKiemKHMua = new javax.swing.JButton();
         spDanhSachHoaDon = new javax.swing.JScrollPane();
@@ -145,6 +145,14 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         txtNgayBan.setEditable(false);
         txtNgayBan.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
+        btnExportExcel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnExportExcel.setText("Export Excel");
+        btnExportExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportExcelActionPerformed(evt);
+            }
+        });
+
         btnLamMoi.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnLamMoi.setText("Làm mới");
         btnLamMoi.setToolTipText("Làm mới lại form");
@@ -160,14 +168,6 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         btnTimKiemHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTimKiemHDActionPerformed(evt);
-            }
-        });
-
-        btnExportExcel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnExportExcel.setText("Export Excel");
-        btnExportExcel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportExcelActionPerformed(evt);
             }
         });
 
@@ -211,10 +211,10 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(pnThongTinHoaDonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(btnTimKiemHD, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                                .addComponent(btnTimKiemHD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(btnLamMoi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(btnExportExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addComponent(btnTimKiemKHMua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                        .addComponent(btnTimKiemKHMua, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnTimKiemNVBan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap())
         );
@@ -322,7 +322,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
                                         .addComponent(spDanhSachHoaDon))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(spChiTietHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
+                                        .addComponent(spChiTietHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, 631, Short.MAX_VALUE)
                                         .addComponent(pnThanhToan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap())
         );

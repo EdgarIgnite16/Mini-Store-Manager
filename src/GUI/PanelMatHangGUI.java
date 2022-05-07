@@ -104,7 +104,6 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         btnLamMoi = new javax.swing.JButton();
         btnTimKiemMH = new javax.swing.JButton();
         btnExportExcel = new javax.swing.JButton();
-        btnImportExcel = new javax.swing.JButton();
         pbThongKeBanHang = new javax.swing.JPanel();
         lbTittle = new javax.swing.JLabel();
         lbTongSLBan = new javax.swing.JLabel();
@@ -145,7 +144,6 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         txtSoLuong.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         cbLoaiMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cbLoaiMatHang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnThem.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnThem.setText("Thêm");
@@ -197,14 +195,6 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
             }
         });
 
-        btnImportExcel.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnImportExcel.setText("Import Excel");
-        btnImportExcel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImportExcelActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnThongTinMatHangLayout = new javax.swing.GroupLayout(pnThongTinMatHang);
         pnThongTinMatHang.setLayout(pnThongTinMatHangLayout);
         pnThongTinMatHangLayout.setHorizontalGroup(
@@ -223,15 +213,12 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
                                                                 .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                                 .addGroup(pnThongTinMatHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addGroup(pnThongTinMatHangLayout.createSequentialGroup()
-                                                                .addGap(20, 20, 20)
-                                                                .addComponent(btnExportExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(btnImportExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                        .addGroup(pnThongTinMatHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                .addComponent(txtSoLuong)
-                                                                .addComponent(cbLoaiMatHang, 0, 292, Short.MAX_VALUE)))
-                                                .addGap(279, 279, 279))
+                                                        .addComponent(txtSoLuong)
+                                                        .addComponent(cbLoaiMatHang, 0, 292, Short.MAX_VALUE)
+                                                        .addComponent(btnExportExcel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(btnTimKiemMH, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(169, 169, 169))
                                         .addGroup(pnThongTinMatHangLayout.createSequentialGroup()
                                                 .addGroup(pnThongTinMatHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(lbThanhTien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -243,12 +230,10 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
                                                         .addComponent(txtThanhTien)
                                                         .addComponent(txtTenMatHang))
                                                 .addGap(18, 18, 18)
-                                                .addGroup(pnThongTinMatHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(btnTimKiemMH, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(pnThongTinMatHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                                .addComponent(btnXoa, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-                                                                .addComponent(btnSua, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-                                                                .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)))
+                                                .addGroup(pnThongTinMatHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                        .addComponent(btnXoa, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                                                        .addComponent(btnSua, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                                                        .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE))
                                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnThongTinMatHangLayout.setVerticalGroup(
@@ -281,8 +266,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
                                 .addGroup(pnThongTinMatHangLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(btnLamMoi)
                                         .addComponent(btnTimKiemMH)
-                                        .addComponent(btnExportExcel)
-                                        .addComponent(btnImportExcel))
+                                        .addComponent(btnExportExcel))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -562,16 +546,6 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         }
     }
 
-    private void btnImportExcelActionPerformed(java.awt.event.ActionEvent evt) {
-        JFileChooser fc = new JFileChooser();
-        fc.addChoosableFileFilter(new FileNameExtensionFilter("*.xlsx", "xlsx"));
-        int returnVal = fc.showOpenDialog(parentForm);
-        if(returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = fc.getSelectedFile();
-            System.out.println(file.getAbsolutePath());
-        }
-    }
-
     //===================================================================================================//
     private MatHangDTO tbDanhSachMatHangMouseListener() {
         try {
@@ -648,10 +622,8 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         loadMatHang(new MatHangBUS().getData()); // load lại khách hàng
     }
 
-
     // Variables declaration - do not modify
     private javax.swing.JButton btnExportExcel;
-    private javax.swing.JButton btnImportExcel;
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;

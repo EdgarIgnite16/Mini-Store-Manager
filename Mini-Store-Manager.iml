@@ -7,8 +7,8 @@
       <excludeFolder url="file://$MODULE_DIR$/out" />
     </content>
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="library" exported="" name="mssql-jdbc-10.2.0.jre8" level="project" />
-    <orderEntry type="library" exported="" name="poi apache" level="project" />
+    <orderEntry type="library" exported="" name="poi-apache" level="project" />
+    <orderEntry type="library" exported="" name="mssql-jdbc" level="project" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

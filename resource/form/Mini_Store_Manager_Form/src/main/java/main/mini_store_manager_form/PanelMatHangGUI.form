@@ -78,18 +78,13 @@
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="btnExportExcel" min="-2" pref="120" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="btnImportExcel" min="-2" pref="120" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtSoLuong" max="32767" attributes="0"/>
-                                  <Component id="cbLoaiMatHang" pref="292" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="txtSoLuong" max="32767" attributes="0"/>
+                              <Component id="cbLoaiMatHang" pref="292" max="32767" attributes="0"/>
+                              <Component id="btnExportExcel" alignment="1" min="-2" pref="98" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="279" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnTimKiemMH" min="-2" pref="98" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -104,13 +99,10 @@
                               <Component id="txtTenMatHang" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnTimKiemMH" min="-2" pref="92" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnXoa" pref="92" max="32767" attributes="0"/>
-                                  <Component id="btnSua" pref="92" max="32767" attributes="0"/>
-                                  <Component id="btnThem" pref="92" max="32767" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btnXoa" pref="92" max="32767" attributes="0"/>
+                              <Component id="btnSua" pref="92" max="32767" attributes="0"/>
+                              <Component id="btnThem" pref="92" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -154,7 +146,6 @@
                       <Component id="btnLamMoi" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnTimKiemMH" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnExportExcel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnImportExcel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -315,17 +306,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportExcelActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnImportExcel">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="13" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Import Excel"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImportExcelActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
