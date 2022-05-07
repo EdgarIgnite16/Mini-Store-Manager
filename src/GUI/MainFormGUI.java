@@ -8,12 +8,11 @@ import java.awt.event.ActionEvent;
 import java.net.URI;
 
 public class MainFormGUI extends javax.swing.JFrame {
+    public static PanelHoaDonGUI hoaDonGUI;
     private PanelBanHangGUI banHangGUI;
-    private PanelHoaDonGUI hoaDonGUI;
     private PanelKhachHangGUI khachHangGUI;
     private PanelNhanVienGUI nhanVienGUI;
     private PanelMatHangGUI matHangGUI;
-
     private PanelPhieuNhapGUI phieuNhapGUI;
 
     public MainFormGUI() {
@@ -568,6 +567,6 @@ public class MainFormGUI extends javax.swing.JFrame {
     private javax.swing.JButton tBar_PhieuNhap;
     private javax.swing.JToolBar.Separator tBar_Separator1;
     private javax.swing.JToolBar.Separator tBar_Separator2;
-    private javax.swing.JTabbedPane tPane_Main;
+    public static javax.swing.JTabbedPane tPane_Main;
     // End of variables declaration
 }

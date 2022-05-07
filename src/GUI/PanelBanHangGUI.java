@@ -40,41 +40,6 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         listMatHangSelected = new ArrayList<>();
     }
 
-    private static void loadButton(ArrayList<MatHangDTO> listFillData) {
-        int colItem = 0, rowItem = 0;
-
-        if (listFillData.size() / 4 < 1) {
-            colItem = 4;
-            rowItem = listFillData.size() / colItem + 2; // tránh trường hợp row < 1
-        } else {
-            colItem = 4;
-            rowItem = listFillData.size() / colItem + 1; // tránh trường hợp row = 1
-        }
-
-        pnMatHang.setLayout(new GridLayout(rowItem, colItem, 4, 4));
-        for (MatHangDTO item : listFillData) {
-            if(item.getStatus() == 1) {
-                JButton jButton = new JButton();
-                String titleBtn = String.format(
-                        "<html> %s <br> %.1f VNĐ </html>",
-                        item.getTenMH(), item.getThanhTien());
-                jButton.setText(titleBtn);
-                jButton.setIcon(new ImageIcon(LoaiMatHangBUS.getDefaultIcon(item.getMaLMH())));
-                jButton.setToolTipText(String.format("%s - %.2f VNĐ ", item.getTenMH(), item.getThanhTien()));
-                jButton.setFocusable(false);
-                jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-                jButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-                jButton.setFont(new Font("Segoe UI", 0, 12));
-                jButton.addActionListener(new ActionListener() {
-                    public void actionPerformed(java.awt.event.ActionEvent evt) {
-                        handleOnClickBtn(evt);
-                    }
-                });
-                pnMatHang.add(jButton);
-            }
-        }
-    }
-
     public static void initButtonFood() {
         ArrayList<MatHangDTO> listSP = new MatHangBUS().getData();
         loadButton(listSP);
@@ -598,9 +563,10 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
     }
 
     private void btnDanhSachHoaDonActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        MainFormGUI.tPane_Main.setSelectedComponent(MainFormGUI.hoaDonGUI);
     }
 
+    // bắt sự kiện ComboBox mã giảm giá mỗi lần thay đổi
     private void cboxMaGiamGiaActionListener(ActionEvent e) {
         tongtien = _SaveData.tongTien; // lấy giá trị tổng hoá đơn trong local
         String name = String.valueOf(cboxMaGiamGia.getSelectedItem());
@@ -610,6 +576,19 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
             handleLoadTongTien(tongtien, tileGiam);
         } else {
             loadHoaDon(); // load lại hoá đơn nếu mã chọn ko tồn tại => load lại tiền ban đầu
+        }
+    }
+
+    // lấy đối tượng mặt hàng khi ấn vào nút
+    private MatHangDTO tbGioHangMousePressed() {
+        try {
+            int selectedRow = tbGioHang.getSelectedRow();
+            String idMH = String.valueOf(tbGioHang.getValueAt(selectedRow, 0));
+            return MatHangBUS.getItemByID(idMH);
+        } catch (Exception ex) {
+            _MessageDialogHelper.showErrorDialog(parentForm,
+                    "Vui lòng chọn một dòng trong bảng dữ liệu!", "Yêu cầu chọn dữ liệu");
+            return null;
         }
     }
 
@@ -730,16 +709,40 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         }
     }
 
-    // lấy đối tượng mặt hàng khi ấn vào nút
-    private MatHangDTO tbGioHangMousePressed() {
-        try {
-            int selectedRow = tbGioHang.getSelectedRow();
-            String idMH = String.valueOf(tbGioHang.getValueAt(selectedRow, 0));
-            return MatHangBUS.getItemByID(idMH);
-        } catch (Exception ex) {
-            _MessageDialogHelper.showErrorDialog(parentForm,
-                    "Vui lòng chọn một dòng trong bảng dữ liệu!", "Yêu cầu chọn dữ liệu");
-            return null;
+    // thực hiện load các nút sản phẩm
+    private static void loadButton(ArrayList<MatHangDTO> listFillData) {
+        int colItem = 0, rowItem = 0;
+
+        // xử lí các trường hợp số lượng mặt hàng trong phần sản phẩm
+        if (listFillData.size() / 4 < 1) {
+            colItem = 4;
+            rowItem = listFillData.size() / colItem + 2; // tránh trường hợp row < 1
+        } else {
+            colItem = 4;
+            rowItem = listFillData.size() / colItem + 1; // tránh trường hợp row = 1
+        }
+
+        pnMatHang.setLayout(new GridLayout(rowItem, colItem, 4, 4));
+        for (MatHangDTO item : listFillData) {
+            if(item.getStatus() == 1) {
+                JButton jButton = new JButton();
+                String titleBtn = String.format(
+                        "<html> %s <br> %.1f VNĐ </html>",
+                        item.getTenMH(), item.getThanhTien());
+                jButton.setText(titleBtn);
+                jButton.setIcon(new ImageIcon(LoaiMatHangBUS.getDefaultIcon(item.getMaLMH())));
+                jButton.setToolTipText(String.format("%s - %.2f VNĐ ", item.getTenMH(), item.getThanhTien()));
+                jButton.setFocusable(false);
+                jButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                jButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+                jButton.setFont(new Font("Segoe UI", 0, 12));
+                jButton.addActionListener(new ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        handleOnClickBtn(evt);
+                    }
+                });
+                pnMatHang.add(jButton);
+            }
         }
     }
 
@@ -748,26 +751,6 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         // xử lí in ra tiền đã được xử lí qua mã giảm giá => chưa lưu thành tiền thực tế lên local
         tongtien = tongtien - (tongtien * tileGiam);
         txtTongHoaDon.setText(String.valueOf(String.format("%.2f VNĐ", tongtien))); // load lại tổng tiền thanh toán
-    }
-
-    // cắt chuỗi làm mã hoá đơn
-    public String handleMHD() {
-        String maHD = "HD";
-        String[] arr = txtNgayLap.getText().split(" ");
-        for (int i = 0; i < arr.length; i++) {
-            if (i == 0) {
-                String[] supArr = arr[i].split("-");
-                for (String item : supArr) {
-                    maHD = maHD.concat(item);
-                }
-            } else {
-                String[] supArr = arr[i].split(":");
-                for (String item : supArr) {
-                    maHD = maHD.concat(item);
-                }
-            }
-        }
-        return maHD;
     }
 
     // reset lại tất cả form và value
@@ -793,6 +776,27 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
             MatHangBUS.resetThanhTien(item);
         }
     }
+
+    // cắt chuỗi làm mã hoá đơn
+    public String handleMHD() {
+        String maHD = "HD";
+        String[] arr = txtNgayLap.getText().split(" ");
+        for (int i = 0; i < arr.length; i++) {
+            if (i == 0) {
+                String[] supArr = arr[i].split("-");
+                for (String item : supArr) {
+                    maHD = maHD.concat(item);
+                }
+            } else {
+                String[] supArr = arr[i].split(":");
+                for (String item : supArr) {
+                    maHD = maHD.concat(item);
+                }
+            }
+        }
+        return maHD;
+    }
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnDanhSachHoaDon;
