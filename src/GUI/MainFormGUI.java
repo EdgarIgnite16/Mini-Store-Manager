@@ -14,6 +14,8 @@ public class MainFormGUI extends javax.swing.JFrame {
     private PanelNhanVienGUI nhanVienGUI;
     private PanelMatHangGUI matHangGUI;
 
+    private PanelPhieuNhapGUI phieuNhapGUI;
+
     public MainFormGUI() {
         initComponents();
         initForm();
@@ -44,6 +46,11 @@ public class MainFormGUI extends javax.swing.JFrame {
         matHangGUI = new PanelMatHangGUI();
         String pathMatHang = "resource\\icon\\icons8-goods-16.png";
         tPane_Main.addTab("Quản lí mặt hàng", new ImageIcon(pathMatHang), matHangGUI, "\"Quản lí  mặt hàng");
+
+        // Phiếu nhập form
+        phieuNhapGUI = new PanelPhieuNhapGUI();
+        String pathPhieuNhapHang= "resource\\icon\\icons8-paid-bill-16 (1).png";
+        tPane_Main.addTab("Quản lí phiếu nhập", new ImageIcon(pathPhieuNhapHang),phieuNhapGUI,"\"Quản lí  phiếu nhập");
     }
 
     /**
@@ -473,7 +480,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void mnuManage_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        tPane_Main.setSelectedComponent(phieuNhapGUI);
     }
 
     // tbar
@@ -526,7 +533,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void tBar_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        tPane_Main.setSelectedComponent(phieuNhapGUI);
     }
 
     // Variables declaration - do not modify

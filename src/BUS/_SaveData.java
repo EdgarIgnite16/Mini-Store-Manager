@@ -1,9 +1,7 @@
 package BUS;
 
-import DTO.HoaDonDTO;
-import DTO.KhachHangDTO;
-import DTO.MatHangDTO;
-import DTO.NhanVienDTO;
+import DAO.PhieuNhapHangDAO;
+import DTO.*;
 
 import java.util.ArrayList;
 
@@ -34,5 +32,8 @@ public class _SaveData {
     public static NhanVienDTO nhanVienTimThay = null;
     public static HoaDonDTO hoaDonTimThay = null;
     public static ArrayList<HoaDonDTO> ListHoaDonTimThay = null;
+
     public static MatHangDTO matHangTimThay = null;
+
+    public static PhieuNhapHangDTO phieunhapTimThay = null;
 }
