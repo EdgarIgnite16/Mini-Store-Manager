@@ -89,7 +89,8 @@
                               <Component id="btnThem" max="32767" attributes="0"/>
                               <Component id="btnSua" max="32767" attributes="0"/>
                               <Component id="btnTangSL" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnSua2" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnGiamSL" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jButton1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -116,18 +117,19 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbSoLuongNhap" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtSoLuongNhap" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnTangSL" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lbNgayNhap" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtNgayNhap" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnSua2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnTangSL" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="cbNhaCungCap" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lbNhaCungCap" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnGiamSL" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="12" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -281,7 +283,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTangSLActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="btnSua2">
+        <Component class="javax.swing.JButton" name="btnGiamSL">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
@@ -289,8 +291,16 @@
             <Property name="text" type="java.lang.String" value="Gi&#x1ea3;m SL nh&#x1ead;p"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSua2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGiamSLActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="13" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Hu&#x1ef7; &#x111;&#x1a1;n nh&#x1ead;p"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

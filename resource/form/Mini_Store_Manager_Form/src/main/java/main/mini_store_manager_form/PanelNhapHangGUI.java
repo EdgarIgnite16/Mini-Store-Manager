@@ -42,7 +42,8 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         btnThem = new javax.swing.JButton();
         btnSua = new javax.swing.JButton();
         btnTangSL = new javax.swing.JButton();
-        btnSua2 = new javax.swing.JButton();
+        btnGiamSL = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         spDanhSachMatHang = new javax.swing.JScrollPane();
         tbDanhSachMatHang = new javax.swing.JTable();
         spDanhSachMatHangNhap = new javax.swing.JScrollPane();
@@ -122,13 +123,16 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             }
         });
 
-        btnSua2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnSua2.setText("Giảm SL nhập");
-        btnSua2.addActionListener(new java.awt.event.ActionListener() {
+        btnGiamSL.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnGiamSL.setText("Giảm SL nhập");
+        btnGiamSL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSua2ActionPerformed(evt);
+                btnGiamSLActionPerformed(evt);
             }
         });
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jButton1.setText("Huỷ đơn nhập");
 
         javax.swing.GroupLayout pnThongTinPhieuNhapLayout = new javax.swing.GroupLayout(pnThongTinPhieuNhap);
         pnThongTinPhieuNhap.setLayout(pnThongTinPhieuNhapLayout);
@@ -160,7 +164,8 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
                             .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnTangSL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSua2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnGiamSL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         pnThongTinPhieuNhapLayout.setVerticalGroup(
@@ -180,16 +185,17 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
                 .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbSoLuongNhap)
                     .addComponent(txtSoLuongNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTangSL))
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbNgayNhap)
                     .addComponent(txtNgayNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSua2))
+                    .addComponent(btnTangSL))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbNhaCungCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbNhaCungCap))
+                    .addComponent(lbNhaCungCap)
+                    .addComponent(btnGiamSL))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTimKiemNV)
@@ -278,19 +284,20 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnTangSLActionPerformed
 
-    private void btnSua2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua2ActionPerformed
+    private void btnGiamSLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGiamSLActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSua2ActionPerformed
+    }//GEN-LAST:event_btnGiamSLActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGiamSL;
     private javax.swing.JButton btnLamMoi;
     private javax.swing.JButton btnSua;
-    private javax.swing.JButton btnSua2;
     private javax.swing.JButton btnTangSL;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnTimKiemNV;
     private javax.swing.JComboBox<String> cbNhaCungCap;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lbMaMatHang;
     private javax.swing.JLabel lbMaPhieuNhap;
     private javax.swing.JLabel lbNgayNhap;
