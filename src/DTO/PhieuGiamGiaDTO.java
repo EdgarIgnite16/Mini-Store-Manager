@@ -6,9 +6,7 @@ public class PhieuGiamGiaDTO {
     private String noiDung;
     private float tiLeGiam;
 
-    public PhieuGiamGiaDTO() {
-
-    }
+    public PhieuGiamGiaDTO() {}
 
     public PhieuGiamGiaDTO(String maGiamGia, String tenGiamGia, String noiDung, float tiLeGiam) {
         this.maGiamGia = maGiamGia;

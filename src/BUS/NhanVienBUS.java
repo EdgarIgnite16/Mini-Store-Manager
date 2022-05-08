@@ -1,7 +1,6 @@
 package BUS;
 
 import DAO.NhanVienDAO;
-import DTO.MatHangDTO;
 import DTO.NhanVienDTO;
 
 import java.util.ArrayList;

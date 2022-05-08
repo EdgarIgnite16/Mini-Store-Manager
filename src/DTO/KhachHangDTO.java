@@ -6,9 +6,7 @@ public class KhachHangDTO {
     private String sdt;
     private int status;
 
-    public KhachHangDTO() {
-
-    }
+    public KhachHangDTO() {}
 
     public KhachHangDTO(String maKH, String tenKH, String sdt, int status) {
         this.maKH = maKH;

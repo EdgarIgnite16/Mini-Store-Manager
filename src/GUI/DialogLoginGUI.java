@@ -192,7 +192,8 @@ public class DialogLoginGUI extends javax.swing.JDialog {
                 }
             } catch (Exception ex) {
                 ex.printStackTrace();
-                _MessageDialogHelper.showErrorDialog(this, ex.getMessage(), "Error Login");
+                String errorMsg = "Đã có lỗi sảy ra!\nLỗi: " + ex.getMessage();
+                _MessageDialogHelper.showErrorDialog(this, errorMsg, "Error Login");
             }
         }
     }

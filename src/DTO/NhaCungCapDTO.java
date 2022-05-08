@@ -5,9 +5,7 @@ public class NhaCungCapDTO {
     private String tenNCC;
     private String SDT;
 
-    public NhaCungCapDTO() {
-
-    }
+    public NhaCungCapDTO() {}
 
     public NhaCungCapDTO(String maNCC, String tenNCC, String SDT) {
         this.maNCC = maNCC;

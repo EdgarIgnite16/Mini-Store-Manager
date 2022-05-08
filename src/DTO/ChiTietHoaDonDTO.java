@@ -5,9 +5,7 @@ public class ChiTietHoaDonDTO {
     private String maMH; // foreign key
     private int soLuong;
 
-    public ChiTietHoaDonDTO() {
-
-    }
+    public ChiTietHoaDonDTO() {}
 
     public ChiTietHoaDonDTO(String maHD, String maMH, int soLuong) {
         this.maHD = maHD;

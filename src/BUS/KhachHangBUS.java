@@ -2,7 +2,6 @@ package BUS;
 
 import DAO.KhachHangDAO;
 import DTO.KhachHangDTO;
-import DTO.NhanVienDTO;
 
 import java.util.ArrayList;
 

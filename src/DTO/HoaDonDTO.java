@@ -10,9 +10,7 @@ public class HoaDonDTO {
 
 //    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-    public HoaDonDTO() {
-
-    }
+    public HoaDonDTO() {}
 
     public HoaDonDTO(String maHD, String maNV, String maKH, String maGiamGia, float tongHoaDon, String ngayBan) {
         this.maHD = maHD;

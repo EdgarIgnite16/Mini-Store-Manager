@@ -11,8 +11,7 @@ public class PhieuNhapHangDTO {
 
 //    DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
-    public PhieuNhapHangDTO() {
-    }
+    public PhieuNhapHangDTO() {}
 
     public PhieuNhapHangDTO(String maPhieuNhap, String maNCC, String ngayNhap) {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
