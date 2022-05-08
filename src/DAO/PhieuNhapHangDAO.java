@@ -30,6 +30,8 @@ public class PhieuNhapHangDAO {
             }
         }
     }
+
+    // hàm insert dữ liệu lên database
     public boolean insertItem(PhieuNhapHangDTO phieuNhapHangDTO) throws Exception {
         String sql = "INSERT INTO [dbo].[PhieuNhapHang] ([maPhieuNhap] ,[maNCC] ,[ngayNhap])" +
                 " VALUES(?, ?, ?)";
