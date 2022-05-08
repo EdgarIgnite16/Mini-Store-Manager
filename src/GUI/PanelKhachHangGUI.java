@@ -487,7 +487,6 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
-    //===================================================================================================//
     private KhachHangDTO tbDanhSachKhachHangMouseListener() {
         try {
             int selectedRow = tbDanhSachKhachHang.getSelectedRow();
@@ -523,6 +522,8 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
+    //===================================================================================================//
+    // hàm load lại table hoá đơn
     private void loadHoaDon(ArrayList<HoaDonDTO> listHoaDon) {
         modelTable_HD.setRowCount(0);
         for (HoaDonDTO item : listHoaDon) {
@@ -537,6 +538,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // hàm load lại table khách hàng
     private void loadTableKH(ArrayList<KhachHangDTO> listKhachHang) {
         modelTable_KH.setRowCount(0);
         for (KhachHangDTO item : listKhachHang) {
@@ -549,13 +551,14 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // hàm load các txt
     private void loadForm(KhachHangDTO khachHangDTO) {
         txtMaKhachHang.setText(khachHangDTO.getMaKH());
         txtTenKhachHang.setText(khachHangDTO.getTenKH());
         txtSoDienThoai.setText(khachHangDTO.getSdt());
     }
 
-    // tạo mới lại data
+    // làm mới lại text field và data
     private void refreshData() {
         txtMaKhachHang.setText(""); // refresh form mã khách hàng
         txtTenKhachHang.setText(""); // refresh form tên khách hàng
@@ -575,6 +578,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         loadTableKH(new KhachHangBUS().getData()); // load lại khách hàng
         loadHoaDon(new ArrayList<>()); // load lại hoá đơn
     }
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnLamMoi;

@@ -410,7 +410,6 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         }
     }
 
-    //===================================================================================================//
     private void tbDanhSachHoaDonMouseListener() {
         int selectedRow = tbDanhSachHoaDon.getSelectedRow();
         String idHD = String.valueOf(tbDanhSachHoaDon.getValueAt(selectedRow, 0));
@@ -424,6 +423,8 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         }
     }
 
+    //===================================================================================================//
+    // hàm load table hoá đơn
     private void loadHoaDon(ArrayList<HoaDonDTO> listHoaDon) {
         modelTable_HD.setRowCount(0);
         for (HoaDonDTO item : listHoaDon) {
@@ -438,6 +439,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         }
     }
 
+    // hàm load table chi tiết hoá đơn
     private void loadChiTietHoaDon(ArrayList<ChiTietHoaDonDTO> listCTHD){
         if(listCTHD != null) {
             modelTable_CTHD.setRowCount(0);
@@ -453,6 +455,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         }
     }
 
+    // hàm load lại txt
     private void loadForm(HoaDonDTO hoaDonDTO) {
         txtMaHoaDon.setText(hoaDonDTO.getMaHD());
         txtMaGiamGia.setText(hoaDonDTO.getMaGiamGia());
@@ -470,6 +473,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         txtTongTienHoaDon.setText(String.format("%.2f VNĐ", hoaDonDTO.getTongHoaDon()));
     }
 
+    // hàm tính lại tổng tiền ban đầu của hoá đơn
     private float tinhTongTienBanDau(float thanhTien, float tileGiam) {
         return thanhTien/(1-tileGiam);
     }
@@ -510,7 +514,6 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
             item.thanhTien_hientai = 0;
         }
     }
-
 
 
     // Variables declaration - do not modify

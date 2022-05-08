@@ -585,7 +585,6 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         }
     }
 
-    //===================================================================================================//
     private MatHangDTO tbDanhSachMatHangMouseListener() {
         try {
             int selectedRow = tbDanhSachMatHang.getSelectedRow();
@@ -604,6 +603,8 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         }
     }
 
+    //===================================================================================================//
+    // hàm load table mặt hàng
     private void loadMatHang(ArrayList<MatHangDTO> listMatHang) {
         modelTable_MH.setRowCount(0);
         for (MatHangDTO item : listMatHang) {
@@ -618,6 +619,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // hàm load txt field
     private void loadForm(MatHangDTO matHangDTO) {
         ChiTietHoaDonBUS chiTietHoaDonBUS = new ChiTietHoaDonBUS();
         HoaDonBUS hoaDonBUS = new HoaDonBUS();
@@ -639,6 +641,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         txtPhanTramDoanhThu.setText(String.format("%.2f%s tổng doanh thu cửa hàng.", phanTramDoanhThu * 100, "%"));
     }
 
+    // làm mới lại text field và data
     private void refreshData() {
         txtMaMatHang.setText(""); // refresh form mã khách hàng
         txtTenMatHang.setText(""); // refresh form tên khách hàng
@@ -661,6 +664,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
 
         loadMatHang(new MatHangBUS().getData()); // load lại khách hàng
     }
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnExportExcel;

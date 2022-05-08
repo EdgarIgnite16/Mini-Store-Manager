@@ -606,7 +606,6 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         }
     }
 
-    //===================================================================================================//
     private NhanVienDTO tbDanhSachNhanVienListener() {
         try {
             int selectedRow = tbDanhSachNhanVien.getSelectedRow();
@@ -642,6 +641,8 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         }
     }
 
+    //===================================================================================================//
+    // hàm load lại hoá đơn
     private void loadHoaDon(ArrayList<HoaDonDTO> listHoaDon) {
         modelTable_HD.setRowCount(0);
         for (HoaDonDTO item : listHoaDon) {
@@ -656,6 +657,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         }
     }
 
+    // hàm load lại bảng nhân viên
     private void loadTableNV(ArrayList<NhanVienDTO> listNhanVien) {
         modelTable_NV.setRowCount(0);
         for (NhanVienDTO item : listNhanVien) {
@@ -671,6 +673,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         }
     }
 
+    // hàm load lại txt
     private void loadForm(NhanVienDTO nhanVienDTO) {
         txtMaNhanVien.setText(nhanVienDTO.getMaNV());
         txtTenNhanVien.setText(nhanVienDTO.getTenNV());
@@ -680,7 +683,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         cbCaLamViec.setSelectedItem(new CaLamViecBUS().getItemByID(nhanVienDTO.getMaCa()).getTenCa());
     }
 
-    // tạo mới lại data
+    // làm mới lại text field và data
     private void refreshData() {
         txtMaNhanVien.setText(""); // refresh form mã nhân viên
         txtTenNhanVien.setText(""); // refresh form tên nhân viên
@@ -705,6 +708,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         loadTableNV(new NhanVienBUS().getData()); // load lại khách hàng
         loadHoaDon(new ArrayList<>()); // load lại hoá đơn
     }
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnLamMoi;

@@ -317,7 +317,6 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         }
     }
 
-    //===================================================================================================//
     private void tbDanhSachPhieuNhapMouseListener() {
         try {
             int selectedRow = tbDanhSachPhieuNhap.getSelectedRow();
@@ -338,6 +337,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         }
     }
 
+    //===================================================================================================//
     // hàm load phiếu nhập lên table
     private void loadTablePN(ArrayList<PhieuNhapHangDTO> listPhieuNhap) {
         modelTable_PN.setRowCount(0);
@@ -408,6 +408,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         loadTablePN(new PhieuNhapHangBUS().getData()); // load form phiếu nhập
         loadChiTietPhieuNhap(new ArrayList<>()); // load lại form chi tiết
     }
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnExportExcel;
