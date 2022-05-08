@@ -184,6 +184,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtMaPhieuNhap">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
             </Property>
@@ -205,6 +206,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtNgayNhap">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="13" style="0"/>
             </Property>

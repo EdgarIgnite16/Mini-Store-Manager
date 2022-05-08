@@ -66,12 +66,14 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         lbNhaCungCap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbNhaCungCap.setText("Nhà cung cấp:");
 
+        txtMaPhieuNhap.setEditable(false);
         txtMaPhieuNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         txtMaMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         txtSoLuongNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
+        txtNgayNhap.setEditable(false);
         txtNgayNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         cbNhaCungCap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
