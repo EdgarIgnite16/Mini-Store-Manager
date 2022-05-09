@@ -40,7 +40,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         btnLamMoi = new javax.swing.JButton();
         btnTimKiemNV = new javax.swing.JButton();
         btnThem = new javax.swing.JButton();
-        btnSua = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
         btnTangSL = new javax.swing.JButton();
         btnGiamSL = new javax.swing.JButton();
         btnHuyDonNhap = new javax.swing.JButton();
@@ -70,6 +70,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         txtMaPhieuNhap.setEditable(false);
         txtMaPhieuNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
+        txtMaMatHang.setEditable(false);
         txtMaMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         txtSoLuongNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -78,11 +79,6 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         txtNgayNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         cbNhaCungCap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        cbNhaCungCap.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbNhaCungCapActionPerformed(evt);
-            }
-        });
 
         btnLamMoi.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnLamMoi.setText("Làm mới");
@@ -110,11 +106,11 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             }
         });
 
-        btnSua.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnSua.setText("Xoá mặt hàng");
-        btnSua.addActionListener(new java.awt.event.ActionListener() {
+        btnXoa.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnXoa.setText("Xoá mặt hàng");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSuaActionPerformed(evt);
+                btnXoaActionPerformed(evt);
             }
         });
 
@@ -136,6 +132,11 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
 
         btnHuyDonNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnHuyDonNhap.setText("Huỷ đơn nhập");
+        btnHuyDonNhap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHuyDonNhapActionPerformed(evt);
+            }
+        });
 
         btnXacNhanNhap.setText("Xác nhận nhập");
         btnXacNhanNhap.addActionListener(new java.awt.event.ActionListener() {
@@ -173,7 +174,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
                 .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnTimKiemNV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnThem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnXoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnTangSL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnGiamSL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -188,7 +189,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
                     .addComponent(btnThem))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnThongTinPhieuNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSua)
+                    .addComponent(btnXoa)
                     .addComponent(txtMaMatHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbMaMatHang))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -283,13 +284,9 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnThemActionPerformed
 
-    private void cbNhaCungCapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbNhaCungCapActionPerformed
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbNhaCungCapActionPerformed
-
-    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSuaActionPerformed
+    }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnTangSLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTangSLActionPerformed
         // TODO add your handling code here:
@@ -303,16 +300,20 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnXacNhanNhapActionPerformed
 
+    private void btnHuyDonNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHuyDonNhapActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnHuyDonNhapActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGiamSL;
     private javax.swing.JButton btnHuyDonNhap;
     private javax.swing.JButton btnLamMoi;
-    private javax.swing.JButton btnSua;
     private javax.swing.JButton btnTangSL;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnTimKiemNV;
     private javax.swing.JButton btnXacNhanNhap;
+    private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cbNhaCungCap;
     private javax.swing.JLabel lbMaMatHang;
     private javax.swing.JLabel lbMaPhieuNhap;
