@@ -1,6 +1,7 @@
 package BUS;
 
 import DAO.NhaCungCapDAO;
+import DTO.LoaiMatHangDTO;
 import DTO.NhaCungCapDTO;
 
 import java.util.ArrayList;
@@ -16,7 +17,14 @@ public class NhaCungCapBUS {
             ex.printStackTrace();
         }
     }
-
+    public NhaCungCapDTO getItemByID(String id) {
+        for (NhaCungCapDTO item : listNhaCungCap) {
+            if (item.getMaNCC().equals(id)) {
+                return item;
+            }
+        }
+        return null;
+    }
     public NhaCungCapDTO getItemByName(String name) {
         for (NhaCungCapDTO item : listNhaCungCap) {
             if (item.getTenNCC().equals(name)) {

@@ -460,6 +460,9 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
             LoaiMatHangDTO loaiMatHangDTO = new LoaiMatHangBUS().getItemByName(String.valueOf(cboxLoaiMatHang.getSelectedItem()));
             String nameMH = txtTenMatHang.getText();
             String maLMH = loaiMatHangDTO != null ? loaiMatHangDTO.getMaLMH() : "";
+
+            System.out.println(nameMH);
+            System.out.println(maLMH);
             ArrayList<MatHangDTO> listFillData = MatHangBUS.fillData(nameMH, maLMH);
 
             // load dữ liệu lên màn hình

@@ -14,6 +14,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     private PanelNhanVienGUI nhanVienGUI;
     private PanelMatHangGUI matHangGUI;
     private PanelPhieuNhapGUI phieuNhapGUI;
+    private PanelNhapHangGUI nhaphangGUI;
 
     public MainFormGUI() {
         initComponents();
@@ -46,11 +47,17 @@ public class MainFormGUI extends javax.swing.JFrame {
         String pathMatHang = "resource\\icon\\icons8-goods-16.png";
         tPane_Main.addTab("Quản lí mặt hàng", new ImageIcon(pathMatHang), matHangGUI, "\"Quản lí  mặt hàng");
 
+        // Nhập hàng form
+        nhaphangGUI =new PanelNhapHangGUI();
+        String pathNhapHang="resource\\icon\\icons8_input_16px_1.png";
+        tPane_Main.addTab("Quản lí nhập hàng", new ImageIcon(pathNhapHang),nhaphangGUI,"\"Quản lí  nhập hàng");
+
         // Phiếu nhập form
         phieuNhapGUI = new PanelPhieuNhapGUI();
         String pathPhieuNhapHang= "resource\\icon\\icons8-paid-bill-16 (1).png";
         tPane_Main.addTab("Quản lí phiếu nhập", new ImageIcon(pathPhieuNhapHang),phieuNhapGUI,"\"Quản lí  phiếu nhập");
-    }
+
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -475,7 +482,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void mnuManage_NhapHangActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        tPane_Main.setSelectedComponent(nhaphangGUI);
     }
 
     private void mnuManage_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {
@@ -528,7 +535,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     }
 
     private void tBar_NhapHangActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        tPane_Main.setSelectedComponent(nhaphangGUI);
     }
 
     private void tBar_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {

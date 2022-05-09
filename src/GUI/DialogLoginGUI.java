@@ -176,7 +176,7 @@ public class DialogLoginGUI extends javax.swing.JDialog {
             try {
                 String username = txtAccount.getText().trim();
                 String password = new String(txtPassword.getPassword());
-                NhanVienDTO nhanVienDTO = new NhanVienBUS().getNhanVienLogin(username, password);
+                NhanVienDTO nhanVienDTO = new NhanVienBUS().getNhanVienLogin(username,password);
                 if (nhanVienDTO != null) {
                     this.dispose();
                     try {

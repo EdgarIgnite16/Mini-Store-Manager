@@ -153,7 +153,7 @@ public class MatHangDAO {
     }
 
     public ArrayList<MatHangDTO> fillDataByTenMH(String tenMH) throws Exception {
-        String sql = "SELECT * FROM [dbo].[MatHang] WHERE [tenMatHang] like '%" + tenMH + "%'";
+        String sql = "SELECT * FROM [dbo].[MatHang] WHERE [tenMatHang] like N'%" + tenMH + "%'";
 
         // sử dụng try-with-resource
         try (
@@ -203,7 +203,7 @@ public class MatHangDAO {
     }
 
     public ArrayList<MatHangDTO> fillDataByTenMH_LoaiMH(String tenMH, String maLoaiMatHang) throws Exception {
-        String sql = "SELECT * FROM [dbo].[MatHang] WHERE [maLMH] = '" + maLoaiMatHang + "' AND [tenMatHang] like '%" + tenMH + "%'";
+        String sql = "SELECT * FROM [dbo].[MatHang] WHERE [maLMH] = '" + maLoaiMatHang + "' AND [tenMatHang] like N'%" + tenMH + "%'";
 
         // sử dụng try-with-resource
         try (
