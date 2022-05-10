@@ -30,6 +30,7 @@ public class ChiTietPhieuNhapDAO {
             }
         }
     }
+
     public boolean insertItem(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO) throws Exception {
         String sql = "INSERT INTO [dbo].[CTPN] ([maPhieuNhap], [maMH], [soLuong])" +
                 " VALUES(?, ?, ?)";

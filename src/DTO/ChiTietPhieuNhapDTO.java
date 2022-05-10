@@ -5,7 +5,8 @@ public class ChiTietPhieuNhapDTO {
     private String maMH; // foreign key
     private int soLuong;
 
-    public ChiTietPhieuNhapDTO() {}
+    public ChiTietPhieuNhapDTO() {
+    }
 
     public ChiTietPhieuNhapDTO(String maPhieuNhap, String maMH, int soLuong) {
         this.maPhieuNhap = maPhieuNhap;

@@ -81,7 +81,7 @@ public class HoaDonBUS {
 
     public float tinhTongThanhTienAll() {
         float tongThanhTien = 0;
-        for(HoaDonDTO item : listHoaDon) {
+        for (HoaDonDTO item : listHoaDon) {
             tongThanhTien += item.getTongHoaDon();
         }
         return tongThanhTien;
@@ -89,8 +89,8 @@ public class HoaDonBUS {
 
     // kiểm tra khách hàng đã tồn tại trong danh sách hoá đơn
     public boolean checkKhachHangExist(KhachHangDTO khachHangDTO) {
-        for(HoaDonDTO item : listHoaDon) {
-            if(item.getMaKH().equals(khachHangDTO.getMaKH())) {
+        for (HoaDonDTO item : listHoaDon) {
+            if (item.getMaKH().equals(khachHangDTO.getMaKH())) {
                 return true;
             }
         }
@@ -99,8 +99,8 @@ public class HoaDonBUS {
 
     // kiểm tra nhân viên đã tồn tại trong danh sách hoá đơn
     public boolean checkNhanVienExist(NhanVienDTO nhanVienDTO) {
-        for(HoaDonDTO item : listHoaDon) {
-            if(item.getMaNV().equals(nhanVienDTO.getMaNV())) {
+        for (HoaDonDTO item : listHoaDon) {
+            if (item.getMaNV().equals(nhanVienDTO.getMaNV())) {
                 return true;
             }
         }

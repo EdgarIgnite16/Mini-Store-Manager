@@ -1,7 +1,10 @@
 package GUI;
 
 import BUS.*;
-import DTO.*;
+import DTO.CaLamViecDTO;
+import DTO.ChucVuDTO;
+import DTO.HoaDonDTO;
+import DTO.NhanVienDTO;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -375,9 +378,9 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
     private void btnTimKiemHDActionPerformed(java.awt.event.ActionEvent evt) {
         NhanVienDTO nhanVienDTO = tbDanhSachNhanVienListener();
         if (nhanVienDTO != null) {
-            new DialogTimKiemGUI(new Frame(), true,"NV").setVisible(true); // mở form tìm kiếm
+            new DialogTimKiemGUI(new Frame(), true, "NV").setVisible(true); // mở form tìm kiếm
             HoaDonDTO hoaDonDTO = _SaveData.hoaDonTimThay;
-            if(hoaDonDTO != null) {
+            if (hoaDonDTO != null) {
                 ArrayList<HoaDonDTO> listHD = new ArrayList<>(); // tạo mới danh sách hoá đơn
                 listHD.add(hoaDonDTO); // add hoá đơn vừa tìm được vào danh sách
                 loadHoaDon(listHD); // load lại lịch sử mua hàng của khách hàng được chọn
@@ -389,9 +392,9 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
     }
 
     private void btnTimKiemNVActionPerformed(java.awt.event.ActionEvent evt) {
-        new DialogTimKiemGUI(new Frame(), true,"NV").setVisible(true); // mở form tìm kiếm
+        new DialogTimKiemGUI(new Frame(), true, "NV").setVisible(true); // mở form tìm kiếm
         NhanVienDTO nhanVienDTO = _SaveData.nhanVienTimThay;
-        if(nhanVienDTO != null) {
+        if (nhanVienDTO != null) {
             ArrayList<HoaDonDTO> listHoaDon = new HoaDonBUS().fillData(nhanVienDTO.getMaNV(), "NV");
             ArrayList<NhanVienDTO> listNV = new ArrayList<>(); // tạo mới danh sách khách hàng
             listNV.add(nhanVienDTO); // add khách hàng vừa tìm được vào danh sách
@@ -409,7 +412,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
 
     private void btnXemCTHDActionPerformed(java.awt.event.ActionEvent evt) {
         HoaDonDTO hoaDonDTO = tbLichSuGiaoDichMouseListener();
-        if(hoaDonDTO != null) {
+        if (hoaDonDTO != null) {
             // gọi form chi tiết hoá đơn để xuất ra hoá đơn
             new DialogChiTietHoaDonGUI(new Frame(), true, hoaDonDTO).setVisible(true);
         }
@@ -426,11 +429,11 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
             _DataValidator.validateEmpty(txtCMND, sb, "Vui lòng nhập số CMND");
 
-            if(caLamViecDTO == null) {
+            if (caLamViecDTO == null) {
                 sb.append("Vui lòng chọn ca làm việc!\n");
             }
 
-            if(chucVuDTO == null) {
+            if (chucVuDTO == null) {
                 sb.append("Vui lòng chọn chức vụ!\n");
             }
 
@@ -441,22 +444,22 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             nhanVienDTO.setSdt(txtSoDienThoai.getText());
             nhanVienDTO.setCmnd(txtCMND.getText());
 
-            if(caLamViecDTO != null && chucVuDTO != null) {
+            if (caLamViecDTO != null && chucVuDTO != null) {
                 nhanVienDTO.setMaCa(caLamViecDTO.getMaCa());
                 nhanVienDTO.setMaCV(chucVuDTO.getMaCV());
             }
 
-            if(sb.length() > 0) {
+            if (sb.length() > 0) {
                 _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
             } else {
                 NhanVienBUS check = new NhanVienBUS();
                 // trường hợp nhân viên đã có sẵn trong CSDL và khách hàng đang offline
-                if(check.checkStatusIsClose(nhanVienDTO)) {
-                    if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                if (check.checkStatusIsClose(nhanVienDTO)) {
+                    if (_MessageDialogHelper.showConfirmDialog(parentForm,
                             "Nhân viên này đã tồn tại trong CSDL và đang offline!\nBạn có muốn thay đổi trạng thái của đối tượng này không?",
                             "Hiện đối tượng") == JOptionPane.YES_OPTION) {
                         NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                        if(nhanVienBUS.updateChangeStatus(nhanVienDTO, 1)) {
+                        if (nhanVienBUS.updateChangeStatus(nhanVienDTO, 1)) {
                             refreshData(); // làm mới lại dữ liệu trên form
                             _MessageDialogHelper.showMessageDialog(parentForm, "Thay đổi trạng thái thành công!", "Thành công");
                         } else {
@@ -464,10 +467,10 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                         }
                     }
                 } else { // trường hợp ngược lại
-                    if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                    if (_MessageDialogHelper.showConfirmDialog(parentForm,
                             "Bạn có muốn thêm mới đối tượng này không", "Thêm đối tượng") == JOptionPane.YES_OPTION) {
                         NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                        if(nhanVienBUS.insertItem(nhanVienDTO)) {
+                        if (nhanVienBUS.insertItem(nhanVienDTO)) {
                             refreshData(); // làm mới lại dữ liệu trên form
                             _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
                         } else {
@@ -485,7 +488,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {
         NhanVienDTO nhanVienDTO = tbDanhSachNhanVienListener();
-        if(nhanVienDTO != null) {
+        if (nhanVienDTO != null) {
             StringBuilder sb = new StringBuilder();
             try {
                 CaLamViecDTO caLamViecDTO = new CaLamViecBUS().getItemByName((String) cbCaLamViec.getSelectedItem());
@@ -496,42 +499,42 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                 _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
                 _DataValidator.validateEmpty(txtCMND, sb, "Vui lòng nhập số CMND");
 
-                if(caLamViecDTO == null) {
+                if (caLamViecDTO == null) {
                     sb.append("Vui lòng chọn ca làm việc!\n");
                 }
 
-                if(chucVuDTO == null) {
+                if (chucVuDTO == null) {
                     sb.append("Vui lòng chọn chức vụ!\n");
                 }
 
-                if(sb.length() > 0) {
+                if (sb.length() > 0) {
                     _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
                 } else {
                     HoaDonBUS check = new HoaDonBUS();
                     // trường hợp nhân viên đã tồn tại trong danh sách bán hàng
-                    if(check.checkNhanVienExist(nhanVienDTO)) {
-                       NhanVienBUS check2 = new NhanVienBUS();
-                       if(check2.checkStatusIsClose(nhanVienDTO)) {
-                           _MessageDialogHelper.showErrorDialog(parentForm, "Nhân viên đã bị ẩn!",
-                                   "Thao tác thất bại");
-                       } else {
-                           if(_MessageDialogHelper.showConfirmDialog(parentForm,
-                                   "Nhân viên này đã tồn tại trong lịch sử hoá đơn, bạn không thể xoá!\nBạn có muốn ẩn nhân viên này không!",
-                                   "Ẩn đối tượng") == JOptionPane.YES_OPTION) {
-                               NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                               if(nhanVienBUS.updateChangeStatus(nhanVienDTO, 0)) {
-                                   refreshData(); // làm mới lại dữ liệu trên form
-                                   _MessageDialogHelper.showMessageDialog(parentForm, "Ẩn đối tượng thành công!", "Ẩn thành công");
-                               } else {
-                                   _MessageDialogHelper.showErrorDialog(parentForm, "Ẩn đối tượng thất bại!", "Ẩn thất bại");
-                               }
-                           }
-                       }
+                    if (check.checkNhanVienExist(nhanVienDTO)) {
+                        NhanVienBUS check2 = new NhanVienBUS();
+                        if (check2.checkStatusIsClose(nhanVienDTO)) {
+                            _MessageDialogHelper.showErrorDialog(parentForm, "Nhân viên đã bị ẩn!",
+                                    "Thao tác thất bại");
+                        } else {
+                            if (_MessageDialogHelper.showConfirmDialog(parentForm,
+                                    "Nhân viên này đã tồn tại trong lịch sử hoá đơn, bạn không thể xoá!\nBạn có muốn ẩn nhân viên này không!",
+                                    "Ẩn đối tượng") == JOptionPane.YES_OPTION) {
+                                NhanVienBUS nhanVienBUS = new NhanVienBUS();
+                                if (nhanVienBUS.updateChangeStatus(nhanVienDTO, 0)) {
+                                    refreshData(); // làm mới lại dữ liệu trên form
+                                    _MessageDialogHelper.showMessageDialog(parentForm, "Ẩn đối tượng thành công!", "Ẩn thành công");
+                                } else {
+                                    _MessageDialogHelper.showErrorDialog(parentForm, "Ẩn đối tượng thất bại!", "Ẩn thất bại");
+                                }
+                            }
+                        }
                     } else { // trường hợp ngược lại
-                        if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                        if (_MessageDialogHelper.showConfirmDialog(parentForm,
                                 "Bạn có xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
                             NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                            if(nhanVienBUS.deleteItem(nhanVienDTO)) {
+                            if (nhanVienBUS.deleteItem(nhanVienDTO)) {
                                 refreshData(); // làm mới lại dữ liệu trên form
                                 _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công!", "Xoá thành công");
                             } else {
@@ -559,18 +562,18 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
             _DataValidator.validateEmpty(txtCMND, sb, "Vui lòng nhập số CMND");
 
-            if(caLamViecDTO == null) {
+            if (caLamViecDTO == null) {
                 sb.append("Vui lòng chọn ca làm việc!\n");
             }
 
-            if(chucVuDTO == null) {
+            if (chucVuDTO == null) {
                 sb.append("Vui lòng chọn chức vụ!\n");
             }
 
-            if(sb.length() > 0) {
+            if (sb.length() > 0) {
                 _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
             } else {
-                if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                if (_MessageDialogHelper.showConfirmDialog(parentForm,
                         "Bạn có muốn thay đổi thông tin đối tượng này không", "Sửa thông tin đối tượng") == JOptionPane.YES_OPTION) {
 
                     // lấy dữ liệu của khách hàng đang nhập vào
@@ -583,13 +586,13 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                     nhanVienDTO.setSdt(txtSoDienThoai.getText());
                     nhanVienDTO.setCmnd(txtCMND.getText());
 
-                    if(caLamViecDTO != null && chucVuDTO != null) {
+                    if (caLamViecDTO != null && chucVuDTO != null) {
                         nhanVienDTO.setMaCa(caLamViecDTO.getMaCa());
                         nhanVienDTO.setMaCV(chucVuDTO.getMaCV());
                     }
 
                     NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                    if(nhanVienBUS.updateItem(nhanVienDTO)) {
+                    if (nhanVienBUS.updateItem(nhanVienDTO)) {
                         refreshData();  // làm mới lại dữ liệu trên form
                         _MessageDialogHelper.showMessageDialog(parentForm,
                                 "Sửa thông tin đối tượng thành công!", "Sửa thành công");
@@ -612,7 +615,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             String idNV = String.valueOf(tbDanhSachNhanVien.getValueAt(selectedRow, 0));
             NhanVienDTO nhanVienDTO = new NhanVienBUS().getItemByID(idNV);
 
-            if(nhanVienDTO != null) {
+            if (nhanVienDTO != null) {
                 // load thông tin lên field
                 loadForm(nhanVienDTO);
 
@@ -635,7 +638,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             String idHD = String.valueOf(tbLichSuGiaoDich.getValueAt(selectedRow, 0));
             return new HoaDonBUS().getItemBymMaHD(idHD);
         } catch (Exception ex) {
-            _MessageDialogHelper.showErrorDialog( parentForm,
+            _MessageDialogHelper.showErrorDialog(parentForm,
                     "Vui lòng chọn một dòng trong lịch sử giao dịch!", "Yêu cầu chọn dữ liệu");
             return null;
         }
@@ -668,7 +671,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                     item.getTenNV(),
                     item.getCmnd(),
                     item.getSdt(),
-                    item.getStatus() == 1  ? "Online" : "Offline"
+                    item.getStatus() == 1 ? "Online" : "Offline"
             });
         }
     }

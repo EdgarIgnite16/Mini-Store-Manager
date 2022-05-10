@@ -1,7 +1,10 @@
 package GUI;
 
 import BUS.*;
-import DTO.*;
+import DTO.ChiTietPhieuNhapDTO;
+import DTO.MatHangDTO;
+import DTO.PhieuNhapHangDTO;
+
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -287,7 +290,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         fc.setAcceptAllFileFilterUsed(false);
         fc.addChoosableFileFilter(new FileNameExtensionFilter(".xlsx", "Microsoft Excel Documents"));
         int returnVal = fc.showSaveDialog(parentForm);
-        if(returnVal == JFileChooser.APPROVE_OPTION) {
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
             String path = file.getAbsolutePath().concat(".xlsx");
             _ExportExcel.ExportPhieuNhap(listPN, path); // truyền vào hàm để sử lí xuất excel
@@ -299,9 +302,9 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
     }
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {
-        new DialogTimKiemGUI(new Frame(), true,"PN").setVisible(true); // mở form tìm kiếm
+        new DialogTimKiemGUI(new Frame(), true, "PN").setVisible(true); // mở form tìm kiếm
         PhieuNhapHangDTO phieuNhapHangDTO = _SaveData.phieunhapTimThay;
-        if(phieuNhapHangDTO != null) {
+        if (phieuNhapHangDTO != null) {
             ArrayList<PhieuNhapHangDTO> listPN = new ArrayList<>();
             listPN.add(phieuNhapHangDTO); // add phiếu nhập vừa tìm được vào danh sách phiếu nhập
             ArrayList<ChiTietPhieuNhapDTO> listCTPN =
@@ -323,7 +326,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
             String MaPN = String.valueOf(tbDanhSachPhieuNhap.getValueAt(selectedRow, 0));
             PhieuNhapHangDTO phieuNhapHangDTO = new PhieuNhapHangBUS().getItemByID(MaPN);
 
-            if(phieuNhapHangDTO != null) {
+            if (phieuNhapHangDTO != null) {
                 ArrayList<ChiTietPhieuNhapDTO> listCTPN =
                         new ChiTietPhieuNhapBUS().getListItemByMaPN(phieuNhapHangDTO.getMaPhieuNhap());
 
@@ -351,8 +354,8 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
     }
 
     // hàm load chi tiết của phiếu nhập được chọn
-    private void loadChiTietPhieuNhap(ArrayList<ChiTietPhieuNhapDTO> listCTPN){
-        if(listCTPN != null) {
+    private void loadChiTietPhieuNhap(ArrayList<ChiTietPhieuNhapDTO> listCTPN) {
+        if (listCTPN != null) {
             modelTable_CTPN.setRowCount(0);
             for (ChiTietPhieuNhapDTO item : listCTPN) {
                 modelTable_CTPN.addRow(new Object[]{
@@ -369,9 +372,9 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         int soLuong = 0;
         float thanhTien = 0;
 
-        for(ChiTietPhieuNhapDTO item : listCTPN) {
+        for (ChiTietPhieuNhapDTO item : listCTPN) {
             MatHangDTO matHangDTO = MatHangBUS.getItemByID(item.getMaMH());
-            if(matHangDTO != null) {
+            if (matHangDTO != null) {
                 soLuong += item.getSoLuong(); // tính toán số lượng chung
                 thanhTien += item.getSoLuong() * matHangDTO.getThanhTien(); // tính toàn thành tiền chung
             }

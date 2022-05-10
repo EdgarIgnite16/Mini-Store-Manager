@@ -95,6 +95,7 @@ public class MatHangDAO {
         }
         return false;
     }
+
     // hàm update trạng thái dữ liệu lên database
     public boolean updateChangeStatus(MatHangDTO matHangDTO, int status) throws Exception {
         String sql = "UPDATE [dbo].[MatHang] " +

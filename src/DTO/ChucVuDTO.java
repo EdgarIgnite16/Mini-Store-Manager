@@ -4,7 +4,8 @@ public class ChucVuDTO {
     private String maCV; // primary key
     private String tenCV;
 
-    public ChucVuDTO() {}
+    public ChucVuDTO() {
+    }
 
     public ChucVuDTO(String maCV, String tenCV) {
         this.maCV = maCV;

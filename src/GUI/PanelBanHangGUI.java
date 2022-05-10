@@ -456,7 +456,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
     }
 
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {
-        try  {
+        try {
             LoaiMatHangDTO loaiMatHangDTO = new LoaiMatHangBUS().getItemByName(String.valueOf(cboxLoaiMatHang.getSelectedItem()));
             String nameMH = txtTenMatHang.getText();
             String maLMH = loaiMatHangDTO != null ? loaiMatHangDTO.getMaLMH() : "";
@@ -727,7 +727,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
 
         pnMatHang.setLayout(new GridLayout(rowItem, colItem, 4, 4));
         for (MatHangDTO item : listFillData) {
-            if(item.getStatus() == 1) {
+            if (item.getStatus() == 1) {
                 JButton jButton = new JButton();
                 String titleBtn = String.format(
                         "<html> %s <br> %.1f VNĐ </html>",

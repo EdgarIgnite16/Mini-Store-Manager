@@ -5,7 +5,10 @@ package GUI;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 
-import BUS.*;
+import BUS.MatHangBUS;
+import BUS.NhaCungCapBUS;
+import BUS._MessageDialogHelper;
+import BUS._SaveData;
 import DTO.MatHangDTO;
 import DTO.NhaCungCapDTO;
 
@@ -20,7 +23,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- *
  * @author edgar
  */
 public class PanelNhapHangGUI extends javax.swing.JPanel {
@@ -28,6 +30,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     private DefaultTableModel modelTable_MH;
     private DefaultTableModel modelTable_CTPN;
     private DefaultComboBoxModel modelComboBox_NCC;
+
     /**
      * Creates new form PanelPhieuNhapGUI
      */
@@ -37,6 +40,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         initNhaCungCap();
         initListCTPN();
     }
+
     private void initNhaCungCap() {
         modelComboBox_NCC = new DefaultComboBoxModel();
         modelComboBox_NCC.addElement("---");
@@ -45,6 +49,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
         cbNhaCungCap.setModel(modelComboBox_NCC);
     }
+
     private void initTableMatHang() {
         String[] columnNames = new String[]{"Mã MH", "Mã LMH", "Tên MH", "Thành tiền", "Số lượng", "Trạng thái"};
         modelTable_MH = new DefaultTableModel();
@@ -123,8 +128,6 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             }
         });
     }
-
-
 
 
     /**
@@ -328,13 +331,13 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         spDanhSachMatHang.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách mặt hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
 
         tbDanhSachMatHang.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
+                new Object[][]{
                         {},
                         {},
                         {},
                         {}
                 },
-                new String [] {
+                new String[]{
 
                 }
         ));
@@ -343,13 +346,13 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         spDanhSachMatHangNhap.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Danh sách mặt hàng nhập", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 13))); // NOI18N
 
         tbDanhSachMatHangNhap.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
+                new Object[][]{
                         {},
                         {},
                         {},
                         {}
                 },
-                new String [] {
+                new String[]{
 
                 }
         ));
@@ -387,9 +390,9 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     }
 
     private void btnTimKiemNVActionPerformed(java.awt.event.ActionEvent evt) {
-        new DialogTimKiemGUI(new Frame(), true,"MH").setVisible(true); // mở form tìm kiếm
+        new DialogTimKiemGUI(new Frame(), true, "MH").setVisible(true); // mở form tìm kiếm
         MatHangDTO matHangDTO = _SaveData.matHangTimThay;
-        if(matHangDTO != null) {
+        if (matHangDTO != null) {
             ArrayList<MatHangDTO> listMatHang = new ArrayList<>();
             listMatHang.add(matHangDTO);
 
@@ -433,7 +436,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             String idMH = String.valueOf(tbDanhSachMatHang.getValueAt(selectedRow, 0));
             MatHangDTO matHangDTO = MatHangBUS.getItemByID(idMH);
 
-            if(matHangDTO != null) {
+            if (matHangDTO != null) {
                 loadForm(matHangDTO); // load form mặt hàng
             }
         } catch (Exception ex) {

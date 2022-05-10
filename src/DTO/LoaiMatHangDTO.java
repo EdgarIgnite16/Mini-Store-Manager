@@ -4,7 +4,8 @@ public class LoaiMatHangDTO {
     private String maLMH;
     private String tenLMH;
 
-    public LoaiMatHangDTO() {}
+    public LoaiMatHangDTO() {
+    }
 
     public LoaiMatHangDTO(String maLMH, String tenLMH) {
         this.maLMH = maLMH;

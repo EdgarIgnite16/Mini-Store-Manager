@@ -304,7 +304,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
 
     private void btnXemCTHDActionPerformed(java.awt.event.ActionEvent evt) {
         HoaDonDTO hoaDonDTO = tbLichSuGiaoDichMouseListener();
-        if(hoaDonDTO != null) {
+        if (hoaDonDTO != null) {
             // gọi form chi tiết hoá đơn để xuất ra hoá đơn
             new DialogChiTietHoaDonGUI(new Frame(), true, hoaDonDTO).setVisible(true);
         }
@@ -316,7 +316,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
             _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
-            if(sb.length() > 0) {
+            if (sb.length() > 0) {
                 _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
             } else {
                 // tạo mới đối tượng
@@ -327,12 +327,12 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
 
                 KhachHangBUS check = new KhachHangBUS();
                 // trường hợp khách hàng đã có sẵn trong CSDL và khách hàng đang offline
-                if(check.checkStatusIsClose(khachHangDTO)) {
-                    if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                if (check.checkStatusIsClose(khachHangDTO)) {
+                    if (_MessageDialogHelper.showConfirmDialog(parentForm,
                             "Khách hàng này đã tồn tại trong CSDL và đang offline!\nBạn có muốn thay đổi trạng thái của đối tượng này không?",
                             "Online đối tượng") == JOptionPane.YES_OPTION) {
                         KhachHangBUS khachHangBUS = new KhachHangBUS();
-                        if(khachHangBUS.updateChangeStatus(khachHangDTO, 1)) {
+                        if (khachHangBUS.updateChangeStatus(khachHangDTO, 1)) {
                             refreshData(); // làm mới lại dữ liệu trên form
                             _MessageDialogHelper.showMessageDialog(parentForm, "Thay đổi trạng thái thành công!", "Thành công");
                         } else {
@@ -340,10 +340,10 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                         }
                     }
                 } else { // trường hợp ngược lại
-                    if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                    if (_MessageDialogHelper.showConfirmDialog(parentForm,
                             "Bạn có muốn thêm mới đối tượng này không", "Thêm đối tượng") == JOptionPane.YES_OPTION) {
                         KhachHangBUS khachHangBUS = new KhachHangBUS();
-                        if(khachHangBUS.insertItem(khachHangDTO)) {
+                        if (khachHangBUS.insertItem(khachHangDTO)) {
                             refreshData(); // làm mới lại dữ liệu trên form
                             _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
                         } else {
@@ -361,29 +361,29 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {
         KhachHangDTO khachHangDTO = tbDanhSachKhachHangMouseListener();
-        if(khachHangDTO != null) {
+        if (khachHangDTO != null) {
             StringBuilder sb = new StringBuilder();
             try {
                 _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
                 _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
                 _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
-                if(sb.length() > 0) {
+                if (sb.length() > 0) {
                     _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
                 } else {
                     HoaDonBUS check = new HoaDonBUS();
                     // trường hợp khách hàng đã tồn tại trong danh sách bán hàng
-                    if(check.checkKhachHangExist(khachHangDTO)) {
+                    if (check.checkKhachHangExist(khachHangDTO)) {
                         KhachHangBUS check2 = new KhachHangBUS();
                         // tiếp tục với trường hợp khách hàng có tồn tại trong danh sách khách hàng hay chưa
-                        if(check2.checkStatusIsClose(khachHangDTO)) {
+                        if (check2.checkStatusIsClose(khachHangDTO)) {
                             _MessageDialogHelper.showErrorDialog(parentForm, "Khách hàng đã bị ẩn!",
                                     "Thao tác thất bại");
                         } else {
-                            if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                            if (_MessageDialogHelper.showConfirmDialog(parentForm,
                                     "Khách hàng này đã tồn tại trong lịch sử hoá đơn, bạn không thể xoá!\nBạn có muốn ẩn khách hàng này không!",
                                     "Ẩn đối tượng") == JOptionPane.YES_OPTION) {
                                 KhachHangBUS khachHangBUS = new KhachHangBUS();
-                                if(khachHangBUS.updateChangeStatus(khachHangDTO, 0)) {
+                                if (khachHangBUS.updateChangeStatus(khachHangDTO, 0)) {
                                     refreshData(); // làm mới lại dữ liệu trên form
                                     _MessageDialogHelper.showMessageDialog(parentForm, "Ẩn đối tượng thành công!", "Ẩn thành công");
                                 } else {
@@ -392,10 +392,10 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                             }
                         }
                     } else { // trường hợp ngược lại
-                        if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                        if (_MessageDialogHelper.showConfirmDialog(parentForm,
                                 "Bạn có xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
                             KhachHangBUS khachHangBUS = new KhachHangBUS();
-                            if(khachHangBUS.deleteItem(khachHangDTO)) {
+                            if (khachHangBUS.deleteItem(khachHangDTO)) {
                                 refreshData(); // làm mới lại dữ liệu trên form
                                 _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công!", "Xoá thành công");
                             } else {
@@ -419,10 +419,10 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
             _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
-            if(sb.length() > 0) {
+            if (sb.length() > 0) {
                 _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
             } else {
-                if(_MessageDialogHelper.showConfirmDialog(parentForm,
+                if (_MessageDialogHelper.showConfirmDialog(parentForm,
                         "Bạn có muốn thay đổi thông tin đối tượng này không", "Sửa thông tin đối tượng") == JOptionPane.YES_OPTION) {
                     // tạo mới đối tượng
                     KhachHangDTO khachHangDTO = new KhachHangDTO();
@@ -431,7 +431,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                     khachHangDTO.setSdt(txtSoDienThoai.getText());
 
                     KhachHangBUS khachHangBUS = new KhachHangBUS();
-                    if(khachHangBUS.updateItem(khachHangDTO)) {
+                    if (khachHangBUS.updateItem(khachHangDTO)) {
                         refreshData(); // làm mới lại dữ liệu trên form
                         _MessageDialogHelper.showMessageDialog(parentForm,
                                 "Sửa thông tin đối tượng thành công!", "Sửa thành công");
@@ -453,9 +453,9 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
     }
 
     private void btnTimKiemKHActionPerformed(java.awt.event.ActionEvent evt) {
-        new DialogTimKiemGUI(new Frame(), true,"KH").setVisible(true); // mở form tìm kiếm
+        new DialogTimKiemGUI(new Frame(), true, "KH").setVisible(true); // mở form tìm kiếm
         KhachHangDTO khachHangDTO = _SaveData.khachHangTimThay;
-        if(khachHangDTO != null) {
+        if (khachHangDTO != null) {
             ArrayList<HoaDonDTO> listHoaDon = new HoaDonBUS().fillData(khachHangDTO.getMaKH(), "KH");
             ArrayList<KhachHangDTO> listKH = new ArrayList<>(); // tạo mới danh sách khách hàng
             listKH.add(khachHangDTO); // add khách hàng vừa tìm được vào danh sách
@@ -474,9 +474,9 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
     private void btnTimKiemHDActionPerformed(java.awt.event.ActionEvent evt) {
         KhachHangDTO khachHangDTO = tbDanhSachKhachHangMouseListener();
         if (khachHangDTO != null) {
-            new DialogTimKiemGUI(new Frame(), true,"HD").setVisible(true); // mở form tìm kiếm
+            new DialogTimKiemGUI(new Frame(), true, "HD").setVisible(true); // mở form tìm kiếm
             HoaDonDTO hoaDonDTO = _SaveData.hoaDonTimThay;
-            if(hoaDonDTO != null) {
+            if (hoaDonDTO != null) {
                 ArrayList<HoaDonDTO> listHD = new ArrayList<>(); // tạo mới danh sách hoá đơn
                 listHD.add(hoaDonDTO); // add hoá đơn vừa tìm được vào danh sách
                 loadHoaDon(listHD); // load lại lịch sử mua hàng của khách hàng được chọn
@@ -493,7 +493,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             String idKH = String.valueOf(tbDanhSachKhachHang.getValueAt(selectedRow, 0));
             KhachHangDTO khachHangDTO = new KhachHangBUS().getItemById(idKH);
 
-            if(khachHangDTO != null) {
+            if (khachHangDTO != null) {
                 // load thông tin lên field
                 loadForm(khachHangDTO);
 

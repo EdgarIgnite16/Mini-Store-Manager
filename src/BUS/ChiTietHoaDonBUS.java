@@ -42,8 +42,8 @@ public class ChiTietHoaDonBUS {
 
     public int tinhTonhSLBan(String maMH) {
         int soLuong = 0;
-        for(ChiTietHoaDonDTO item : listMatHangMua) {
-            if(item.getMaMH().equals(maMH)) {
+        for (ChiTietHoaDonDTO item : listMatHangMua) {
+            if (item.getMaMH().equals(maMH)) {
                 soLuong += item.getSoLuong();
             }
         }
@@ -53,8 +53,8 @@ public class ChiTietHoaDonBUS {
 
     public float tinhTongThanhTien(String maMH, float thanhTien) {
         float tongTien = 0;
-        for(ChiTietHoaDonDTO item : listMatHangMua) {
-            if(item.getMaMH().equals(maMH)) {
+        for (ChiTietHoaDonDTO item : listMatHangMua) {
+            if (item.getMaMH().equals(maMH)) {
                 tongTien += thanhTien * item.getSoLuong();
             }
         }
@@ -63,8 +63,8 @@ public class ChiTietHoaDonBUS {
 
     // kiểm tra mặt hàng đã tồn tại trong chi tiết bán hàng hay chưa
     public boolean checkMatHangExist(MatHangDTO matHangDTO) {
-        for(ChiTietHoaDonDTO item : listMatHangMua) {
-            if(item.getMaMH().equals(matHangDTO.getMaMH())) {
+        for (ChiTietHoaDonDTO item : listMatHangMua) {
+            if (item.getMaMH().equals(matHangDTO.getMaMH())) {
                 return true;
             }
         }

@@ -350,7 +350,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         fc.setAcceptAllFileFilterUsed(false);
         fc.addChoosableFileFilter(new FileNameExtensionFilter(".xlsx", "Microsoft Excel Documents"));
         int returnVal = fc.showSaveDialog(parentForm);
-        if(returnVal == JFileChooser.APPROVE_OPTION) {
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
             File file = fc.getSelectedFile();
             String path = file.getAbsolutePath().concat(".xlsx");
             _ExportExcel.ExportHoaDon(listHD, path); // truyền vào hàm để sử lí xuất excel
@@ -376,9 +376,9 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
     }
 
     private void btnTimKiemHDActionPerformed(java.awt.event.ActionEvent evt) {
-        new DialogTimKiemGUI(new Frame(), true,"HD").setVisible(true); // mở form tìm kiếm
+        new DialogTimKiemGUI(new Frame(), true, "HD").setVisible(true); // mở form tìm kiếm
         HoaDonDTO hoaDonDTO = _SaveData.hoaDonTimThay;
-        if(hoaDonDTO != null) {
+        if (hoaDonDTO != null) {
             ArrayList<HoaDonDTO> listHD = new ArrayList<>(); // tạo mới danh sách hoá đơn
             listHD.add(hoaDonDTO); // add hoá đơn vừa tìm được vào danh sách
             loadHoaDon(listHD); // load lại lịch sử mua hàng của khách hàng được chọn
@@ -389,9 +389,9 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
     }
 
     private void btnTimKiemKHMuaActionPerformed(java.awt.event.ActionEvent evt) {
-        new DialogTimKiemGUI(new Frame(), true,"LHD_KH").setVisible(true); // mở form tìm kiếm
+        new DialogTimKiemGUI(new Frame(), true, "LHD_KH").setVisible(true); // mở form tìm kiếm
         ArrayList<HoaDonDTO> listHD = _SaveData.ListHoaDonTimThay;
-        if(listHD != null) {
+        if (listHD != null) {
             loadHoaDon(listHD); // load lại hoá đơn
 
             // reset lại data tìm kiếm trong local
@@ -400,9 +400,9 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
     }
 
     private void btnTimKiemNVBanActionPerformed(java.awt.event.ActionEvent evt) {
-        new DialogTimKiemGUI(new Frame(), true,"LHD_NV").setVisible(true); // mở form tìm kiếm
+        new DialogTimKiemGUI(new Frame(), true, "LHD_NV").setVisible(true); // mở form tìm kiếm
         ArrayList<HoaDonDTO> listHD = _SaveData.ListHoaDonTimThay;
-        if(listHD != null) {
+        if (listHD != null) {
             loadHoaDon(listHD); // load lại hoá đơn
 
             // reset lại data tìm kiếm trong local
@@ -413,9 +413,9 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
     private void tbDanhSachHoaDonMouseListener() {
         int selectedRow = tbDanhSachHoaDon.getSelectedRow();
         String idHD = String.valueOf(tbDanhSachHoaDon.getValueAt(selectedRow, 0));
-        HoaDonDTO hoaDonDTO= new HoaDonBUS().getItemBymMaHD(idHD);
+        HoaDonDTO hoaDonDTO = new HoaDonBUS().getItemBymMaHD(idHD);
 
-        if(hoaDonDTO != null) {
+        if (hoaDonDTO != null) {
             ArrayList<ChiTietHoaDonDTO> listCTHD = new ChiTietHoaDonBUS().getListItemByMaHD(hoaDonDTO.getMaHD());
 
             loadForm(hoaDonDTO); // load thông tin lên field
@@ -440,8 +440,8 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
     }
 
     // hàm load table chi tiết hoá đơn
-    private void loadChiTietHoaDon(ArrayList<ChiTietHoaDonDTO> listCTHD){
-        if(listCTHD != null) {
+    private void loadChiTietHoaDon(ArrayList<ChiTietHoaDonDTO> listCTHD) {
+        if (listCTHD != null) {
             modelTable_CTHD.setRowCount(0);
             for (MatHangDTO item : handleLoadCTHD(listCTHD)) {
                 modelTable_CTHD.addRow(new Object[]{
@@ -475,7 +475,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
 
     // hàm tính lại tổng tiền ban đầu của hoá đơn
     private float tinhTongTienBanDau(float thanhTien, float tileGiam) {
-        return thanhTien/(1-tileGiam);
+        return thanhTien / (1 - tileGiam);
     }
 
     // trả lại danh sách mặt hàng đã mua

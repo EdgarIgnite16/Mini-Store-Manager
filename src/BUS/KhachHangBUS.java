@@ -48,9 +48,9 @@ public class KhachHangBUS {
 
     // kiểm tra khách hàng có trạng thái offline hay không
     public boolean checkStatusIsClose(KhachHangDTO khachHangDTO) {
-        for(KhachHangDTO item : listKhachHang) {
+        for (KhachHangDTO item : listKhachHang) {
             // nếu mặt hàng đã tồn tại và status của mặt hàng đó là 0
-            if(item.getMaKH().equals(khachHangDTO.getMaKH()) && item.getStatus() == 0) {
+            if (item.getMaKH().equals(khachHangDTO.getMaKH()) && item.getStatus() == 0) {
                 return true;
             }
         }

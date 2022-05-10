@@ -56,9 +56,9 @@ public class NhanVienBUS {
 
     // kiểm tra nhân viên có trạng thái offline hay không
     public boolean checkStatusIsClose(NhanVienDTO nhanVienDTO) {
-        for(NhanVienDTO item : listNhanVien) {
+        for (NhanVienDTO item : listNhanVien) {
             // nếu mặt hàng đã tồn tại và status của mặt hàng đó là 0
-            if(item.getMaNV().equals(nhanVienDTO.getMaNV()) && item.getStatus() == 0) {
+            if (item.getMaNV().equals(nhanVienDTO.getMaNV()) && item.getStatus() == 0) {
                 return true;
             }
         }

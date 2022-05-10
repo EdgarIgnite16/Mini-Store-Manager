@@ -45,8 +45,8 @@ public class _ExportExcel {
             cell.setCellValue("Số lượng");
 
             // config dòng
-            for(int i=0;i<listMH.size();i++) {
-                row = sheet.createRow(i+1);
+            for (int i = 0; i < listMH.size(); i++) {
+                row = sheet.createRow(i + 1);
 
                 cell = row.createCell(0, CellType.STRING);
                 cell.setCellValue(listMH.get(i).getMaMH());
@@ -115,8 +115,8 @@ public class _ExportExcel {
             cell.setCellValue("Ngày bán");
 
             // config dòng
-            for(int i=0;i<listHD.size();i++) {
-                row = sheet.createRow(i+1);
+            for (int i = 0; i < listHD.size(); i++) {
+                row = sheet.createRow(i + 1);
 
                 cell = row.createCell(0, CellType.STRING);
                 cell.setCellValue(listHD.get(i).getMaHD());
@@ -180,8 +180,8 @@ public class _ExportExcel {
             cell.setCellValue("Ngày nhập");
 
             // config dòng
-            for(int i=0;i<listPN.size();i++) {
-                row = sheet.createRow(i+1);
+            for (int i = 0; i < listPN.size(); i++) {
+                row = sheet.createRow(i + 1);
 
                 cell = row.createCell(0, CellType.STRING);
                 cell.setCellValue(listPN.get(i).getMaPhieuNhap());

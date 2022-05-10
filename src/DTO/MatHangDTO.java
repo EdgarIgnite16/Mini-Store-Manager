@@ -15,7 +15,8 @@ public class MatHangDTO {
     // các thông số trong nhập hàng
     public int soLuongNhap = 0;
 
-    public MatHangDTO() {}
+    public MatHangDTO() {
+    }
 
     public MatHangDTO(String maMH, String maLMH, String tenMH, float thanhTien, int soLuong, int status) {
         this.maMH = maMH;

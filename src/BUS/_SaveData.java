@@ -1,6 +1,5 @@
 package BUS;
 
-import DAO.PhieuNhapHangDAO;
 import DTO.*;
 
 import java.util.ArrayList;

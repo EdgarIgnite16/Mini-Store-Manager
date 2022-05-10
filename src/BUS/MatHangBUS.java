@@ -50,7 +50,7 @@ public class MatHangBUS {
     public static ArrayList<MatHangDTO> fillData(String tenMH, String idLMH) throws Exception {
         ArrayList<MatHangDTO> listFillData;
         if (idLMH.equals("") && !tenMH.isEmpty()) {
-           // nếu loại mặt hàng là trống thì tìm theo tên mặt hàng
+            // nếu loại mặt hàng là trống thì tìm theo tên mặt hàng
             listFillData = new MatHangDAO().fillDataByTenMH(tenMH);
             return listFillData;
         } else if (tenMH.equals("") && !idLMH.isEmpty()) {
@@ -82,9 +82,9 @@ public class MatHangBUS {
 
     // kiểm tra mặt hàng có trạng thái đang đóng hay không
     public boolean checkStatusIsClose(MatHangDTO matHangDTO) {
-        for(MatHangDTO item : listMatHang) {
+        for (MatHangDTO item : listMatHang) {
             // nếu mặt hàng đã tồn tại và status của mặt hàng đó là 0
-            if(item.getMaMH().equals(matHangDTO.getMaMH()) && item.getStatus() == 0) {
+            if (item.getMaMH().equals(matHangDTO.getMaMH()) && item.getStatus() == 0) {
                 return true;
             }
         }

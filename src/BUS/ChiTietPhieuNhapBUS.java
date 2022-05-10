@@ -44,7 +44,7 @@ public class ChiTietPhieuNhapBUS {
     public boolean insertItem(ChiTietPhieuNhapDTO chiTietPhieuNhapDTO) throws Exception {
         if (chiTietPhieuNhapDTO != null) {
             ChiTietPhieuNhapDAO chiTietPhieuNhapDAO = new ChiTietPhieuNhapDAO();
-            return  chiTietPhieuNhapDAO.insertItem(chiTietPhieuNhapDTO);
+            return chiTietPhieuNhapDAO.insertItem(chiTietPhieuNhapDTO);
         }
         return false;
     }

@@ -9,7 +9,8 @@ public class NhanVienDTO {
     private String cmnd;
     private int status;
 
-    public NhanVienDTO() {}
+    public NhanVienDTO() {
+    }
 
     public NhanVienDTO(String maNV, String maCV, String maCa, String tenNV, String SDT, String cmnd, int status) {
         this.maNV = maNV;

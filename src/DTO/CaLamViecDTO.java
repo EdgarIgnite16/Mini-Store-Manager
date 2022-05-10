@@ -5,7 +5,8 @@ public class CaLamViecDTO {
     private String tenCa;
     private String thoiGian;
 
-    public CaLamViecDTO() {}
+    public CaLamViecDTO() {
+    }
 
     public CaLamViecDTO(String maCa, String tenCa, String thoiGian) {
         this.maCa = maCa;
