@@ -482,16 +482,11 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         if (matHangDTO != null) {
             new DialogXoaGUI(new Frame(), true, matHangDTO).setVisible(true); // tạo form nhập số lượng xoá
 
-            int soLuongxoa = _SaveData.soLuongXoa;
-            int soLuong_HienTai = matHangDTO.soLuong_hientai;
-
-            for (int i = 1; i <= soLuongxoa; i++) {
-                if (i == soLuong_HienTai) break;
-                MatHangBUS.decreaseSoLuong(matHangDTO); // giảm số lượng hiện tại trong giỏ hàng
-                MatHangBUS.decreaseThanhTien(matHangDTO); // giảm thành tiền hiện tại trong giỏ hàng
-                loadGioHang(); // load table giỏ hàng
-                loadHoaDon(); // load hoá đơn
-            }
+            int soLuongxoa = _SaveData.soLuongXoa; // lấy số lượng cần xoá
+            MatHangBUS.decreaseSoLuong(matHangDTO, soLuongxoa); // giảm số lượng hiện tại trong giỏ hàng
+            MatHangBUS.decreaseThanhTien(matHangDTO, soLuongxoa); // giảm thành tiền hiện tại trong giỏ hàng
+            loadGioHang(); // load table giỏ hàng
+            loadHoaDon(); // load hoá đơn
 
             // reset lại số lượng xoá trong local
             _SaveData.soLuongXoa = 0;
@@ -503,15 +498,11 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         if (matHangDTO != null) {
             new DialogThemGUI(new Frame(), true, matHangDTO).setVisible(true); // tạo form nhập số lượng xoá
 
-            int soLuongThem = _SaveData.soLuongThem;
-            int soLuong_HienTai = matHangDTO.soLuong_hientai;
-
-            for (int i = soLuong_HienTai; i < soLuongThem + soLuong_HienTai; i++) {
-                MatHangBUS.increaseSoLuong(matHangDTO); // tăng số lượng hiện tại trong giỏ hàng
-                MatHangBUS.increaseThanhTien(matHangDTO); // tăng thành tiền hiện tại trong giỏ hàng
-                loadGioHang(); // load table giỏ hàng
-                loadHoaDon(); // load hoá đơn
-            }
+            int soLuongThem = _SaveData.soLuongThem; // lấy ra số lượng sản phẩm muốn thêm vào
+            MatHangBUS.increaseSoLuong(matHangDTO, soLuongThem); // tăng số lượng hiện tại trong giỏ hàng
+            MatHangBUS.increaseThanhTien(matHangDTO, soLuongThem); // tăng thành tiền hiện tại trong giỏ hàng
+            loadGioHang(); // load table giỏ hàng
+            loadHoaDon(); // load hoá đơn
 
             // reset lại số lượng xoá trong local
             _SaveData.soLuongThem = 0;
@@ -629,8 +620,8 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
             if (checkItemExist(matHangDTO)) { // nếu sản phẩm đã tồn tại trong giỏ hàng
                 if (!MatHangBUS.isFull(matHangDTO)) {
                     int index = getIndexOfItem(matHangDTO); // lấy vị trí của sản phẩm hiện tại trong giỏ hàng
-                    MatHangBUS.increaseSoLuong(matHangDTO); // tăng số lượng sản phẩm trong giỏ hàng
-                    MatHangBUS.increaseThanhTien(matHangDTO); // tăng tổng tiền sản phẩm trong giỏ hàng
+                    MatHangBUS.increaseSoLuong(matHangDTO, 1); // tăng số lượng sản phẩm trong giỏ hàng
+                    MatHangBUS.increaseThanhTien(matHangDTO, 1); // tăng tổng tiền sản phẩm trong giỏ hàng
                     listMatHangSelected.set(index, matHangDTO); // cập nhật lại sản phẩm trong giỏ hàng
 //                    MatHangBUS.getDataItem(matHangDTO); // kiểm tra thônng tin qua terminal
                 } else {
@@ -638,8 +629,8 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
                 }
             } else { // nếu sản phẩm chưa tồn tại trong giỏ hàng
                 if (!MatHangBUS.isFull(matHangDTO)) {
-                    MatHangBUS.increaseSoLuong(matHangDTO); // tăng số lượng sản phẩm trong giỏ hàng
-                    MatHangBUS.increaseThanhTien(matHangDTO); // tăng tổng tiền sản phẩm trong giỏ hàng
+                    MatHangBUS.increaseSoLuong(matHangDTO, 1); // tăng số lượng sản phẩm trong giỏ hàng
+                    MatHangBUS.increaseThanhTien(matHangDTO, 1); // tăng tổng tiền sản phẩm trong giỏ hàng
                     listMatHangSelected.add(matHangDTO); // thêm mới sản phẩm vào giỏ hàng
 //                    MatHangBUS.getDataItem(matHangDTO); // kiểm tra thônng tin qua terminal
                 } else {

@@ -251,6 +251,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             }
         });
 
+        btnXacNhanNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnXacNhanNhap.setText("Xác nhận nhập");
         btnXacNhanNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
