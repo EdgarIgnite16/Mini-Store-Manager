@@ -19,13 +19,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="spDanhSachHoaDon" pref="563" max="32767" attributes="0"/>
                   <Component id="pnThongTinHoaDon" max="32767" attributes="0"/>
-                  <Component id="spDanhSachHoaDon" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="spChiTietHoaDon" pref="631" max="32767" attributes="0"/>
                   <Component id="pnThanhToan" max="32767" attributes="0"/>
+                  <Component id="spChiTietHoaDon" pref="619" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -70,15 +70,15 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="lbTenNhanVien" alignment="0" pref="125" max="32767" attributes="0"/>
+                      <Component id="lbTenNhanVien" alignment="0" max="32767" attributes="0"/>
                       <Component id="lbMaGiamGia" alignment="0" max="32767" attributes="0"/>
                       <Component id="lbMaHoaDon" alignment="0" max="32767" attributes="0"/>
                       <Component id="lbNgayBan" alignment="1" max="32767" attributes="0"/>
-                      <Component id="lbTenKhachHang" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lbTenKhachHang" alignment="0" pref="125" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="txtMaGiamGia" alignment="0" pref="261" max="32767" attributes="0"/>
+                      <Component id="txtMaGiamGia" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtTenKhachHang" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtTenNhanVien" alignment="0" max="32767" attributes="0"/>
                       <Component id="txtNgayBan" alignment="0" max="32767" attributes="0"/>
@@ -91,8 +91,8 @@
                           <Component id="btnLamMoi" max="32767" attributes="0"/>
                           <Component id="btnExportExcel" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="btnTimKiemKHMua" alignment="1" max="32767" attributes="0"/>
-                      <Component id="btnTimKiemNVBan" alignment="1" max="32767" attributes="0"/>
+                      <Component id="btnTimKiemKHMua" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
+                      <Component id="btnTimKiemNVBan" alignment="1" min="-2" pref="131" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>

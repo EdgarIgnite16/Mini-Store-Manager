@@ -17,15 +17,15 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="spDanhSachPhieuNhap" pref="566" max="32767" attributes="0"/>
+                  <Component id="spDanhSachPhieuNhap" pref="563" max="32767" attributes="0"/>
                   <Component id="pnTimKiemPhieuNhap" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="spChiTietPhieuNhap" pref="619" max="32767" attributes="0"/>
                   <Component id="pnThanhToan" max="32767" attributes="0"/>
-                  <Component id="spChiTietPhieuNhap" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
@@ -34,20 +34,20 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="spChiTietPhieuNhap" pref="613" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="spChiTietPhieuNhap" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="pnThanhToan" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="pnTimKiemPhieuNhap" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="spDanhSachPhieuNhap" max="32767" attributes="0"/>
+                      <Component id="spDanhSachPhieuNhap" pref="541" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,13 +76,13 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtNgayNhap" pref="284" max="32767" attributes="0"/>
+                      <Component id="txtNgayNhap" max="32767" attributes="0"/>
                       <Component id="txtMaPhieuNhap" alignment="1" max="32767" attributes="0"/>
-                      <Component id="txtNhaCungCap" alignment="1" pref="284" max="32767" attributes="0"/>
+                      <Component id="txtNhaCungCap" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnLamMoi" pref="117" max="32767" attributes="0"/>
+                      <Component id="btnLamMoi" max="32767" attributes="0"/>
                       <Component id="btnExportExcel" alignment="0" pref="117" max="32767" attributes="0"/>
                       <Component id="btnTimKiem" max="32767" attributes="0"/>
                   </Group>
@@ -277,11 +277,11 @@
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="lbTongSoLuong" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTongSoLuong" pref="190" max="32767" attributes="0"/>
+                  <Component id="txtTongSoLuong" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="lbTongThanhTien" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTongThanhTien" pref="190" max="32767" attributes="0"/>
+                  <Component id="txtTongThanhTien" max="32767" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
