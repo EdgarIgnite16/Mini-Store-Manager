@@ -256,6 +256,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             }
         });
 
+        btnXacNhanNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnXacNhanNhap.setText("Xác nhận nhập");
         btnXacNhanNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -424,9 +425,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             listMatHang.add(matHangDTO);
 
             loadMatHang(listMatHang); // khởi tạo lại table khách hàng
-
             // load các thông tin của mặt hàng lên text field
-
 
             // reset lại data tìm kiếm trong local
             _SaveData.khachHangTimThay = null;
@@ -493,20 +492,8 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         cbNhaCungCap.setSelectedIndex(0);
         tbDanhSachMatHang.clearSelection();
 
-        // set Background
-        txtMaMatHang.setBackground(Color.WHITE);
-        txtMaPhieuNhap.setBackground(Color.WHITE);
-        txtSoLuongNhap.setBackground(Color.WHITE);
-        txtNgayNhap.setBackground(Color.WHITE);
-
-        // set Foreground
-        txtMaMatHang.setForeground(Color.BLACK);
-        txtMaPhieuNhap.setForeground(Color.BLACK);
-        txtSoLuongNhap.setForeground(Color.BLACK);
-        txtNgayNhap.setForeground(Color.BLACK);
-
         loadMatHang(new MatHangBUS().getData()); // load lại mặt hàng
-        loadMatHang(new ArrayList<>()); // load lại chi tiết phiếu nhập
+        loadCTPN(new ArrayList<>()); // load lại chi tiết phiếu nhập
     }
 
     private void loadMatHang(ArrayList<MatHangDTO> listMatHang) {

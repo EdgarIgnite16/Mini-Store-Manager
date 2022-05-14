@@ -143,6 +143,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             }
         });
 
+        btnXacNhanNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnXacNhanNhap.setText("Xác nhận nhập");
         btnXacNhanNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -371,11 +372,8 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     private javax.swing.JLabel lbNgayNhap;
     private javax.swing.JLabel lbNhaCungCap;
     private javax.swing.JLabel lbSoLuongNhap;
-    private javax.swing.JLabel lbTongSoLuong;
     private javax.swing.JLabel lbTongSoLuongNhap;
-    private javax.swing.JLabel lbTongThanhTien;
     private javax.swing.JLabel lbTongThanhTienNhap;
-    private javax.swing.JPanel pnThanhToan;
     private javax.swing.JPanel pnThanhToanNhapHang;
     private javax.swing.JPanel pnThongTinPhieuNhap;
     private javax.swing.JScrollPane spDanhSachMatHang;
@@ -386,9 +384,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     private javax.swing.JTextField txtMaPhieuNhap;
     private javax.swing.JTextField txtNgayNhap;
     private javax.swing.JTextField txtSoLuongNhap;
-    private javax.swing.JTextField txtTongSoLuong;
     private javax.swing.JTextField txtTongSoLuongNhap;
-    private javax.swing.JTextField txtTongThanhTien;
     private javax.swing.JTextField txtTongThanhTienNhap;
     // End of variables declaration//GEN-END:variables
 }

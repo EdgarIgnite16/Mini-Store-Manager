@@ -428,8 +428,9 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtTenNhanVien, sb, "Vui lòng nhập tên nhân viên");
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
             _DataValidator.validateEmpty(txtCMND, sb, "Vui lòng nhập số CMND");
-            _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 9 số và không chứa ký tự!");
-            _DataValidator.valitdateCMND(txtCMND, sb, "CMND phải đúng format gồm 11 số và không chứa ký tự!");
+            _DataValidator.valitdateMaNV(txtMaNhanVien, sb, "Vui lòng kiểm tra lại cú pháp!\nMã nhân viên là NV + [STT]");
+            _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 10 số và không chứa ký tự!");
+            _DataValidator.valitdateCMND(txtCMND, sb, "CMND phải đúng format gồm 12 số và không chứa ký tự!");
 
             if (caLamViecDTO == null) {
                 sb.append("Vui lòng chọn ca làm việc!\n");
@@ -547,8 +548,9 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtTenNhanVien, sb, "Vui lòng nhập tên nhân viên");
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
             _DataValidator.validateEmpty(txtCMND, sb, "Vui lòng nhập số CMND");
-            _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 9 số và không chứa ký tự!");
-            _DataValidator.valitdateCMND(txtCMND, sb, "CMND phải đúng format gồm 11 số và không chứa ký tự!");
+            _DataValidator.valitdateMaNV(txtMaNhanVien, sb, "Vui lòng kiểm tra lại cú pháp!\nMã nhân viên là NV + [STT]");
+            _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 10 số và không chứa ký tự!");
+            _DataValidator.valitdateCMND(txtCMND, sb, "CMND phải đúng format gồm 12 số và không chứa ký tự!");
 
             if (caLamViecDTO == null) {
                 sb.append("Vui lòng chọn ca làm việc!\n");
