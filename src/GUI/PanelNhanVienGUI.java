@@ -378,7 +378,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
     private void btnTimKiemHDActionPerformed(java.awt.event.ActionEvent evt) {
         NhanVienDTO nhanVienDTO = tbDanhSachNhanVienListener();
         if (nhanVienDTO != null) {
-            new DialogTimKiemGUI(new Frame(), true, "NV").setVisible(true); // mở form tìm kiếm
+            new DialogTimKiemGUI(new Frame(), true, "HD").setVisible(true); // mở form tìm kiếm
             HoaDonDTO hoaDonDTO = _SaveData.hoaDonTimThay;
             if (hoaDonDTO != null) {
                 ArrayList<HoaDonDTO> listHD = new ArrayList<>(); // tạo mới danh sách hoá đơn

@@ -62,7 +62,7 @@ public class _DataValidator {
 
     // hàm xử lí validate Mã nhân viên bằng Regex
     public static void valitdateMaNV(JTextField field, StringBuilder sb, String errorMessage) {
-        String regex = "^NV[0-9]([0-9])$";
+        String regex = "^NV[0-9]{2}$";
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
@@ -73,7 +73,7 @@ public class _DataValidator {
 
     // hàm xử lí validate Mã khách hàng bằng Regex
     public static void valitdateMaKH(JTextField field, StringBuilder sb, String errorMessage) {
-        String regex = "^KH[0-9]([0-9])$";
+        String regex = "^KH[0-9]{2}$";
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
@@ -85,7 +85,7 @@ public class _DataValidator {
     // hàm xử lí validate Mã mặt hàng bằng Regex
     public static void valitdateMaMH(JTextField field, StringBuilder sb, LoaiMatHangDTO loaiMatHangDTO) {
         String maMH = LoaiMatHangBUS.getMaMHDefault(loaiMatHangDTO.getMaLMH());
-        String regex = "^" + maMH + "[0-9]([0-9])$";
+        String regex = "^" + maMH + "[0-9]{2}$";
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 

@@ -73,7 +73,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
 
         btnTimKiemHD.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnTimKiemHD.setText("Tìm kiếm hoá đơn");
-        btnTimKiemHD.setToolTipText("Tìm kiếm khách hàng thông qua mã khách hàng.");
+        btnTimKiemHD.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
         btnTimKiemHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTimKiemHDActionPerformed(evt);
@@ -82,7 +82,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
 
         btnTimKiemKH.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         btnTimKiemKH.setText("Tìm kiếm khách hàng");
-        btnTimKiemKH.setToolTipText("Tìm kiếm hoá đơn thông qua mã hoá đơn.");
+        btnTimKiemKH.setToolTipText("Tìm kiếm khách hàng thông qua mã khách hàng. ");
         btnTimKiemKH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTimKiemKHActionPerformed(evt);
@@ -145,11 +145,11 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                             .addComponent(btnThem, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(pnThongTinKhachHangLayout.createSequentialGroup()
-                        .addComponent(btnLamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLamMoi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnTimKiemKH, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnTimKiemKH, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnTimKiemHD, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnTimKiemHD, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnXemCTHD)))
                 .addContainerGap())
