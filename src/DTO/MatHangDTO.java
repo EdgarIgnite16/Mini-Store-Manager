@@ -12,8 +12,6 @@ public class MatHangDTO {
     public int soLuong_hientai = 0;
     public float thanhTien_hientai = 0;
 
-    // các thông số trong nhập hàng
-    public int soLuongNhap = 0;
 
     public MatHangDTO() {
     }

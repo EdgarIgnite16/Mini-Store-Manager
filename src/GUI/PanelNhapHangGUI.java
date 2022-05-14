@@ -30,6 +30,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     private DefaultTableModel modelTable_MH;
     private DefaultTableModel modelTable_CTPN;
     private DefaultComboBoxModel modelComboBox_NCC;
+    private ArrayList<MatHangDTO> listMatHangSelected = new ArrayList<>();
 
     /**
      * Creates new form PanelPhieuNhapGUI
@@ -69,7 +70,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
 
                 @Override
                 public void mousePressed(MouseEvent e) {
-                    tbDanhSachMatHangMouseListener(e);
+                    tbDanhSachMatHangMouseListener();
                 }
 
                 @Override
@@ -433,7 +434,21 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     }
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        MatHangDTO matHangDTO = tbDanhSachMatHangMouseListener();
+        if(matHangDTO != null) {
+            System.out.println(matHangDTO.toString());
+            if(checkItemExist(matHangDTO)) {
+                _MessageDialogHelper.showErrorDialog(parentForm,
+                        "Mặt hàng đã tồn tại trong Danh Sách Nhập Hàng!", "Lỗi chọn");
+            } else {
+                matHangDTO.soLuong_hientai = Integer.parseInt(txtSoLuongNhap.getText());
+                listMatHangSelected.add(matHangDTO);
+                loadCTPN(listMatHangSelected);
+            }
+        } else {
+            _MessageDialogHelper.showErrorDialog(parentForm,
+                    "Vui lòng chọn một đối tượng trong bảng mặt hàng!", "Lỗi chọn");
+        }
     }
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {
@@ -453,10 +468,22 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     }
 
     private void btnHuyDonNhapActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        if (_MessageDialogHelper.showConfirmDialog(parentForm, "Bạn có muốn hủy đơn nhập không!", "Hủy đơn nhập") == JOptionPane.YES_OPTION)
+            ;
+        {
+            refreshData();
+            loadCTPN(new ArrayList<>()); // load lại mặt hàng
+            listMatHangSelected.clear(); // clear ds nhập
+
+            // reset lại các thông số: Số lượng, Thành tiền của từng mặt hàng đã xét trước đó
+            for (MatHangDTO item : new MatHangBUS().getData()) {
+                MatHangBUS.resetSoLuong(item);
+                MatHangBUS.resetThanhTien(item);
+            }
+        }
     }
 
-    private void tbDanhSachMatHangMouseListener(MouseEvent e) {
+    private MatHangDTO tbDanhSachMatHangMouseListener() {
         try {
             int selectedRow = tbDanhSachMatHang.getSelectedRow();
             String idMH = String.valueOf(tbDanhSachMatHang.getValueAt(selectedRow, 0));
@@ -464,10 +491,13 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
 
             if (matHangDTO != null) {
                 loadForm(matHangDTO); // load form mặt hàng
+                return matHangDTO;
             }
+            return null;
         } catch (Exception ex) {
             _MessageDialogHelper.showErrorDialog(parentForm,
                     "Vui lòng chọn một dòng trong danh sách mặt hàng!", "Yêu cầu chọn dữ liệu");
+            return null;
         }
     }
 
@@ -493,7 +523,6 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         tbDanhSachMatHang.clearSelection();
 
         loadMatHang(new MatHangBUS().getData()); // load lại mặt hàng
-        loadCTPN(new ArrayList<>()); // load lại chi tiết phiếu nhập
     }
 
     private void loadMatHang(ArrayList<MatHangDTO> listMatHang) {
@@ -515,7 +544,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         for (MatHangDTO item : listMatHang) {
             modelTable_CTPN.addRow(new Object[]{
                     item.getMaMH(),
-                    item.getMaLMH(),
+                    item.getTenMH(),
                     item.soLuong_hientai,
             });
         }
@@ -526,7 +555,6 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         txtNgayNhap.setText(dateFormat.format(new Date()));
         txtMaPhieuNhap.setText(handleMHD());
         txtMaMatHang.setText(matHangDTO.getMaMH());
-        txtSoLuongNhap.setText("1");
     }
 
 
@@ -549,6 +577,15 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         return maPN;
     }
 
+    // kiểm tra hàng có tồn tại trong danh sách hàng đã chọn
+    public boolean checkItemExist(MatHangDTO matHangDTO) {
+        for (MatHangDTO item : listMatHangSelected) {
+            if (item.getMaMH().equals(matHangDTO.getMaMH())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnGiamSL;
