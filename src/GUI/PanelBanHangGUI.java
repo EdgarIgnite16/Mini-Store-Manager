@@ -26,7 +26,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
     private static String ngayBan;
     private static float tongtien;
     private static int soLuong;
-    private static ArrayList<MatHangDTO> listMatHangSelected;
+    private static final ArrayList<MatHangDTO> listMatHangSelected = new ArrayList<>();
 
     /**
      * Creates new form BanHangGUI
@@ -37,7 +37,6 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         initGioHangTable();
         initLoaiSanPham();
         initMaGiamGia();
-        listMatHangSelected = new ArrayList<>();
     }
 
     public static void initButtonFood() {
@@ -504,7 +503,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
             loadGioHang(); // load table giỏ hàng
             loadHoaDon(); // load hoá đơn
 
-            // reset lại số lượng xoá trong local
+            // reset lại số lượng thêm trong local
             _SaveData.soLuongThem = 0;
         }
     }

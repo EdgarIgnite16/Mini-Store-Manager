@@ -110,7 +110,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                tbDanhSachMatHangNhapMouseListener(e);
+                tbDanhSachMatHangNhapMouseListener();
             }
 
             @Override
@@ -452,15 +452,43 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     }
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        MatHangDTO matHangDTO = tbDanhSachMatHangNhapMouseListener();
+        if (matHangDTO != null) {
+            MatHangBUS.resetSoLuong(matHangDTO); // reset lại số lượng của mặt hàng bị xoá
+            MatHangBUS.resetThanhTien(matHangDTO); // reset lại tổng thành tiền của mặt hàng bị xoá
+            listMatHangSelected.remove(matHangDTO); // xoá mặt hàng đó ra khỏi danh sách nhập
+            loadCTPN(listMatHangSelected);
+        }
     }
 
     private void btnTangSLActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        MatHangDTO matHangDTO = tbDanhSachMatHangNhapMouseListener();
+        if (matHangDTO != null) {
+            new DialogThemGUI(new Frame(), true, matHangDTO).setVisible(true); // tạo form nhập số lượng xoá
+
+            int soLuongThem = _SaveData.soLuongThem; // lấy ra số lượng sản phẩm muốn thêm vào
+            MatHangBUS.increaseSoLuong(matHangDTO, soLuongThem); // tăng số lượng hiện tại trong danh sách nhập
+            MatHangBUS.increaseThanhTien(matHangDTO, soLuongThem); // tăng thành tiền hiện tại trong danh sách nhập
+            loadCTPN(listMatHangSelected); // load table danh sách nhập
+
+            // reset lại số lượng thêm trong local
+            _SaveData.soLuongThem = 0;
+        }
     }
 
     private void btnGiamSLActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        MatHangDTO matHangDTO = tbDanhSachMatHangNhapMouseListener();
+        if (matHangDTO != null) {
+            new DialogXoaGUI(new Frame(), true, matHangDTO).setVisible(true); // tạo form nhập số lượng xoá
+
+            int soLuongxoa = _SaveData.soLuongXoa; // lấy số lượng cần xoá
+            MatHangBUS.decreaseSoLuong(matHangDTO, soLuongxoa); // giảm số lượng hiện tại trong danh sách nhập
+            MatHangBUS.decreaseThanhTien(matHangDTO, soLuongxoa); // giảm thành tiền hiện tại trong danh sách nhập
+            loadCTPN(listMatHangSelected); // load table danh sách nhập
+
+            // reset lại số lượng xoá trong local
+            _SaveData.soLuongXoa = 0;
+        }
     }
 
     private void btnXacNhanNhapActionPerformed(java.awt.event.ActionEvent evt) {
@@ -468,9 +496,8 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     }
 
     private void btnHuyDonNhapActionPerformed(java.awt.event.ActionEvent evt) {
-        if (_MessageDialogHelper.showConfirmDialog(parentForm, "Bạn có muốn hủy đơn nhập không!", "Hủy đơn nhập") == JOptionPane.YES_OPTION)
-            ;
-        {
+        if (_MessageDialogHelper.showConfirmDialog(parentForm,
+                "Bạn có muốn hủy đơn nhập không!", "Hủy đơn nhập") == JOptionPane.YES_OPTION) ;{
             refreshData();
             loadCTPN(new ArrayList<>()); // load lại mặt hàng
             listMatHangSelected.clear(); // clear ds nhập
@@ -501,7 +528,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
     }
 
-    private MatHangDTO tbDanhSachMatHangNhapMouseListener(MouseEvent e) {
+    private MatHangDTO tbDanhSachMatHangNhapMouseListener() {
         try {
             int selectedRow = tbDanhSachMatHangNhap.getSelectedRow();
             String idMH = String.valueOf(tbDanhSachMatHangNhap.getValueAt(selectedRow, 0));
