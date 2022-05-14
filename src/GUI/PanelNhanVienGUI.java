@@ -428,6 +428,8 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtTenNhanVien, sb, "Vui lòng nhập tên nhân viên");
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
             _DataValidator.validateEmpty(txtCMND, sb, "Vui lòng nhập số CMND");
+            _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 9 số và không chứa ký tự!");
+            _DataValidator.valitdateCMND(txtCMND, sb, "CMND phải đúng format gồm 11 số và không chứa ký tự!");
 
             if (caLamViecDTO == null) {
                 sb.append("Vui lòng chọn ca làm việc!\n");
@@ -491,22 +493,6 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         if (nhanVienDTO != null) {
             StringBuilder sb = new StringBuilder();
             try {
-                CaLamViecDTO caLamViecDTO = new CaLamViecBUS().getItemByName((String) cbCaLamViec.getSelectedItem());
-                ChucVuDTO chucVuDTO = new ChucVuBUS().getItemByName((String) cbChucVu.getSelectedItem());
-
-                _DataValidator.validateEmpty(txtMaNhanVien, sb, "Vui lòng nhập mã nhân viên");
-                _DataValidator.validateEmpty(txtTenNhanVien, sb, "Vui lòng nhập tên nhân viên");
-                _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
-                _DataValidator.validateEmpty(txtCMND, sb, "Vui lòng nhập số CMND");
-
-                if (caLamViecDTO == null) {
-                    sb.append("Vui lòng chọn ca làm việc!\n");
-                }
-
-                if (chucVuDTO == null) {
-                    sb.append("Vui lòng chọn chức vụ!\n");
-                }
-
                 if (sb.length() > 0) {
                     _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
                 } else {
@@ -561,6 +547,8 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtTenNhanVien, sb, "Vui lòng nhập tên nhân viên");
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
             _DataValidator.validateEmpty(txtCMND, sb, "Vui lòng nhập số CMND");
+            _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 9 số và không chứa ký tự!");
+            _DataValidator.valitdateCMND(txtCMND, sb, "CMND phải đúng format gồm 11 số và không chứa ký tự!");
 
             if (caLamViecDTO == null) {
                 sb.append("Vui lòng chọn ca làm việc!\n");

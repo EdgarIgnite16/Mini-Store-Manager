@@ -316,6 +316,8 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
             _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
+            _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 9 số và không chứa ký tự!");
+
             if (sb.length() > 0) {
                 _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
             } else {
@@ -364,9 +366,6 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         if (khachHangDTO != null) {
             StringBuilder sb = new StringBuilder();
             try {
-                _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
-                _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
-                _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
                 if (sb.length() > 0) {
                     _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
                 } else {
@@ -419,6 +418,8 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
             _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
+            _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 9 số và không chứa ký tự!");
+
             if (sb.length() > 0) {
                 _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
             } else {
