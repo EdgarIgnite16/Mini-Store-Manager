@@ -1,5 +1,7 @@
 package BUS;
 
+import DTO.LoaiMatHangDTO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.regex.Matcher;
@@ -38,7 +40,7 @@ public class _DataValidator {
 
     // hàm xử lí validate Số điện thoại bằng Regex
     public static void valitdatePhoneNumber(JTextField field, StringBuilder sb, String errorMessage) {
-        String regex = "^0[0-9]{9}$";
+        String regex = "^[0-9]{10}$";
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
@@ -49,11 +51,47 @@ public class _DataValidator {
 
     // hàm xử lí validate Số điện thoại bằng Regex
     public static void valitdateCMND(JTextField field, StringBuilder sb, String errorMessage) {
-        String regex = "^0[0-9]{11}$";
+        String regex = "^[0-9]{12}$";
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
         if(!status.find()) {
+            sb.append(String.format("%s\n", errorMessage));
+        }
+    }
+
+    // hàm xử lí validate Mã nhân viên bằng Regex
+    public static void valitdateMaNV(JTextField field, StringBuilder sb, String errorMessage) {
+        String regex = "^NV[0-9]([0-9])$";
+        Pattern checkRegex = Pattern.compile(regex);
+        Matcher status = checkRegex.matcher(field.getText());
+
+        if(!status.find()) {
+            sb.append(String.format("%s\n", errorMessage));
+        }
+    }
+
+    // hàm xử lí validate Mã khách hàng bằng Regex
+    public static void valitdateMaKH(JTextField field, StringBuilder sb, String errorMessage) {
+        String regex = "^KH[0-9]([0-9])$";
+        Pattern checkRegex = Pattern.compile(regex);
+        Matcher status = checkRegex.matcher(field.getText());
+
+        if(!status.find()) {
+            sb.append(String.format("%s\n", errorMessage));
+        }
+    }
+
+    // hàm xử lí validate Mã mặt hàng bằng Regex
+    public static void valitdateMaMH(JTextField field, StringBuilder sb, LoaiMatHangDTO loaiMatHangDTO) {
+        String maMH = LoaiMatHangBUS.getMaMHDefault(loaiMatHangDTO.getMaLMH());
+        String regex = "^" + maMH + "[0-9]([0-9])$";
+        Pattern checkRegex = Pattern.compile(regex);
+        Matcher status = checkRegex.matcher(field.getText());
+
+        if(!status.find()) {
+            String errorMessage = String.format("Vui lòng kiểm tra lại cú pháp!\nMã sản phẩm của %s là %s + [STT]",
+                    loaiMatHangDTO.getTenLMH(), maMH);
             sb.append(String.format("%s\n", errorMessage));
         }
     }

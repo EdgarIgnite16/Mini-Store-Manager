@@ -69,4 +69,26 @@ public class LoaiMatHangBUS {
 
         return path;
     }
+
+    public static String getMaMHDefault(String maLMH) {
+        String maMH;
+
+        switch (maLMH) {
+            case "BEAN" -> maMH = "BEA";
+            case "BEER" -> maMH = "BEE";
+            case "CAN" -> maMH = "CAN";
+            case "DRINK" -> maMH = "DRI";
+            case "FRUIT" -> maMH = "FRU";
+            case "HOUSEHOLD" -> maMH = "HOH";
+            case "MILK" -> maMH = "MIL";
+            case "RICE" -> maMH = "RIC";
+            case "SNACK" -> maMH = "SNA";
+            case "STUDIES" -> maMH = "STU";
+            case "VEGATABLE" -> maMH = "VEG";
+            case "WATER" -> maMH = "WAT";
+            default -> maMH = "";
+        }
+
+        return maMH;
+    }
 }

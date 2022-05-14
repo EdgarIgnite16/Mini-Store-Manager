@@ -387,6 +387,8 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
 
             if (loaiMatHangDTO == null) {
                 sb.append("Vui lòng chọn loại mặt hàng!\n");
+            } else {
+                _DataValidator.valitdateMaMH(txtMaMatHang, sb, loaiMatHangDTO);
             }
 
             if (sb.length() > 0) {
@@ -444,16 +446,6 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         if (matHangDTO != null) {
             StringBuilder sb = new StringBuilder();
             try {
-                LoaiMatHangDTO loaiMatHangDTO = new LoaiMatHangBUS().getItemByName((String) cbLoaiMatHang.getSelectedItem());
-
-                _DataValidator.validateEmpty(txtMaMatHang, sb, "Vui lòng nhập mã mặt hàng");
-                _DataValidator.validateEmpty(txtTenMatHang, sb, "Vui lòng nhập tên mặt hàng");
-                _DataValidator.validateEmpty(txtThanhTien, sb, "Vui lòng nhập thành tiền của mặt hàng");
-
-                if (loaiMatHangDTO == null) {
-                    sb.append("Vui lòng chọn loại mặt hàng!\n");
-                }
-
                 if (sb.length() > 0) {
                     _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
                 } else {
@@ -511,6 +503,8 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
 
             if (loaiMatHangDTO == null) {
                 sb.append("Vui lòng chọn loại mặt hàng!\n");
+            } else {
+                _DataValidator.valitdateMaMH(txtMaMatHang, sb, loaiMatHangDTO);
             }
 
             if (sb.length() > 0) {
