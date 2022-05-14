@@ -132,45 +132,21 @@ public class MatHangBUS {
     // =================================================================================== //
     // Xử lý các tác vụ giỏ hàng
     public static void increaseSoLuong(MatHangDTO matHangDTO, int n) {
-        if(n>1) {
-            // trường hợp tăng nhiều sản phẩm
-            matHangDTO.soLuong_hientai = matHangDTO.soLuong_hientai + n;
-        } else {
-            // trường hợp tăng 1 sản phẩm
-            matHangDTO.soLuong_hientai = matHangDTO.soLuong_hientai + 1;
-        }
+        matHangDTO.soLuong_hientai = matHangDTO.soLuong_hientai + n;
     }
 
     public static void increaseThanhTien(MatHangDTO matHangDTO, int n) {
-        if(n > 1) {
-            // trường hợp tăng nhiều sản phẩm
-            for(int i = matHangDTO.soLuong_hientai ; i < (matHangDTO.soLuong_hientai + n) ; i++) {
-                matHangDTO.thanhTien_hientai = matHangDTO.thanhTien_hientai + matHangDTO.getThanhTien();
-            }
-        } else {
-            // trường hợp tăng 1 sản phẩm
+        for(int i = matHangDTO.soLuong_hientai ; i < (matHangDTO.soLuong_hientai + n) ; i++) {
             matHangDTO.thanhTien_hientai = matHangDTO.thanhTien_hientai + matHangDTO.getThanhTien();
         }
     }
 
     public static void decreaseSoLuong(MatHangDTO matHangDTO, int n) {
-        if(n>1) {
-            // trường hợp giảm nhiều sản phẩm
-            matHangDTO.soLuong_hientai = matHangDTO.soLuong_hientai - n;
-        } else {
-            // trường hợp giảm 1 sản phẩm
-            matHangDTO.soLuong_hientai = matHangDTO.soLuong_hientai - 1;
-        }
+        matHangDTO.soLuong_hientai = matHangDTO.soLuong_hientai - n;
     }
 
     public static void decreaseThanhTien(MatHangDTO matHangDTO, int n) {
-        if(n > 1) {
-            // trường hợp tăng nhiều sản phẩm
-            for(int i = 1 ; i <= n ; i++) {
-                matHangDTO.thanhTien_hientai = matHangDTO.thanhTien_hientai - matHangDTO.getThanhTien();
-            }
-        } else {
-            // trường hợp tăng 1 sản phẩm
+        for(int i = 1 ; i <= n ; i++) {
             matHangDTO.thanhTien_hientai = matHangDTO.thanhTien_hientai - matHangDTO.getThanhTien();
         }
     }

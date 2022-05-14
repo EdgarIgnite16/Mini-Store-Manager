@@ -5,14 +5,14 @@ package GUI;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 
-import BUS.MatHangBUS;
-import BUS.NhaCungCapBUS;
-import BUS._MessageDialogHelper;
-import BUS._SaveData;
+import BUS.*;
 import DTO.MatHangDTO;
 import DTO.NhaCungCapDTO;
 
+import javax.print.Doc;
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -95,7 +95,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     }
 
     public void initListCTPN() {
-        String[] columnNames = new String[]{"Mã MH", "Tên MH", "Số lượng",};
+        String[] columnNames = new String[]{"Mã MH", "Tên MH", "Số lượng", "Thành tiền"};
         modelTable_CTPN = new DefaultTableModel();
         modelTable_CTPN.setColumnIdentifiers(columnNames);
 
@@ -193,6 +193,22 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         txtMaMatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         txtSoLuongNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtSoLuongNhap.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                txtSoLuongNhapDocumentListener();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                txtSoLuongNhapDocumentListener();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                txtSoLuongNhapDocumentListener();
+            }
+        });
 
         txtNgayNhap.setEditable(false);
         txtNgayNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -218,6 +234,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         });
 
         btnThem.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        btnThem.setEnabled(false);
         btnThem.setText("Thêm mặt hàng");
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -436,18 +453,16 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbDanhSachMatHangMouseListener();
         if(matHangDTO != null) {
-            System.out.println(matHangDTO.toString());
             if(checkItemExist(matHangDTO)) {
                 _MessageDialogHelper.showErrorDialog(parentForm,
-                        "Mặt hàng đã tồn tại trong Danh Sách Nhập Hàng!", "Lỗi chọn");
+                        "Mặt hàng đã tồn tại trong Danh Sách Nhập Hàng!", "Vui lòng chọn lại");
             } else {
-                matHangDTO.soLuong_hientai = Integer.parseInt(txtSoLuongNhap.getText());
+                MatHangBUS.increaseSoLuong(matHangDTO, Integer.parseInt(txtSoLuongNhap.getText()));
+                MatHangBUS.increaseThanhTien(matHangDTO, Integer.parseInt(txtSoLuongNhap.getText()));
                 listMatHangSelected.add(matHangDTO);
                 loadCTPN(listMatHangSelected);
+                loadThanhToan(listMatHangSelected);
             }
-        } else {
-            _MessageDialogHelper.showErrorDialog(parentForm,
-                    "Vui lòng chọn một đối tượng trong bảng mặt hàng!", "Lỗi chọn");
         }
     }
 
@@ -458,18 +473,20 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             MatHangBUS.resetThanhTien(matHangDTO); // reset lại tổng thành tiền của mặt hàng bị xoá
             listMatHangSelected.remove(matHangDTO); // xoá mặt hàng đó ra khỏi danh sách nhập
             loadCTPN(listMatHangSelected);
+            loadThanhToan(listMatHangSelected);
         }
     }
 
     private void btnTangSLActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbDanhSachMatHangNhapMouseListener();
         if (matHangDTO != null) {
-            new DialogThemGUI(new Frame(), true, matHangDTO).setVisible(true); // tạo form nhập số lượng xoá
+            new DialogThemGUI(new Frame(), true, matHangDTO, "PN").setVisible(true); // tạo form nhập số lượng xoá
 
             int soLuongThem = _SaveData.soLuongThem; // lấy ra số lượng sản phẩm muốn thêm vào
             MatHangBUS.increaseSoLuong(matHangDTO, soLuongThem); // tăng số lượng hiện tại trong danh sách nhập
             MatHangBUS.increaseThanhTien(matHangDTO, soLuongThem); // tăng thành tiền hiện tại trong danh sách nhập
             loadCTPN(listMatHangSelected); // load table danh sách nhập
+            loadThanhToan(listMatHangSelected);
 
             // reset lại số lượng thêm trong local
             _SaveData.soLuongThem = 0;
@@ -479,12 +496,13 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     private void btnGiamSLActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbDanhSachMatHangNhapMouseListener();
         if (matHangDTO != null) {
-            new DialogXoaGUI(new Frame(), true, matHangDTO).setVisible(true); // tạo form nhập số lượng xoá
+            new DialogXoaGUI(new Frame(), true, matHangDTO, "PN").setVisible(true); // tạo form nhập số lượng xoá
 
             int soLuongxoa = _SaveData.soLuongXoa; // lấy số lượng cần xoá
             MatHangBUS.decreaseSoLuong(matHangDTO, soLuongxoa); // giảm số lượng hiện tại trong danh sách nhập
             MatHangBUS.decreaseThanhTien(matHangDTO, soLuongxoa); // giảm thành tiền hiện tại trong danh sách nhập
             loadCTPN(listMatHangSelected); // load table danh sách nhập
+            loadThanhToan(listMatHangSelected);
 
             // reset lại số lượng xoá trong local
             _SaveData.soLuongXoa = 0;
@@ -502,6 +520,9 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             loadCTPN(new ArrayList<>()); // load lại mặt hàng
             listMatHangSelected.clear(); // clear ds nhập
 
+            txtTongSoLuongNhap.setText("");
+            txtTongThanhTienNhap.setText("");
+
             // reset lại các thông số: Số lượng, Thành tiền của từng mặt hàng đã xét trước đó
             for (MatHangDTO item : new MatHangBUS().getData()) {
                 MatHangBUS.resetSoLuong(item);
@@ -510,6 +531,8 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
     }
 
+    //===================================================================================================//
+    // bắt sự kiện ấn vào table Danh sách MH
     private MatHangDTO tbDanhSachMatHangMouseListener() {
         try {
             int selectedRow = tbDanhSachMatHang.getSelectedRow();
@@ -528,6 +551,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // bắt sự kiện ấn vào table Danh sách MH nhập
     private MatHangDTO tbDanhSachMatHangNhapMouseListener() {
         try {
             int selectedRow = tbDanhSachMatHangNhap.getSelectedRow();
@@ -541,6 +565,12 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
     }
 
+    private void txtSoLuongNhapDocumentListener() {
+        btnThem.setEnabled(!txtSoLuongNhap.getText().isEmpty());
+        btnThem.setEnabled(!txtMaPhieuNhap.getText().isEmpty());
+    }
+
+    // làm mới lại form mặt hàng và txt thông tin
     private void refreshData() {
         txtMaMatHang.setText(""); // refresh form mã mặt hàng
         txtMaPhieuNhap.setText(""); // refresh form tên mã phiêu nhập
@@ -552,6 +582,15 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         loadMatHang(new MatHangBUS().getData()); // load lại mặt hàng
     }
 
+    // hàm load các txt thông tin
+    public void loadForm(MatHangDTO matHangDTO) {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        txtNgayNhap.setText(dateFormat.format(new Date()));
+        txtMaPhieuNhap.setText(handleMPN());
+        txtMaMatHang.setText(matHangDTO.getMaMH());
+    }
+
+    // hàm load form mặt hàng
     private void loadMatHang(ArrayList<MatHangDTO> listMatHang) {
         modelTable_MH.setRowCount(0);
         for (MatHangDTO item : listMatHang) {
@@ -566,6 +605,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // hàm load form chi tiết phiếu nhập (danh sách nhập hàng)
     private void loadCTPN(ArrayList<MatHangDTO> listMatHang) {
         modelTable_CTPN.setRowCount(0);
         for (MatHangDTO item : listMatHang) {
@@ -573,19 +613,28 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
                     item.getMaMH(),
                     item.getTenMH(),
                     item.soLuong_hientai,
+                    item.thanhTien_hientai
             });
         }
     }
 
-    public void loadForm(MatHangDTO matHangDTO) {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        txtNgayNhap.setText(dateFormat.format(new Date()));
-        txtMaPhieuNhap.setText(handleMHD());
-        txtMaMatHang.setText(matHangDTO.getMaMH());
+    // hàm load form thanh toán
+    public void loadThanhToan(ArrayList<MatHangDTO> listMatHang) {
+        float tongTien = 0;
+        int tongSoLuong = 0;
+
+        // tính toán tổng tiền và tổng số lượng
+        for(MatHangDTO item : listMatHang) {
+            tongSoLuong += item.soLuong_hientai;
+            tongTien += item.thanhTien_hientai;
+        }
+
+        txtTongThanhTienNhap.setText(String.valueOf(tongTien));
+        txtTongSoLuongNhap.setText(String.valueOf(tongSoLuong));
     }
 
-
-    public String handleMHD() {
+    // xử lí mã phiếu nhập
+    public String handleMPN() {
         String maPN = "PN";
         String[] arr = txtNgayNhap.getText().split(" ");
         for (int i = 0; i < arr.length; i++) {
@@ -629,11 +678,8 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     private javax.swing.JLabel lbNgayNhap;
     private javax.swing.JLabel lbNhaCungCap;
     private javax.swing.JLabel lbSoLuongNhap;
-    private javax.swing.JLabel lbTongSoLuong;
     private javax.swing.JLabel lbTongSoLuongNhap;
-    private javax.swing.JLabel lbTongThanhTien;
     private javax.swing.JLabel lbTongThanhTienNhap;
-    private javax.swing.JPanel pnThanhToan;
     private javax.swing.JPanel pnThanhToanNhapHang;
     private javax.swing.JPanel pnThongTinPhieuNhap;
     private javax.swing.JScrollPane spDanhSachMatHang;
@@ -644,9 +690,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     private javax.swing.JTextField txtMaPhieuNhap;
     private javax.swing.JTextField txtNgayNhap;
     private javax.swing.JTextField txtSoLuongNhap;
-    private javax.swing.JTextField txtTongSoLuong;
     private javax.swing.JTextField txtTongSoLuongNhap;
-    private javax.swing.JTextField txtTongThanhTien;
     private javax.swing.JTextField txtTongThanhTienNhap;
     // End of variables declaration
 }

@@ -479,7 +479,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
     private void btnGiamMHActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbGioHangMousePressed();
         if (matHangDTO != null) {
-            new DialogXoaGUI(new Frame(), true, matHangDTO).setVisible(true); // tạo form nhập số lượng xoá
+            new DialogXoaGUI(new Frame(), true, matHangDTO, "HD").setVisible(true); // tạo form nhập số lượng xoá
 
             int soLuongxoa = _SaveData.soLuongXoa; // lấy số lượng cần xoá
             MatHangBUS.decreaseSoLuong(matHangDTO, soLuongxoa); // giảm số lượng hiện tại trong giỏ hàng
@@ -495,7 +495,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
     private void btnTangMHActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbGioHangMousePressed();
         if (matHangDTO != null) {
-            new DialogThemGUI(new Frame(), true, matHangDTO).setVisible(true); // tạo form nhập số lượng xoá
+            new DialogThemGUI(new Frame(), true, matHangDTO, "HD").setVisible(true); // tạo form nhập số lượng xoá
 
             int soLuongThem = _SaveData.soLuongThem; // lấy ra số lượng sản phẩm muốn thêm vào
             MatHangBUS.increaseSoLuong(matHangDTO, soLuongThem); // tăng số lượng hiện tại trong giỏ hàng

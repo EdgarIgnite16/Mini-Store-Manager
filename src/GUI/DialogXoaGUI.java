@@ -9,14 +9,16 @@ import javax.swing.event.DocumentListener;
 
 public class DialogXoaGUI extends javax.swing.JDialog {
     private final MatHangDTO matHangDTO;
+    private String key;
 
     /**
      * Creates new form SoLuongXoaDialogGUI
      */
-    public DialogXoaGUI(java.awt.Frame parent, boolean modal, MatHangDTO item) {
+    public DialogXoaGUI(java.awt.Frame parent, boolean modal, MatHangDTO item, String key) {
         super(parent, modal);
         initComponents();
         this.matHangDTO = item;
+        this.key = key;
     }
 
     /**
@@ -117,19 +119,33 @@ public class DialogXoaGUI extends javax.swing.JDialog {
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         try {
-            if (Integer.parseInt(txtSoLuong.getText()) > matHangDTO.soLuong_hientai) {
-                _MessageDialogHelper.showErrorDialog(this, "Số lượng xoá không được phép lớn hơn số lượng sản phẩm trong giỏ hàng!",
-                        "Kiểm tra số lượng xoá");
-                txtSoLuong.setText("");
-                txtSoLuong.requestFocus();
-            } else if (Integer.parseInt(txtSoLuong.getText()) == matHangDTO.soLuong_hientai) {
-                _MessageDialogHelper.showErrorDialog(this, "Phải có ít nhất 1 sản phẩm trong giỏ hàng!",
-                        "Kiểm tra số lượng xoá");
-                txtSoLuong.setText("");
-                txtSoLuong.requestFocus();
-            } else {
-                _SaveData.soLuongXoa = Integer.parseInt(txtSoLuong.getText());
-                this.dispose();
+            if (key.equals("HD")) {
+                if (Integer.parseInt(txtSoLuong.getText()) > matHangDTO.soLuong_hientai) {
+                    _MessageDialogHelper.showErrorDialog(this, "Số lượng xoá không được phép lớn hơn số lượng sản phẩm trong giỏ hàng!",
+                            "Kiểm tra số lượng xoá");
+                    txtSoLuong.setText("");
+                    txtSoLuong.requestFocus();
+                } else if (Integer.parseInt(txtSoLuong.getText()) == matHangDTO.soLuong_hientai) {
+                    _MessageDialogHelper.showErrorDialog(this, "Phải có ít nhất 1 sản phẩm trong giỏ hàng!",
+                            "Kiểm tra số lượng xoá");
+                    txtSoLuong.setText("");
+                    txtSoLuong.requestFocus();
+                } else {
+                    _SaveData.soLuongXoa = Integer.parseInt(txtSoLuong.getText());
+                    this.dispose();
+                }
+            }
+
+            if(key.equals("PN")) {
+                if (Integer.parseInt(txtSoLuong.getText()) == matHangDTO.soLuong_hientai) {
+                    _MessageDialogHelper.showErrorDialog(this, "Phải có ít nhất 1 sản phẩm!",
+                            "Kiểm tra số lượng xoá");
+                    txtSoLuong.setText("");
+                    txtSoLuong.requestFocus();
+                } else {
+                    _SaveData.soLuongXoa = Integer.parseInt(txtSoLuong.getText());
+                    this.dispose();
+                }
             }
         } catch (Exception ex) {
             // Bắt exception trong thẻ input

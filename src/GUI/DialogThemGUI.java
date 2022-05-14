@@ -9,14 +9,16 @@ import javax.swing.event.DocumentListener;
 
 public class DialogThemGUI extends javax.swing.JDialog {
     private final MatHangDTO matHangDTO;
+    private String key;
 
     /**
      * Creates new form SoLuongXoaDialogGUI
      */
-    public DialogThemGUI(java.awt.Frame parent, boolean modal, MatHangDTO item) {
+    public DialogThemGUI(java.awt.Frame parent, boolean modal, MatHangDTO item, String key) {
         super(parent, modal);
         initComponents();
         this.matHangDTO = item;
+        this.key = key;
     }
 
     /**
@@ -117,19 +119,33 @@ public class DialogThemGUI extends javax.swing.JDialog {
 
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         try {
-            if (Integer.parseInt(txtSoLuong.getText()) + matHangDTO.soLuong_hientai > matHangDTO.getSoLuong()) {
-                _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm không được phép lớn hơn số lượng sản phẩm còn lại trong tồn kho!",
-                        "Kiểm tra số lượng thêm");
-                txtSoLuong.setText("");
-                txtSoLuong.requestFocus();
-            } else if (Integer.parseInt(txtSoLuong.getText()) <= 1) {
-                _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm phải lớn hơn 1!",
-                        "Kiểm tra số lượng thêm");
-                txtSoLuong.setText("");
-                txtSoLuong.requestFocus();
-            } else {
-                _SaveData.soLuongThem = Integer.parseInt(txtSoLuong.getText());
-                this.dispose();
+            if(key.equals("HD")) {
+                if (Integer.parseInt(txtSoLuong.getText()) + matHangDTO.soLuong_hientai > matHangDTO.getSoLuong()) {
+                    _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm không được phép lớn hơn số lượng sản phẩm còn lại trong tồn kho!",
+                            "Kiểm tra số lượng thêm");
+                    txtSoLuong.setText("");
+                    txtSoLuong.requestFocus();
+                } else if (Integer.parseInt(txtSoLuong.getText()) <= 1) {
+                    _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm phải lớn hơn 1!",
+                            "Kiểm tra số lượng thêm");
+                    txtSoLuong.setText("");
+                    txtSoLuong.requestFocus();
+                } else {
+                    _SaveData.soLuongThem = Integer.parseInt(txtSoLuong.getText());
+                    this.dispose();
+                }
+            }
+
+            if(key.equals("PN")) {
+                if (Integer.parseInt(txtSoLuong.getText()) <= 1) {
+                    _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm phải lớn hơn 1!",
+                            "Kiểm tra số lượng thêm");
+                    txtSoLuong.setText("");
+                    txtSoLuong.requestFocus();
+                } else {
+                    _SaveData.soLuongThem = Integer.parseInt(txtSoLuong.getText());
+                    this.dispose();
+                }
             }
         } catch (Exception ex) {
             // Bắt exception trong thẻ input
