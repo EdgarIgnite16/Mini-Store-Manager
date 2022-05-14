@@ -10,8 +10,7 @@ public class MatHangDTO {
 
     // các thông số trong giỏ hàng
     public int soLuong_hientai = 0;
-    public float thanhTien_hientai = 0;
-
+    public double thanhTien_hientai = 0;
 
     public MatHangDTO() {
     }

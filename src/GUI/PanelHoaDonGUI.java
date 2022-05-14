@@ -498,7 +498,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
     }
 
     // xử lí thành tiền hiện tại của hoá đơn đã mua * số lượng
-    private float handleThanhTienHienTai(ChiTietHoaDonDTO item) {
+    private double handleThanhTienHienTai(ChiTietHoaDonDTO item) {
         MatHangDTO matHangDTO = MatHangBUS.getItemByID(item.getMaMH());
         if (matHangDTO != null) {
             return handleSoLuongHienTai(item) * matHangDTO.getThanhTien();
