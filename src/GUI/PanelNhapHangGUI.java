@@ -537,14 +537,20 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
                         PhieuNhapHangBUS phieuNhapHangBUS = new PhieuNhapHangBUS();
                         phieuNhapHangBUS.insertItem(phieuNhapHangDTO); // khởi tạo dữ liệu
 
-                        // khởi tạo đối tượng chi tiết phiếu nhập và cập nhật dữ liệu lên CTPN
+                        // khởi tạo đối tượng chi tiết phiếu nhập và cập nhật dữ liệu lên CTPN, mặt hàng
                         ChiTietPhieuNhapBUS chiTietPhieuNhapBUS = new ChiTietPhieuNhapBUS();
+                        MatHangBUS matHangBUS = new MatHangBUS();
                         for(MatHangDTO item : listMatHangSelected) {
                             ChiTietPhieuNhapDTO chiTietPhieuNhapDTO = new ChiTietPhieuNhapDTO();
                             chiTietPhieuNhapDTO.setMaPhieuNhap(txtMaPhieuNhap.getText());
                             chiTietPhieuNhapDTO.setMaMH(item.getMaMH());
                             chiTietPhieuNhapDTO.setSoLuong(item.soLuong_hientai);
                             chiTietPhieuNhapBUS.insertItem(chiTietPhieuNhapDTO); // khởi tạo dữ liệu
+
+                            // Cập nhật số lượng hàng của từng mặt hàng có trong list
+                            int soLuong = item.getSoLuong() + item.soLuong_hientai;
+                            item.setSoLuong(soLuong);
+                            matHangBUS.updateItem(item);
                         }
 
                         // kết thúc
