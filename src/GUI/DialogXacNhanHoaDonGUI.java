@@ -306,6 +306,9 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
                     checkValid = handleChiTietHoaDon(chiTietHoaDonDTO); // gọi hàm xử lí chi tiết hoá đơn
                 }
 
+                // in hoá đơn đã bán vào folder bill list
+                new _PrintBill(hoaDonDTO.getMaHD(), hoaDonDTO, _SaveData.ChiTietHoaDon);
+
                 // xử lí giảm số lượng mặt hàng trong mặt hàng tương ứng với số lượng đã bán ra
                 for (MatHangDTO item : _SaveData.ChiTietHoaDon) {
                     MatHangDTO matHangDTO = MatHangBUS.getItemByID(item.getMaMH());
@@ -365,6 +368,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
         MatHangBUS matHangBUS = new MatHangBUS();
         return matHangBUS.updateItem(matHangDTO);
     }
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton btnXacNhan;
