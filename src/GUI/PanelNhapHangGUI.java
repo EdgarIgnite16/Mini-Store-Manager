@@ -539,7 +539,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
 
                         // khởi tạo đối tượng chi tiết phiếu nhập và cập nhật dữ liệu lên CTPN, mặt hàng
                         ChiTietPhieuNhapBUS chiTietPhieuNhapBUS = new ChiTietPhieuNhapBUS();
-                        MatHangBUS matHangBUS = new MatHangBUS();
+                        MatHangBUS matHangBUS = new MatHangBUS();   
                         for(MatHangDTO item : listMatHangSelected) {
                             ChiTietPhieuNhapDTO chiTietPhieuNhapDTO = new ChiTietPhieuNhapDTO();
                             chiTietPhieuNhapDTO.setMaPhieuNhap(txtMaPhieuNhap.getText());
