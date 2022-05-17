@@ -398,16 +398,6 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         txtNgayNhap.setText(""); // refresh form số điện thoại
         tbDanhSachPhieuNhap.clearSelection(); // refresh selected danh sách phiếu nhập
 
-        // set Background
-        txtMaPhieuNhap.setBackground(Color.WHITE);
-        txtNhaCungCap.setBackground(Color.WHITE);
-        txtNgayNhap.setBackground(Color.WHITE);
-
-        // set Foreground
-        txtMaPhieuNhap.setForeground(Color.BLACK);
-        txtNhaCungCap.setForeground(Color.BLACK);
-        txtNgayNhap.setForeground(Color.BLACK);
-
         loadTablePN(new PhieuNhapHangBUS().getData()); // load form phiếu nhập
         loadChiTietPhieuNhap(new ArrayList<>()); // load lại form chi tiết
     }

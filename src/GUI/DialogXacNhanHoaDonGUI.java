@@ -307,7 +307,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
                 }
 
                 // in hoá đơn đã bán vào folder bill list
-                new _PrintBill(hoaDonDTO.getMaHD(), hoaDonDTO, _SaveData.ChiTietHoaDon);
+                _PrintBill.printBill(hoaDonDTO.getMaHD(), hoaDonDTO, _SaveData.ChiTietHoaDon);
 
                 // xử lí giảm số lượng mặt hàng trong mặt hàng tương ứng với số lượng đã bán ra
                 for (MatHangDTO item : _SaveData.ChiTietHoaDon) {

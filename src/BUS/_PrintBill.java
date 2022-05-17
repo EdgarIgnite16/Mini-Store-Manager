@@ -4,11 +4,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.text.Normalizer;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.regex.Pattern;
 
-import DTO.ChiTietHoaDonDTO;
-import DTO.ChiTietPhieuNhapDTO;
 import DTO.HoaDonDTO;
 import DTO.MatHangDTO;
 import com.itextpdf.text.Anchor;
@@ -18,8 +15,6 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
-import com.itextpdf.text.List;
-import com.itextpdf.text.ListItem;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Section;
@@ -29,22 +24,22 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 
 public class _PrintBill {
-    private final Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
-    private final Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.RED);
-    private final Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
-    private final Font NorFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.NORMAL);
-    private final Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
+    private static final Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
+    private static final Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.RED);
+    private static final Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
+    private static final Font NorFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.NORMAL);
+    private static final Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
 
-    private String fileName;
-    private HoaDonDTO hoaDonDTO;
-    private ArrayList<MatHangDTO> listSP;
+    private static String fileName;
+    private static HoaDonDTO hoaDonDTO;
+    private static ArrayList<MatHangDTO> listSP;
 
-    public _PrintBill(String fileName, HoaDonDTO hoaDonDTO, ArrayList<MatHangDTO> listSP) {
+    public static void printBill(String iFileName, HoaDonDTO iHoaDonDTO, ArrayList<MatHangDTO> iListSP) {
         try {
             // các thông số nhận vào
-            this.fileName = fileName;
-            this.hoaDonDTO = hoaDonDTO;
-            this.listSP = listSP;
+            fileName = iFileName;
+            hoaDonDTO = iHoaDonDTO;
+            listSP = iListSP;
 
             String basePath = new File("").getAbsolutePath();
             String path = basePath + "\\resource\\bill list\\" + fileName + ".pdf";
@@ -60,17 +55,17 @@ public class _PrintBill {
     }
 
     // hàm tạo metadata
-    private void addMetaData(Document document) {
-        document.addTitle(String.format("Hoá đơn %s", this.fileName));
+    private static void addMetaData(Document document) {
+        document.addTitle(String.format("Hoá đơn %s", fileName));
         document.addAuthor("Phần mềm quản lí cửa hàng tiện lợi MiniStore");
         document.addCreator("Phần mềm quản lí cửa hàng tiện lợi MiniStore");
         document.addKeywords("Java, PDF, iText");
     }
 
     // hàm tạo dữ liệu chính
-    private void addMainData(Document document) throws DocumentException {
-        Anchor anchor = new Anchor(this.fileName, catFont);
-        anchor.setName(this.fileName);
+    private static void addMainData(Document document) throws DocumentException {
+        Anchor anchor = new Anchor(fileName, catFont);
+        anchor.setName(fileName);
 
         Paragraph maHD = new Paragraph("Ma hoa don: " + hoaDonDTO.getMaHD(), NorFont);
         Paragraph maGiamGia = new Paragraph("Ma giam gia: " + hoaDonDTO.getMaGiamGia(), NorFont);
@@ -108,7 +103,7 @@ public class _PrintBill {
     }
 
     // hàm tạo bảng
-    private void createTable(Section subCatPart) {
+    private static void createTable(Section subCatPart) {
         PdfPTable table = new PdfPTable(4);
 
         // khởi tạo header table
@@ -140,14 +135,14 @@ public class _PrintBill {
     }
 
     // hàm tạo dòng trống
-    private void addEmptyLine(Paragraph preface, int number) {
+    private static void addEmptyLine(Paragraph preface, int number) {
         for (int i = 0; i < number; i++) {
             preface.add(new Paragraph(" "));
         }
     }
 
     // hàm chuyển đổi chữ có dấu sang chữ ko dấu
-    public  String removeAccent(String s) {
+    public static String removeAccent(String s) {
         String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
         Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
         return pattern.matcher(temp).replaceAll("").replaceAll("Đ", "D").replace("đ", "d");

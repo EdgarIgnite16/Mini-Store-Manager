@@ -553,9 +553,11 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
                             matHangBUS.updateItem(item);
                         }
 
-                        // kết thúc
-                        clearAllData(); // reset lại form
 
+                        // kết thúc
+                        _MessageDialogHelper.showMessageDialog(parentForm,
+                                "Nhập hàng thành công!", "Yêu cầu nhập thành công");
+                        clearAllData(); // reset lại form
                     } else { // trường hợp ngược lại
                         _MessageDialogHelper.showErrorDialog(parentForm,
                                 "Vui lòng tiến hành chọn mặt hàng để nhập!", "Yêu cầu chọn dữ liệu");
