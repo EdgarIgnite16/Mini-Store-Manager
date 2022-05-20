@@ -1,6 +1,6 @@
 # Mini-Store-Manager
 Ứng dụng quản lí cửa hàng tiện lợi Mini Store!
-<br>Công nghệ phát triển: Java Swing, JSBC, POI Apache
+<br>Công nghệ phát triển: Java Swing, JSBC, POI Apache, iText API
  
 ## Team Member
 | TenSV                  | MaSV       |
