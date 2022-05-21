@@ -44,6 +44,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         initListCTPN();
     }
 
+    // khởi tạo dữ liệu cho comboBox nhà cung cấp
     private void initNhaCungCap() {
         modelComboBox_NCC = new DefaultComboBoxModel();
         modelComboBox_NCC.addElement("---");
@@ -53,6 +54,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         cbNhaCungCap.setModel(modelComboBox_NCC);
     }
 
+    // khởi tạo table Mặt hàng
     private void initTableMatHang() {
         String[] columnNames = new String[]{"Mã MH", "Mã LMH", "Tên MH", "Thành tiền", "Số lượng", "Trạng thái"};
         modelTable_MH = new DefaultTableModel();
@@ -96,6 +98,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // khởi tạo table chi tiết phiếu nhập
     public void initListCTPN() {
         String[] columnNames = new String[]{"Mã MH", "Tên MH", "Số lượng", "Thành tiền (VNĐ)"};
         modelTable_CTPN = new DefaultTableModel();
@@ -433,10 +436,12 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>
 
+    // xử lí btn làm mới
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {
         refreshData();
     }
 
+    // xử lí btn tìm kiếm
     private void btnTimKiemNVActionPerformed(java.awt.event.ActionEvent evt) {
         new DialogTimKiemGUI(new Frame(), true, "MH").setVisible(true); // mở form tìm kiếm
         MatHangDTO matHangDTO = _SaveData.matHangTimThay;
@@ -452,6 +457,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn thêm
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbDanhSachMatHangMouseListener();
         if(matHangDTO != null) {
@@ -475,6 +481,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn xoá
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbDanhSachMatHangNhapMouseListener();
         if (matHangDTO != null) {
@@ -486,6 +493,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn tăng sl
     private void btnTangSLActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbDanhSachMatHangNhapMouseListener();
         if (matHangDTO != null) {
@@ -502,6 +510,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn giảm sl
     private void btnGiamSLActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbDanhSachMatHangNhapMouseListener();
         if (matHangDTO != null) {
@@ -518,6 +527,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn xác nhận hoá đơn nhập
     private void btnXacNhanNhapActionPerformed(java.awt.event.ActionEvent evt) {
         try {
             if (_MessageDialogHelper.showConfirmDialog(parentForm,
@@ -573,6 +583,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn huỷ hoá đơn nhập
     private void btnHuyDonNhapActionPerformed(java.awt.event.ActionEvent evt) {
         if (_MessageDialogHelper.showConfirmDialog(parentForm,
                 "Bạn có muốn hủy đơn nhập không!", "Hủy đơn nhập") == JOptionPane.YES_OPTION) {

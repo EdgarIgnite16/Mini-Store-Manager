@@ -124,6 +124,7 @@ public class DialogAboutUSGUI extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>
 
+    // xử lí nút đóng
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {
         this.dispose();
     }

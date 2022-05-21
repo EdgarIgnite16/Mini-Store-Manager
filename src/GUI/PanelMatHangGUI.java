@@ -27,6 +27,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         initLoaiMatHang();
     }
 
+    // khởi tạo table mặt hàng
     private void initTableMatHang() {
         String[] columnNames = new String[]{"Mã MH", "Mã LMH", "Tên MH", "Thành tiền", "Số lượng", "Trạng thái"};
         modelTable_MH = new DefaultTableModel();
@@ -70,6 +71,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // khởi tạo table loại mặt hàng
     private void initLoaiMatHang() {
         modelComboBox_LMH = new DefaultComboBoxModel();
         modelComboBox_LMH.addElement("---");
@@ -376,6 +378,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>
 
+    // xử lí btn thêm
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
         StringBuilder sb = new StringBuilder();
         try {
@@ -441,6 +444,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn xoá
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbDanhSachMatHangMouseListener();
         if (matHangDTO != null) {
@@ -492,6 +496,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn sửa
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {
         StringBuilder sb = new StringBuilder();
         try {
@@ -540,10 +545,12 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn làm mới
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {
         refreshData();
     }
 
+    // xử lí btn tìm kiếm MH
     private void btnTimKiemMHActionPerformed(java.awt.event.ActionEvent evt) {
         new DialogTimKiemGUI(new Frame(), true, "MH").setVisible(true); // mở form tìm kiếm
         MatHangDTO matHangDTO = _SaveData.matHangTimThay;
@@ -561,6 +568,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn export excel
     private void btnExportExcelActionPerformed(java.awt.event.ActionEvent evt) {
         ArrayList<MatHangDTO> listMH = new MatHangBUS().getData();
         JFileChooser fc = new JFileChooser();
@@ -579,6 +587,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí sự kiện click chuột vào table danh sách mặt hàng => trả về đối tượng mặt hàng được click
     private MatHangDTO tbDanhSachMatHangMouseListener() {
         try {
             int selectedRow = tbDanhSachMatHang.getSelectedRow();

@@ -28,6 +28,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
         initKhachHang();
     }
 
+    // khởi tạo chi tiết giỏ hàng
     public void initGioHangTable() {
         String[] columnNames = new String[]{"Mã SP", "Tên SP", "Số lượng", "Thành tiền (VNĐ)"};
         model_table = new DefaultTableModel();
@@ -52,6 +53,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
         }
     }
 
+    // khởi tạo các thông tin cần thiết
     public void initThongtin() {
         txtMaHoaDon.setText(_SaveData.maHD);
         txtTenNhanVien.setText(_SaveData.tenNV);
@@ -62,6 +64,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
         handleLoadTongTien(_SaveData.tongTien, tileGiam); // load thông tin đã được giảm giá lên ô thanh toán
     }
 
+    // khởi tạo dữ liệu cho comboBox khách hàng
     public void initKhachHang() {
         model_cbKhachHang = new DefaultComboBoxModel();
         model_cbKhachHang.addElement("---");
@@ -263,6 +266,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>
 
+    // xử lí sự kiện của checkBox tên khách hàng => trả về đối tượng khách hàng mà cb đã chọn
     private KhachHangDTO cbTenKhachHangActionListener() {
         String rawItem = (String) cbTenKhachHang.getSelectedItem();
         if (rawItem.equals("---")) { // trường hợp là khách vãng lại
@@ -274,11 +278,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
         }
     }
 
-    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {
-        // đóng hàm hiện tại la
-        this.dispose();
-    }
-
+    // xử lí btn xác nhận
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         try {
             if (_MessageDialogHelper.showConfirmDialog(this, "Vui lòng kiểm tra lại các thông tin trong hoá đơn!\nBấm YES để tiến hành lập hoá đơn lên database.",
@@ -318,6 +318,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
                     }
                 }
 
+                // kiểm tra có tiến trình nào sai hay không
                 if (checkValid) {
                     _MessageDialogHelper.showMessageDialog(this,
                             "Lập hoá đơn thành công!", "Xử lí thành công");
@@ -325,7 +326,7 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
                     // load lại các nút bấm sản phẩm & số lượng mặt hàng của mỗi mặt hàng
                     PanelBanHangGUI.pnMatHang.removeAll();
                     PanelBanHangGUI.pnMatHang.revalidate();
-                    PanelBanHangGUI.initButtonFood();
+                    PanelBanHangGUI.initButtonMH(); // khởi tạo lại các nút bấm
                     PanelBanHangGUI.pnMatHang.repaint();
 
                     this.dispose(); // đóng hàm hiện tại lại
@@ -341,6 +342,12 @@ public class DialogXacNhanHoaDonGUI extends javax.swing.JDialog {
             _MessageDialogHelper.showErrorDialog(this, error, title);
             ex.printStackTrace();
         }
+    }
+
+    // xử lý btn thoát
+    private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {
+        // đóng hàm hiện tại la
+        this.dispose();
     }
 
     //===================================================================================================//

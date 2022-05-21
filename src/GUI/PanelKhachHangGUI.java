@@ -25,6 +25,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         initTableDonHang();
     }
 
+    // khởi tạo table khách hàng
     public void initTableKhachHang() {
         String[] columnNames = new String[]{"Mã KH", "Tên KH", "Số điện thoại", "Trạng thái"};
         modelTable_KH = new DefaultTableModel();
@@ -68,6 +69,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // khởi tạo table đơn hàng
     public void initTableDonHang() {
         String[] columnNames = new String[]{"Mã HD", "Mã NV", "Mã KH", "Mã giảm giá", "Tổng hoá đơn (VNĐ)", "Ngày bán"};
         modelTable_HD = new DefaultTableModel();
@@ -302,6 +304,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>
 
+    // xử lí btn xem cthd
     private void btnXemCTHDActionPerformed(java.awt.event.ActionEvent evt) {
         HoaDonDTO hoaDonDTO = tbLichSuGiaoDichMouseListener();
         if (hoaDonDTO != null) {
@@ -310,6 +313,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn thêm
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
         StringBuilder sb = new StringBuilder();
         try {
@@ -362,6 +366,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn xoá
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {
         KhachHangDTO khachHangDTO = tbDanhSachKhachHangMouseListener();
         if (khachHangDTO != null) {
@@ -413,6 +418,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn sửa
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {
         StringBuilder sb = new StringBuilder();
         try {
@@ -451,10 +457,12 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn làm mới
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {
         refreshData();
     }
 
+    // xử lí btn tìm kiếm KH
     private void btnTimKiemKHActionPerformed(java.awt.event.ActionEvent evt) {
         new DialogTimKiemGUI(new Frame(), true, "KH").setVisible(true); // mở form tìm kiếm
         KhachHangDTO khachHangDTO = _SaveData.khachHangTimThay;
@@ -474,6 +482,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn tìm kiếm HD
     private void btnTimKiemHDActionPerformed(java.awt.event.ActionEvent evt) {
         KhachHangDTO khachHangDTO = tbDanhSachKhachHangMouseListener();
         if (khachHangDTO != null) {
@@ -490,6 +499,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí sự kiện click chuột vào table danh sách khách hàng => trả về đối tượng khách hàng được click
     private KhachHangDTO tbDanhSachKhachHangMouseListener() {
         try {
             int selectedRow = tbDanhSachKhachHang.getSelectedRow();
@@ -513,6 +523,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí sự kiện click chuột vào table danh sách hoá đơn => trả về đối tượng hoá đơn được click
     private HoaDonDTO tbLichSuGiaoDichMouseListener() {
         try {
             int selectedRow = tbLichSuGiaoDich.getSelectedRow();

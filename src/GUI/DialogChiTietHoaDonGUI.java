@@ -25,6 +25,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
         initThongtin();
     }
 
+    // khởi tạo chi tiết giỏ hàng
     public void initGioHangTable() {
         String[] columnNames = new String[]{"Mã SP", "Tên SP", "Số lượng", "Thành tiền (VNĐ)"};
         DefaultTableModel model_table = new DefaultTableModel();
@@ -54,6 +55,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
         }
     }
 
+    // khởi tạo các thông tin cần thiết
     public void initThongtin() {
         txtMaHoaDon.setText(hoaDonDTO.getMaHD()); // in mã hoá đơn
         txtMaGiamGia.setText(hoaDonDTO.getMaGiamGia()); // in ra mã giảm giá
@@ -232,6 +234,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>
 
+    // xử lí nút đóng form
     private void btnDongActionPerformed(java.awt.event.ActionEvent evt) {
         // đóng form lại
         this.dispose();
@@ -239,6 +242,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
 
     // hàm load lại giỏ hàng của hoá đơn đã mua
     public ArrayList<MatHangDTO> handleLoadGioHang(ArrayList<ChiTietHoaDonDTO> listCTHD) {
+        // chuyển danh sách chi tiết hoá đơn nhận vào và trả về một danh sách (mặt hàng) mới
         ArrayList<MatHangDTO> gioHang = new ArrayList<>();
         for (ChiTietHoaDonDTO item : listCTHD) {
             MatHangDTO matHangDTO = new MatHangDTO();
@@ -248,10 +252,10 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
             matHangDTO.thanhTien_hientai = handleThanhTienHienTai(item);
             gioHang.add(matHangDTO);
         }
-        return gioHang;
+         return gioHang; // trả về một danh sách mặt hàng gọi là giohang
     }
 
-    // trả vêf số lượng mặt hàng đã mua của mặt hàng đó
+    // trả về số lượng mặt hàng đã mua của mặt hàng đó
     private int handleSoLuongHienTai(ChiTietHoaDonDTO item) {
         return item.getSoLuong();
     }

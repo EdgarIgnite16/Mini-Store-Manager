@@ -165,8 +165,11 @@ public class DialogLoginGUI extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>
 
+    // xử lí nút đăng nhập
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {
         StringBuilder sb = new StringBuilder();
+
+        // validate txt của form đăng nhập
         _DataValidator.validateEmpty(txtAccount, sb, "Vui lòng nhập tên tài khoản!");
         _DataValidator.validateEmpty(txtPassword, sb, "Vui lòng nhập mật khẩu!");
 
@@ -176,17 +179,18 @@ public class DialogLoginGUI extends javax.swing.JDialog {
             try {
                 String username = txtAccount.getText().trim();
                 String password = new String(txtPassword.getPassword());
-                NhanVienDTO nhanVienDTO = new NhanVienBUS().getNhanVienLogin(username, password);
+                NhanVienDTO nhanVienDTO = new NhanVienBUS().getNhanVienLogin(username, password); // tiếp nhận đối tượng
+                // nếu đối tượng nhân viên tiếp nhận có tồn tại thì khởi tạo phiên đăng nhập
                 if (nhanVienDTO != null) {
-                    this.dispose();
+                    this.dispose(); // đóng form hiện tại đi
                     try {
-                        _SaveData.userLogin = nhanVienDTO.getTenNV();
-                        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-                        new MainFormGUI().setVisible(true);
+                        _SaveData.userLogin = nhanVienDTO.getTenNV(); // lưu tên nhân viên đăng nhập
+                        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); // set giao diện
+                        new MainFormGUI().setVisible(true); // khởi tạo form chính
                     } catch (Exception ex) {
                         ex.printStackTrace();
                     }
-                } else {
+                } else { // trường hợp ko tìm được nhân viên do sai tên tài khoản hoặc mật khẩu
                     _MessageDialogHelper.showErrorDialog(this, "Tài khoản hoặc mật khẩu không chính xác!",
                             "Error Login");
                 }
@@ -198,6 +202,7 @@ public class DialogLoginGUI extends javax.swing.JDialog {
         }
     }
 
+    // xử lí button thoát
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {
         if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn thoát khỏi chương trình không?",
                 "Xác nhận thoát") == JOptionPane.YES_OPTION) {
@@ -205,6 +210,7 @@ public class DialogLoginGUI extends javax.swing.JDialog {
         }
     }
 
+    // xử lí txt account
     private void txtAccountChangeUpdate(DocumentEvent e) {
         btnLogin.setEnabled(!txtAccount.getText().isEmpty());
     }

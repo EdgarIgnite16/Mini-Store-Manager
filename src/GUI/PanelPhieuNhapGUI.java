@@ -28,6 +28,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         initListCTPN();
     }
 
+    // khởi tạo table phiếu nhập
     public void initTablePhieuNhap() {
         String[] columnNames = new String[]{"Mã PN", "Mã NCC", "Ngày nhập"};
         modelTable_PN = new DefaultTableModel();
@@ -71,6 +72,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         }
     }
 
+    // khởi tạo table chi tiết phiếu nhập
     public void initListCTPN() {
         String[] columnNames = new String[]{"Mã PN", "Mã MH", "Số lượng",};
         modelTable_CTPN = new DefaultTableModel();
@@ -279,10 +281,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>
 
-    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {
-        refreshData();
-    }
-
+    // xử lí btn export excel
     private void btnExportExcelActionPerformed(java.awt.event.ActionEvent evt) {
         ArrayList<PhieuNhapHangDTO> listPN = new PhieuNhapHangBUS().getData();
         JFileChooser fc = new JFileChooser();
@@ -301,6 +300,12 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn làm mới
+    private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {
+        refreshData();
+    }
+
+    // xử lí btn tìm kiếm
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {
         new DialogTimKiemGUI(new Frame(), true, "PN").setVisible(true); // mở form tìm kiếm
         PhieuNhapHangDTO phieuNhapHangDTO = _SaveData.phieunhapTimThay;
@@ -320,6 +325,7 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí sự kiện click chuột vào table danh sách phiếu nhập
     private void tbDanhSachPhieuNhapMouseListener() {
         try {
             int selectedRow = tbDanhSachPhieuNhap.getSelectedRow();

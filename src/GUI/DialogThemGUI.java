@@ -117,8 +117,10 @@ public class DialogThemGUI extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>
 
+    // xử lí btn xác nhận
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         try {
+            // trường hợp thêm của hoá đơn
             if(key.equals("HD")) {
                 if (Integer.parseInt(txtSoLuong.getText()) + matHangDTO.soLuong_hientai > matHangDTO.getSoLuong()) {
                     _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm không được phép lớn hơn số lượng sản phẩm còn lại trong tồn kho!",
@@ -136,6 +138,7 @@ public class DialogThemGUI extends javax.swing.JDialog {
                 }
             }
 
+            // trường hợp thêm của phiếu nhập
             if(key.equals("PN")) {
                 if (Integer.parseInt(txtSoLuong.getText()) <= 1) {
                     _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm phải lớn hơn 1!",
@@ -153,6 +156,7 @@ public class DialogThemGUI extends javax.swing.JDialog {
         }
     }
 
+    // xử lí txt số lượng
     private void txtSoLuongChangeUpdate(DocumentEvent e) {
         btnXacNhan.setEnabled(!txtSoLuong.getText().isEmpty());
     }

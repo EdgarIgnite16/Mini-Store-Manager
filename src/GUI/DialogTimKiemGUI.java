@@ -115,6 +115,7 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>
 
+    // xử lí nút xác nhận
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         if (!txtID.getText().equals("")) {
             // trường hợp là tìm kiếm nhân viên
@@ -213,6 +214,7 @@ public class DialogTimKiemGUI extends javax.swing.JDialog {
         }
     }
 
+    // xử lí txt xác nhận
     private void txtIDDocumentListener(DocumentEvent e) {
         btnXacNhan.setEnabled(!txtID.getText().isEmpty());
     }
