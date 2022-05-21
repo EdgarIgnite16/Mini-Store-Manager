@@ -37,17 +37,20 @@ public class LoaiMatHangBUS {
         return null;
     }
 
+    // lấy toàn bộ dữ liệu
     public ArrayList<LoaiMatHangDTO> getData() {
         // trả về dữ liệu
         return listLoaiMatHang;
     }
 
+    // in toàn bộ dữ liệu
     public void printData() {
         for (LoaiMatHangDTO loaiMatHang : listLoaiMatHang) {
             System.out.println(loaiMatHang.toString()); // in ra terminal
         }
     }
 
+    // hàm xử lí lấy icon mặc định
     public static String getDefaultIcon(String maLMH) {
         String path;
 
@@ -70,6 +73,7 @@ public class LoaiMatHangBUS {
         return path;
     }
 
+    // hàm xử lí lấy mã mặt hàng mặc định
     public static String getMaMHDefault(String maLMH) {
         String maMH;
 

@@ -49,17 +49,20 @@ public class HoaDonBUS {
         return null;
     }
 
+    // lấy toàn bộ dữ liệu
     public ArrayList<HoaDonDTO> getData() {
         // lấy dữ liệu
         return listHoaDon;
     }
 
+    // in toàn bộ dữ liệu
     public void printData() {
         for (HoaDonDTO hoaDonDTO : listHoaDon) {
             System.out.println(hoaDonDTO.toString()); // in ra terminal
         }
     }
 
+    // hàm lọc dữ liệu
     public ArrayList<HoaDonDTO> fillData(String id, String type) {
         ArrayList<HoaDonDTO> listHD = new ArrayList<>();
         if (type.equals("KH")) {
@@ -79,6 +82,7 @@ public class HoaDonBUS {
         return listHD;
     }
 
+    // hàm tính tổng thành tiền
     public float tinhTongThanhTienAll() {
         float tongThanhTien = 0;
         for (HoaDonDTO item : listHoaDon) {

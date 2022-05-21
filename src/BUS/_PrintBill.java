@@ -34,6 +34,7 @@ public class _PrintBill {
     private static HoaDonDTO hoaDonDTO;
     private static ArrayList<MatHangDTO> listSP;
 
+    // hàm khởi tạo và in Bill hoá đơn
     public static void printBill(String iFileName, HoaDonDTO iHoaDonDTO, ArrayList<MatHangDTO> iListSP) {
         try {
             // các thông số nhận vào

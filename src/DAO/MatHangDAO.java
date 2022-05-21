@@ -153,6 +153,7 @@ public class MatHangDAO {
         return false;
     }
 
+    // lọc dữ liệu thông qua tên mặt hàng
     public ArrayList<MatHangDTO> fillDataByTenMH(String tenMH) throws Exception {
         String sql = "SELECT * FROM [dbo].[MatHang] WHERE [tenMatHang] like N'%" + tenMH + "%'";
 
@@ -178,6 +179,7 @@ public class MatHangDAO {
         }
     }
 
+    // lọc dữ liệu thông qua loại mặt hàng
     public ArrayList<MatHangDTO> fillDataByLoaiMH(String maLoaiMatHang) throws Exception {
         String sql = "SELECT * FROM [dbo].[MatHang] WHERE [maLMH] = '" + maLoaiMatHang + "'";
 
@@ -203,6 +205,7 @@ public class MatHangDAO {
         }
     }
 
+    // lọc dữ liệu thông qua tên mặt hàng và loại mặt hàng
     public ArrayList<MatHangDTO> fillDataByTenMH_LoaiMH(String tenMH, String maLoaiMatHang) throws Exception {
         String sql = "SELECT * FROM [dbo].[MatHang] WHERE [maLMH] = '" + maLoaiMatHang + "' AND [tenMatHang] like N'%" + tenMH + "%'";
 

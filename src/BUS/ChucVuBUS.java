@@ -17,6 +17,7 @@ public class ChucVuBUS {
         }
     }
 
+    // lấy đối tượng thông qua ID
     public ChucVuDTO getItemByID(String id) {
         for (ChucVuDTO item : listChucVu) {
             if (item.getMaCV().equals(id)) {
@@ -26,6 +27,7 @@ public class ChucVuBUS {
         return null;
     }
 
+    // lấy đối tượng thông qua tên
     public ChucVuDTO getItemByName(String name) {
         for (ChucVuDTO item : listChucVu) {
             if (item.getTenCV().equals(name)) {
@@ -35,10 +37,12 @@ public class ChucVuBUS {
         return null;
     }
 
+    // lấy toàn bộ dữ liệu
     public ArrayList<ChucVuDTO> getData() {
         return listChucVu;
     }
 
+    // in toàn bộ dữ liệu
     public void printData() {
         for (ChucVuDTO chucVu : listChucVu) {
             System.out.println(chucVu.toString()); // in ra terminal

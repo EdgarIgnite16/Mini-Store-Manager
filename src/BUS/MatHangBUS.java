@@ -68,6 +68,7 @@ public class MatHangBUS {
         }
     }
 
+    // lấy toàn bộ dữ liệu
     public ArrayList<MatHangDTO> getData() {
         // trả về dữ liệu
         return listMatHang;

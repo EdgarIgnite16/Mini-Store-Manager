@@ -17,15 +17,7 @@ public class KhachHangBUS {
         }
     }
 
-    public KhachHangDTO getItemByName(String name) {
-        for (KhachHangDTO item : listKhachHang) {
-            if (item.getTenKH().equals(name)) {
-                return item;
-            }
-        }
-        return null;
-    }
-
+    // lấy đối tượng thông qua ID
     public KhachHangDTO getItemById(String id) {
         for (KhachHangDTO item : listKhachHang) {
             if (item.getMaKH().equals(id)) {
@@ -35,11 +27,25 @@ public class KhachHangBUS {
         return null;
     }
 
+
+    // lấy đối tượng thông qua tên
+    public KhachHangDTO getItemByName(String name) {
+        for (KhachHangDTO item : listKhachHang) {
+            if (item.getTenKH().equals(name)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+
+    // lấy toàn bộ dữ liệu
     public ArrayList<KhachHangDTO> getData() {
         // trả về dữ liệu
         return listKhachHang;
     }
 
+    // in toàn bộ dữ liệu
     public void printData() {
         for (KhachHangDTO khachHangDTO : listKhachHang) {
             System.out.println(khachHangDTO.toString()); // in ra terminal

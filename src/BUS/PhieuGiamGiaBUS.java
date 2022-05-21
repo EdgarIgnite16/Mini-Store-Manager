@@ -17,15 +17,7 @@ public class PhieuGiamGiaBUS {
         }
     }
 
-    public PhieuGiamGiaDTO getItemByName(String name) {
-        for (PhieuGiamGiaDTO item : listPhieuGiamGia) {
-            if (item.getTenGiamGia().equals(name)) {
-                return item;
-            }
-        }
-        return null;
-    }
-
+    // lấy đối tượng thông qua ID
     public PhieuGiamGiaDTO getItemById(String id) {
         for (PhieuGiamGiaDTO item : listPhieuGiamGia) {
             if (item.getMaGiamGia().equals(id)) {
@@ -35,10 +27,22 @@ public class PhieuGiamGiaBUS {
         return null;
     }
 
+    // lấy đối tượng thông qua tên
+    public PhieuGiamGiaDTO getItemByName(String name) {
+        for (PhieuGiamGiaDTO item : listPhieuGiamGia) {
+            if (item.getTenGiamGia().equals(name)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    // lấy toàn bộ dữ liệu
     public ArrayList<PhieuGiamGiaDTO> getData() {
         return listPhieuGiamGia;
     }
 
+    // in toàn bộ dữ liệu
     public void printData() {
         for (PhieuGiamGiaDTO phieuGiamGia : listPhieuGiamGia) {
             System.out.println(phieuGiamGia.toString()); // in ra terminal
