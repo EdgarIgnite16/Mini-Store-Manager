@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
-    private final HoaDonDTO hoaDonDTO;
+    private HoaDonDTO hoaDonDTO;
 
     /**
      * Creates new form ChiTietHoaDonDialogGUI

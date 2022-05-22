@@ -31,7 +31,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     private DefaultTableModel modelTable_MH;
     private DefaultTableModel modelTable_CTPN;
     private DefaultComboBoxModel modelComboBox_NCC;
-    private final ArrayList<MatHangDTO> listMatHangSelected = new ArrayList<>();
+    private ArrayList<MatHangDTO> listMatHangSelected = new ArrayList<>();
 
     /**
      * Creates new form PanelPhieuNhapGUI

@@ -8,7 +8,7 @@ import javax.swing.event.DocumentListener;
 import java.util.ArrayList;
 
 public class DialogTimKiemGUI extends javax.swing.JDialog {
-    private final String key;
+    private String key;
 
     /**
      * Creates new form SoLuongXoaDialogGUI

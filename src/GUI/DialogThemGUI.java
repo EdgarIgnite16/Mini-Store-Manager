@@ -8,8 +8,8 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 public class DialogThemGUI extends javax.swing.JDialog {
-    private final MatHangDTO matHangDTO;
-    private final String key;
+    private MatHangDTO matHangDTO;
+    private String key;
 
     /**
      * Creates new form SoLuongXoaDialogGUI
