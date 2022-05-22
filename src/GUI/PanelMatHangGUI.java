@@ -399,9 +399,9 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
             } else {
                 // tạo mới đối tượng
                 MatHangDTO matHangDTO = new MatHangDTO();
-                matHangDTO.setMaMH(txtMaMatHang.getText());
-                matHangDTO.setTenMH(txtTenMatHang.getText());
-                matHangDTO.setThanhTien(Float.parseFloat(txtThanhTien.getText()));
+                matHangDTO.setMaMH(txtMaMatHang.getText().trim());
+                matHangDTO.setTenMH(txtTenMatHang.getText().trim());
+                matHangDTO.setThanhTien(Float.parseFloat(txtThanhTien.getText().trim()));
 
                 if (loaiMatHangDTO != null) {
                     matHangDTO.setMaLMH(loaiMatHangDTO.getMaLMH());
@@ -519,9 +519,9 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
                         "Bạn có muốn thay đổi đối tượng này không", "Sửa đối tượng") == JOptionPane.YES_OPTION) {
                     // tạo mới đối tượng
                     MatHangDTO matHangDTO = new MatHangDTO();
-                    matHangDTO.setMaMH(txtMaMatHang.getText());
-                    matHangDTO.setTenMH(txtTenMatHang.getText());
-                    matHangDTO.setThanhTien(Float.parseFloat(txtThanhTien.getText()));
+                    matHangDTO.setMaMH(txtMaMatHang.getText().trim());
+                    matHangDTO.setTenMH(txtTenMatHang.getText().trim());
+                    matHangDTO.setThanhTien(Float.parseFloat(txtThanhTien.getText().trim()));
                     matHangDTO.setSoLuong(1);
 
                     if (loaiMatHangDTO != null) {

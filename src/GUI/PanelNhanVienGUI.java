@@ -428,114 +428,66 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
 
     // xử lí btn thêm
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
-        StringBuilder sb = new StringBuilder();
-        try {
-            CaLamViecDTO caLamViecDTO = new CaLamViecBUS().getItemByName((String) cbCaLamViec.getSelectedItem());
-            ChucVuDTO chucVuDTO = new ChucVuBUS().getItemByName((String) cbChucVu.getSelectedItem());
-
-            _DataValidator.validateEmpty(txtMaNhanVien, sb, "Vui lòng nhập mã nhân viên");
-            _DataValidator.validateEmpty(txtTenNhanVien, sb, "Vui lòng nhập tên nhân viên");
-            _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
-            _DataValidator.validateEmpty(txtCCCD, sb, "Vui lòng nhập số CCCD");
-            _DataValidator.valitdateMaNV(txtMaNhanVien, sb, "Vui lòng kiểm tra lại cú pháp!\nMã nhân viên là NV + [STT]");
-            _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 10 số và không chứa ký tự!");
-            _DataValidator.valitdateCCCD(txtCCCD, sb, "CCCD phải đúng format gồm 12 số và không chứa ký tự!");
-
-            if (caLamViecDTO == null) {
-                sb.append("Vui lòng chọn ca làm việc!\n");
-            }
-
-            if (chucVuDTO == null) {
-                sb.append("Vui lòng chọn chức vụ!\n");
-            }
-
-            // tạo mới đối tượng
-            NhanVienDTO nhanVienDTO = new NhanVienDTO();
-            nhanVienDTO.setMaNV(txtMaNhanVien.getText());
-            nhanVienDTO.setTenNV(txtTenNhanVien.getText());
-            nhanVienDTO.setSdt(txtSoDienThoai.getText());
-            nhanVienDTO.setCccd(txtCCCD.getText());
-
-            if (caLamViecDTO != null && chucVuDTO != null) {
-                nhanVienDTO.setMaCa(caLamViecDTO.getMaCa());
-                nhanVienDTO.setMaCV(chucVuDTO.getMaCV());
-            }
-
-            if (sb.length() > 0) {
-                _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
-            } else {
-                NhanVienBUS check = new NhanVienBUS();
-                // trường hợp nhân viên đã có sẵn trong CSDL và khách hàng đang offline
-                if (check.checkStatusIsClose(nhanVienDTO)) {
-                    if (_MessageDialogHelper.showConfirmDialog(parentForm,
-                            "Nhân viên này đã tồn tại trong CSDL và đang offline!\nBạn có muốn thay đổi trạng thái của đối tượng này không?",
-                            "Hiện đối tượng") == JOptionPane.YES_OPTION) {
-                        NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                        if (nhanVienBUS.updateChangeStatus(nhanVienDTO, 1)) {
-                            refreshData(); // làm mới lại dữ liệu trên form
-                            _MessageDialogHelper.showMessageDialog(parentForm, "Thay đổi trạng thái thành công!", "Thành công");
-                        } else {
-                            _MessageDialogHelper.showErrorDialog(parentForm, "Thay đổi trạng thái thất bại!", "Thất bại");
-                        }
-                    }
-                } else { // trường hợp ngược lại
-                    if (_MessageDialogHelper.showConfirmDialog(parentForm,
-                            "Bạn có muốn thêm mới đối tượng này không", "Thêm đối tượng") == JOptionPane.YES_OPTION) {
-                        NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                        if (nhanVienBUS.insertItem(nhanVienDTO)) {
-                            refreshData(); // làm mới lại dữ liệu trên form
-                            _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
-                        } else {
-                            _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
-                        }
-                    }
-                }
-            }
-        } catch (Exception ex) {
-            // trong trường hợp CSDL đã có dữ liệu của đối tượng
-            ex.printStackTrace();
-            _MessageDialogHelper.showErrorDialog(parentForm, "Thêm đối tượng thất bại!", "Failure Query Data");
-        }
-    }
-
-    // xử lí btn xoá
-    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {
-        NhanVienDTO nhanVienDTO = tbDanhSachNhanVienListener();
-        if (nhanVienDTO != null) {
+        if(!txtMaNhanVien.getText().equals("ad")) {
             StringBuilder sb = new StringBuilder();
             try {
+                CaLamViecDTO caLamViecDTO = new CaLamViecBUS().getItemByName((String) cbCaLamViec.getSelectedItem());
+                ChucVuDTO chucVuDTO = new ChucVuBUS().getItemByName((String) cbChucVu.getSelectedItem());
+
+                _DataValidator.validateEmpty(txtMaNhanVien, sb, "Vui lòng nhập mã nhân viên");
+                _DataValidator.validateEmpty(txtTenNhanVien, sb, "Vui lòng nhập tên nhân viên");
+                _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
+                _DataValidator.validateEmpty(txtCCCD, sb, "Vui lòng nhập số CCCD");
+                _DataValidator.valitdateMaNV(txtMaNhanVien, sb, "Vui lòng kiểm tra lại cú pháp!\nMã nhân viên là NV + (xxx)[STT]");
+                _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 10 số và không chứa ký tự!");
+                _DataValidator.valitdateCCCD(txtCCCD, sb, "CCCD phải đúng format gồm 12 số và không chứa ký tự!");
+
+                if (caLamViecDTO == null) {
+                    sb.append("Vui lòng chọn ca làm việc!\n");
+                }
+
+                if (chucVuDTO == null) {
+                    sb.append("Vui lòng chọn chức vụ!\n");
+                }
+
                 if (sb.length() > 0) {
                     _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
                 } else {
-                    HoaDonBUS check = new HoaDonBUS();
-                    // trường hợp nhân viên đã tồn tại trong danh sách bán hàng
-                    if (check.checkNhanVienExist(nhanVienDTO)) {
-                        NhanVienBUS check2 = new NhanVienBUS();
-                        if (check2.checkStatusIsClose(nhanVienDTO)) {
-                            _MessageDialogHelper.showErrorDialog(parentForm, "Nhân viên đã bị ẩn!",
-                                    "Thao tác thất bại");
-                        } else {
-                            if (_MessageDialogHelper.showConfirmDialog(parentForm,
-                                    "Nhân viên này đã tồn tại trong lịch sử hoá đơn, bạn không thể xoá!\nBạn có muốn ẩn nhân viên này không!",
-                                    "Ẩn đối tượng") == JOptionPane.YES_OPTION) {
-                                NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                                if (nhanVienBUS.updateChangeStatus(nhanVienDTO, 0)) {
-                                    refreshData(); // làm mới lại dữ liệu trên form
-                                    _MessageDialogHelper.showMessageDialog(parentForm, "Ẩn đối tượng thành công!", "Ẩn thành công");
-                                } else {
-                                    _MessageDialogHelper.showErrorDialog(parentForm, "Ẩn đối tượng thất bại!", "Ẩn thất bại");
-                                }
+                    // tạo mới đối tượng
+                    NhanVienDTO nhanVienDTO = new NhanVienDTO();
+                    nhanVienDTO.setMaNV(txtMaNhanVien.getText().trim());
+                    nhanVienDTO.setTenNV(txtTenNhanVien.getText().trim());
+                    nhanVienDTO.setSdt(txtSoDienThoai.getText().trim());
+                    nhanVienDTO.setCccd(txtCCCD.getText().trim());
+
+                    if (caLamViecDTO != null && chucVuDTO != null) {
+                        nhanVienDTO.setMaCa(caLamViecDTO.getMaCa());
+                        nhanVienDTO.setMaCV(chucVuDTO.getMaCV());
+                    }
+
+                    NhanVienBUS check = new NhanVienBUS();
+                    // trường hợp nhân viên đã có sẵn trong CSDL và khách hàng đang offline
+                    if (check.checkStatusIsClose(nhanVienDTO)) {
+                        if (_MessageDialogHelper.showConfirmDialog(parentForm,
+                                "Nhân viên này đã tồn tại trong CSDL và đang offline!\nBạn có muốn thay đổi trạng thái của đối tượng này không?",
+                                "Hiện đối tượng") == JOptionPane.YES_OPTION) {
+                            NhanVienBUS nhanVienBUS = new NhanVienBUS();
+                            if (nhanVienBUS.updateChangeStatus(nhanVienDTO, 1)) {
+                                refreshData(); // làm mới lại dữ liệu trên form
+                                _MessageDialogHelper.showMessageDialog(parentForm, "Thay đổi trạng thái thành công!", "Thành công");
+                            } else {
+                                _MessageDialogHelper.showErrorDialog(parentForm, "Thay đổi trạng thái thất bại!", "Thất bại");
                             }
                         }
                     } else { // trường hợp ngược lại
                         if (_MessageDialogHelper.showConfirmDialog(parentForm,
-                                "Bạn có xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
+                                "Bạn có muốn thêm mới đối tượng này không", "Thêm đối tượng") == JOptionPane.YES_OPTION) {
                             NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                            if (nhanVienBUS.deleteItem(nhanVienDTO)) {
+                            if (nhanVienBUS.insertItem(nhanVienDTO)) {
                                 refreshData(); // làm mới lại dữ liệu trên form
-                                _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công!", "Xoá thành công");
+                                _MessageDialogHelper.showMessageDialog(parentForm, "Thêm đối tượng thành công!", "Thêm thành công");
                             } else {
-                                _MessageDialogHelper.showErrorDialog(parentForm, "Xoá đối tượng thất bại!", "Xoá thất bại");
+                                _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng đã tồn tại trong CSDL!", "Thêm thất bại");
                             }
                         }
                     }
@@ -543,70 +495,126 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             } catch (Exception ex) {
                 // trong trường hợp CSDL đã có dữ liệu của đối tượng
                 ex.printStackTrace();
-                _MessageDialogHelper.showErrorDialog(parentForm, "Xoá đối tượng thất bại!", "Failure Query Data");
+                _MessageDialogHelper.showErrorDialog(parentForm, "Thêm đối tượng thất bại!", "Failure Query Data");
+            }
+        } else {
+            _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng được chọn là admin!\nKhông thể thao tác!", "Thất bại");
+        }
+    }
+
+    // xử lí btn xoá
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {
+        NhanVienDTO nhanVienDTO = tbDanhSachNhanVienListener();
+        if (nhanVienDTO != null) {
+            if (!nhanVienDTO.getMaNV().equals("ad")) {
+                StringBuilder sb = new StringBuilder();
+                try {
+                    if (sb.length() > 0) {
+                        _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
+                    } else {
+                        HoaDonBUS check = new HoaDonBUS();
+                        // trường hợp nhân viên đã tồn tại trong danh sách bán hàng
+                        if (check.checkNhanVienExist(nhanVienDTO)) {
+                            NhanVienBUS check2 = new NhanVienBUS();
+                            if (check2.checkStatusIsClose(nhanVienDTO)) {
+                                _MessageDialogHelper.showErrorDialog(parentForm, "Nhân viên đã bị ẩn!",
+                                        "Thao tác thất bại");
+                            } else {
+                                if (_MessageDialogHelper.showConfirmDialog(parentForm,
+                                        "Nhân viên này đã tồn tại trong lịch sử hoá đơn, bạn không thể xoá!\nBạn có muốn ẩn nhân viên này không!",
+                                        "Ẩn đối tượng") == JOptionPane.YES_OPTION) {
+                                    NhanVienBUS nhanVienBUS = new NhanVienBUS();
+                                    if (nhanVienBUS.updateChangeStatus(nhanVienDTO, 0)) {
+                                        refreshData(); // làm mới lại dữ liệu trên form
+                                        _MessageDialogHelper.showMessageDialog(parentForm, "Ẩn đối tượng thành công!", "Ẩn thành công");
+                                    } else {
+                                        _MessageDialogHelper.showErrorDialog(parentForm, "Ẩn đối tượng thất bại!", "Ẩn thất bại");
+                                    }
+                                }
+                            }
+                        } else { // trường hợp ngược lại
+                            if (_MessageDialogHelper.showConfirmDialog(parentForm,
+                                    "Bạn có xoá đối tượng này không", "Xoá đối tượng") == JOptionPane.YES_OPTION) {
+                                NhanVienBUS nhanVienBUS = new NhanVienBUS();
+                                if (nhanVienBUS.deleteItem(nhanVienDTO)) {
+                                    refreshData(); // làm mới lại dữ liệu trên form
+                                    _MessageDialogHelper.showMessageDialog(parentForm, "Xoá đối tượng thành công!", "Xoá thành công");
+                                } else {
+                                    _MessageDialogHelper.showErrorDialog(parentForm, "Xoá đối tượng thất bại!", "Xoá thất bại");
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception ex) {
+                    // trong trường hợp CSDL đã có dữ liệu của đối tượng
+                    ex.printStackTrace();
+                    _MessageDialogHelper.showErrorDialog(parentForm, "Xoá đối tượng thất bại!", "Failure Query Data");
+                }
+            } else {
+                _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng được chọn là admin!\nKhông thể thao tác!", "Thất bại");
             }
         }
     }
 
     // xử lí btn sửa
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {
-        StringBuilder sb = new StringBuilder();
-        try {
-            CaLamViecDTO caLamViecDTO = new CaLamViecBUS().getItemByName((String) cbCaLamViec.getSelectedItem());
-            ChucVuDTO chucVuDTO = new ChucVuBUS().getItemByName((String) cbChucVu.getSelectedItem());
+        if(!txtMaNhanVien.getText().equals("ad")) {
+            StringBuilder sb = new StringBuilder();
+            try {
+                CaLamViecDTO caLamViecDTO = new CaLamViecBUS().getItemByName((String) cbCaLamViec.getSelectedItem());
+                ChucVuDTO chucVuDTO = new ChucVuBUS().getItemByName((String) cbChucVu.getSelectedItem());
 
-            _DataValidator.validateEmpty(txtMaNhanVien, sb, "Vui lòng nhập mã nhân viên");
-            _DataValidator.validateEmpty(txtTenNhanVien, sb, "Vui lòng nhập tên nhân viên");
-            _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
-            _DataValidator.validateEmpty(txtCCCD, sb, "Vui lòng nhập số CCCD");
-            _DataValidator.valitdateMaNV(txtMaNhanVien, sb, "Vui lòng kiểm tra lại cú pháp!\nMã nhân viên là NV + [STT]");
-            _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 10 số và không chứa ký tự!");
-            _DataValidator.valitdateCCCD(txtCCCD, sb, "CCCD phải đúng format gồm 12 số và không chứa ký tự!");
+                _DataValidator.validateEmpty(txtMaNhanVien, sb, "Vui lòng nhập mã nhân viên");
+                _DataValidator.validateEmpty(txtTenNhanVien, sb, "Vui lòng nhập tên nhân viên");
+                _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
+                _DataValidator.validateEmpty(txtCCCD, sb, "Vui lòng nhập số CCCD");
+                _DataValidator.valitdateMaNV(txtMaNhanVien, sb, "Vui lòng kiểm tra lại cú pháp!\nMã nhân viên là NV + (xxx)[STT]");
+                _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 10 số và không chứa ký tự!");
+                _DataValidator.valitdateCCCD(txtCCCD, sb, "CCCD phải đúng format gồm 12 số và không chứa ký tự!");
 
-            if (caLamViecDTO == null) {
-                sb.append("Vui lòng chọn ca làm việc!\n");
-            }
+                if (caLamViecDTO == null) {
+                    sb.append("Vui lòng chọn ca làm việc!\n");
+                }
 
-            if (chucVuDTO == null) {
-                sb.append("Vui lòng chọn chức vụ!\n");
-            }
+                if (chucVuDTO == null) {
+                    sb.append("Vui lòng chọn chức vụ!\n");
+                }
 
-            if (sb.length() > 0) {
-                _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
-            } else {
-                if (_MessageDialogHelper.showConfirmDialog(parentForm,
-                        "Bạn có muốn thay đổi thông tin đối tượng này không", "Sửa thông tin đối tượng") == JOptionPane.YES_OPTION) {
+                if (sb.length() > 0) {
+                    _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
+                } else {
+                    if (_MessageDialogHelper.showConfirmDialog(parentForm,
+                            "Bạn có muốn thay đổi thông tin đối tượng này không", "Sửa thông tin đối tượng") == JOptionPane.YES_OPTION) {
+                        // tạo mới đối tượng
+                        NhanVienDTO nhanVienDTO = new NhanVienDTO();
+                        nhanVienDTO.setMaNV(txtMaNhanVien.getText().trim());
+                        nhanVienDTO.setTenNV(txtTenNhanVien.getText().trim());
+                        nhanVienDTO.setSdt(txtSoDienThoai.getText().trim());
+                        nhanVienDTO.setCccd(txtCCCD.getText().trim());
 
-                    // lấy dữ liệu của khách hàng đang nhập vào
-                    NhanVienDTO testNV = new NhanVienBUS().getItemByID(txtMaNhanVien.getText());
+                        if (caLamViecDTO != null && chucVuDTO != null) {
+                            nhanVienDTO.setMaCa(caLamViecDTO.getMaCa());
+                            nhanVienDTO.setMaCV(chucVuDTO.getMaCV());
+                        }
 
-                    // tạo mới đối tượng
-                    NhanVienDTO nhanVienDTO = new NhanVienDTO();
-                    nhanVienDTO.setMaNV(txtMaNhanVien.getText());
-                    nhanVienDTO.setTenNV(txtTenNhanVien.getText());
-                    nhanVienDTO.setSdt(txtSoDienThoai.getText());
-                    nhanVienDTO.setCccd(txtCCCD.getText());
-
-                    if (caLamViecDTO != null && chucVuDTO != null) {
-                        nhanVienDTO.setMaCa(caLamViecDTO.getMaCa());
-                        nhanVienDTO.setMaCV(chucVuDTO.getMaCV());
-                    }
-
-                    NhanVienBUS nhanVienBUS = new NhanVienBUS();
-                    if (nhanVienBUS.updateItem(nhanVienDTO)) {
-                        refreshData();  // làm mới lại dữ liệu trên form
-                        _MessageDialogHelper.showMessageDialog(parentForm,
-                                "Sửa thông tin đối tượng thành công!", "Sửa thành công");
-                    } else {
-                        _MessageDialogHelper.showErrorDialog(parentForm,
-                                "Đối tượng không tồn tại!\nSửa đối tượng thất bại!", "Sửa thất bại");
+                        NhanVienBUS nhanVienBUS = new NhanVienBUS();
+                        if (nhanVienBUS.updateItem(nhanVienDTO)) {
+                            refreshData();  // làm mới lại dữ liệu trên form
+                            _MessageDialogHelper.showMessageDialog(parentForm,
+                                    "Sửa thông tin đối tượng thành công!", "Sửa thành công");
+                        } else {
+                            _MessageDialogHelper.showErrorDialog(parentForm,
+                                    "Đối tượng không tồn tại!\nSửa đối tượng thất bại!", "Sửa thất bại");
+                        }
                     }
                 }
+            } catch (Exception ex) {
+                // trong trường hợp CSDL đã có dữ liệu của đối tượng
+                ex.printStackTrace();
+                _MessageDialogHelper.showErrorDialog(parentForm, "Sửa đối tượng thất bại!", "Failure Query Data");
             }
-        } catch (Exception ex) {
-            // trong trường hợp CSDL đã có dữ liệu của đối tượng
-            ex.printStackTrace();
-            _MessageDialogHelper.showErrorDialog(parentForm, "Sửa đối tượng thất bại!", "Failure Query Data");
+        } else {
+            _MessageDialogHelper.showErrorDialog(parentForm, "Đối tượng được chọn là admin!\nKhông thể thao tác!", "Thất bại");
         }
     }
 
