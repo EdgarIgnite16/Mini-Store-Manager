@@ -9,6 +9,7 @@ import DTO.NhanVienDTO;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -55,7 +56,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
 
     // khởi tạo table khách hàng
     public void initTableKhachHang() {
-        String[] columnNames = new String[]{"Mã KH", "Mã CV", "Mã ca", "Tên KH", "CMND", "Số điện thoại", "Trạng thái"};
+        String[] columnNames = new String[]{"Mã NV", "Mã CV", "Mã ca", "Tên NV", "CCCD", "Số điện thoại", "Trạng thái"};
         modelTable_NV = new DefaultTableModel();
         modelTable_NV.setColumnIdentifiers(columnNames);
 
@@ -148,13 +149,13 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         lbMaNhanVien = new javax.swing.JLabel();
         lbTenNhanVien = new javax.swing.JLabel();
         lbSoDienThoai = new javax.swing.JLabel();
-        lbCMND = new javax.swing.JLabel();
+        lbCCCD = new javax.swing.JLabel();
         lbChucVu = new javax.swing.JLabel();
         lbCaLamViec = new javax.swing.JLabel();
         txtMaNhanVien = new javax.swing.JTextField();
         txtTenNhanVien = new javax.swing.JTextField();
         txtSoDienThoai = new javax.swing.JTextField();
-        txtCMND = new javax.swing.JTextField();
+        txtCCCD = new javax.swing.JTextField();
         cbChucVu = new javax.swing.JComboBox<>();
         cbCaLamViec = new javax.swing.JComboBox<>();
         btnLamMoi = new javax.swing.JButton();
@@ -180,8 +181,8 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         lbSoDienThoai.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbSoDienThoai.setText("Số điện thoại:");
 
-        lbCMND.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        lbCMND.setText("Chứng minh nhân dân:");
+        lbCCCD.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        lbCCCD.setText("Chứng minh nhân dân:");
 
         lbChucVu.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbChucVu.setText("Chức Vụ:");
@@ -195,7 +196,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
 
         txtSoDienThoai.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
-        txtCMND.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        txtCCCD.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
         cbChucVu.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
 
@@ -280,14 +281,14 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                                                 .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                                 .addComponent(lbSoDienThoai, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                .addComponent(lbCMND, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(lbCCCD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                                 .addComponent(lbMaNhanVien, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                         .addComponent(lbTenNhanVien, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                                 .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addComponent(txtTenNhanVien)
                                                         .addComponent(txtMaNhanVien)
-                                                        .addComponent(txtCMND)
+                                                        .addComponent(txtCCCD)
                                                         .addComponent(txtSoDienThoai))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,8 +326,8 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                                         .addComponent(txtSoDienThoai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(lbCMND)
-                                        .addComponent(txtCMND, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(lbCCCD)
+                                        .addComponent(txtCCCD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(pnThongTinNhanVienLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                         .addComponent(cbChucVu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -436,10 +437,10 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtMaNhanVien, sb, "Vui lòng nhập mã nhân viên");
             _DataValidator.validateEmpty(txtTenNhanVien, sb, "Vui lòng nhập tên nhân viên");
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
-            _DataValidator.validateEmpty(txtCMND, sb, "Vui lòng nhập số CMND");
+            _DataValidator.validateEmpty(txtCCCD, sb, "Vui lòng nhập số CCCD");
             _DataValidator.valitdateMaNV(txtMaNhanVien, sb, "Vui lòng kiểm tra lại cú pháp!\nMã nhân viên là NV + [STT]");
             _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 10 số và không chứa ký tự!");
-            _DataValidator.valitdateCMND(txtCMND, sb, "CMND phải đúng format gồm 12 số và không chứa ký tự!");
+            _DataValidator.valitdateCCCD(txtCCCD, sb, "CCCD phải đúng format gồm 12 số và không chứa ký tự!");
 
             if (caLamViecDTO == null) {
                 sb.append("Vui lòng chọn ca làm việc!\n");
@@ -454,7 +455,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             nhanVienDTO.setMaNV(txtMaNhanVien.getText());
             nhanVienDTO.setTenNV(txtTenNhanVien.getText());
             nhanVienDTO.setSdt(txtSoDienThoai.getText());
-            nhanVienDTO.setCmnd(txtCMND.getText());
+            nhanVienDTO.setCccd(txtCCCD.getText());
 
             if (caLamViecDTO != null && chucVuDTO != null) {
                 nhanVienDTO.setMaCa(caLamViecDTO.getMaCa());
@@ -558,10 +559,10 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtMaNhanVien, sb, "Vui lòng nhập mã nhân viên");
             _DataValidator.validateEmpty(txtTenNhanVien, sb, "Vui lòng nhập tên nhân viên");
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
-            _DataValidator.validateEmpty(txtCMND, sb, "Vui lòng nhập số CMND");
+            _DataValidator.validateEmpty(txtCCCD, sb, "Vui lòng nhập số CCCD");
             _DataValidator.valitdateMaNV(txtMaNhanVien, sb, "Vui lòng kiểm tra lại cú pháp!\nMã nhân viên là NV + [STT]");
             _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 10 số và không chứa ký tự!");
-            _DataValidator.valitdateCMND(txtCMND, sb, "CMND phải đúng format gồm 12 số và không chứa ký tự!");
+            _DataValidator.valitdateCCCD(txtCCCD, sb, "CCCD phải đúng format gồm 12 số và không chứa ký tự!");
 
             if (caLamViecDTO == null) {
                 sb.append("Vui lòng chọn ca làm việc!\n");
@@ -585,7 +586,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                     nhanVienDTO.setMaNV(txtMaNhanVien.getText());
                     nhanVienDTO.setTenNV(txtTenNhanVien.getText());
                     nhanVienDTO.setSdt(txtSoDienThoai.getText());
-                    nhanVienDTO.setCmnd(txtCMND.getText());
+                    nhanVienDTO.setCccd(txtCCCD.getText());
 
                     if (caLamViecDTO != null && chucVuDTO != null) {
                         nhanVienDTO.setMaCa(caLamViecDTO.getMaCa());
@@ -672,7 +673,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
                     item.getMaCV(),
                     item.getMaCa(),
                     item.getTenNV(),
-                    item.getCmnd(),
+                    item.getCccd(),
                     item.getSdt(),
                     item.getStatus() == 1 ? "Online" : "Offline"
             });
@@ -684,7 +685,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         txtMaNhanVien.setText(nhanVienDTO.getMaNV());
         txtTenNhanVien.setText(nhanVienDTO.getTenNV());
         txtSoDienThoai.setText(nhanVienDTO.getSdt());
-        txtCMND.setText(nhanVienDTO.getCmnd());
+        txtCCCD.setText(nhanVienDTO.getCccd());
         cbChucVu.setSelectedItem(new ChucVuBUS().getItemByID(nhanVienDTO.getMaCV()).getTenCV());
         cbCaLamViec.setSelectedItem(new CaLamViecBUS().getItemByID(nhanVienDTO.getMaCa()).getTenCa());
     }
@@ -694,7 +695,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         txtMaNhanVien.setText(""); // refresh form mã nhân viên
         txtTenNhanVien.setText(""); // refresh form tên nhân viên
         txtSoDienThoai.setText(""); // refresh form số điện thoại
-        txtCMND.setText(""); // refresh form số cmnd
+        txtCCCD.setText(""); // refresh form số cccd
         cbCaLamViec.setSelectedIndex(0);
         cbChucVu.setSelectedIndex(0);
         tbDanhSachNhanVien.clearSelection(); // refresh selected danh sách khách hàng
@@ -703,13 +704,13 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         txtMaNhanVien.setBackground(Color.WHITE);
         txtTenNhanVien.setBackground(Color.WHITE);
         txtSoDienThoai.setBackground(Color.WHITE);
-        txtCMND.setBackground(Color.WHITE);
+        txtCCCD.setBackground(Color.WHITE);
 
         // set Foreground
         txtMaNhanVien.setForeground(Color.BLACK);
         txtTenNhanVien.setForeground(Color.BLACK);
         txtSoDienThoai.setForeground(Color.BLACK);
-        txtCMND.setForeground(Color.BLACK);
+        txtCCCD.setForeground(Color.BLACK);
 
         loadTableNV(new NhanVienBUS().getData()); // load lại khách hàng
         loadHoaDon(new ArrayList<>()); // load lại hoá đơn
@@ -726,7 +727,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
     private javax.swing.JButton btnXoa;
     private javax.swing.JComboBox<String> cbCaLamViec;
     private javax.swing.JComboBox<String> cbChucVu;
-    private javax.swing.JLabel lbCMND;
+    private javax.swing.JLabel lbCCCD;
     private javax.swing.JLabel lbCaLamViec;
     private javax.swing.JLabel lbChucVu;
     private javax.swing.JLabel lbMaNhanVien;
@@ -737,7 +738,7 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
     private javax.swing.JScrollPane spLichSuGiaoDich;
     private javax.swing.JTable tbDanhSachNhanVien;
     private javax.swing.JTable tbLichSuGiaoDich;
-    private javax.swing.JTextField txtCMND;
+    private javax.swing.JTextField txtCCCD;
     private javax.swing.JTextField txtMaNhanVien;
     private javax.swing.JTextField txtSoDienThoai;
     private javax.swing.JTextField txtTenNhanVien;
