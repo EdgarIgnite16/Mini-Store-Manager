@@ -1,26 +1,17 @@
 package BUS;
 
+import DTO.HoaDonDTO;
+import DTO.MatHangDTO;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
-
-import DTO.HoaDonDTO;
-import DTO.MatHangDTO;
-import com.itextpdf.text.Anchor;
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chapter;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Section;
-import com.itextpdf.text.pdf.PdfPCell;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
 
 
 public class _PrintBill {
@@ -90,7 +81,7 @@ public class _PrintBill {
         addEmptyLine(paragraph, 2);
         subCatPart.add(paragraph);
 
-        subPara  = new Paragraph("Bang thong ke chi tiet san pham da mua", subFont);
+        subPara = new Paragraph("Bang thong ke chi tiet san pham da mua", subFont);
         subCatPart = catPart.addSection(subPara);
 
         Paragraph paragraph2 = new Paragraph();
@@ -126,7 +117,7 @@ public class _PrintBill {
 
         // khởi tạo dữ liệu cho bảng
         table.setHeaderRows(1);
-        for(MatHangDTO item : listSP) {
+        for (MatHangDTO item : listSP) {
             table.addCell(removeAccent(item.getMaMH()));
             table.addCell(removeAccent(item.getTenMH()));
             table.addCell(String.valueOf(item.soLuong_hientai));

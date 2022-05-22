@@ -9,7 +9,7 @@ import javax.swing.event.DocumentListener;
 
 public class DialogThemGUI extends javax.swing.JDialog {
     private final MatHangDTO matHangDTO;
-    private String key;
+    private final String key;
 
     /**
      * Creates new form SoLuongXoaDialogGUI
@@ -121,7 +121,7 @@ public class DialogThemGUI extends javax.swing.JDialog {
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         try {
             // trường hợp thêm của hoá đơn
-            if(key.equals("HD")) {
+            if (key.equals("HD")) {
                 if (Integer.parseInt(txtSoLuong.getText()) + matHangDTO.soLuong_hientai > matHangDTO.getSoLuong()) {
                     _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm không được phép lớn hơn số lượng sản phẩm còn lại trong tồn kho!",
                             "Kiểm tra số lượng thêm");
@@ -139,7 +139,7 @@ public class DialogThemGUI extends javax.swing.JDialog {
             }
 
             // trường hợp thêm của phiếu nhập
-            if(key.equals("PN")) {
+            if (key.equals("PN")) {
                 if (Integer.parseInt(txtSoLuong.getText()) <= 1) {
                     _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm phải lớn hơn 1!",
                             "Kiểm tra số lượng thêm");

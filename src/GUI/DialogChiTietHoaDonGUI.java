@@ -252,7 +252,7 @@ public class DialogChiTietHoaDonGUI extends javax.swing.JDialog {
             matHangDTO.thanhTien_hientai = handleThanhTienHienTai(item);
             gioHang.add(matHangDTO);
         }
-         return gioHang; // trả về một danh sách mặt hàng gọi là giohang
+        return gioHang; // trả về một danh sách mặt hàng gọi là giohang
     }
 
     // trả về số lượng mặt hàng đã mua của mặt hàng đó

@@ -44,7 +44,7 @@ public class _DataValidator {
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
-        if(!status.find()) {
+        if (!status.find()) {
             sb.append(String.format("%s\n", errorMessage));
         }
     }
@@ -55,7 +55,7 @@ public class _DataValidator {
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
-        if(!status.find()) {
+        if (!status.find()) {
             sb.append(String.format("%s\n", errorMessage));
         }
     }
@@ -66,7 +66,7 @@ public class _DataValidator {
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
-        if(!status.find()) {
+        if (!status.find()) {
             sb.append(String.format("%s\n", errorMessage));
         }
     }
@@ -77,7 +77,7 @@ public class _DataValidator {
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
-        if(!status.find()) {
+        if (!status.find()) {
             sb.append(String.format("%s\n", errorMessage));
         }
     }
@@ -89,7 +89,7 @@ public class _DataValidator {
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
-        if(!status.find()) {
+        if (!status.find()) {
             String errorMessage = String.format("Vui lòng kiểm tra lại cú pháp!\nMã sản phẩm của %s là %s + [STT]",
                     loaiMatHangDTO.getTenLMH(), maMH);
             sb.append(String.format("%s\n", errorMessage));

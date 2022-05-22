@@ -11,7 +11,6 @@ import DTO.MatHangDTO;
 import DTO.NhaCungCapDTO;
 import DTO.PhieuNhapHangDTO;
 
-import javax.print.Doc;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -32,7 +31,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     private DefaultTableModel modelTable_MH;
     private DefaultTableModel modelTable_CTPN;
     private DefaultComboBoxModel modelComboBox_NCC;
-    private ArrayList<MatHangDTO> listMatHangSelected = new ArrayList<>();
+    private final ArrayList<MatHangDTO> listMatHangSelected = new ArrayList<>();
 
     /**
      * Creates new form PanelPhieuNhapGUI
@@ -460,12 +459,12 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
     // xử lí btn thêm
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbDanhSachMatHangMouseListener();
-        if(matHangDTO != null) {
-            if(checkItemExist(matHangDTO)) {
+        if (matHangDTO != null) {
+            if (checkItemExist(matHangDTO)) {
                 _MessageDialogHelper.showErrorDialog(parentForm,
                         "Mặt hàng đã tồn tại trong Danh Sách Nhập Hàng!", "Vui lòng chọn lại");
             } else {
-                if(Integer.parseInt(txtSoLuongNhap.getText()) > 1) {
+                if (Integer.parseInt(txtSoLuongNhap.getText()) > 1) {
                     MatHangBUS.increaseSoLuong(matHangDTO, Integer.parseInt(txtSoLuongNhap.getText())); // cập nhật số lượng của mặt hàng đó
                     MatHangBUS.increaseThanhTien(matHangDTO, Integer.parseInt(txtSoLuongNhap.getText())); // cập nhật tổng thành tiền của mặt hàng đó
                     listMatHangSelected.add(matHangDTO); // add mặt hàng chọn vào list
@@ -534,9 +533,9 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
                     "Bạn có muốn xác nhận đơn nhập không!", "Xác nhận đơn nhập") == JOptionPane.YES_OPTION) {
                 // kiểm tra có chọn nhà cung cấp hay chưa
                 NhaCungCapDTO nhaCungCapDTO = new NhaCungCapBUS().getItemByName((String) cbNhaCungCap.getSelectedItem());
-                if(nhaCungCapDTO != null) {
+                if (nhaCungCapDTO != null) {
                     // Kiểm tra trong giỏ hàng phải có sản phẩm
-                    if(listMatHangSelected.size() > 0) {
+                    if (listMatHangSelected.size() > 0) {
                         // khởi tạo đối tượng mặt hàng
                         PhieuNhapHangDTO phieuNhapHangDTO = new PhieuNhapHangDTO();
                         phieuNhapHangDTO.setMaPhieuNhap(txtMaPhieuNhap.getText());
@@ -549,8 +548,8 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
 
                         // khởi tạo đối tượng chi tiết phiếu nhập và cập nhật dữ liệu lên CTPN, mặt hàng
                         ChiTietPhieuNhapBUS chiTietPhieuNhapBUS = new ChiTietPhieuNhapBUS();
-                        MatHangBUS matHangBUS = new MatHangBUS();   
-                        for(MatHangDTO item : listMatHangSelected) {
+                        MatHangBUS matHangBUS = new MatHangBUS();
+                        for (MatHangDTO item : listMatHangSelected) {
                             ChiTietPhieuNhapDTO chiTietPhieuNhapDTO = new ChiTietPhieuNhapDTO();
                             chiTietPhieuNhapDTO.setMaPhieuNhap(txtMaPhieuNhap.getText());
                             chiTietPhieuNhapDTO.setMaMH(item.getMaMH());
@@ -702,7 +701,7 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
         int tongSoLuong = 0;
 
         // tính toán tổng tiền và tổng số lượng
-        for(MatHangDTO item : listMatHang) {
+        for (MatHangDTO item : listMatHang) {
             tongSoLuong += item.soLuong_hientai;
             tongTien += item.thanhTien_hientai;
         }

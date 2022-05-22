@@ -137,7 +137,7 @@ public class MatHangBUS {
     }
 
     public static void increaseThanhTien(MatHangDTO matHangDTO, int n) {
-        for(int i = matHangDTO.soLuong_hientai ; i < (matHangDTO.soLuong_hientai + n) ; i++) {
+        for (int i = matHangDTO.soLuong_hientai; i < (matHangDTO.soLuong_hientai + n); i++) {
             matHangDTO.thanhTien_hientai = matHangDTO.thanhTien_hientai + matHangDTO.getThanhTien();
         }
     }
@@ -147,7 +147,7 @@ public class MatHangBUS {
     }
 
     public static void decreaseThanhTien(MatHangDTO matHangDTO, int n) {
-        for(int i = 1 ; i <= n ; i++) {
+        for (int i = 1; i <= n; i++) {
             matHangDTO.thanhTien_hientai = matHangDTO.thanhTien_hientai - matHangDTO.getThanhTien();
         }
     }

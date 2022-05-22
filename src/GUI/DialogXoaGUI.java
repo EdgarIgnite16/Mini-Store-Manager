@@ -9,7 +9,7 @@ import javax.swing.event.DocumentListener;
 
 public class DialogXoaGUI extends javax.swing.JDialog {
     private final MatHangDTO matHangDTO;
-    private String key;
+    private final String key;
 
     /**
      * Creates new form SoLuongXoaDialogGUI
@@ -139,7 +139,7 @@ public class DialogXoaGUI extends javax.swing.JDialog {
             }
 
             // trường hợp xoá là phiếu nhập
-            if(key.equals("PN")) {
+            if (key.equals("PN")) {
                 if (Integer.parseInt(txtSoLuong.getText()) == matHangDTO.soLuong_hientai) {
                     _MessageDialogHelper.showErrorDialog(this, "Phải có ít nhất 1 sản phẩm!",
                             "Kiểm tra số lượng xoá");
