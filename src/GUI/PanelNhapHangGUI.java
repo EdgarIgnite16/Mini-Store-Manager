@@ -458,24 +458,38 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
 
     // xử lí btn thêm
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {
-        MatHangDTO matHangDTO = tbDanhSachMatHangMouseListener();
-        if (matHangDTO != null) {
-            if (checkItemExist(matHangDTO)) {
-                _MessageDialogHelper.showErrorDialog(parentForm,
-                        "Mặt hàng đã tồn tại trong Danh Sách Nhập Hàng!", "Vui lòng chọn lại");
-            } else {
-                if (Integer.parseInt(txtSoLuongNhap.getText()) > 1) {
-                    MatHangBUS.increaseSoLuong(matHangDTO, Integer.parseInt(txtSoLuongNhap.getText())); // cập nhật số lượng của mặt hàng đó
-                    MatHangBUS.increaseThanhTien(matHangDTO, Integer.parseInt(txtSoLuongNhap.getText())); // cập nhật tổng thành tiền của mặt hàng đó
-                    listMatHangSelected.add(matHangDTO); // add mặt hàng chọn vào list
-                    loadCTPN(listMatHangSelected); // load lại form ctpn
-                    loadThanhToan(listMatHangSelected); // load lại form thanh toán
-                    txtSoLuongNhap.setText(""); // clear txt số lượng nhập
-                    btnThem.setEnabled(false); // cập nhật lại nút thêm
-                } else {
-                    _MessageDialogHelper.showErrorDialog(parentForm,
-                            "Số lượng mặt hàng muốn nhập phải lớn hơn 1!", "Vui lòng kiểm tra số lượng");
+        StringBuilder sb = new StringBuilder();
+
+        // kiểm tra số nhập vào có phải là số hay không
+        _DataValidator.validateIsNumberAndInteger(txtSoLuongNhap, sb, "Vui lòng nhập vào một số nguyên dương bất kì!");
+
+        if (sb.length() > 1) {
+            _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
+        } else {
+            try {
+                MatHangDTO matHangDTO = tbDanhSachMatHangMouseListener();
+                if (matHangDTO != null) {
+                    if (checkItemExist(matHangDTO)) {
+                        _MessageDialogHelper.showErrorDialog(parentForm,
+                                "Mặt hàng đã tồn tại trong Danh Sách Nhập Hàng!", "Vui lòng chọn lại");
+                    } else {
+                        if (Integer.parseInt(txtSoLuongNhap.getText()) > 1) {
+                            MatHangBUS.increaseSoLuong(matHangDTO, Integer.parseInt(txtSoLuongNhap.getText().trim())); // cập nhật số lượng của mặt hàng đó
+                            MatHangBUS.increaseThanhTien(matHangDTO, Integer.parseInt(txtSoLuongNhap.getText().trim())); // cập nhật tổng thành tiền của mặt hàng đó
+                            listMatHangSelected.add(matHangDTO); // add mặt hàng chọn vào list
+                            loadCTPN(listMatHangSelected); // load lại form ctpn
+                            loadThanhToan(listMatHangSelected); // load lại form thanh toán
+                            txtSoLuongNhap.setText(""); // clear txt số lượng nhập
+                            btnThem.setEnabled(false); // cập nhật lại nút thêm
+                        } else {
+                            _MessageDialogHelper.showErrorDialog(parentForm,
+                                    "Số lượng mặt hàng muốn nhập phải lớn hơn 1!", "Vui lòng kiểm tra số lượng");
+                        }
+                    }
                 }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+                _MessageDialogHelper.showErrorDialog(parentForm, "Thêm mặt hàng nhập thất bại!", "Failure Query Data");
             }
         }
     }

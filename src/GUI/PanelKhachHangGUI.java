@@ -320,7 +320,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
             _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
-            _DataValidator.valitdateMaKH(txtMaKhachHang, sb, "Vui lòng kiểm tra lại cú pháp!\nMã khách hàng là KH + [STT]");
+            _DataValidator.valitdateMaKH(txtMaKhachHang, sb, "Vui lòng kiểm tra lại cú pháp!\nMã khách hàng là KH + (xxx)[STT]");
             _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 10 số và không chứa ký tự!");
 
             if (sb.length() > 0) {
@@ -328,9 +328,9 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             } else {
                 // tạo mới đối tượng
                 KhachHangDTO khachHangDTO = new KhachHangDTO();
-                khachHangDTO.setMaKH(txtMaKhachHang.getText());
-                khachHangDTO.setTenKH(txtTenKhachHang.getText());
-                khachHangDTO.setSdt(txtSoDienThoai.getText());
+                khachHangDTO.setMaKH(txtMaKhachHang.getText().trim());
+                khachHangDTO.setTenKH(txtTenKhachHang.getText().trim());
+                khachHangDTO.setSdt(txtSoDienThoai.getText().trim());
 
                 KhachHangBUS check = new KhachHangBUS();
                 // trường hợp khách hàng đã có sẵn trong CSDL và khách hàng đang offline
@@ -425,7 +425,7 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
             _DataValidator.validateEmpty(txtMaKhachHang, sb, "Vui lòng nhập mã khách hàng");
             _DataValidator.validateEmpty(txtTenKhachHang, sb, "Vui lòng nhập tên khách hàng");
             _DataValidator.validateEmpty(txtSoDienThoai, sb, "Vui lòng nhập số điện thoại");
-            _DataValidator.valitdateMaKH(txtMaKhachHang, sb, "Vui lòng kiểm tra lại cú pháp!\nMã khách hàng là KH + [STT]");
+            _DataValidator.valitdateMaKH(txtMaKhachHang, sb, "Vui lòng kiểm tra lại cú pháp!\nMã khách hàng là KH + (xxx)[STT]");
             _DataValidator.valitdatePhoneNumber(txtSoDienThoai, sb, "Số điện thoại phải đúng format gồm 10 số và không chứa ký tự!");
 
             if (sb.length() > 0) {
@@ -435,9 +435,9 @@ public class PanelKhachHangGUI extends javax.swing.JPanel {
                         "Bạn có muốn thay đổi thông tin đối tượng này không", "Sửa thông tin đối tượng") == JOptionPane.YES_OPTION) {
                     // tạo mới đối tượng
                     KhachHangDTO khachHangDTO = new KhachHangDTO();
-                    khachHangDTO.setMaKH(txtMaKhachHang.getText());
-                    khachHangDTO.setTenKH(txtTenKhachHang.getText());
-                    khachHangDTO.setSdt(txtSoDienThoai.getText());
+                    khachHangDTO.setMaKH(txtMaKhachHang.getText().trim());
+                    khachHangDTO.setTenKH(txtTenKhachHang.getText().trim());
+                    khachHangDTO.setSdt(txtSoDienThoai.getText().trim());
 
                     KhachHangBUS khachHangBUS = new KhachHangBUS();
                     if (khachHangBUS.updateItem(khachHangDTO)) {
