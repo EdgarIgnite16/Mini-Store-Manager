@@ -93,7 +93,6 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
             });
         } catch (Exception ex) {
             ex.printStackTrace();
-            _MessageDialogHelper.showErrorDialog(this, ex.getMessage(), "Error !");
         }
     }
 
