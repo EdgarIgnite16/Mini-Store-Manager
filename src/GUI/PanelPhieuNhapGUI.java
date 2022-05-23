@@ -322,8 +322,8 @@ public class PanelPhieuNhapGUI extends javax.swing.JPanel {
 
     private void tbDanhSachPhieuNhapMouseListener() {
         try {
-            int selectedRow = tbDanhSachPhieuNhap.getSelectedRow();
-            String MaPN = String.valueOf(tbDanhSachPhieuNhap.getValueAt(selectedRow, 0));
+            int selectedRow = tbDanhSachPhieuNhap.getSelectedRow();//lấy hàng đã chọn
+            String MaPN = String.valueOf(tbDanhSachPhieuNhap.getValueAt(selectedRow,0));//lấy mã phiếu nhập(đang là cột 0)
             PhieuNhapHangDTO phieuNhapHangDTO = new PhieuNhapHangBUS().getItemByID(MaPN);
 
             if (phieuNhapHangDTO != null) {
