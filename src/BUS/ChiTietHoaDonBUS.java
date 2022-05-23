@@ -29,17 +29,20 @@ public class ChiTietHoaDonBUS {
         return list;
     }
 
+    // lấy toàn bộ dữ liệu
     public ArrayList<ChiTietHoaDonDTO> getData() {
         // lấy dữ liệu
         return listMatHangMua;
     }
 
+    // in toàn bộ dữ liệu
     public void printData() {
         for (ChiTietHoaDonDTO chiTietHoaDonDTO : listMatHangMua) {
             System.out.println(chiTietHoaDonDTO.toString()); // in ra terminal
         }
     }
 
+    // hàm tính toàn số lượng bán ra của một mặt hàng nhất định
     public int tinhTonhSLBan(String maMH) {
         int soLuong = 0;
         for (ChiTietHoaDonDTO item : listMatHangMua) {
@@ -51,6 +54,7 @@ public class ChiTietHoaDonBUS {
         return soLuong;
     }
 
+    // hàm tính toàn thành tiền bán ra của một mặt hàng nhất định
     public float tinhTongThanhTien(String maMH, float thanhTien) {
         float tongTien = 0;
         for (ChiTietHoaDonDTO item : listMatHangMua) {

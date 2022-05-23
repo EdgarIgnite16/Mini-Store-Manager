@@ -33,17 +33,19 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
      */
     public PanelBanHangGUI() {
         initComponents();
-        initButtonFood();
+        initButtonMH();
         initGioHangTable();
         initLoaiSanPham();
         initMaGiamGia();
     }
 
-    public static void initButtonFood() {
+    // khởi tạo các nút mặt hàng
+    public static void initButtonMH() {
         ArrayList<MatHangDTO> listSP = new MatHangBUS().getData();
         loadButton(listSP);
     }
 
+    // khởi tạo tabel giỏ hàng
     public void initGioHangTable() {
         String[] columnNames = new String[]{"Mã SP", "Tên SP", "Số lượng", "Thành tiền (VNĐ)"};
         model_table = new DefaultTableModel();
@@ -82,6 +84,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // khởi tạo dữ liệu cho comboBox mã giảm giá
     public void initMaGiamGia() {
         model_combox_PGG = new DefaultComboBoxModel();
         model_combox_PGG.addElement("---");
@@ -102,6 +105,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         });
     }
 
+    // khởi tạo dữ liệu cho comboBox loại sản phẩm
     public void initLoaiSanPham() {
         model_combox_LQP = new DefaultComboBoxModel();
         model_combox_LQP.addElement("---");
@@ -444,16 +448,18 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>
 
+    // xử lí nút làm mới
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {
         txtTenMatHang.setText("");
         cboxLoaiMatHang.setSelectedIndex(0);
 
         pnMatHang.removeAll();
         pnMatHang.revalidate();
-        initButtonFood();
+        initButtonMH();
         pnMatHang.repaint();
     }
 
+    // xử lí nút tìm kiếm mặt hàng
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {
         try {
             LoaiMatHangDTO loaiMatHangDTO = new LoaiMatHangBUS().getItemByName(String.valueOf(cboxLoaiMatHang.getSelectedItem()));
@@ -476,6 +482,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí nút giảm sl mặt hàng
     private void btnGiamMHActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbGioHangMousePressed();
         if (matHangDTO != null) {
@@ -492,6 +499,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí nút tăng sl mặt hàng
     private void btnTangMHActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbGioHangMousePressed();
         if (matHangDTO != null) {
@@ -508,6 +516,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí nút xoá mặt hàng
     private void btnXoaMHActionPerformed(java.awt.event.ActionEvent evt) {
         MatHangDTO matHangDTO = tbGioHangMousePressed();
         if (matHangDTO != null) {
@@ -519,6 +528,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí nút huỷ hoá đơn
     private void btnHuyHoaDonActionPerformed(java.awt.event.ActionEvent evt) {
         try {
             if (_MessageDialogHelper.showConfirmDialog(parentForm,
@@ -531,6 +541,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí nút lập hoá đơn
     private void btnLaphoaDonActionPerformed(java.awt.event.ActionEvent evt) {
         try {
             if (listMatHangSelected.size() > 0) {
@@ -555,6 +566,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí sự kiện bấm voà btn Danh sách hoá đơn
     private void btnDanhSachHoaDonActionPerformed(java.awt.event.ActionEvent evt) {
         MainFormGUI.tPane_Main.setSelectedComponent(MainFormGUI.hoaDonGUI);
     }

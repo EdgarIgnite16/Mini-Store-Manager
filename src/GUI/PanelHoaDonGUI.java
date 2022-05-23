@@ -29,6 +29,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         initListCTHD();
     }
 
+    // khởi tạo table danh sach hoá đơn
     public void initListHoaDon() {
         String[] columnNames = new String[]{"Mã HD", "Mã NV", "Mã KH", "Mã giảm giá", "Tổng hoá đơn (VNĐ)", "Ngày bán"};
         modelTable_HD = new DefaultTableModel();
@@ -66,6 +67,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         });
     }
 
+    // khởi tạo table chi tiết hoá đơn
     public void initListCTHD() {
         String[] columnNames = new String[]{"Mã SP", "Tên SP", "Số lượng", "Thành tiền (VNĐ)"};
         modelTable_CTHD = new DefaultTableModel();
@@ -343,6 +345,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>
 
+    // xử lí btn export excel
     private void btnExportExcelActionPerformed(java.awt.event.ActionEvent evt) {
         ArrayList<HoaDonDTO> listHD = new HoaDonBUS().getData();
         JFileChooser fc = new JFileChooser();
@@ -361,6 +364,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn làm mới
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {
         txtMaHoaDon.setText("");
         txtMaGiamGia.setText("");
@@ -375,6 +379,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         loadChiTietHoaDon(new ArrayList<>());
     }
 
+    // xử lí btn tìm kiếm HD
     private void btnTimKiemHDActionPerformed(java.awt.event.ActionEvent evt) {
         new DialogTimKiemGUI(new Frame(), true, "HD").setVisible(true); // mở form tìm kiếm
         HoaDonDTO hoaDonDTO = _SaveData.hoaDonTimThay;
@@ -388,6 +393,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn tìm kiếm MH
     private void btnTimKiemKHMuaActionPerformed(java.awt.event.ActionEvent evt) {
         new DialogTimKiemGUI(new Frame(), true, "LHD_KH").setVisible(true); // mở form tìm kiếm
         ArrayList<HoaDonDTO> listHD = _SaveData.ListHoaDonTimThay;
@@ -399,6 +405,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí btn tìm kiếm NV
     private void btnTimKiemNVBanActionPerformed(java.awt.event.ActionEvent evt) {
         new DialogTimKiemGUI(new Frame(), true, "LHD_NV").setVisible(true); // mở form tìm kiếm
         ArrayList<HoaDonDTO> listHD = _SaveData.ListHoaDonTimThay;
@@ -410,6 +417,7 @@ public class PanelHoaDonGUI extends javax.swing.JPanel {
         }
     }
 
+    // xử lí sự kiện click chuột vào trong Table Danh Sách hoá đơn
     private void tbDanhSachHoaDonMouseListener() {
         int selectedRow = tbDanhSachHoaDon.getSelectedRow();
         String idHD = String.valueOf(tbDanhSachHoaDon.getValueAt(selectedRow, 0));

@@ -38,46 +38,57 @@ public class _DataValidator {
         }
     }
 
+    // hàm xử lí validate có phải là số hay không
+    public static void validateIsNumberAndInteger(JTextField field, StringBuilder sb, String errorMessage) {
+        try {
+            if(Integer.parseInt(field.getText()) <= 0) {
+                sb.append(String.format("%s\n", errorMessage));
+            }
+        } catch (Exception ex) {
+            sb.append(String.format("%s\n", errorMessage));
+        }
+    }
+
     // hàm xử lí validate Số điện thoại bằng Regex
     public static void valitdatePhoneNumber(JTextField field, StringBuilder sb, String errorMessage) {
         String regex = "^[0-9]{10}$";
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
-        if(!status.find()) {
+        if (!status.find()) {
             sb.append(String.format("%s\n", errorMessage));
         }
     }
 
     // hàm xử lí validate Số điện thoại bằng Regex
-    public static void valitdateCMND(JTextField field, StringBuilder sb, String errorMessage) {
+    public static void valitdateCCCD(JTextField field, StringBuilder sb, String errorMessage) {
         String regex = "^[0-9]{12}$";
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
-        if(!status.find()) {
+        if (!status.find()) {
             sb.append(String.format("%s\n", errorMessage));
         }
     }
 
     // hàm xử lí validate Mã nhân viên bằng Regex
     public static void valitdateMaNV(JTextField field, StringBuilder sb, String errorMessage) {
-        String regex = "^NV[0-9]{2}$";
+        String regex = "^NV[0-9]{3}$";
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
-        if(!status.find()) {
+        if (!status.find()) {
             sb.append(String.format("%s\n", errorMessage));
         }
     }
 
     // hàm xử lí validate Mã khách hàng bằng Regex
     public static void valitdateMaKH(JTextField field, StringBuilder sb, String errorMessage) {
-        String regex = "^KH[0-9]{2}$";
+        String regex = "^KH[0-9]{3}$";
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
-        if(!status.find()) {
+        if (!status.find()) {
             sb.append(String.format("%s\n", errorMessage));
         }
     }
@@ -85,12 +96,12 @@ public class _DataValidator {
     // hàm xử lí validate Mã mặt hàng bằng Regex
     public static void valitdateMaMH(JTextField field, StringBuilder sb, LoaiMatHangDTO loaiMatHangDTO) {
         String maMH = LoaiMatHangBUS.getMaMHDefault(loaiMatHangDTO.getMaLMH());
-        String regex = "^" + maMH + "[0-9]{2}$";
+        String regex = "^" + maMH + "[0-9]{3}$";
         Pattern checkRegex = Pattern.compile(regex);
         Matcher status = checkRegex.matcher(field.getText());
 
-        if(!status.find()) {
-            String errorMessage = String.format("Vui lòng kiểm tra lại cú pháp!\nMã sản phẩm của %s là %s + [STT]",
+        if (!status.find()) {
+            String errorMessage = String.format("Vui lòng kiểm tra lại cú pháp!\nMã sản phẩm của %s là %s + (xxx)[STT]",
                     loaiMatHangDTO.getTenLMH(), maMH);
             sb.append(String.format("%s\n", errorMessage));
         }

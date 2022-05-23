@@ -17,15 +17,7 @@ public class NhanVienBUS {
         }
     }
 
-    public NhanVienDTO getItemByName(String name) {
-        for (NhanVienDTO item : listNhanVien) {
-            if (item.getTenNV().equals(name)) {
-                return item;
-            }
-        }
-        return null;
-    }
-
+    // lấy đối tượng thông qua ID
     public NhanVienDTO getItemByID(String id) {
         for (NhanVienDTO item : listNhanVien) {
             if (item.getMaNV().equals(id)) {
@@ -35,16 +27,29 @@ public class NhanVienBUS {
         return null;
     }
 
+    // lấy đối tượng thông qua tên
+    public NhanVienDTO getItemByName(String name) {
+        for (NhanVienDTO item : listNhanVien) {
+            if (item.getTenNV().equals(name)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
+    // lấy toàn bộ dữ liệu
     public ArrayList<NhanVienDTO> getData() {
         return listNhanVien;
     }
 
+    // in toàn bộ dữ liệu
     public void printData() {
         for (NhanVienDTO nhanVienDTO : listNhanVien) {
             System.out.println(nhanVienDTO.toString()); // in ra terminal
         }
     }
 
+    // lấy đối tượng đăng nhập
     public NhanVienDTO getNhanVienLogin(String username, String password) {
         for (NhanVienDTO user : listNhanVien) {
             if (user.getMaNV().trim().equals(username) && password.equals("12345")) {

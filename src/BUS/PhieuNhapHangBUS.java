@@ -17,6 +17,7 @@ public class PhieuNhapHangBUS {
         }
     }
 
+    // lấy đối tượng thông qua ID
     public PhieuNhapHangDTO getItemByID(String id) {
         for (PhieuNhapHangDTO item : listPhieuNhap) {
             if (item.getMaPhieuNhap().equals(id)) {
@@ -26,11 +27,13 @@ public class PhieuNhapHangBUS {
         return null;
     }
 
+    // lấy toàn bộ dữ liệu
     public ArrayList<PhieuNhapHangDTO> getData() {
         // trả về dữ liệu
         return listPhieuNhap;
     }
 
+    // in toàn bộ dữ liệu
     public void printData() {
         for (PhieuNhapHangDTO phieuNhapHangDTO : listPhieuNhap) {
             System.out.println(phieuNhapHangDTO.toString()); // in ra terminal

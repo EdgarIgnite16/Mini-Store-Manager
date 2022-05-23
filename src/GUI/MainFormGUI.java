@@ -21,6 +21,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         initForm();
     }
 
+    // khởi tạo các form
     public void initForm() {
         // Bán hàng form
         banHangGUI = new PanelBanHangGUI();
@@ -429,7 +430,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>
 
-    // mnu
+    // menu
     private void mnuSystem_ExitActionPerformed(java.awt.event.ActionEvent evt) {
         if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn thoát khỏi chương trình hay không",
                 "Thoát chương trình") == JOptionPane.YES_OPTION) {
@@ -489,7 +490,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tPane_Main.setSelectedComponent(phieuNhapGUI);
     }
 
-    // tbar
+    // table Pane Bar
     private void tBar_LogoutActionPerformed(java.awt.event.ActionEvent evt) {
         if (_MessageDialogHelper.showConfirmDialog(this, "Bạn có muốn đăng xuất hay không",
                 "Đăng xuất") == JOptionPane.YES_OPTION) {

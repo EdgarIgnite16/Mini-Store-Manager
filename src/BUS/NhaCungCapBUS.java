@@ -17,6 +17,7 @@ public class NhaCungCapBUS {
         }
     }
 
+    // lấy đối tượng thông qua ID
     public NhaCungCapDTO getItemByID(String id) {
         for (NhaCungCapDTO item : listNhaCungCap) {
             if (item.getMaNCC().equals(id)) {
@@ -26,6 +27,7 @@ public class NhaCungCapBUS {
         return null;
     }
 
+    // lấy đối tượng thông qua tên
     public NhaCungCapDTO getItemByName(String name) {
         for (NhaCungCapDTO item : listNhaCungCap) {
             if (item.getTenNCC().equals(name)) {
@@ -35,10 +37,12 @@ public class NhaCungCapBUS {
         return null;
     }
 
+    // lấy toàn bộ dữ liệu
     public ArrayList<NhaCungCapDTO> getData() {
         return listNhaCungCap;
     }
 
+    // in toàn bộ dữ liệu
     public void printData() {
         for (NhaCungCapDTO nhaCungCap : listNhaCungCap) {
             System.out.println(nhaCungCap.toString()); // in ra terminal

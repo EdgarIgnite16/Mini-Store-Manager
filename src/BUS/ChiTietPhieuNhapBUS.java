@@ -28,11 +28,13 @@ public class ChiTietPhieuNhapBUS {
         return list;
     }
 
+    // lấy toàn bộ dữ liệu
     public ArrayList<ChiTietPhieuNhapDTO> getData() {
         // lấy dữ liệu
         return listPhieuNhapMua;
     }
 
+    // in toàn bộ dữ liệu
     public void printData() {
         for (ChiTietPhieuNhapDTO chiTietPhieuNhapDTO : listPhieuNhapMua) {
             System.out.println(chiTietPhieuNhapDTO.toString()); // in ra terminal

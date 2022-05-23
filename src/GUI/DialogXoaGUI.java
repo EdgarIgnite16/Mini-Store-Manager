@@ -8,7 +8,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 public class DialogXoaGUI extends javax.swing.JDialog {
-    private final MatHangDTO matHangDTO;
+    private MatHangDTO matHangDTO;
     private String key;
 
     /**
@@ -117,8 +117,10 @@ public class DialogXoaGUI extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>
 
+    // xử lí nút xác nhận
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         try {
+            // trường hợp xoá là hoá đơn
             if (key.equals("HD")) {
                 if (Integer.parseInt(txtSoLuong.getText()) > matHangDTO.soLuong_hientai) {
                     _MessageDialogHelper.showErrorDialog(this, "Số lượng xoá không được phép lớn hơn số lượng sản phẩm trong giỏ hàng!",
@@ -136,7 +138,8 @@ public class DialogXoaGUI extends javax.swing.JDialog {
                 }
             }
 
-            if(key.equals("PN")) {
+            // trường hợp xoá là phiếu nhập
+            if (key.equals("PN")) {
                 if (Integer.parseInt(txtSoLuong.getText()) == matHangDTO.soLuong_hientai) {
                     _MessageDialogHelper.showErrorDialog(this, "Phải có ít nhất 1 sản phẩm!",
                             "Kiểm tra số lượng xoá");
@@ -153,6 +156,7 @@ public class DialogXoaGUI extends javax.swing.JDialog {
         }
     }
 
+    // xử lí txt số lượng
     private void txtSoLuongChangeUpdate(DocumentEvent e) {
         btnXacNhan.setEnabled(!txtSoLuong.getText().isEmpty());
     }
