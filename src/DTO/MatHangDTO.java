@@ -8,7 +8,7 @@ public class MatHangDTO {
     private int soLuong;
     private int status;
 
-    // các thông số trong giỏ hàng
+    // các thông số hiển thị của sản phẩm (thuộc tính sử dụng cho mục đích hiển thị trong GUI)
     public int soLuong_hientai = 0;
     public double thanhTien_hientai = 0;
 

@@ -1,5 +1,6 @@
 package GUI;
 
+import BUS._DataValidator;
 import BUS._MessageDialogHelper;
 import BUS._SaveData;
 import DTO.MatHangDTO;
@@ -8,6 +9,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 public class DialogThemGUI extends javax.swing.JDialog {
+    private MainFormGUI parentForm;
     private MatHangDTO matHangDTO;
     private String key;
 
@@ -119,40 +121,48 @@ public class DialogThemGUI extends javax.swing.JDialog {
 
     // xử lí btn xác nhận
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
-        try {
-            // trường hợp thêm của hoá đơn
-            if (key.equals("HD")) {
-                if (Integer.parseInt(txtSoLuong.getText()) + matHangDTO.soLuong_hientai > matHangDTO.getSoLuong()) {
-                    _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm không được phép lớn hơn số lượng sản phẩm còn lại trong tồn kho!",
-                            "Kiểm tra số lượng thêm");
-                    txtSoLuong.setText("");
-                    txtSoLuong.requestFocus();
-                } else if (Integer.parseInt(txtSoLuong.getText()) <= 1) {
-                    _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm phải lớn hơn 1!",
-                            "Kiểm tra số lượng thêm");
-                    txtSoLuong.setText("");
-                    txtSoLuong.requestFocus();
-                } else {
-                    _SaveData.soLuongThem = Integer.parseInt(txtSoLuong.getText());
-                    this.dispose();
-                }
-            }
+        StringBuilder sb = new StringBuilder();
 
-            // trường hợp thêm của phiếu nhập
-            if (key.equals("PN")) {
-                if (Integer.parseInt(txtSoLuong.getText()) <= 1) {
-                    _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm phải lớn hơn 1!",
-                            "Kiểm tra số lượng thêm");
-                    txtSoLuong.setText("");
-                    txtSoLuong.requestFocus();
-                } else {
-                    _SaveData.soLuongThem = Integer.parseInt(txtSoLuong.getText());
-                    this.dispose();
+        _DataValidator.validateIsNumberAndInteger(txtSoLuong, sb, "Số dương!");
+
+        if(sb.length() > 0 ) {
+            _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
+        } else {
+            try {
+                // trường hợp thêm của hoá đơn
+                if (key.equals("HD")) {
+                    if (Integer.parseInt(txtSoLuong.getText()) + matHangDTO.soLuong_hientai > matHangDTO.getSoLuong()) {
+                        _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm không được phép lớn hơn số lượng sản phẩm còn lại trong tồn kho!",
+                                "Kiểm tra số lượng thêm");
+                        txtSoLuong.setText("");
+                        txtSoLuong.requestFocus();
+                    } else if (Integer.parseInt(txtSoLuong.getText()) <= 1) {
+                        _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm phải lớn hơn 1!",
+                                "Kiểm tra số lượng thêm");
+                        txtSoLuong.setText("");
+                        txtSoLuong.requestFocus();
+                    } else {
+                        _SaveData.soLuongThem = Integer.parseInt(txtSoLuong.getText());
+                        this.dispose();
+                    }
                 }
+
+                // trường hợp thêm của phiếu nhập
+                if (key.equals("PN")) {
+                    if (Integer.parseInt(txtSoLuong.getText()) <= 1) {
+                        _MessageDialogHelper.showErrorDialog(this, "Số lượng thêm phải lớn hơn 1!",
+                                "Kiểm tra số lượng thêm");
+                        txtSoLuong.setText("");
+                        txtSoLuong.requestFocus();
+                    } else {
+                        _SaveData.soLuongThem = Integer.parseInt(txtSoLuong.getText());
+                        this.dispose();
+                    }
+                }
+            } catch (Exception ex) {
+                // Bắt exception trong thẻ input
+                _MessageDialogHelper.showErrorDialog(this, "Vui lòng nhập chữ số!", "Lỗi đầu vào");
             }
-        } catch (Exception ex) {
-            // Bắt exception trong thẻ input
-            _MessageDialogHelper.showErrorDialog(this, "Vui lòng nhập chữ số!", "Lỗi đầu vào");
         }
     }
 

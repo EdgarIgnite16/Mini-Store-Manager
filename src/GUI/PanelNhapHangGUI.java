@@ -530,11 +530,16 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             new DialogXoaGUI(new Frame(), true, matHangDTO, "PN").setVisible(true); // tạo form nhập số lượng xoá
 
             int soLuongxoa = _SaveData.soLuongXoa; // lấy số lượng cần xoá
-            MatHangBUS.decreaseSoLuong(matHangDTO, soLuongxoa); // giảm số lượng hiện tại trong danh sách nhập
-            MatHangBUS.decreaseThanhTien(matHangDTO, soLuongxoa); // giảm thành tiền hiện tại trong danh sách nhập
-            loadCTPN(listMatHangSelected); // load lại form ctpn
-            loadThanhToan(listMatHangSelected); // load lại form thanh toán
+            if(soLuongxoa < matHangDTO.soLuong_hientai) {
+                MatHangBUS.decreaseSoLuong(matHangDTO, soLuongxoa); // giảm số lượng hiện tại trong danh sách nhập
+                MatHangBUS.decreaseThanhTien(matHangDTO, soLuongxoa); // giảm thành tiền hiện tại trong danh sách nhập
+                loadCTPN(listMatHangSelected); // load lại form ctpn
+                loadThanhToan(listMatHangSelected); // load lại form thanh toán
+            } else {
+                _MessageDialogHelper.showErrorDialog(this, "Lỗi", "TIêu đề");
+        }
 
+            // like N'ádhíahd'
             // reset lại số lượng xoá trong local
             _SaveData.soLuongXoa = 0;
         }
