@@ -9,7 +9,6 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 public class DialogXoaGUI extends javax.swing.JDialog {
-    private MainFormGUI parentForm;
     private MatHangDTO matHangDTO;
     private String key;
 
@@ -123,10 +122,10 @@ public class DialogXoaGUI extends javax.swing.JDialog {
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {
         StringBuilder sb = new StringBuilder();
 
-        _DataValidator.validateIsNumberAndInteger(txtSoLuong, sb, "Phải là số dương!");
+        _DataValidator.validateIsNumberAndInteger(txtSoLuong, sb, "Đối số truyền vào phải là số dương");
 
         if(sb.length() > 0 ) {
-            _MessageDialogHelper.showErrorDialog(parentForm, String.valueOf(sb), "Vui lòng kiểm tra lại");
+            _MessageDialogHelper.showErrorDialog(this, String.valueOf(sb), "Vui lòng kiểm tra lại");
         } else {
             try {
                 // trường hợp xoá là hoá đơn

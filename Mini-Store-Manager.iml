@@ -9,9 +9,9 @@
       <excludeFolder url="file://$MODULE_DIR$/out" />
     </content>
     <orderEntry type="inheritedJdk" />
-    <orderEntry type="library" exported="" name="JSBC" level="project" />
     <orderEntry type="library" exported="" name="POI Apache" level="project" />
     <orderEntry type="library" exported="" name="itextpdf-5.5.13" level="project" />
+    <orderEntry type="library" exported="" name="JDBC" level="project" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>

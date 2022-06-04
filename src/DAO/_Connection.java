@@ -25,7 +25,7 @@ public class _Connection {
             System.out.println("Tìm thấy driver!");
         } catch (Exception ex) {
             ex.printStackTrace();
-            System.out.println("Không tìm thấy driver!");
+            System.out.println("Không tìm thấy driver!\nMsg Error: " + ex.getMessage());
         }
     }
 
@@ -48,7 +48,7 @@ public class _Connection {
             System.out.println("Kết nối database thành công!");
         } catch (Exception ex) {
             ex.printStackTrace();
-            System.out.println("Kết nối database thất bại!");
+            System.out.println("Kết nối database thất bại!\nMsg Error: " + ex.getMessage());
         }
     }
 

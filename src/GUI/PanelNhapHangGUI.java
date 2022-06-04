@@ -513,10 +513,16 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
             new DialogThemGUI(new Frame(), true, matHangDTO, "PN").setVisible(true); // tạo form nhập số lượng xoá
 
             int soLuongThem = _SaveData.soLuongThem; // lấy ra số lượng sản phẩm muốn thêm vào
-            MatHangBUS.increaseSoLuong(matHangDTO, soLuongThem); // tăng số lượng hiện tại trong danh sách nhập
-            MatHangBUS.increaseThanhTien(matHangDTO, soLuongThem); // tăng thành tiền hiện tại trong danh sách nhập
-            loadCTPN(listMatHangSelected); // load lại form ctpn
-            loadThanhToan(listMatHangSelected); // load lại form thanh toán
+            if(soLuongThem <= 1000) {
+                MatHangBUS.increaseSoLuong(matHangDTO, soLuongThem); // tăng số lượng hiện tại trong danh sách nhập
+                MatHangBUS.increaseThanhTien(matHangDTO, soLuongThem); // tăng thành tiền hiện tại trong danh sách nhập
+                loadCTPN(listMatHangSelected); // load lại form ctpn
+                loadThanhToan(listMatHangSelected); // load lại form thanh toán
+            } else {
+                _MessageDialogHelper.showErrorDialog(parentForm,
+                        "Số lượng thêm không được vượt quá 1000!\nVui lòng nhập lại số lượng thêm",
+                        "Tăng số lượng xoá thất bại");
+            }
 
             // reset lại số lượng thêm trong local
             _SaveData.soLuongThem = 0;
@@ -536,10 +542,11 @@ public class PanelNhapHangGUI extends javax.swing.JPanel {
                 loadCTPN(listMatHangSelected); // load lại form ctpn
                 loadThanhToan(listMatHangSelected); // load lại form thanh toán
             } else {
-                _MessageDialogHelper.showErrorDialog(this, "Lỗi", "TIêu đề");
-        }
+                _MessageDialogHelper.showErrorDialog(parentForm,
+                        "Số lượng xoá không thể vượt quá số lượng hiện tại!\nVui lòng nhập lại số lượng xoá",
+                        "Giảm số lượng xoá thất bại");
+            }
 
-            // like N'ádhíahd'
             // reset lại số lượng xoá trong local
             _SaveData.soLuongXoa = 0;
         }
