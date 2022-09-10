@@ -36,7 +36,7 @@ public class DialogAboutUSGUI extends javax.swing.JDialog {
         setResizable(false);
 
         lbAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbAvatar.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_online_store_64px_2.png")); // NOI18N
+        lbAvatar.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8_online_store_64px_2.png")); // NOI18N
 
         lbInformation.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbInformation.setText("Phần mềm quản lí cửa hàng tiện lợi");
@@ -45,7 +45,7 @@ public class DialogAboutUSGUI extends javax.swing.JDialog {
         lbAuthor.setText("Member 1: Trần Nguyên Lộc");
 
         btnClose.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        btnClose.setIcon(new javax.swing.ImageIcon("resource\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
+        btnClose.setIcon(new javax.swing.ImageIcon("res\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
         btnClose.setText("Đóng");
         btnClose.setFocusable(false);
         btnClose.addActionListener(new java.awt.event.ActionListener() {

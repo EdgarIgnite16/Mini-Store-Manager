@@ -25,37 +25,37 @@ public class MainFormGUI extends javax.swing.JFrame {
     public void initForm() {
         // Bán hàng form
         banHangGUI = new PanelBanHangGUI();
-        String pathBanHang = "resource\\icon\\icons8_bill_16px.png";
+        String pathBanHang = "res\\icon\\icons8_bill_16px.png";
         tPane_Main.addTab("Quản lí bán hàng", new ImageIcon(pathBanHang), banHangGUI, "Quản lí bán hàng");
 
         // Hoá đơn form
         hoaDonGUI = new PanelHoaDonGUI();
-        String pathHoaDon = "resource\\icon\\icons8_bill_16px_1.png";
+        String pathHoaDon = "res\\icon\\icons8_bill_16px_1.png";
         tPane_Main.addTab("Quản lí hoá đơn", new ImageIcon(pathHoaDon), hoaDonGUI, "Quản lí hoá đơn");
 
         // Nhân viên form
         nhanVienGUI = new PanelNhanVienGUI();
-        String pathNhanVien = "resource\\icon\\icons8-staff-16.png";
+        String pathNhanVien = "res\\icon\\icons8-staff-16.png";
         tPane_Main.addTab("Quản lí nhân viên", new ImageIcon(pathNhanVien), nhanVienGUI, "\"Quản lí nhân viên");
 
         // Khách hàng form
         khachHangGUI = new PanelKhachHangGUI();
-        String pathKhachHang = "resource\\icon\\icons8-customer-16.png";
+        String pathKhachHang = "res\\icon\\icons8-customer-16.png";
         tPane_Main.addTab("Quản lí khách hàng", new ImageIcon(pathKhachHang), khachHangGUI, "\"Quản lí khách hàng");
 
         // Khách hàng form
         matHangGUI = new PanelMatHangGUI();
-        String pathMatHang = "resource\\icon\\icons8-goods-16.png";
+        String pathMatHang = "res\\icon\\icons8-goods-16.png";
         tPane_Main.addTab("Quản lí mặt hàng", new ImageIcon(pathMatHang), matHangGUI, "\"Quản lí  mặt hàng");
 
         // Nhập hàng form
         nhaphangGUI = new PanelNhapHangGUI();
-        String pathNhapHang = "resource\\icon\\icons8_input_16px_1.png";
+        String pathNhapHang = "res\\icon\\icons8_input_16px_1.png";
         tPane_Main.addTab("Quản lí nhập hàng", new ImageIcon(pathNhapHang), nhaphangGUI, "\"Quản lí  nhập hàng");
 
         // Phiếu nhập form
         phieuNhapGUI = new PanelPhieuNhapGUI();
-        String pathPhieuNhapHang = "resource\\icon\\icons8-paid-bill-16 (1).png";
+        String pathPhieuNhapHang = "res\\icon\\icons8-paid-bill-16 (1).png";
         tPane_Main.addTab("Quản lí phiếu nhập", new ImageIcon(pathPhieuNhapHang), phieuNhapGUI, "\"Quản lí  phiếu nhập");
 
     }
@@ -110,7 +110,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_Main.setFloatable(false);
 
         tBar_Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_Logout.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_Logout_32px_1.png")); // NOI18N
+        tBar_Logout.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8_Logout_32px_1.png")); // NOI18N
         tBar_Logout.setText("Đăng xuất");
         tBar_Logout.setFocusable(false);
         tBar_Logout.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -126,7 +126,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_Main.add(tBar_Separator1);
 
         tBar_BanHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_BanHang.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_bill_32px.png")); // NOI18N
+        tBar_BanHang.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8_bill_32px.png")); // NOI18N
         tBar_BanHang.setText("Bán hàng");
         tBar_BanHang.setFocusable(false);
         tBar_BanHang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -141,7 +141,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_Main.add(tBar_BanHang);
 
         tBar_HoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_HoaDon.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_bill_32px_1.png")); // NOI18N
+        tBar_HoaDon.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8_bill_32px_1.png")); // NOI18N
         tBar_HoaDon.setText("Hoá đơn");
         tBar_HoaDon.setFocusable(false);
         tBar_HoaDon.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -156,7 +156,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_Main.add(tBar_HoaDon);
 
         tBar_NhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_NhanVien.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-staff-32.png")); // NOI18N
+        tBar_NhanVien.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8-staff-32.png")); // NOI18N
         tBar_NhanVien.setText("Nhân viên");
         tBar_NhanVien.setFocusable(false);
         tBar_NhanVien.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -171,7 +171,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_Main.add(tBar_NhanVien);
 
         tBar_KhachHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_KhachHang.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-customer-32.png")); // NOI18N
+        tBar_KhachHang.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8-customer-32.png")); // NOI18N
         tBar_KhachHang.setText("Khách hàng");
         tBar_KhachHang.setFocusable(false);
         tBar_KhachHang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -186,7 +186,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_Main.add(tBar_KhachHang);
 
         tBar_MatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_MatHang.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-goods-32.png")); // NOI18N
+        tBar_MatHang.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8-goods-32.png")); // NOI18N
         tBar_MatHang.setText("Mặt hàng");
         tBar_MatHang.setFocusable(false);
         tBar_MatHang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -201,7 +201,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_Main.add(tBar_MatHang);
 
         tBar_NhapHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_NhapHang.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_input_32px.png")); // NOI18N
+        tBar_NhapHang.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8_input_32px.png")); // NOI18N
         tBar_NhapHang.setText("Nhập hàng");
         tBar_NhapHang.setFocusable(false);
         tBar_NhapHang.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -216,7 +216,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_Main.add(tBar_NhapHang);
 
         tBar_PhieuNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_PhieuNhap.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-paid-bill-32 (1).png")); // NOI18N
+        tBar_PhieuNhap.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8-paid-bill-32 (1).png")); // NOI18N
         tBar_PhieuNhap.setText("Phiếu nhập");
         tBar_PhieuNhap.setFocusable(false);
         tBar_PhieuNhap.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -232,7 +232,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_Main.add(tBar_Separator2);
 
         tBar_Intro.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_Intro.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-mention-32.png")); // NOI18N
+        tBar_Intro.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8-mention-32.png")); // NOI18N
         tBar_Intro.setText("GIới thiệu");
         tBar_Intro.setFocusable(false);
         tBar_Intro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -247,7 +247,7 @@ public class MainFormGUI extends javax.swing.JFrame {
         tBar_Main.add(tBar_Intro);
 
         tBar_Contact.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        tBar_Contact.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-contact-32.png")); // NOI18N
+        tBar_Contact.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8-contact-32.png")); // NOI18N
         tBar_Contact.setText("Liên hệ");
         tBar_Contact.setFocusable(false);
         tBar_Contact.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -278,7 +278,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuSystem_Logout.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuSystem_Logout.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuSystem_Logout.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_Logout_16px.png")); // NOI18N
+        mnuSystem_Logout.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8_Logout_16px.png")); // NOI18N
         mnuSystem_Logout.setText("Đăng xuất");
         mnuSystem_Logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,7 +290,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuSystem_Exit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuSystem_Exit.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuSystem_Exit.setIcon(new javax.swing.ImageIcon("resource\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
+        mnuSystem_Exit.setIcon(new javax.swing.ImageIcon("res\\icon\\Actions-edit-delete-icon-16.png")); // NOI18N
         mnuSystem_Exit.setText("Thoát");
         mnuSystem_Exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,7 +305,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuManage_BanHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuManage_BanHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_BanHang.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_bill_16px.png")); // NOI18N
+        mnuManage_BanHang.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8_bill_16px.png")); // NOI18N
         mnuManage_BanHang.setText("Quản lý bán hàng");
         mnuManage_BanHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -316,7 +316,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuManage_HoaDon.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuManage_HoaDon.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_HoaDon.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_bill_16px_1.png")); // NOI18N
+        mnuManage_HoaDon.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8_bill_16px_1.png")); // NOI18N
         mnuManage_HoaDon.setText("Quản lý hoá đơn");
         mnuManage_HoaDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -327,7 +327,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuManage_NhanVien.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuManage_NhanVien.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_NhanVien.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-staff-16.png")); // NOI18N
+        mnuManage_NhanVien.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8-staff-16.png")); // NOI18N
         mnuManage_NhanVien.setText("Quản lý nhân viên");
         mnuManage_NhanVien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,7 +338,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuManage_KhachHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuManage_KhachHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_KhachHang.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-customer-16.png")); // NOI18N
+        mnuManage_KhachHang.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8-customer-16.png")); // NOI18N
         mnuManage_KhachHang.setText("Quản lý khách hàng");
         mnuManage_KhachHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -349,7 +349,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuManage_MatHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_5, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuManage_MatHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_MatHang.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-goods-16.png")); // NOI18N
+        mnuManage_MatHang.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8-goods-16.png")); // NOI18N
         mnuManage_MatHang.setText("Quản lý mặt hàng");
         mnuManage_MatHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -360,7 +360,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuManage_NhapHang.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_6, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuManage_NhapHang.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_NhapHang.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_input_16px_1.png")); // NOI18N
+        mnuManage_NhapHang.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8_input_16px_1.png")); // NOI18N
         mnuManage_NhapHang.setText("Quản lí nhập hàng");
         mnuManage_NhapHang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -371,7 +371,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuManage_PhieuNhap.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_7, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuManage_PhieuNhap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuManage_PhieuNhap.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8-paid-bill-16 (1).png")); // NOI18N
+        mnuManage_PhieuNhap.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8-paid-bill-16 (1).png")); // NOI18N
         mnuManage_PhieuNhap.setText("Quản lý phiếu nhập");
         mnuManage_PhieuNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -386,7 +386,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuHelper_Intro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuHelper_Intro.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuHelper_Intro.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_mention_16px.png")); // NOI18N
+        mnuHelper_Intro.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8_mention_16px.png")); // NOI18N
         mnuHelper_Intro.setText("Giới thiệu");
         mnuHelper_Intro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -398,7 +398,7 @@ public class MainFormGUI extends javax.swing.JFrame {
 
         mnuHelper_Contact.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         mnuHelper_Contact.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        mnuHelper_Contact.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_contact_16px.png")); // NOI18N
+        mnuHelper_Contact.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8_contact_16px.png")); // NOI18N
         mnuHelper_Contact.setText("Liên hệ");
         mnuHelper_Contact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

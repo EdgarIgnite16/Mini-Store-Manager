@@ -44,7 +44,7 @@ public class DialogLoginGUI extends javax.swing.JDialog {
 
         lbAvatar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lbAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbAvatar.setIcon(new javax.swing.ImageIcon("resource\\icon\\icons8_online_store_64px_2.png")); // NOI18N
+        lbAvatar.setIcon(new javax.swing.ImageIcon("res\\icon\\icons8_online_store_64px_2.png")); // NOI18N
 
         pnMainForm.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnMainForm.setBackground(new Color(225, 225, 225));
@@ -79,7 +79,7 @@ public class DialogLoginGUI extends javax.swing.JDialog {
         btnLogin.setText("Đăng nhập");
         btnLogin.setEnabled(false);
         btnLogin.setFocusable(false);
-        btnLogin.setIcon(new javax.swing.ImageIcon("resource\\icon\\Login-icon-16.png"));
+        btnLogin.setIcon(new javax.swing.ImageIcon("res\\icon\\Login-icon-16.png"));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -90,7 +90,7 @@ public class DialogLoginGUI extends javax.swing.JDialog {
         btnExit.setText("Thoát");
         btnExit.setFocusable(false);
         btnExit.setPreferredSize(new java.awt.Dimension(100, 26));
-        btnExit.setIcon(new javax.swing.ImageIcon("resource\\icon\\Actions-edit-delete-icon-16.png"));
+        btnExit.setIcon(new javax.swing.ImageIcon("res\\icon\\Actions-edit-delete-icon-16.png"));
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);

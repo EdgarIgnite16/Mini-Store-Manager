@@ -286,7 +286,7 @@ public class PanelMatHangGUI extends javax.swing.JPanel {
         lbPhanTramDoanhThu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbPhanTramDoanhThu.setText("Phần trăm doanh thu:");
 
-        lbAvatar.setIcon(new javax.swing.ImageIcon("resource\\icon\\—Pngtree—best seller banner with _4823294.png")); // NOI18N
+        lbAvatar.setIcon(new javax.swing.ImageIcon("res\\icon\\—Pngtree—best seller banner with _4823294.png")); // NOI18N
 
         txtTongSLBan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtTongSLBan.setEnabled(false);
