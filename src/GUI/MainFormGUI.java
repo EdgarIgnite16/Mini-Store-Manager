@@ -1,6 +1,7 @@
 package GUI;
 
 import BUS._MessageDialogHelper;
+import BUS._SaveData;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +20,7 @@ public class MainFormGUI extends javax.swing.JFrame {
     public MainFormGUI() {
         initComponents();
         initForm();
+        checkRoleUserLogin();
     }
 
     // khởi tạo các form
@@ -542,6 +544,32 @@ public class MainFormGUI extends javax.swing.JFrame {
     private void tBar_PhieuNhapActionPerformed(java.awt.event.ActionEvent evt) {
         tPane_Main.setSelectedComponent(phieuNhapGUI);
     }
+
+    // Phân quyền user Đăng nhập
+    private void checkRoleUserLogin() {
+        String role = _SaveData.userRole;
+        // Nếu người đăng nhập không phải Quản lí
+        if(!role.equals("QL")) {
+            // MnuManager
+            mnuManage_NhanVien.setEnabled(false);
+            mnuManage_MatHang.setEnabled(false);
+            mnuManage_NhapHang.setEnabled(false);
+            mnuManage_PhieuNhap.setEnabled(false);
+
+            // tbar
+            tBar_NhanVien.setEnabled(false);
+            tBar_PhieuNhap.setEnabled(false);
+            tBar_NhapHang.setEnabled(false);
+            tBar_MatHang.setEnabled(false);
+
+            // tab
+            tPane_Main.remove(6);
+            tPane_Main.remove(5);
+            tPane_Main.remove(4);
+            tPane_Main.remove(2);
+        }
+    }
+
 
     // Variables declaration - do not modify
     private javax.swing.JMenuBar mnuBar_Main;

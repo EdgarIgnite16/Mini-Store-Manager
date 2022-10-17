@@ -290,7 +290,7 @@ public class PanelBanHangGUI extends javax.swing.JPanel {
         lbNVLapHD.setText("Nhân viên lập hoá đơn: ");
 
         lbNVLapHD_Res.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbNVLapHD_Res.setText("Admin");
+        lbNVLapHD_Res.setText(_SaveData.userLogin);
 
         lbNgayLap.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         lbNgayLap.setText("Ngày lập:");

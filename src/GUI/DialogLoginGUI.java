@@ -184,7 +184,8 @@ public class DialogLoginGUI extends javax.swing.JDialog {
                 if (nhanVienDTO != null) {
                     this.dispose(); // đóng form hiện tại đi
                     try {
-                        _SaveData.userLogin = nhanVienDTO.getTenNV(); // lưu tên nhân viên đăng nhập
+                        _SaveData.userLogin = nhanVienDTO.getTenNV().trim(); // lưu tên nhân viên đăng nhập
+                        _SaveData.userRole = nhanVienDTO.getMaCV().trim(); // lưu role nhân viên đăng nhập
                         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); // set giao diện
                         new MainFormGUI().setVisible(true); // khởi tạo form chính
                     } catch (Exception ex) {

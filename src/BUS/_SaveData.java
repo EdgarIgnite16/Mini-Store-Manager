@@ -9,6 +9,7 @@ public class _SaveData {
     // Variable của form Bán hàng
     // thông tin đăng nhập
     public static String userLogin = "";
+    public static String userRole = "";
 
     // thông tin xoá số lượng mặt hàng
     public static int soLuongXoa = 0;
