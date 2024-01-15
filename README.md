@@ -13,7 +13,7 @@ Bước 2: Truy cập resource/sql và mở file Generate Scripts.sql rồi ch�
 <br> => database sẽ được khởi tạo
 
 Bước 3: Khởi tạo dự án trong Project Structure (trong phần cài đặt của IntelliJ), trong đó ta chọn các bước thực hiện như sau:
-- Modules -> Add -> Import Modules -> Chọn file Mini-Store-Manager.iml để khởi tạo cấu hình
+- Modules -> Add -> Import Modules -> Chọn file Mini-Store-Manager.iml để khởi tạo cấu hình (Nếu đã có rồi thì không cần bước này)
 - Cấu hình Compiler Output cho project (khởi tạo thư mục file out)
 - Cấu hình các đường dẫn Libraries cần thiết như: iTextPDF, POI Apache, JDBC (tất cả file thư viện đều được chứa trong thư mục lib)
  
