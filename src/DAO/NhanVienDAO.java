@@ -25,6 +25,7 @@ public class NhanVienDAO {
                     nhanVienDTO.setMaCV(rs.getString("maCV").trim());
                     nhanVienDTO.setMaCa(rs.getString("maCa").trim());
                     nhanVienDTO.setTenNV(rs.getString("tenNV").trim());
+                    nhanVienDTO.setPwd(rs.getString("pwd").trim());
                     nhanVienDTO.setCccd(rs.getString("cccd").trim());
                     nhanVienDTO.setSdt(rs.getString("sdt").trim());
                     nhanVienDTO.setStatus(rs.getInt("status"));
@@ -37,8 +38,8 @@ public class NhanVienDAO {
 
     // hàm insert dữ liệu lên database
     public boolean insertItem(NhanVienDTO nhanVienDTO) throws Exception {
-        String sql = "INSERT INTO [dbo].[NhanVien] ([maNV] ,[maCV] ,[maCa], [tenNV], [cccd], [sdt], [status])" +
-                " VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO [dbo].[NhanVien] ([maNV] ,[maCV] ,[maCa], [tenNV], [pwd], [cccd], [sdt], [status])" +
+                " VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 
         // sử dụng try-with-resource
         try (Connection conn = new _Connection().getConn()) {
@@ -48,9 +49,10 @@ public class NhanVienDAO {
                 pstm.setString(2, nhanVienDTO.getMaCV());
                 pstm.setString(3, nhanVienDTO.getMaCa());
                 pstm.setString(4, nhanVienDTO.getTenNV());
-                pstm.setString(5, nhanVienDTO.getCccd());
-                pstm.setString(6, nhanVienDTO.getSdt());
-                pstm.setInt(7, 1);
+                pstm.setString(5, "default");
+                pstm.setString(6, nhanVienDTO.getCccd());
+                pstm.setString(7, nhanVienDTO.getSdt());
+                pstm.setInt(8, 1);
 
                 boolean checkPSTM = pstm.executeUpdate() > 0;
                 conn.commit(); // commit thay đổi lên database

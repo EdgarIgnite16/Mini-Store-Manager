@@ -5,6 +5,7 @@ public class NhanVienDTO {
     private String maCV; // foreign key
     private String maCa; // foreign key
     private String tenNV;
+    private String pwd;
     private String SDT;
     private String cccd;
     private int status;
@@ -12,11 +13,12 @@ public class NhanVienDTO {
     public NhanVienDTO() {
     }
 
-    public NhanVienDTO(String maNV, String maCV, String maCa, String tenNV, String SDT, String cccd, int status) {
+    public NhanVienDTO(String maNV, String maCV, String maCa, String tenNV, String pwd, String SDT, String cccd, int status) {
         this.maNV = maNV;
         this.maCV = maCV;
         this.maCa = maCa;
         this.tenNV = tenNV;
+        this.pwd = pwd;
         this.SDT = SDT;
         this.cccd = cccd;
         this.status = status;
@@ -77,6 +79,15 @@ public class NhanVienDTO {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
 
     @Override
     public String toString() {

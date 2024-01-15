@@ -52,7 +52,7 @@ public class NhanVienBUS {
     // lấy đối tượng đăng nhập
     public NhanVienDTO getNhanVienLogin(String username, String password) {
         for (NhanVienDTO user : listNhanVien) {
-            if (user.getMaNV().trim().equals(username) && password.equals("12345")) {
+            if (user.getMaNV().trim().equals(username) && user.getPwd().trim().equals(password)) {
                 return user;
             }
         }
