@@ -9,7 +9,7 @@ Bước 1: Khởi tạo tài khoản login trên SQL server (project dùng tài 
 <br>Hướng dẫn chi tiết tại https://www.youtube.com/watch?v=dJ6c3OgIVDM 
 <br> hoặc từ silde 8 - 11 https://drive.google.com/file/d/1M1YI1cSB3jthtPXM8A6fBg27VVEOSok-/view
 
-Bước 2: Truy cập resource/sql và mở file Generate Scripts.sql rồi chạy Script (sử dụng MSSQL Management Studio 18) 
+Bước 2: Truy cập resource/sql và mở file GenerateScripts(new).sql rồi chạy Script (sử dụng MSSQL Management Studio 18) 
 <br> => database sẽ được khởi tạo
 
 Bước 3: Khởi tạo dự án trong Project Structure (trong phần cài đặt của IntelliJ), trong đó ta chọn các bước thực hiện như sau:
