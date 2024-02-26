@@ -13,6 +13,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import static BUS._SaveData.userRole;
+
 public class PanelNhanVienGUI extends javax.swing.JPanel {
     private static MainFormGUI parentForm;
     private DefaultTableModel modelTable_NV;
@@ -48,7 +50,20 @@ public class PanelNhanVienGUI extends javax.swing.JPanel {
         modelCB_ChucVu.addElement("---");
         ArrayList<ChucVuDTO> listChucVu = new ChucVuBUS().getData();
         for (ChucVuDTO item : listChucVu) {
-            modelCB_ChucVu.addElement(item.getTenCV());
+            // Trường hợp người đăng nhập là "Chủ cửa hàng"
+            if(userRole.equals("AD")) {
+                if(!item.getMaCV().equals("AD")) {
+                    modelCB_ChucVu.addElement(item.getTenCV());
+                }
+            }
+            // Trường hợp người đăng nhập là quản lý
+            if(userRole.equals("QL")) {
+                if(!item.getMaCV().equals("AD")) {
+                    if(!item.getMaCV().equals("QL")){
+                        modelCB_ChucVu.addElement(item.getTenCV());
+                    }
+                }
+            }
         }
         cbChucVu.setModel(modelCB_ChucVu);
     }

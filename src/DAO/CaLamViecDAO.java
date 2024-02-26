@@ -22,7 +22,6 @@ public class CaLamViecDAO {
                     CaLamViecDTO caLamViecDTO = new CaLamViecDTO();
                     caLamViecDTO.setMaCa(rs.getString("maCa").trim());
                     caLamViecDTO.setTenCa(rs.getString("tenCa").trim());
-                    caLamViecDTO.setThoiGian(rs.getString("thoiGian").trim());
                     listCaLamViec.add(caLamViecDTO);
                 }
                 return listCaLamViec;

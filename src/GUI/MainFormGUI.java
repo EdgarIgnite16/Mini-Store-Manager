@@ -548,8 +548,8 @@ public class MainFormGUI extends javax.swing.JFrame {
     // Phân quyền user Đăng nhập
     private void checkRoleUserLogin() {
         String role = _SaveData.userRole;
-        // Nếu người đăng nhập không phải Quản lí
-        if(!role.equals("QL")) {
+        // Nếu người đăng nhập không phải Quản lí và Chủ Cửa Hàng
+        if(!role.equals("QL") && !role.equals("AD")) {
             // MnuManager
             mnuManage_NhanVien.setEnabled(false);
             mnuManage_MatHang.setEnabled(false);
